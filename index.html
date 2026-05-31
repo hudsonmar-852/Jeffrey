@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jeffrey 健身教練・每日關心短訊模板</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .hero p {
+      color: #6b7280;
+      font-size: 1rem;
+    }
+
+    .search-box {
+      margin-bottom: 25px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 16px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .category-buttons {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+    }
+
+    .category-btn {
+      border: none;
+      background: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .category-btn:hover {
+      background: #111827;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform .2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-number {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .topic {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+
+    .content {
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .copy-btn:hover {
+      opacity: 0.9;
+    }
+
+    .copy-success {
+      background: #16a34a !important;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:1.6rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>🏋️ 健身教練・每日關心短訊模板</h1>
+    <p>廣東話・自然貼地・可一鍵複製 WhatsApp 訊息</p>
+  </div>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="搜尋：飲水、拉筋、睡眠、情緒..."
+    />
+  </div>
+
+  <div class="category-buttons">
+    <button class="category-btn" onclick="filterCards('all')">全部</button>
+    <button class="category-btn" onclick="filterCards('飲水')">飲水</button>
+    <button class="category-btn" onclick="filterCards('拉筋')">拉筋</button>
+    <button class="category-btn" onclick="filterCards('睡眠')">睡眠</button>
+    <button class="category-btn" onclick="filterCards('情緒')">情緒</button>
+    <button class="category-btn" onclick="filterCards('恢復')">恢復</button>
+  </div>
+
+  <div class="grid" id="messageGrid"></div>
+
+  <footer>
+    長按或按 Copy 即可複製內容貼去 WhatsApp 💬
+  </footer>
+
+</div>
+
+<script>
+
+const messages = [
+
+{
+topic:"💧 飲水提醒",
+category:"飲水",
+content:"早晨！今日記得每小時飲半杯水喇～唔使多，但要持續！身體唔會喊渴，但會暗啞咁累你 😅"
+},
+
+{
+topic:"🧘 拉筋小提示",
+category:"拉筋",
+content:"得閒坐定定？起身拉下筋先！由頸到腳，10分鐘都得，筋鬆咗，腰背唔會喊救命 💪"
+},
+
+{
+topic:"💻 工作間小運動",
+category:"拉筋",
+content:"打字打到手痺？起身伸個懶腰 + 轉下肩，30秒都好過唔動！你嘅肩頸會多謝你 🙏"
+},
+
+{
+topic:"😴 睡前關懷",
+category:"睡眠",
+content:"今晚唔好追劇追到太夜～11點前瞓，身體修復力最強！明早醒得爽，運動都更勁 😴"
+},
+
+{
+topic:"❤️ 飲水 + 拉筋 combo",
+category:"恢復",
+content:"飲完水，順手拉下大腿後側？一舉兩得～身體唔會話你做緊乜，但會記住你對佢好 ❤️"
+},
+
+{
+topic:"🏋️ 健身後提醒",
+category:"恢復",
+content:"練完記得補水+輕拉筋！唔使多，5分鐘都好，肌肉唔會喊痛，你明日先唔會行路似企鵝 🦆"
+},
+
+{
+topic:"🌿 周末放鬆版",
+category:"恢復",
+content:"週末唔使逼自己練到爆，但記得起身走走、拉拉筋、飲夠水～放鬆先係真係進步 🌿"
+},
+
+{
+topic:"🫶 情緒關懷版",
+category:"情緒",
+content:"今日有冇覺得好累？唔使硬撐，飲杯溫水 + 深呼吸3次，身體同心都會鬆一啲 🫶"
+},
+
+{
+topic:"🥤 飲水趣味版",
+category:"飲水",
+content:"你今日飲咗幾杯水？唔記得？咁就由而家開始，每做完一件事就飲一口～慢慢就成日飲到喇 🥤"
+},
+
+{
+topic:"💪 鼓勵收尾版",
+category:"情緒",
+content:"你唔使做完美，但記得對自己好啲～飲水、拉筋、休息，都係愛自己嘅方式 💪❤️"
+}
+
+];
+
+const grid = document.getElementById('messageGrid');
+
+function renderCards(data){
+
+grid.innerHTML = '';
+
+data.forEach((item,index)=>{
+
+grid.innerHTML += `
+<div class="card" data-category="${item.category}">
+<div>
+<div class="card-number">
+Template ${index + 1}
+</div>
+
+<div class="topic">
+${item.topic}
+</div>
+
+<div class="content" id="content-${index}">
+${item.content}
+</div>
+</div>
+
+<button
+class="copy-btn"
+onclick="copyText(${index}, this)">
+📋 Copy
+</button>
+</div>
+`;
+
+});
+}
+
+function copyText(index, button){
+
+const text =
+document.getElementById(
+`content-${index}`
+).innerText;
+
+navigator.clipboard.writeText(text);
+
+button.innerText = '✅ 已複製';
+
+button.classList.add(
+'copy-success'
+);
+
+setTimeout(()=>{
+
+button.innerText = '📋 Copy';
+
+button.classList.remove(
+'copy-success'
+);
+
+},1500);
+
+}
+
+function filterCards(category){
+
+if(category === 'all'){
+renderCards(messages);
+return;
+}
+
+const filtered =
+messages.filter(
+m => m.category === category
+);
+
+renderCards(filtered);
+
+}
+
+document
+.getElementById(
+'searchInput'
+)
+.addEventListener(
+'input',
+function(){
+
+const keyword =
+this.value.toLowerCase();
+
+const filtered =
+messages.filter(item =>
+
+item.topic.toLowerCase().includes(keyword)
+||
+item.content.toLowerCase().includes(keyword)
+||
+item.category.toLowerCase().includes(keyword)
+
+);
+
+renderCards(filtered);
+
+});
+
+renderCards(messages);
+
+</script>
+
+</body>
+</html>
