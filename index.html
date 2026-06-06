@@ -20,13 +20,16 @@
     .category-btn{border:none;background:white;padding:10px 18px;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.08);white-space:nowrap;transition:.2s}
     .category-btn:hover{background:#111827;color:white}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease;display:flex;flex-direction:column;justify-content:space-between}
+    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease, background .2s ease, border .2s ease;display:flex;flex-direction:column;justify-content:space-between;border:2px solid transparent}
     .card:hover{transform:translateY(-4px)}
+    .card.used{background:#ecfdf5;border-color:#16a34a;box-shadow:0 8px 24px rgba(22,163,74,.18)}
     .card-number{font-size:13px;color:#9ca3af;margin-bottom:10px}
+    .used-badge{display:inline-block;margin-left:6px;background:#16a34a;color:white;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
     .topic{font-size:1.25rem;font-weight:700;margin-bottom:15px;color:#111827}
-    .content{line-height:1.8;color:#374151;margin-bottom:20px;white-space:pre-wrap}
+    .content{line-height:1.8;color:#374151;margin-bottom:12px;white-space:pre-wrap}
+    .use-meta{font-size:12px;color:#047857;margin-bottom:16px;font-weight:600}
     .copy-btn{background:#111827;color:white;border:none;border-radius:14px;padding:14px;cursor:pointer;font-size:15px;font-weight:600;transition:.2s}
-    .copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}
+    .copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}.copy-btn.used{background:#047857}
     footer{text-align:center;margin-top:40px;color:#9ca3af;font-size:14px}
     @media(max-width:768px){.hero h1{font-size:1.6rem}.site-nav{justify-content:flex-start}}
   </style>
@@ -118,31 +121,72 @@
     ];
 
     const grid = document.getElementById('messageGrid');
+    const usageKey = 'jeffreyReminderUsage_v1';
+    let currentData = messages;
+
+    function getUsageLog(){
+      try{
+        return JSON.parse(localStorage.getItem(usageKey)) || {};
+      }catch(e){
+        return {};
+      }
+    }
+
+    function saveUsageLog(log){
+      localStorage.setItem(usageKey, JSON.stringify(log));
+    }
+
+    function getMessageKey(item){
+      return btoa(unescape(encodeURIComponent(`${item.category}|${item.topic}|${item.content}`))).slice(0, 48);
+    }
+
+    function formatDateTime(value){
+      if(!value) return '';
+      const d = new Date(value);
+      return d.toLocaleString('zh-HK', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+    }
 
     function renderCards(data){
+      currentData = data;
+      const usageLog = getUsageLog();
       grid.innerHTML = '';
       data.forEach((item,index)=>{
+        const key = getMessageKey(item);
+        const usedInfo = usageLog[key];
+        const usedClass = usedInfo ? ' used' : '';
+        const usedBadge = usedInfo ? `<span class="used-badge">已用 ${usedInfo.count || 1}次</span>` : '';
+        const useMeta = usedInfo ? `<div class="use-meta">✅ 已 Copy 過｜最後使用：${formatDateTime(usedInfo.lastCopied)}</div>` : `<div class="use-meta" style="color:#9ca3af">未使用，可留意日後 housekeeping</div>`;
+        const buttonText = usedInfo ? `✅ 已用過 Copy (${usedInfo.count || 1})` : '📋 Copy';
         grid.innerHTML += `
-          <article class="card" data-category="${item.category}">
+          <article class="card${usedClass}" data-category="${item.category}" data-used="${usedInfo ? 'yes' : 'no'}">
             <div>
-              <div class="card-number">Template ${index + 1}</div>
+              <div class="card-number">Template ${index + 1}${usedBadge}</div>
               <div class="topic">${item.topic}</div>
               <div class="content" id="content-${index}">${item.content}</div>
+              ${useMeta}
             </div>
-            <button class="copy-btn" onclick="copyText(${index}, this)">📋 Copy</button>
+            <button class="copy-btn${usedClass}" onclick="copyText(${index}, this)">${buttonText}</button>
           </article>`;
       });
     }
 
     function copyText(index, button){
-      const text = document.getElementById(`content-${index}`).innerText;
+      const item = currentData[index];
+      const text = item.content;
+      const key = getMessageKey(item);
+      const usageLog = getUsageLog();
+      const oldCount = usageLog[key]?.count || 0;
+      usageLog[key] = {
+        topic: item.topic,
+        category: item.category,
+        count: oldCount + 1,
+        lastCopied: new Date().toISOString()
+      };
+      saveUsageLog(usageLog);
       navigator.clipboard.writeText(text);
-      button.innerText = '✅ 已複製';
+      button.innerText = `✅ 已複製・已用 ${oldCount + 1}次`;
       button.classList.add('copy-success');
-      setTimeout(()=>{
-        button.innerText = '📋 Copy';
-        button.classList.remove('copy-success');
-      },1500);
+      setTimeout(()=>renderCards(currentData),900);
     }
 
     function filterCards(category){
