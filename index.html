@@ -45,11 +45,12 @@
     </nav>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="搜尋：飲水、拉筋、睡眠、情緒..." />
+      <input type="text" id="searchInput" placeholder="搜尋：今日雨天、飲水、拉筋、睡眠、情緒..." />
     </div>
 
     <div class="category-buttons">
       <button class="category-btn" onclick="filterCards('all')">全部</button>
+      <button class="category-btn" onclick="filterCards('今日雨天')">今日雨天</button>
       <button class="category-btn" onclick="filterCards('飲水')">飲水</button>
       <button class="category-btn" onclick="filterCards('拉筋')">拉筋</button>
       <button class="category-btn" onclick="filterCards('睡眠')">睡眠</button>
@@ -64,6 +65,36 @@
 
   <script>
     const messages = [
+      {topic:"🌧️ 今日雨天濕熱提醒",category:"今日雨天",content:"今日又落雨又焗，唔好以為冇太陽就唔會流汗。記得少少多次飲水，身體舒服好多 🌧️💧"},
+      {topic:"☔ 出門防滑提醒",category:"今日雨天",content:"今日地下濕滑，出街行慢半拍。鞋底要踩實，落樓梯扶一扶，安全先係最型 ☔"},
+      {topic:"💦 雨天都要補水",category:"今日雨天",content:"落雨天都會焗到出汗，唔好等口乾先飲。每隔一陣飲幾啖，精神會穩好多 💦"},
+      {topic:"🧦 濕鞋濕襪提醒",category:"今日雨天",content:"如果鞋襪濕咗，返到去盡快換。腳長時間焗住好易攰同唔舒服，照顧細節就係照顧身體 🧦"},
+      {topic:"🌬️ 冷氣房保暖",category:"今日雨天",content:"今日外面濕熱，入到冷氣房好易一凍一熱。帶件薄外套，唔好俾肩頸凍到硬晒 🌬️"},
+      {topic:"🧘 雨天肩頸放鬆",category:"今日雨天",content:"落雨天濕氣重，肩頸特別易實。抽30秒轉下膊、拉下頸，唔使大動作都有用 🧘"},
+      {topic:"🚶 室內步行版",category:"今日雨天",content:"今日唔方便戶外行，就喺室內行幾分鐘。搭𨋢前後、茶水間來回，都算係俾身體郁返 🚶"},
+      {topic:"🥵 濕熱降溫提醒",category:"今日雨天",content:"又濕又熱最易令人冇精神。飲水、抹汗、鬆一鬆領口，唔好硬頂，身體會舒服返啲 🥵"},
+      {topic:"😴 雨天睡眠提醒",category:"今日雨天",content:"今晚濕氣重，瞓前開少少抽濕或者風扇，房間舒服啲，瞓得自然沉啲 😴"},
+      {topic:"❤️ 今日溫柔收尾",category:"今日雨天",content:"今日天氣又濕又焗，已經唔容易。記得飲水、行慢啲、拉一拉筋，照顧自己就夠好 ❤️"},
+      {topic:"💧 起身第一杯水",category:"飲水",content:"起身第一件事唔係睇電話，係飲幾啖水。身體瞓咗成晚，先幫佢開機 💧"},
+      {topic:"🪑 坐耐起身郁",category:"拉筋",content:"坐咗一個鐘就起身30秒，伸下腰、轉下膊。唔使流汗，重點係唔好俾身體生銹 🪑"},
+      {topic:"🥗 午餐後輕行",category:"恢復",content:"食完飯唔好即刻攤低，行5至10分鐘。消化順啲，下午冇咁易飯氣攻心 🥗"},
+      {topic:"👣 腳踝小運動",category:"拉筋",content:"坐低都可以郁腳踝，順時針逆時針各轉10下。小動作，對小腿同循環好有幫助 👣"},
+      {topic:"🫁 深呼吸 reset",category:"情緒",content:"覺得心煩或者攰，停一停，慢慢吸氣4秒、呼氣6秒，做3次。人會即刻定啲 🫁"},
+      {topic:"🧍 站姿提醒",category:"拉筋",content:"企立時唔好成日側埋一邊，兩腳平均踩地，肚微收。腰背會少啲投訴 🧍"},
+      {topic:"🍵 下午提神版",category:"飲水",content:"下午眼瞓未必一定要咖啡，先飲杯水再行兩分鐘。好多時係身體缺水同太耐冇郁 🍵"},
+      {topic:"🧊 運動前熱身",category:"恢復",content:"開練前唔好即刻上重量，先做5分鐘熱身。關節醒咗，肌肉先識幫你出力 🧊"},
+      {topic:"🍌 運動後補充",category:"恢復",content:"練完記得補水同食返少少蛋白質。肌肉唔係練嗰刻變強，係恢復嗰陣變強 🍌"},
+      {topic:"📱 手機頸提醒",category:"拉筋",content:"睇電話唔好成個頭跌落去，手機拎高少少。頸椎唔係吊機，唔好日日叫佢頂硬上 📱"},
+      {topic:"🛁 熱水沖涼放鬆",category:"恢復",content:"今日如果覺得肌肉緊，沖涼時用暖水淋下肩背同小腿。放鬆咗，瞓覺都舒服啲 🛁"},
+      {topic:"🧠 小目標提醒",category:"情緒",content:"今日唔使追求完美，只要飲夠水、郁過、拉過少少，已經係有照顧自己 🧠"},
+      {topic:"🥱 午後疲勞關懷",category:"情緒",content:"下午攰係正常，唔代表你懶。起身伸一伸、飲啖水，俾身體重新入返狀態 🥱"},
+      {topic:"🦵 小腿放鬆",category:"拉筋",content:"今日行得多，夜晚記得拉下小腿。腳跟踩低、身體微前，30秒就夠，明日冇咁繃 🦵"},
+      {topic:"🥤 飲水打卡",category:"飲水",content:"而家望一望水樽，少過一半就飲幾啖。唔使一次飲好多，重點係唔好成日忘記 🥤"},
+      {topic:"🌙 睡前收工儀式",category:"睡眠",content:"瞓前30分鐘開始收慢，燈暗啲、電話放遠啲。身體收到訊號，就會易啲入睡 🌙"},
+      {topic:"🧩 壓力釋放",category:"情緒",content:"今日如果好多嘢諗，寫低三件要做嘅事就算。腦袋唔使成晚幫你記住，瞓覺先放鬆 🧩"},
+      {topic:"🏠 屋企輕訓練",category:"恢復",content:"冇時間去 gym 都可以做10下深蹲、10下靠牆掌上壓。少少郁動，已經比完全唔郁好 🏠"},
+      {topic:"🧘‍♂️ 腰背保養",category:"拉筋",content:"腰背實唔一定要大力捽，先做貓牛式或者抱膝30秒。溫柔啲，身體先肯放鬆 🧘‍♂️"},
+      {topic:"💪 今日鼓勵版",category:"情緒",content:"你唔需要日日爆練先叫努力。肯飲水、肯郁、肯休息，已經係長期進步嘅底子 💪"},
       {topic:"💧 飲水提醒",category:"飲水",content:"早晨！今日記得每小時飲半杯水喇～唔使多，但要持續！身體唔會喊渴，但會暗啞咁累你 😅"},
       {topic:"🧘 拉筋小提示",category:"拉筋",content:"得閒坐定定？起身拉下筋先！由頸到腳，10分鐘都得，筋鬆咗，腰背唔會喊救命 💪"},
       {topic:"💻 工作間小運動",category:"拉筋",content:"打字打到手痺？起身伸個懶腰 + 轉下肩，30秒都好過唔動！你嘅肩頸會多謝你 🙏"},
