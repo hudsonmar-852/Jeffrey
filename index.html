@@ -48,11 +48,12 @@
     </nav>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="搜尋：今日雨天、飲水、拉筋、睡眠、情緒..." />
+      <input type="text" id="searchInput" placeholder="搜尋：Tailor-made、今日雨天、飲水、拉筋、睡眠、情緒..." />
     </div>
 
     <div class="category-buttons">
       <button class="category-btn" onclick="filterCards('all')">全部</button>
+      <button class="category-btn" onclick="filterCards('Tailor-made')">Tailor-made</button>
       <button class="category-btn" onclick="filterCards('今日雨天')">今日雨天</button>
       <button class="category-btn" onclick="filterCards('飲水')">飲水</button>
       <button class="category-btn" onclick="filterCards('拉筋')">拉筋</button>
@@ -68,6 +69,21 @@
 
   <script>
     const messages = [
+      {topic:"🎯 Tailor-made｜忙到冇時間版",category:"Tailor-made",content:"今日就算好忙，都唔好成個人交晒俾工作。飲幾啖水、企起身30秒，已經係幫身體留返少少空間 🎯"},
+      {topic:"💬 Tailor-made｜教練關心版",category:"Tailor-made",content:"今日唔要求你做到好完美，只要求你唔好完全唔理自己。飲水、拉一拉、早少少收機，已經夠實際 💬"},
+      {topic:"🏙️ Tailor-made｜香港上班族版",category:"Tailor-made",content:"返工搭車、坐 office、開會一日，其實身體好耐冇真正郁過。等陣行多幾步，俾腰背有返少少生命力 🏙️"},
+      {topic:"🧠 Tailor-made｜壓力大但唔講版",category:"Tailor-made",content:"你唔講攰，身體都會講。肩頸實、呼吸淺、眼攰，就係 signal。停一停，慢慢吸三啖氣先 🧠"},
+      {topic:"💪 Tailor-made｜Gym Client 鼓勵版",category:"Tailor-made",content:"唔係每次都要爆練先叫進步。今日肯出現、肯郁、肯照顧恢復，已經係長期變強嘅一部分 💪"},
+      {topic:"🧘 Tailor-made｜肩頸救援版",category:"Tailor-made",content:"如果而家膊頭已經硬晒，唔好等痛先處理。膊頭向後轉10下，頸左右慢慢拉，30秒已經有分別 🧘"},
+      {topic:"🥤 Tailor-made｜水樽提示版",category:"Tailor-made",content:"望一望你支水，而家飲三啖。唔需要等儀式感，照顧身體好多時就係呢啲細到不能再細嘅動作 🥤"},
+      {topic:"🌙 Tailor-made｜夜晚收慢版",category:"Tailor-made",content:"今晚唔好成個腦袋繼續開會。沖個暖水涼、拉一拉小腿、電話放遠啲，俾自己真正落機 🌙"},
+      {topic:"🔥 Tailor-made｜濕熱疲勞版",category:"Tailor-made",content:"呢種又濕又熱嘅天氣，好易令人無端端攰。唔係你懶，係身體負荷高咗。補水、抹汗、慢少少都合理 🔥"},
+      {topic:"🦵 Tailor-made｜腳攰版",category:"Tailor-made",content:"今日企得多或者行得多，夜晚記得照顧對腳。小腿拉30秒、腳踝轉幾下，明朝會舒服好多 🦵"},
+      {topic:"🫶 Tailor-made｜溫柔提醒版",category:"Tailor-made",content:"你可以照顧其他人，但都唔好漏咗自己。飲水、食好啲、休息一下，唔係偷懶，係維修 🫶"},
+      {topic:"⚡ Tailor-made｜30秒 Reset",category:"Tailor-made",content:"而家做個30秒 reset：坐直、膊頭放低、深呼吸三次、飲一啖水。完成，身體已經收到你嘅善意 ⚡"},
+      {topic:"📱 Tailor-made｜手機低頭版",category:"Tailor-made",content:"你而家如果低頭睇緊電話，抬返高少少。頸唔係免費支架，日日咁頂，好快會投訴你 📱"},
+      {topic:"🍽️ Tailor-made｜飯後唔攤版",category:"Tailor-made",content:"食完飯唔好即刻坐死，行幾分鐘就得。唔係要你運動，只係幫身體消化順啲，下午冇咁昏 🍽️"},
+      {topic:"🌟 Tailor-made｜收尾鼓勵版",category:"Tailor-made",content:"今日做到幾多就幾多，唔需要同人比較。你有飲水、有郁過、有照顧自己，已經係好實在嘅進步 🌟"},
       {topic:"🌧️ 今日雨天濕熱提醒",category:"今日雨天",content:"今日又落雨又焗，唔好以為冇太陽就唔會流汗。記得少少多次飲水，身體舒服好多 🌧️💧"},
       {topic:"☔ 出門防滑提醒",category:"今日雨天",content:"今日地下濕滑，出街行慢半拍。鞋底要踩實，落樓梯扶一扶，安全先係最型 ☔"},
       {topic:"💦 雨天都要補水",category:"今日雨天",content:"落雨天都會焗到出汗，唔好等口乾先飲。每隔一陣飲幾啖，精神會穩好多 💦"},
