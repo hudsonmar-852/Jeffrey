@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>聖經金句・每日祝福短訊</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
+    body{background:#f5f7fb;color:#222;padding:20px;line-height:1.7}
+    .container{max-width:1000px;margin:auto}
+    .hero{text-align:center;margin-bottom:24px}
+    .hero h1{font-size:2rem;margin-bottom:10px;color:#111827}
+    .hero p{color:#6b7280;font-size:1rem}
+    .search-box{margin-bottom:25px}
+    .search-box input{width:100%;padding:16px;border-radius:16px;border:none;outline:none;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .category-buttons{display:flex;gap:10px;overflow-x:auto;margin-bottom:25px;padding-bottom:10px}
+    .category-btn{border:none;background:white;padding:10px 18px;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.08);white-space:nowrap;transition:.2s}
+    .category-btn:hover{background:#111827;color:white}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease, background .2s ease, border .2s ease;display:flex;flex-direction:column;justify-content:space-between;border:2px solid transparent}
+    .card:hover{transform:translateY(-4px)}
+    .card.used{background:#ecfdf5;border-color:#16a34a;box-shadow:0 8px 24px rgba(22,163,74,.18)}
+    .card-number{font-size:13px;color:#9ca3af;margin-bottom:10px}
+    .used-badge{display:inline-block;margin-left:6px;background:#16a34a;color:white;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
+    .topic{font-size:1.22rem;font-weight:800;margin-bottom:12px;color:#111827}
+    .section-title{font-weight:800;color:#111827;margin:12px 0 4px}
+    .content{line-height:1.85;color:#374151;margin-bottom:12px;white-space:pre-wrap}
+    .ref{font-weight:700;color:#4b5563;margin-top:6px}
+    .use-meta{font-size:12px;color:#047857;margin-bottom:16px;font-weight:600}
+    .copy-btn{background:#111827;color:white;border:none;border-radius:14px;padding:14px;cursor:pointer;font-size:15px;font-weight:600;transition:.2s}
+    .copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}.copy-btn.used{background:#047857}
+    footer{text-align:center;margin-top:40px;color:#9ca3af;font-size:14px}
+    @media(max-width:768px){.hero h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>📖 聖經金句・每日祝福短訊</h1>
+      <p>繁體中文・廣東話解說・可一鍵複製分享</p>
+    </header>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜尋：喜樂、禱告、平安、信心、盼望、愛..." />
+    </div>
+
+    <div class="category-buttons">
+      <button class="category-btn" onclick="filterCards('all')">全部</button>
+      <button class="category-btn" onclick="filterCards('喜樂')">喜樂</button>
+      <button class="category-btn" onclick="filterCards('平安')">平安</button>
+      <button class="category-btn" onclick="filterCards('信心')">信心</button>
+      <button class="category-btn" onclick="filterCards('盼望')">盼望</button>
+      <button class="category-btn" onclick="filterCards('愛')">愛</button>
+      <button class="category-btn" onclick="filterCards('力量')">力量</button>
+      <button class="category-btn" onclick="filterCards('禱告')">禱告</button>
+    </div>
+
+    <main class="grid" id="messageGrid"></main>
+
+    <footer>長按或按 Copy 即可複製內容分享 💬</footer>
+  </div>
+
+  <script>
+    const messages = [
+      {topic:"常常喜樂",category:"喜樂",verse:"要常常喜樂，不住的禱告，凡事謝恩；因為這是神在基督耶穌裡向你們所定的旨意。",ref:"帖撒羅尼迦前書 5:16-18",context:"使徒保羅寫畀帖撒羅尼迦教會嘅勉勵。",explain:"喜樂唔係因為環境完美，而係因為人在基督裡有真正倚靠。禱告同感恩，幫我哋喺每日生活入面重新對準神。",blessing:"願你今日無論遇到咩環境，心裡都有主賜嘅喜樂，凡事學識交託同感恩。阿們。"},
+      {topic:"出人意外的平安",category:"平安",verse:"神所賜出人意外的平安，必在基督耶穌裡保守你們的心懷意念。",ref:"腓立比書 4:7",context:"保羅提醒信徒用禱告交託憂慮。",explain:"神嘅平安唔一定即刻改變環境，但會先保守人嘅心，等人唔被恐懼拉走。",blessing:"願主今日保守你嘅心同思想，即使有壓力，都有一份從神而來嘅安穩。阿們。"},
+      {topic:"耶和華是我的牧者",category:"平安",verse:"耶和華是我的牧者，我必不至缺乏。",ref:"詩篇 23:1",context:"大衛以牧羊人圖像形容神嘅看顧。",explain:"神唔只係供應者，亦係引導者。祂知道我哋真正需要咩，也知道點樣帶我哋行。",blessing:"願你今日深知道主親自牧養你，所需用嘅，祂會按時供應。阿們。"},
+      {topic:"你們要剛強壯膽",category:"力量",verse:"你當剛強壯膽，不要懼怕，也不要驚惶；因為你無論往哪裡去，耶和華你的神必與你同在。",ref:"約書亞記 1:9",context:"神呼召約書亞帶領以色列人進入應許之地。",explain:"剛強唔係冇驚，而係知道神同在，所以可以繼續行下一步。",blessing:"願你今日有勇氣面對要面對嘅事，因為神與你同在。阿們。"},
+      {topic:"凡事都能做",category:"力量",verse:"我靠著那加給我力量的，凡事都能做。",ref:"腓立比書 4:13",context:"保羅講自己無論豐富或缺乏，都學識靠主。",explain:"呢句唔係自我膨脹，而係提醒人：真正力量來自基督，使人能忍耐、順服同堅持。",blessing:"願主今日加你力量，唔係靠硬撐，而係靠基督一步一步行。阿們。"},
+      {topic:"不要憂慮",category:"信心",verse:"所以，不要為明天憂慮；因為明天自有明天的憂慮。",ref:"馬太福音 6:34",context:"耶穌登山寶訓中教導門徒信靠天父。",explain:"耶穌唔係叫人逃避責任，而係唔好俾明日嘅未知偷走今日嘅平安。",blessing:"願你今日只拿起今日需要承擔嘅事，其餘交畀天父。阿們。"},
+      {topic:"先求神的國",category:"信心",verse:"你們要先求他的國和他的義，這些東西都要加給你們了。",ref:"馬太福音 6:33",context:"耶穌提醒人唔好被衣食憂慮主導生命。",explain:"當人先對準神，生活嘅次序就會被重新整理；需要嘅，神知道。",blessing:"願你今日先尋求神，讓祂整理你嘅心、決定同方向。阿們。"},
+      {topic:"主是道路真理生命",category:"信心",verse:"我就是道路、真理、生命；若不藉著我，沒有人能到父那裡去。",ref:"約翰福音 14:6",context:"耶穌安慰門徒，指出通往父神嘅路。",explain:"信仰唔只係道理，而係跟隨一位又真又活嘅主。耶穌親自成為人回到父面前嘅道路。",blessing:"願你今日唔迷失方向，因為主耶穌親自帶你行真理同生命嘅路。阿們。"},
+      {topic:"神愛世人",category:"愛",verse:"神愛世人，甚至將他的獨生子賜給他們。",ref:"約翰福音 3:16",context:"耶穌向尼哥底母講述神救贖世人嘅愛。",explain:"神嘅愛唔係抽象感覺，而係透過耶穌基督真實給出自己。",blessing:"願你今日重新記得：你係被神愛住嘅人，祂嘅愛比你嘅狀態更穩。阿們。"},
+      {topic:"彼此相愛",category:"愛",verse:"我賜給你們一條新命令，乃是叫你們彼此相愛。",ref:"約翰福音 13:34",context:"耶穌臨別前教導門徒彼此相愛。",explain:"基督徒嘅愛唔只係禮貌，而係以基督愛我哋嘅方式去學習愛人。",blessing:"願主今日幫你用溫柔、忍耐同真誠去愛身邊嘅人。阿們。"},
+      {topic:"愛是恆久忍耐",category:"愛",verse:"愛是恆久忍耐，又有恩慈。",ref:"哥林多前書 13:4",context:"保羅向哥林多教會講解真正屬神嘅愛。",explain:"真正嘅愛唔係一時感覺，而係願意忍耐、恩慈同放低自我中心。",blessing:"願你今日喺關係入面經歷神嘅愛，也用恩慈回應人。阿們。"},
+      {topic:"將重擔卸給主",category:"平安",verse:"你們要將一切的憂慮卸給神，因為他顧念你們。",ref:"彼得前書 5:7",context:"彼得鼓勵受苦信徒謙卑倚靠神。",explain:"卸下憂慮唔係假裝冇事，而係相信神真係顧念我哋，可以承擔我哋承擔唔到嘅重。",blessing:"願你今日將心入面最重嗰件事交畀主，經歷祂顧念你。阿們。"},
+      {topic:"疲乏的得能力",category:"力量",verse:"疲乏的，他賜能力；軟弱的，他加力量。",ref:"以賽亞書 40:29",context:"先知以賽亞安慰神嘅子民，提醒神永不疲乏。",explain:"人會累、會軟弱，但神嘅力量唔會枯乾。承認軟弱，反而係重新倚靠神嘅開始。",blessing:"願主今日加你力量，特別喺你覺得撐唔住嘅地方扶住你。阿們。"},
+      {topic:"如鷹展翅",category:"盼望",verse:"但那等候耶和華的，必重新得力。",ref:"以賽亞書 40:31",context:"以賽亞鼓勵人等候神，重新得著力量。",explain:"等候唔係浪費時間，而係喺神面前重新得力，等祂嘅時間同方向成就。",blessing:"願你今日喺等候中唔灰心，主會使你重新得力。阿們。"},
+      {topic:"主賜安息",category:"平安",verse:"凡勞苦擔重擔的人，可以到我這裡來，我就使你們得安息。",ref:"馬太福音 11:28",context:"耶穌邀請疲累的人到祂面前得安息。",explain:"真正安息唔只係休息時間，而係將生命嘅重擔帶到耶穌面前。",blessing:"願你今日唔再一個人硬撐，來到主面前得安息。阿們。"},
+      {topic:"清心的人有福",category:"信心",verse:"清心的人有福了，因為他們必得見神。",ref:"馬太福音 5:8",context:"耶穌登山寶訓中宣告天國子民嘅福氣。",explain:"清心係單純向著神，不被太多雜念、私慾同恐懼拉走。",blessing:"願主今日潔淨你嘅心，讓你更清楚看見祂嘅同在。阿們。"},
+      {topic:"神的話是腳前燈",category:"信心",verse:"你的話是我腳前的燈，是我路上的光。",ref:"詩篇 119:105",context:"詩人讚美神話語對生命道路嘅引導。",explain:"神嘅話未必一次照晒成條路，但會照亮眼前下一步，夠我哋繼續行。",blessing:"願神今日用祂嘅話引導你每一步，使你唔失腳。阿們。"},
+      {topic:"信就是所望之事",category:"信心",verse:"信就是所望之事的實底，是未見之事的確據。",ref:"希伯來書 11:1",context:"希伯來書講述歷代信心見證人。",explain:"信心唔係盲目樂觀，而係因為神可信，所以未見到都可以交託。",blessing:"願你今日喺未完全看見答案之前，仍然因信靠神而站立得穩。阿們。"},
+      {topic:"不要怕，只要信",category:"信心",verse:"不要怕，只要信！",ref:"馬可福音 5:36",context:"耶穌鼓勵睚魯，在絕望消息中繼續相信。",explain:"恐懼會叫人停低，但主嘅說話叫人繼續相信祂能作工。",blessing:"願主今日對你心講：不要怕，只要信。祂仍然掌權。阿們。"},
+      {topic:"神是避難所",category:"平安",verse:"神是我們的避難所，是我們的力量，是我們在患難中隨時的幫助。",ref:"詩篇 46:1",context:"詩人宣告神在動盪中仍然可靠。",explain:"神唔係遠處觀望，而係患難中隨時可尋求嘅幫助。",blessing:"願你今日遇到不安時，第一時間想起神是你嘅避難所。阿們。"},
+      {topic:"主必指引你的路",category:"信心",verse:"你要專心仰賴耶和華，不可倚靠自己的聰明。",ref:"箴言 3:5-6",context:"箴言教導人以敬畏神作人生智慧。",explain:"人嘅聰明有限，但神看見全局。專心仰賴祂，路就會慢慢被修直。",blessing:"願你今日嘅決定有神引導，唔只靠自己想法行事。阿們。"},
+      {topic:"新的創造",category:"盼望",verse:"若有人在基督裡，他就是新造的人，舊事已過，都變成新的了。",ref:"哥林多後書 5:17",context:"保羅講述人在基督裡得著新身份。",explain:"信主唔只係改良自己，而係在基督裡有新生命、新身份同新開始。",blessing:"願你今日唔被過去定義，因為你在基督裡已經有新開始。阿們。"},
+      {topic:"主的恩典夠用",category:"力量",verse:"我的恩典夠你用的，因為我的能力是在人的軟弱上顯得完全。",ref:"哥林多後書 12:9",context:"保羅求主挪走刺，主卻用恩典扶持他。",explain:"神有時未必即刻除去困難，但祂嘅恩典足夠托住人經過。",blessing:"願你今日喺軟弱中經歷主足夠嘅恩典。阿們。"},
+      {topic:"靠主喜樂",category:"喜樂",verse:"你們要靠主常常喜樂。我再說，你們要喜樂。",ref:"腓立比書 4:4",context:"保羅在監牢中仍勸信徒靠主喜樂。",explain:"靠主喜樂唔係情緒表演，而係在基督裡有一份比環境更深嘅盼望。",blessing:"願你今日嘅喜樂唔被環境奪走，因為主仍與你同在。阿們。"},
+      {topic:"凡事禱告",category:"禱告",verse:"應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。",ref:"腓立比書 4:6",context:"保羅教導信徒用禱告處理掛慮。",explain:"禱告唔係最後方法，而係第一個轉向神嘅動作。掛慮可以變成禱告。",blessing:"願你今日將所有擔心變成禱告，親自告訴神。阿們。"},
+      {topic:"尋找就尋見",category:"禱告",verse:"你們尋求我，若專心尋求我，就必尋見。",ref:"耶利米書 29:13",context:"神透過耶利米應許被擄子民仍可尋見祂。",explain:"即使人在低谷，只要真心尋求神，神並不遠離。",blessing:"願你今日用真心尋求主，並經歷祂親近你。阿們。"},
+      {topic:"主必成全關乎我的事",category:"盼望",verse:"耶和華必成全關乎我的事。",ref:"詩篇 138:8",context:"大衛稱謝神慈愛信實，深信神必完成祂的工作。",explain:"神開始嘅工作，祂會負責帶到成全；人可以信靠祂嘅信實。",blessing:"願你今日相信，神仍在你生命中工作，祂必成全關乎你嘅事。阿們。"},
+      {topic:"萬事互相效力",category:"盼望",verse:"萬事都互相效力，叫愛神的人得益處。",ref:"羅馬書 8:28",context:"保羅講神對屬祂之人救贖計劃嘅確據。",explain:"唔係每件事本身都好，但神能夠使用一切，成就更深嘅益處。",blessing:"願你今日即使未明白，都相信神能將困難轉化成祝福。阿們。"},
+      {topic:"主愛永不隔絕",category:"愛",verse:"無論是死，是生……都不能叫我們與神的愛隔絕；這愛是在我們的主基督耶穌裡的。",ref:"羅馬書 8:38-39",context:"保羅宣告神在基督裡嘅愛堅定不移。",explain:"神嘅愛唔會因外在環境或人生高低而中斷，因為根基在基督裡。",blessing:"願你今日深信：冇任何事可以使你與神嘅愛隔絕。阿們。"},
+      {topic:"慈愛永遠長存",category:"愛",verse:"你們要稱謝耶和華，因他本為善；他的慈愛永遠長存。",ref:"詩篇 136:1",context:"詩篇以重複句式帶領人記念神長存嘅慈愛。",explain:"人嘅感覺會變，但神嘅慈愛永遠長存，值得每日重新稱謝。",blessing:"願你今日喺平凡事上看見神嘅善，心裡重新發出感謝。阿們。"},
+      {topic:"主與傷心人同在",category:"平安",verse:"耶和華靠近傷心的人，拯救靈性痛悔的人。",ref:"詩篇 34:18",context:"大衛在患難中經歷神拯救後所寫。",explain:"神唔輕看破碎嘅心，反而特別靠近受傷、痛悔、需要安慰嘅人。",blessing:"願你今日知道，主靠近你最脆弱嘅地方，祂親自安慰你。阿們。"}
+    ];
+
+    const grid = document.getElementById('messageGrid');
+    const usageKey = 'bibleVerseUsage_v1';
+    let currentData = messages;
+
+    function getUsageLog(){
+      try{return JSON.parse(localStorage.getItem(usageKey)) || {}}catch(e){return {}}
+    }
+    function saveUsageLog(log){localStorage.setItem(usageKey, JSON.stringify(log))}
+    function getMessageKey(item){return btoa(unescape(encodeURIComponent(`${item.category}|${item.topic}|${item.ref}|${item.verse}`))).slice(0,48)}
+    function formatDateTime(value){
+      if(!value) return '';
+      const d = new Date(value);
+      return d.toLocaleString('zh-HK',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+    }
+    function buildCopyText(item){
+      return `聖經金句：\n${item.verse}\n（${item.ref}）\n${item.context}\n\n簡單解說：\n${item.explain}\n\n祝福：\n${item.blessing}`;
+    }
+    function renderCards(data){
+      currentData = data;
+      const usageLog = getUsageLog();
+      grid.innerHTML = '';
+      data.forEach((item,index)=>{
+        const key = getMessageKey(item);
+        const usedInfo = usageLog[key];
+        const usedClass = usedInfo ? ' used' : '';
+        const usedBadge = usedInfo ? `<span class="used-badge">已用 ${usedInfo.count || 1}次</span>` : '';
+        const useMeta = usedInfo ? `<div class="use-meta">✅ 已 Copy 過｜最後使用：${formatDateTime(usedInfo.lastCopied)}</div>` : `<div class="use-meta" style="color:#9ca3af">未使用，可留意日後 housekeeping</div>`;
+        const buttonText = usedInfo ? `✅ 已用過 Copy (${usedInfo.count || 1})` : '📋 Copy';
+        grid.innerHTML += `
+          <article class="card${usedClass}" data-category="${item.category}" data-used="${usedInfo ? 'yes' : 'no'}">
+            <div>
+              <div class="card-number">Verse ${index + 1}${usedBadge}</div>
+              <div class="topic">${item.topic}</div>
+              <div class="section-title">聖經金句：</div>
+              <div class="content">${item.verse}</div>
+              <div class="ref">（${item.ref}）</div>
+              <div class="content">${item.context}</div>
+              <div class="section-title">簡單解說：</div>
+              <div class="content">${item.explain}</div>
+              <div class="section-title">祝福：</div>
+              <div class="content">${item.blessing}</div>
+              ${useMeta}
+            </div>
+            <button class="copy-btn${usedClass}" onclick="copyText(${index}, this)">${buttonText}</button>
+          </article>`;
+      });
+    }
+    function copyText(index, button){
+      const item = currentData[index];
+      const key = getMessageKey(item);
+      const usageLog = getUsageLog();
+      const oldCount = usageLog[key]?.count || 0;
+      usageLog[key] = {topic:item.topic, category:item.category, ref:item.ref, count:oldCount+1, lastCopied:new Date().toISOString()};
+      saveUsageLog(usageLog);
+      navigator.clipboard.writeText(buildCopyText(item));
+      button.innerText = `✅ 已複製・已用 ${oldCount + 1}次`;
+      button.classList.add('copy-success');
+      setTimeout(()=>renderCards(currentData),900);
+    }
+    function filterCards(category){
+      if(category === 'all'){renderCards(messages);return;}
+      renderCards(messages.filter(m => m.category === category));
+    }
+    document.getElementById('searchInput').addEventListener('input', function(){
+      const keyword = this.value.toLowerCase();
+      const filtered = messages.filter(item =>
+        item.topic.toLowerCase().includes(keyword) ||
+        item.verse.toLowerCase().includes(keyword) ||
+        item.ref.toLowerCase().includes(keyword) ||
+        item.context.toLowerCase().includes(keyword) ||
+        item.explain.toLowerCase().includes(keyword) ||
+        item.blessing.toLowerCase().includes(keyword) ||
+        item.category.toLowerCase().includes(keyword)
+      );
+      renderCards(filtered);
+    });
+    renderCards(messages);
+  </script>
+</body>
+</html>
