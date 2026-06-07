@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hudson Mar・GitHub Subsite Landing</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
+    body{min-height:100vh;background:#f5f7fb;color:#111827;padding:28px;line-height:1.6}
+    .container{max-width:1100px;margin:auto}
+    .hero{background:linear-gradient(135deg,#111827,#374151);color:white;border-radius:30px;padding:42px 28px;margin-bottom:26px;box-shadow:0 16px 42px rgba(17,24,39,.18)}
+    .hero h1{font-size:2.35rem;margin-bottom:10px;letter-spacing:-.03em}
+    .hero p{color:#d1d5db;font-size:1.05rem;max-width:720px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+    .card{background:white;border-radius:24px;padding:24px;text-decoration:none;color:#111827;box-shadow:0 8px 24px rgba(0,0,0,.08);border:1px solid rgba(17,24,39,.06);transition:.2s;display:flex;flex-direction:column;gap:12px;min-height:190px}
+    .card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,.12);border-color:#111827}
+    .icon{font-size:2rem}.title{font-size:1.35rem;font-weight:800}.desc{color:#6b7280;flex:1}.url{font-size:.86rem;color:#374151;background:#f3f4f6;border-radius:999px;padding:8px 10px;word-break:break-all}
+    .section-title{font-size:1.15rem;font-weight:800;margin:28px 0 8px;color:#111827}
+    footer{text-align:center;margin-top:34px;color:#9ca3af;font-size:14px}
+    @media(max-width:768px){body{padding:18px}.hero{padding:30px 20px}.hero h1{font-size:1.8rem}.card{min-height:auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Hudson Mar・Subsite Landing</h1>
+      <p>一頁集中管理所有 GitHub Pages subsite。按下卡片即可進入對應網站。</p>
+    </header>
+
+    <div class="section-title">Available Subsites</div>
+    <main class="grid">
+      <a class="card" href="https://hudsonmar-852.github.io/Jeffrey/bible.html">
+        <div class="icon">📖</div>
+        <div class="title">Bible</div>
+        <div class="desc">Bible subsite：聖經金句、簡單解說、祝福短訊，可直接複製分享。</div>
+        <div class="url">/Jeffrey/bible.html</div>
+      </a>
+
+      <a class="card" href="https://hudsonmar-852.github.io/Jeffrey/">
+        <div class="icon">🏋️</div>
+        <div class="title">Jeffrey</div>
+        <div class="desc">Jeffrey’s subsite：健身教練每日關心短訊、Copy tracking、健身教材入口。</div>
+        <div class="url">/Jeffrey/</div>
+      </a>
+
+      <a class="card" href="https://hudsonmar-852.github.io/prompt/">
+        <div class="icon">🧠</div>
+        <div class="title">Prompt</div>
+        <div class="desc">Prompt subsite：提示詞、創作流程、可重用 prompt library。</div>
+        <div class="url">/prompt/</div>
+      </a>
+
+      <a class="card" href="https://hudsonmar-852.github.io/Grok/">
+        <div class="icon">🎬</div>
+        <div class="title">Grok</div>
+        <div class="desc">Grok subsite：Grok Imagine 影片 prompt、場景模板、短片創作素材。</div>
+        <div class="url">/Grok/</div>
+      </a>
+    </main>
+
+    <footer>Hudson Mar GitHub Pages Landing・更新後可將此頁搬到主 repo index.html 作正式首頁</footer>
+  </div>
+</body>
+</html>
