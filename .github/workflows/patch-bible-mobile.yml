@@ -1,0 +1,54 @@
+name: Patch Bible Mobile Layout
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-bible-mobile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-mobile-layout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Patch bible.html mobile layout
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('bible.html')
+          s = path.read_text(encoding='utf-8')
+
+          s = s.replace('body{background:#f5f7fb;color:#222;padding:20px;line-height:1.7}', 'body{background:#f5f7fb;color:#222;padding:14px;line-height:1.7}')
+          s = s.replace('.hero{text-align:center;margin-bottom:24px}', '.hero{text-align:center;margin-bottom:12px}')
+          s = s.replace('.hero h1{font-size:2rem;margin-bottom:10px;color:#111827}', '.hero h1{font-size:1.75rem;margin-bottom:6px;color:#111827}')
+          s = s.replace('.library-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:0 0 24px}', '.library-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0 0 12px}')
+          s = s.replace('.meta-item{background:white;border-radius:18px;padding:14px 16px;box-shadow:0 4px 14px rgba(0,0,0,.07);color:#374151}', '.meta-item{background:white;border-radius:14px;padding:9px 12px;box-shadow:0 3px 10px rgba(0,0,0,.06);color:#374151}')
+          s = s.replace('.search-box{margin-bottom:20px}', '.search-box{display:none;margin-bottom:0}')
+          s = s.replace('.category-buttons{display:flex;gap:10px;overflow-x:auto;margin-bottom:25px;padding-bottom:10px}', '.category-buttons{display:flex;flex-wrap:wrap;gap:6px;overflow-x:visible;margin-bottom:12px;padding-bottom:0}')
+          s = s.replace('.category-btn{border:none;background:white;padding:10px 18px;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.08);white-space:nowrap;transition:.2s;font-weight:600;color:#374151}', '.category-btn{border:none;background:white;padding:7px 11px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.07);white-space:nowrap;transition:.2s;font-weight:600;color:#374151;font-size:13px}')
+          s = s.replace('footer{text-align:center;margin-top:40px;color:#9ca3af;font-size:14px}', 'footer{text-align:center;margin-top:28px;color:#9ca3af;font-size:13px}')
+          s = s.replace('@media(max-width:768px){.hero h1{font-size:1.6rem}.library-meta{grid-template-columns:1fr 1fr}}', '@media(max-width:768px){body{padding:10px}.hero{margin-bottom:8px}.hero h1{font-size:1.32rem;margin-bottom:2px}.hero p{display:none}.library-meta{grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.library-meta .meta-item:nth-child(2),.library-meta .meta-item:nth-child(4){display:none}.meta-item{padding:7px 9px;border-radius:11px;font-size:13px}.meta-item strong{font-size:11px;margin-bottom:1px}.search-box{display:none}.category-buttons{display:flex;flex-wrap:wrap;overflow-x:visible;gap:5px;margin-bottom:9px;padding-bottom:0}.category-btn{padding:5px 8px;font-size:12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}.grid{grid-template-columns:1fr;gap:12px}.card{padding:15px;border-radius:18px}.card-number{font-size:12px;margin-bottom:6px}.topic{font-size:1.05rem;margin-bottom:7px}.section-title{margin:7px 0 2px}.content{line-height:1.6;margin-bottom:7px}.copy-btn{padding:10px;border-radius:12px}}')
+          s = s.replace('<div class="meta-item"><strong>Updated</strong>2026-06-07 17:06 HKT</div>\n      ', '')
+          s = s.replace('<div class="meta-item"><strong>Creator</strong>Hudson Mar</div>\n    ', '')
+          s = s.replace('<div class="search-box">\n      <input type="text" id="searchInput" placeholder="搜尋：早晨、晚安、焦慮、病痛、失戀、工作、生日、朋友、支持..." />\n    </div>\n\n    ', '')
+          s = s.replace('Daily Support Bible Library v2.0｜Creator: Hudson Mar｜長按或按 Copy 即可複製內容分享 💬', 'Daily Support Bible Library v2.0｜長按或按 Copy 即可複製內容分享 💬')
+
+          path.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add bible.html
+            git commit -m "Optimize Bible library mobile layout"
+            git push
+          fi
