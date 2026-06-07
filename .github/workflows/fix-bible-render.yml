@@ -1,0 +1,75 @@
+name: Fix Bible Render After Search Removal
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-bible-render.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Patch searchInput null guard
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('bible.html')
+          s = path.read_text(encoding='utf-8')
+          old = '''    document.getElementById('searchInput').addEventListener('input', function(){
+      const keyword = this.value.toLowerCase();
+      const filtered = messages.filter(item =>
+        item.topic.toLowerCase().includes(keyword) ||
+        item.verse.toLowerCase().includes(keyword) ||
+        item.ref.toLowerCase().includes(keyword) ||
+        item.context.toLowerCase().includes(keyword) ||
+        item.explain.toLowerCase().includes(keyword) ||
+        item.blessing.toLowerCase().includes(keyword) ||
+        item.category.toLowerCase().includes(keyword)
+      );
+      renderCards(filtered);
+    });
+    renderCards(messages);'''
+          new = '''    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function(){
+        const keyword = this.value.toLowerCase();
+        const filtered = messages.filter(item =>
+          item.topic.toLowerCase().includes(keyword) ||
+          item.verse.toLowerCase().includes(keyword) ||
+          item.ref.toLowerCase().includes(keyword) ||
+          item.context.toLowerCase().includes(keyword) ||
+          item.explain.toLowerCase().includes(keyword) ||
+          item.blessing.toLowerCase().includes(keyword) ||
+          item.category.toLowerCase().includes(keyword)
+        );
+        renderCards(filtered);
+      });
+    }
+    renderCards(messages);'''
+          if old not in s:
+            print('Exact old block not found; applying safer fallback patch.')
+            s = s.replace("    document.getElementById('searchInput').addEventListener('input', function(){", "    const searchInput = document.getElementById('searchInput');\n    if (searchInput) {\n      searchInput.addEventListener('input', function(){")
+            s = s.replace("      renderCards(filtered);\n    });\n    renderCards(messages);", "      renderCards(filtered);\n      });\n    }\n    renderCards(messages);")
+          else:
+            s = s.replace(old, new)
+          path.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add bible.html
+            git commit -m "Fix Bible library render after removing search bar"
+            git push
+          fi
