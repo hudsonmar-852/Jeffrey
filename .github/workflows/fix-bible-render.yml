@@ -73,3 +73,5 @@ jobs:
             git commit -m "Fix Bible library render after removing search bar"
             git push
           fi
+
+# trigger: 2026-06-07 code-check-before-deploy
