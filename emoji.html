@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeffrey Gym Emoji Stickers・WhatsApp 提醒圖</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","Noto Color Emoji",sans-serif}
+    body{background:linear-gradient(180deg,#fff7ed 0%,#f8fafc 52%,#ecfeff 100%);color:#111827;padding:20px;line-height:1.6}
+    .container{max-width:1120px;margin:auto}
+    .hero{text-align:center;margin:12px 0 22px}
+    .hero h1{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.15;margin-bottom:10px}
+    .hero p{color:#6b7280;font-size:1rem}
+    .site-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 24px}
+    .site-nav a{display:inline-block;text-decoration:none;background:#111827;color:#fff;padding:11px 16px;border-radius:999px;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .site-nav a.secondary{background:white;color:#111827}.site-nav a.active{background:#f97316;color:#fff}
+    .note{background:#fff;border:1px solid #fed7aa;border-radius:22px;padding:16px 18px;margin:0 auto 22px;max-width:850px;box-shadow:0 8px 24px rgba(249,115,22,.08);color:#374151}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .card{background:#fff;border-radius:28px;padding:18px;box-shadow:0 10px 28px rgba(15,23,42,.10);border:2px solid rgba(249,115,22,.13)}
+    .sticker{position:relative;min-height:250px;border-radius:26px;background:radial-gradient(circle at 20% 15%,#fff 0,#fff7ed 28%,#ffedd5 100%);display:flex;align-items:center;justify-content:center;padding:18px;margin-bottom:14px;overflow:hidden;border:1px solid #fed7aa}
+    .sticker.blue{background:radial-gradient(circle at 20% 15%,#fff 0,#eff6ff 28%,#dbeafe 100%);border-color:#bfdbfe}.sticker.green{background:radial-gradient(circle at 20% 15%,#fff 0,#ecfdf5 28%,#bbf7d0 100%);border-color:#bbf7d0}.sticker.purple{background:radial-gradient(circle at 20% 15%,#fff 0,#faf5ff 28%,#e9d5ff 100%);border-color:#e9d5ff}.sticker.yellow{background:radial-gradient(circle at 20% 15%,#fff 0,#fefce8 28%,#fde68a 100%);border-color:#fde68a}
+    .bubble{position:absolute;border-radius:999px;background:rgba(255,255,255,.72);filter:blur(.1px)}.b1{width:68px;height:68px;left:-14px;top:28px}.b2{width:42px;height:42px;right:18px;top:20px}.b3{width:90px;height:90px;right:-28px;bottom:-20px}
+    .avatar{font-size:86px;line-height:1;filter:drop-shadow(0 8px 8px rgba(0,0,0,.16));margin-bottom:10px;text-align:center}
+    .sticker-inner{text-align:center;position:relative;z-index:1;max-width:230px}
+    .sticker-title{font-size:2rem;line-height:1.1;font-weight:1000;color:#111827;text-shadow:3px 3px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;margin-bottom:8px;letter-spacing:-1px}
+    .sticker-sub{font-weight:800;color:#f97316;background:#fff;border-radius:999px;padding:5px 10px;display:inline-block;box-shadow:0 4px 12px rgba(0,0,0,.10)}
+    .topic{font-weight:900;font-size:1.15rem;margin-bottom:8px;color:#111827}.msg{color:#374151;white-space:pre-wrap;margin-bottom:14px}
+    .btns{display:grid;grid-template-columns:1fr;gap:9px}.btn{border:none;border-radius:15px;padding:12px 14px;font-weight:850;cursor:pointer;background:#111827;color:#fff;font-size:15px}.btn.alt{background:#fff;color:#111827;border:1px solid #e5e7eb}.btn.good{background:#16a34a}.btn.orange{background:#f97316}
+    footer{text-align:center;margin-top:36px;color:#9ca3af;font-size:14px}
+    canvas{display:none}@media(max-width:768px){body{padding:14px}.site-nav{justify-content:flex-start}.sticker{min-height:230px}.avatar{font-size:76px}.sticker-title{font-size:1.75rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>🏋️ Jeffrey Gym Emoji Stickers</h1>
+      <p>6 張可愛健身提醒圖・每張都有 WhatsApp 文案 Copy Button</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Jeffrey 網站主選單">
+      <a href="index.html">💬 每日關心短訊</a>
+      <a href="gym_m.html">📱 手機版健身教材</a>
+      <a href="gym.html">📘 JEFFREY 健身教材</a>
+      <a class="active" href="emoji.html">🧸 Emoji Stickers</a>
+    </nav>
+
+    <section class="note">
+      <strong>使用方法：</strong>每一格代表一張可愛提醒圖。按「Copy WhatsApp 文案」可直接貼給 client；按「Download PNG」可下載單張 sticker 圖；支援的瀏覽器可按「Copy Sticker 圖」直接複製圖片。
+    </section>
+
+    <main class="grid" id="grid"></main>
+    <canvas id="canvas" width="1080" height="1080"></canvas>
+    <footer>Jeffrey Friendly Gym Reminder・補水・拉筋・紀律・恢復</footer>
+  </div>
+
+  <script>
+    const stickers = [
+      {title:'記得\n補水！',sub:'飲幾啖先啦',avatar:'💧🏋️‍♂️',style:'blue',topic:'補水提醒',message:'記得補水呀～而家飲幾啖先。唔使一次飲好多，少少多次，身體會舒服好多 💧'},
+      {title:'記得\n多飲水！',sub:'精神會穩啲',avatar:'🥤💪',style:'blue',topic:'多飲水提醒',message:'今日記得多飲水，尤其返工忙或者練完之後。水夠，精神、表現同恢復都會好啲 🥤'},
+      {title:'小習慣\n大改變！',sub:'每日做少少',avatar:'💡😄',style:'yellow',topic:'小習慣提醒',message:'唔需要一次做得好完美。每日飲水、拉筋、郁一郁，細習慣累積落去就係大改變 💡'},
+      {title:'放鬆一下\n很重要！',sub:'肩頸鬆一鬆',avatar:'🧘‍♂️✨',style:'purple',topic:'拉筋放鬆提醒',message:'坐耐咗就起身拉一拉，肩頸轉幾下，腰背伸一伸。30秒都好，身體會即刻舒服啲 🧘'},
+      {title:'保持紀律\n你一定做到！',sub:'穩定先最勁',avatar:'✅💪',style:'green',topic:'紀律鼓勵',message:'保持紀律呀！唔係要日日爆練，而係日日都有照顧自己。你一定做到，慢慢嚟但唔好停 ✅'},
+      {title:'明天會係\n更強的你！',sub:'休息都係進步',avatar:'🔥🏋️',style:'orange',topic:'恢復鼓勵',message:'今日有飲水、有郁過、有拉筋，已經好好。休息好，明天會係更強嘅你 🔥'}
+    ];
+
+    const grid = document.getElementById('grid');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function render(){
+      grid.innerHTML = stickers.map((s,i)=>`
+        <article class="card">
+          <div class="sticker ${s.style}" id="sticker-${i}">
+            <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+            <div class="sticker-inner">
+              <div class="avatar">${s.avatar}</div>
+              <div class="sticker-title">${s.title.replace(/\n/g,'<br>')}</div>
+              <div class="sticker-sub">${s.sub}</div>
+            </div>
+          </div>
+          <div class="topic">${i+1}. ${s.topic}</div>
+          <div class="msg">${s.message}</div>
+          <div class="btns">
+            <button class="btn" onclick="copyMessage(${i},this)">📋 Copy WhatsApp 文案</button>
+            <button class="btn orange" onclick="downloadSticker(${i})">⬇️ Download PNG</button>
+            <button class="btn alt" onclick="copySticker(${i},this)">🖼️ Copy Sticker 圖</button>
+          </div>
+        </article>`).join('');
+    }
+
+    function copyMessage(i,btn){
+      navigator.clipboard.writeText(stickers[i].message).then(()=>{
+        btn.textContent='✅ 已複製文案'; btn.classList.add('good');
+        setTimeout(()=>{btn.textContent='📋 Copy WhatsApp 文案';btn.classList.remove('good')},1200);
+      });
+    }
+
+    function roundRect(x,y,w,h,r){
+      ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+    }
+
+    function drawTextLines(text,x,y,maxWidth,lineHeight,font,fill,stroke){
+      ctx.font=font;ctx.textAlign='center';ctx.textBaseline='middle';
+      const lines = text.split('\n');
+      lines.forEach((line,idx)=>{ if(stroke){ctx.lineWidth=14;ctx.strokeStyle=stroke;ctx.strokeText(line,x,y+idx*lineHeight,maxWidth)} ctx.fillStyle=fill;ctx.fillText(line,x,y+idx*lineHeight,maxWidth); });
+    }
+
+    function paintSticker(i){
+      const s=stickers[i];
+      const grad=ctx.createLinearGradient(0,0,1080,1080);
+      const colors={blue:['#eff6ff','#93c5fd'],green:['#ecfdf5','#86efac'],purple:['#faf5ff','#c4b5fd'],yellow:['#fefce8','#fde68a'],orange:['#fff7ed','#fdba74']};
+      const c=colors[s.style]||colors.orange;
+      grad.addColorStop(0,c[0]);grad.addColorStop(1,c[1]);
+      ctx.clearRect(0,0,1080,1080);ctx.fillStyle=grad;roundRect(40,40,1000,1000,90);ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,.6)';roundRect(95,105,180,180,90);ctx.fill();roundRect(820,120,120,120,60);ctx.fill();roundRect(825,805,210,210,105);ctx.fill();
+      ctx.font='150px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';ctx.textAlign='center';ctx.fillText(s.avatar,540,300);
+      drawTextLines(s.title,540,545,900,125,'900 118px "Noto Sans TC",Arial,sans-serif','#111827','#ffffff');
+      ctx.fillStyle='#fff';roundRect(280,770,520,95,48);ctx.fill();ctx.fillStyle='#f97316';ctx.font='900 44px "Noto Sans TC",Arial,sans-serif';ctx.fillText(s.sub,540,827);
+      ctx.fillStyle='rgba(17,24,39,.55)';ctx.font='700 26px Arial,sans-serif';ctx.fillText('Jeffrey Gym Reminder',540,950);
+    }
+
+    function downloadSticker(i){
+      paintSticker(i);
+      const a=document.createElement('a');
+      a.download=`jeffrey-gym-emoji-${i+1}.png`;
+      a.href=canvas.toDataURL('image/png');
+      a.click();
+    }
+
+    async function copySticker(i,btn){
+      try{
+        paintSticker(i);
+        canvas.toBlob(async blob=>{
+          await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+          btn.textContent='✅ 已複製圖片';btn.classList.add('good');
+          setTimeout(()=>{btn.textContent='🖼️ Copy Sticker 圖';btn.classList.remove('good')},1200);
+        });
+      }catch(e){
+        btn.textContent='未支援，請用 Download PNG';
+        setTimeout(()=>btn.textContent='🖼️ Copy Sticker 圖',1600);
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
