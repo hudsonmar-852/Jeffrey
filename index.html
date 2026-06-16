@@ -3,227 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jeffrey 健身教練・每日關心短訊模板</title>
+  <title>Jeffrey 健身教練｜高回覆率 WhatsApp 關心短訊庫</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
     body{background:#f5f7fb;color:#222;padding:20px;line-height:1.6}
-    .container{max-width:1000px;margin:auto}
-    .hero{text-align:center;margin-bottom:24px}
-    .hero h1{font-size:2rem;margin-bottom:10px;color:#111827}
-    .hero p{color:#6b7280;font-size:1rem}
+    .container{max-width:1100px;margin:auto}
+    .hero{text-align:center;margin-bottom:24px;background:linear-gradient(135deg,#111827,#1f2937);color:white;border-radius:28px;padding:32px 20px;box-shadow:0 10px 30px rgba(17,24,39,.18)}
+    .hero h1{font-size:2rem;margin-bottom:10px}.hero p{color:#d1d5db;font-size:1rem;margin-bottom:14px}
+    .badge{display:inline-block;background:#f97316;color:white;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800;margin:4px}
     .site-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 24px}
     .site-nav a{display:inline-block;text-decoration:none;background:#111827;color:#fff;padding:11px 16px;border-radius:999px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-    .site-nav a.secondary{background:white;color:#111827}
-    .search-box{margin-bottom:25px}
+    .site-nav a.secondary{background:white;color:#111827}.search-box{margin-bottom:18px}
     .search-box input{width:100%;padding:16px;border-radius:16px;border:none;outline:none;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-    .category-buttons{display:flex;gap:10px;overflow-x:auto;margin-bottom:25px;padding-bottom:10px}
-    .category-btn{border:none;background:white;padding:10px 18px;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.08);white-space:nowrap;transition:.2s}
-    .category-btn:hover{background:#111827;color:white}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease, background .2s ease, border .2s ease;display:flex;flex-direction:column;justify-content:space-between;border:2px solid transparent}
-    .card:hover{transform:translateY(-4px)}
+    .category-buttons{display:flex;gap:10px;overflow-x:auto;margin-bottom:24px;padding-bottom:10px}
+    .category-btn{border:none;background:white;padding:10px 18px;border-radius:999px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.08);white-space:nowrap;transition:.2s;font-weight:700;color:#111827}
+    .category-btn:hover,.category-btn.active{background:#111827;color:white}
+    .section-note{background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;padding:14px 16px;margin-bottom:22px;color:#9a3412;font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
+    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease,background .2s ease,border .2s ease;display:flex;flex-direction:column;justify-content:space-between;border:2px solid transparent}
+    .card:hover{transform:translateY(-4px)}.card.new-template{border-color:#fb923c;box-shadow:0 8px 26px rgba(249,115,22,.18)}
     .card.used{background:#ecfdf5;border-color:#16a34a;box-shadow:0 8px 24px rgba(22,163,74,.18)}
-    .card-number{font-size:13px;color:#9ca3af;margin-bottom:10px}
-    .used-badge{display:inline-block;margin-left:6px;background:#16a34a;color:white;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
-    .topic{font-size:1.25rem;font-weight:700;margin-bottom:15px;color:#111827}
-    .content{line-height:1.8;color:#374151;margin-bottom:12px;white-space:pre-wrap}
-    .use-meta{font-size:12px;color:#047857;margin-bottom:16px;font-weight:600}
-    .copy-btn{background:#111827;color:white;border:none;border-radius:14px;padding:14px;cursor:pointer;font-size:15px;font-weight:600;transition:.2s}
-    .copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}.copy-btn.used{background:#047857}
-    footer{text-align:center;margin-top:40px;color:#9ca3af;font-size:14px}
-    @media(max-width:768px){.hero h1{font-size:1.6rem}.site-nav{justify-content:flex-start}}
+    .card-number{font-size:13px;color:#9ca3af;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+    .tag{display:inline-block;background:#ffedd5;color:#c2410c;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:800}.used-badge{display:inline-block;margin-left:6px;background:#16a34a;color:white;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
+    .topic{font-size:1.18rem;font-weight:800;margin-bottom:12px;color:#111827}.category{display:inline-block;font-size:12px;font-weight:800;background:#eef2ff;color:#3730a3;border-radius:999px;padding:4px 9px;margin-bottom:12px}
+    .content{line-height:1.85;color:#374151;margin-bottom:14px;white-space:pre-wrap}.use-meta{font-size:12px;color:#047857;margin-bottom:16px;font-weight:600}
+    .copy-btn{background:#111827;color:white;border:none;border-radius:14px;padding:14px;cursor:pointer;font-size:15px;font-weight:700;transition:.2s}.copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}.copy-btn.used{background:#047857}
+    footer{text-align:center;margin-top:40px;color:#6b7280;font-size:14px}@media(max-width:768px){body{padding:14px}.hero h1{font-size:1.45rem}.site-nav{justify-content:flex-start}.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="container">
     <header class="hero">
-      <h1>🏋️ 健身教練・每日關心短訊模板</h1>
-      <p>廣東話・自然貼地・可一鍵複製 WhatsApp 訊息</p>
+      <h1>Jeffrey 健身教練｜高回覆率 WhatsApp 關心短訊庫 🔥</h1>
+      <p>廣東話・香港地・一鍵 Copy 即用｜關心客人唔使再諗到頭痛</p>
+      <span class="badge">🆕 高回覆率 NEW</span><span class="badge">😈 魔鬼教練</span><span class="badge">🤣 搞笑到肉</span><span class="badge">⚡ 忙人極短版</span>
     </header>
-
     <nav class="site-nav" aria-label="Jeffrey 網站主選單">
-      <a href="gym_m.html">📱 手機版健身教材</a>
-      <a href="gym.html">📘 JEFFREY 健身教材</a>
-      <a class="secondary" href="index.html">💬 每日關心短訊</a>
+      <a href="gym_m.html">📱 手機版健身教材</a><a href="gym.html">📘 JEFFREY 健身教材</a><a class="secondary" href="index.html">💬 每日關心短訊</a>
     </nav>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="搜尋：Tailor-made、今日雨天、飲水、拉筋、睡眠、情緒..." />
-    </div>
-
+    <div class="search-box"><input type="text" id="searchInput" placeholder="搜尋：魔鬼教練、搞笑、飲水、拉筋、睡眠、情緒、毛巾、遲到..." /></div>
     <div class="category-buttons">
-      <button class="category-btn" onclick="filterCards('all')">全部</button>
-      <button class="category-btn" onclick="filterCards('Tailor-made')">Tailor-made</button>
-      <button class="category-btn" onclick="filterCards('今日雨天')">今日雨天</button>
-      <button class="category-btn" onclick="filterCards('飲水')">飲水</button>
-      <button class="category-btn" onclick="filterCards('拉筋')">拉筋</button>
-      <button class="category-btn" onclick="filterCards('睡眠')">睡眠</button>
-      <button class="category-btn" onclick="filterCards('情緒')">情緒</button>
-      <button class="category-btn" onclick="filterCards('恢復')">恢復</button>
+      <button class="category-btn active" onclick="filterCards('all',this)">全部</button><button class="category-btn" onclick="filterCards('😈 魔鬼教練',this)">😈 魔鬼教練</button><button class="category-btn" onclick="filterCards('🤣 搞笑到肉',this)">🤣 搞笑到肉</button><button class="category-btn" onclick="filterCards('🎯 教練小心機',this)">🎯 教練小心機</button><button class="category-btn" onclick="filterCards('⚡ 超短版',this)">⚡ 超短版</button><button class="category-btn" onclick="filterCards('Tailor-made',this)">Tailor-made</button><button class="category-btn" onclick="filterCards('今日雨天',this)">今日雨天</button><button class="category-btn" onclick="filterCards('飲水',this)">飲水</button><button class="category-btn" onclick="filterCards('拉筋',this)">拉筋</button><button class="category-btn" onclick="filterCards('睡眠',this)">睡眠</button><button class="category-btn" onclick="filterCards('情緒',this)">情緒</button><button class="category-btn" onclick="filterCards('恢復',this)">恢復</button>
     </div>
-
+    <div class="section-note">精讀班：20條「唔覆我對唔住自己」WhatsApp 短訊已置頂。建議優先用喺沉默客、懶覆客、臨上堂前提醒。</div>
     <main class="grid" id="messageGrid"></main>
-
-    <footer>長按或按 Copy 即可複製內容貼去 WhatsApp 💬</footer>
+    <footer>長按或按「📋 一鍵 Copy 去 WhatsApp」即可複製內容 💬</footer>
   </div>
-
   <script>
     const messages = [
-      {topic:"🎯 忙到冇時間版",category:"Tailor-made",content:"今日就算好忙，都唔好成個人交晒俾工作。飲幾啖水、企起身30秒，已經係幫身體留返少少空間 🎯"},
-      {topic:"💬 教練關心版",category:"Tailor-made",content:"今日唔要求你做到好完美，只要求你唔好完全唔理自己。飲水、拉一拉、早少少收機，已經夠實際 💬"},
-      {topic:"🏙️ 香港上班族版",category:"Tailor-made",content:"返工搭車、坐 office、開會一日，其實身體好耐冇真正郁過。等陣行多幾步，俾腰背有返少少生命力 🏙️"},
-      {topic:"🧠 壓力大但唔講版",category:"Tailor-made",content:"你唔講攰，身體都會講。肩頸實、呼吸淺、眼攰，就係 signal。停一停，慢慢吸三啖氣先 🧠"},
-      {topic:"💪 Gym Client 鼓勵版",category:"Tailor-made",content:"唔係每次都要爆練先叫進步。今日肯出現、肯郁、肯照顧恢復，已經係長期變強嘅一部分 💪"},
-      {topic:"🧘 肩頸救援版",category:"Tailor-made",content:"如果而家膊頭已經硬晒，唔好等痛先處理。膊頭向後轉10下，頸左右慢慢拉，30秒已經有分別 🧘"},
-      {topic:"🥤 水樽提示版",category:"Tailor-made",content:"望一望你支水，而家飲三啖。唔需要等儀式感，照顧身體好多時就係呢啲細到不能再細嘅動作 🥤"},
-      {topic:"🌙 夜晚收慢版",category:"Tailor-made",content:"今晚唔好成個腦袋繼續開會。沖個暖水涼、拉一拉小腿、電話放遠啲，俾自己真正落機 🌙"},
-      {topic:"🔥 濕熱疲勞版",category:"Tailor-made",content:"呢種又濕又熱嘅天氣，好易令人無端端攰。唔係你懶，係身體負荷高咗。補水、抹汗、慢少少都合理 🔥"},
-      {topic:"🦵 腳攰版",category:"Tailor-made",content:"今日企得多或者行得多，夜晚記得照顧對腳。小腿拉30秒、腳踝轉幾下，明朝會舒服好多 🦵"},
-      {topic:"🫶 溫柔提醒版",category:"Tailor-made",content:"你可以照顧其他人，但都唔好漏咗自己。飲水、食好啲、休息一下，唔係偷懶，係維修 🫶"},
-      {topic:"⚡ 30秒 Reset",category:"Tailor-made",content:"而家做個30秒 reset：坐直、膊頭放低、深呼吸三次、飲一啖水。完成，身體已經收到你嘅善意 ⚡"},
-      {topic:"📱 手機低頭版",category:"Tailor-made",content:"你而家如果低頭睇緊電話，抬返高少少。頸唔係免費支架，日日咁頂，好快會投訴你 📱"},
-      {topic:"🍽️ 飯後唔攤版",category:"Tailor-made",content:"食完飯唔好即刻坐死，行幾分鐘就得。唔係要你運動，只係幫身體消化順啲，下午冇咁昏 🍽️"},
-      {topic:"🌟 收尾鼓勵版",category:"Tailor-made",content:"今日做到幾多就幾多，唔需要同人比較。你有飲水、有郁過、有照顧自己，已經係好實在嘅進步 🌟"},
-      {topic:"🌧️ 今日雨天濕熱提醒",category:"今日雨天",content:"今日又落雨又焗，唔好以為冇太陽就唔會流汗。記得少少多次飲水，身體舒服好多 🌧️💧"},
-      {topic:"☔ 出門防滑提醒",category:"今日雨天",content:"今日地下濕滑，出街行慢半拍。鞋底要踩實，落樓梯扶一扶，安全先係最型 ☔"},
-      {topic:"💦 雨天都要補水",category:"今日雨天",content:"落雨天都會焗到出汗，唔好等口乾先飲。每隔一陣飲幾啖，精神會穩好多 💦"},
-      {topic:"🧦 濕鞋濕襪提醒",category:"今日雨天",content:"如果鞋襪濕咗，返到去盡快換。腳長時間焗住好易攰同唔舒服，照顧細節就係照顧身體 🧦"},
-      {topic:"🌬️ 冷氣房保暖",category:"今日雨天",content:"今日外面濕熱，入到冷氣房好易一凍一熱。帶件薄外套，唔好俾肩頸凍到硬晒 🌬️"},
-      {topic:"🧘 雨天肩頸放鬆",category:"今日雨天",content:"落雨天濕氣重，肩頸特別易實。抽30秒轉下膊、拉下頸，唔使大動作都有用 🧘"},
-      {topic:"🚶 室內步行版",category:"今日雨天",content:"今日唔方便戶外行，就喺室內行幾分鐘。搭𨋢前後、茶水間來回，都算係俾身體郁返 🚶"},
-      {topic:"🥵 濕熱降溫提醒",category:"今日雨天",content:"又濕又熱最易令人冇精神。飲水、抹汗、鬆一鬆領口，唔好硬頂，身體會舒服返啲 🥵"},
-      {topic:"😴 雨天睡眠提醒",category:"今日雨天",content:"今晚濕氣重，瞓前開少少抽濕或者風扇，房間舒服啲，瞓得自然沉啲 😴"},
-      {topic:"❤️ 今日溫柔收尾",category:"今日雨天",content:"今日天氣又濕又焗，已經唔容易。記得飲水、行慢啲、拉一拉筋，照顧自己就夠好 ❤️"},
-      {topic:"💧 起身第一杯水",category:"飲水",content:"起身第一件事唔係睇電話，係飲幾啖水。身體瞓咗成晚，先幫佢開機 💧"},
-      {topic:"🪑 坐耐起身郁",category:"拉筋",content:"坐咗一個鐘就起身30秒，伸下腰、轉下膊。唔使流汗，重點係唔好俾身體生銹 🪑"},
-      {topic:"🥗 午餐後輕行",category:"恢復",content:"食完飯唔好即刻攤低，行5至10分鐘。消化順啲，下午冇咁易飯氣攻心 🥗"},
-      {topic:"👣 腳踝小運動",category:"拉筋",content:"坐低都可以郁腳踝，順時針逆時針各轉10下。小動作，對小腿同循環好有幫助 👣"},
-      {topic:"🫁 深呼吸 reset",category:"情緒",content:"覺得心煩或者攰，停一停，慢慢吸氣4秒、呼氣6秒，做3次。人會即刻定啲 🫁"},
-      {topic:"🧍 站姿提醒",category:"拉筋",content:"企立時唔好成日側埋一邊，兩腳平均踩地，肚微收。腰背會少啲投訴 🧍"},
-      {topic:"🍵 下午提神版",category:"飲水",content:"下午眼瞓未必一定要咖啡，先飲杯水再行兩分鐘。好多時係身體缺水同太耐冇郁 🍵"},
-      {topic:"🧊 運動前熱身",category:"恢復",content:"開練前唔好即刻上重量，先做5分鐘熱身。關節醒咗，肌肉先識幫你出力 🧊"},
-      {topic:"🍌 運動後補充",category:"恢復",content:"練完記得補水同食返少少蛋白質。肌肉唔係練嗰刻變強，係恢復嗰陣變強 🍌"},
-      {topic:"📱 手機頸提醒",category:"拉筋",content:"睇電話唔好成個頭跌落去，手機拎高少少。頸椎唔係吊機，唔好日日叫佢頂硬上 📱"},
-      {topic:"🛁 熱水沖涼放鬆",category:"恢復",content:"今日如果覺得肌肉緊，沖涼時用暖水淋下肩背同小腿。放鬆咗，瞓覺都舒服啲 🛁"},
-      {topic:"🧠 小目標提醒",category:"情緒",content:"今日唔使追求完美，只要飲夠水、郁過、拉過少少，已經係有照顧自己 🧠"},
-      {topic:"🥱 午後疲勞關懷",category:"情緒",content:"下午攰係正常，唔代表你懶。起身伸一伸、飲啖水，俾身體重新入返狀態 🥱"},
-      {topic:"🦵 小腿放鬆",category:"拉筋",content:"今日行得多，夜晚記得拉下小腿。腳跟踩低、身體微前，30秒就夠，明日冇咁繃 🦵"},
-      {topic:"🥤 飲水打卡",category:"飲水",content:"而家望一望水樽，少過一半就飲幾啖。唔使一次飲好多，重點係唔好成日忘記 🥤"},
-      {topic:"🌙 睡前收工儀式",category:"睡眠",content:"瞓前30分鐘開始收慢，燈暗啲、電話放遠啲。身體收到訊號，就會易啲入睡 🌙"},
-      {topic:"🧩 壓力釋放",category:"情緒",content:"今日如果好多嘢諗，寫低三件要做嘅事就算。腦袋唔使成晚幫你記住，瞓覺先放鬆 🧩"},
-      {topic:"🏠 屋企輕訓練",category:"恢復",content:"冇時間去 gym 都可以做10下深蹲、10下靠牆掌上壓。少少郁動，已經比完全唔郁好 🏠"},
-      {topic:"🧘‍♂️ 腰背保養",category:"拉筋",content:"腰背實唔一定要大力捽，先做貓牛式或者抱膝30秒。溫柔啲，身體先肯放鬆 🧘‍♂️"},
-      {topic:"💪 今日鼓勵版",category:"情緒",content:"你唔需要日日爆練先叫努力。肯飲水、肯郁、肯休息，已經係長期進步嘅底子 💪"},
-      {topic:"💧 飲水提醒",category:"飲水",content:"早晨！今日記得每小時飲半杯水喇～唔使多，但要持續！身體唔會喊渴，但會暗啞咁累你 😅"},
-      {topic:"🧘 拉筋小提示",category:"拉筋",content:"得閒坐定定？起身拉下筋先！由頸到腳，10分鐘都得，筋鬆咗，腰背唔會喊救命 💪"},
-      {topic:"💻 工作間小運動",category:"拉筋",content:"打字打到手痺？起身伸個懶腰 + 轉下肩，30秒都好過唔動！你嘅肩頸會多謝你 🙏"},
-      {topic:"😴 睡前關懷",category:"睡眠",content:"今晚唔好追劇追到太夜～11點前瞓，身體修復力最強！明早醒得爽，運動都更勁 😴"},
-      {topic:"❤️ 飲水 + 拉筋 combo",category:"恢復",content:"飲完水，順手拉下大腿後側？一舉兩得～身體唔會話你做緊乜，但會記住你對佢好 ❤️"},
-      {topic:"🏋️ 健身後提醒",category:"恢復",content:"練完記得補水+輕拉筋！唔使多，5分鐘都好，肌肉唔會喊痛，你明日先唔會行路似企鵝 🦆"},
-      {topic:"🌿 周末放鬆版",category:"恢復",content:"週末唔使逼自己練到爆，但記得起身走走、拉拉筋、飲夠水～放鬆先係真係進步 🌿"},
-      {topic:"🫶 情緒關懷版",category:"情緒",content:"今日有冇覺得好累？唔使硬撐，飲杯溫水 + 深呼吸3次，身體同心都會鬆一啲 🫶"},
-      {topic:"🥤 飲水趣味版",category:"飲水",content:"你今日飲咗幾杯水？唔記得？咁就由而家開始，每做完一件事就飲一口～慢慢就成日飲到喇 🥤"},
-      {topic:"💪 鼓勵收尾版",category:"情緒",content:"你唔使做完美，但記得對自己好啲～飲水、拉筋、休息，都係愛自己嘅方式 💪❤️"},
-      {topic:"☀️ 朝早起身拉筋",category:"拉筋",content:"起身未？未郁之前喺床拉下小腿同後腰，30秒就夠。醒得快過飲咖啡 ☀️"},
-      {topic:"💧 返工前飲水",category:"飲水",content:"出門前飲一杯水，當係俾腸胃嘅 morning call。全日狀態會爭好遠 💧"},
-      {topic:"🚶 飯後散步",category:"恢復",content:"食完飯唔好即刻坐低，行5分鐘。幫助消化之餘，仲唔會飯氣攻心 🚶"},
-      {topic:"😌 放工放鬆肩頸",category:"拉筋",content:"收工啦！膊頭係咪硬到石頭？用熱毛巾敷下＋輕輕打圈按，好快鬆返 😌"},
-      {topic:"📺 夜晚煲劇拉筋",category:"拉筋",content:"一路煲劇一路拉大腿前後側，不知不覺拉完15分鐘。娛樂＋保養一次過 📺"},
-      {topic:"🛌 瞓前關手機",category:"睡眠",content:"瞓前半個鐘放低電話，望下天花板發吓呆。睡眠質素好過你食 supplement 🛌"},
-      {topic:"✈️ 長途車／飛機提醒",category:"恢復",content:"搭車搭飛機記得每45分鐘郁下腳腕同膝頭。防水腫，仲防腳痺 ✈️"},
-      {topic:"🥵 天氣熱飲水提醒",category:"飲水",content:"今日好熱，出汗多過平時。唔好等到口乾先飲，嗰時已經遲咗一步 🥵💦"},
-      {topic:"❤️ 身體疲勞關懷",category:"情緒",content:"呢幾日如果覺得攰，唔好夾硬做重訓。散步＋拉筋＋飲暖水已經好叻 ❤️"},
-      {topic:"🌟 自我肯定收尾",category:"情緒",content:"你今日已經做得好好。飲咗水、郁過下、有休息。咁就夠，唔使完美 🌟"}
+      {topic:"🚨 緊急通告",category:"😈 魔鬼教練",content:"今日發現好多人偷懶嘅藉口係「落雨濕濕」。我幫你睇過天文台，陣間會細雨啲。我畀多個藉口你：「陣間見唔到我個樣會周身唔聚財」。換衫，30分鐘後見。覆我個 🔥，代表你出門口。"},
+      {topic:"💡 健身小知識",category:"😈 魔鬼教練",content:"研究話，望住鏡做 Gym 可以提升表現。所以你今日望鏡嗰陣，除咗覺得自己靚／型，記得望埋姿勢啱唔啱。影低你今日 workout 姿勢 send 畀我，我免費幫你做 Remote 姿勢執正。覆 📸。"},
+      {topic:"🌅 早晨喚醒",category:"😈 魔鬼教練",content:"我知你仲瞓緊，但我想話你知，你今日個背肌／線條就差「起身」呢一下就完美。快啲起身飲杯暖水，覆我一個 Good Morning sticker，我回你今日專屬打氣 voice。"},
+      {topic:"🍽️ 飲食警察出動",category:"😈 魔鬼教練",content:"突然好想 check 下你個雪櫃。影張相畀我睇下你今日準備咗咩午餐。如果見到西蘭花同雞胸，我即刻封你做自律達人；如果見到珍珠奶茶……你知點做啦，自己跑多5km。覆 🍽️。"},
+      {topic:"😴 睡眠質素關注組",category:"😈 魔鬼教練",content:"練咗咁耐，唔識瞓覺就嘥氣。今晚11點前，應承我熄電話。覆我個 🌙 代表收到。聽朝起身你會發覺水腫少咗，輪廓出返嚟，唔使多謝我。"},
+      {topic:"💰 慳錢貼士",category:"🤣 搞笑到肉",content:"使幾萬蚊買名牌袋？不如跟我練多兩堂，練到個 Body 名牌出嚟，著件白 Tee 都好睇過人哋啲 Winter Collection。今日嚟唔嚟拎你件天生名牌？覆 YES 留位。"},
+      {topic:"🦸‍♂️ 超級英雄論",category:"🤣 搞笑到肉",content:"你估點解 Batman 咁勁？因為佢著住套緊身衫嗰陣，冇肚腩。你今日著 Sport Bra／Tank Top 前，望一望個 mirror。如果覺得自己似 Batman，send 個自拍畀我，我幫你加個蝙蝠俠 logo（講笑，但我想睇成果）。覆 🦇。"},
+      {topic:"👻 鬼咁靚系列",category:"🤣 搞笑到肉",content:"你知唔知點解做運動要出汗？因為汗水就係你以前啲脂肪喺度喊緊。你想佢哋喊大聲啲（爆汗）定喊細聲啲（hea 做）？覆「大」或「細」，我幫你 set 今日喊包難度。"},
+      {topic:"🐷 養豬定養人",category:"🤣 搞笑到肉",content:"我唔想我啲客變咗 Happy Pig，雖然都幾可愛。今日我 set 咗個趕豬計劃，邊個覆我最快，我今日就 train 得佢最甘，但最有效。你係咪第一個？覆 🐷。"},
+      {topic:"📈 股神投資法",category:"🤣 搞笑到肉",content:"最近個市跌到喊？不如投資喺自己身上。你身型嘅回報率 ROI，一定高過而家好多藍籌股。今日嚟上堂，我保證你心情升500點。覆 📈 留位，唔好做大閘蟹。"},
+      {topic:"🤫 獨家試煉",category:"🎯 教練小心機",content:"今日我喺 YouTube／IG 拍咗條新片，講點樣用一條毛巾練腹肌，未公開㗎。想做第一個試玩？而家覆我「毛巾」，我直接 send 條片畀你，但你要交返份用後感。"},
+      {topic:"🎯 目標鎖定",category:"🎯 教練小心機",content:"仲記唔記得你最初同我講想減幾多／想大隻幾多？我偷偷幫你記低咗。想唔想知你而家去到邊個 Stage？今日上堂我話你知。覆 ❓ 代表你仲記得個目標。"},
+      {topic:"🎵 節奏大師",category:"🎯 教練小心機",content:"今日 playlist 由你決定。傷心嘅人唔好聽慢歌，做 Gym 嘅人要聽快歌。你而家講首最想聽嘅歌名畀我，我即刻準備，等你陣間 Burpee 嗰陣都識笑。覆 🎵。"},
+      {topic:"🧘 都市解藥",category:"🎯 教練小心機",content:"我知你今日開完會可能好躁底。唔使做劇烈運動，我教你一招辦公椅拉筋大法，5分鐘鬆返開條氣。想學就覆我「鬆」，我拍條1分鐘 short video 私人醒你。"},
+      {topic:"🏆 今日威水位",category:"🎯 教練小心機",content:"今日嚟上堂，我會準備部靚相機。做完 train 個樣最殘但又最型嗰個，我幫你影張相放上 Story 表揚你嘅努力殘樣，仲 tag 你。要唔要呢個位？覆「要」，我幫你留 quota。"},
+      {topic:"☕ 早餐提醒",category:"⚡ 超短版",content:"飲咗咖啡未？未飲嘅話，今日唔好齋啡頂硬上，記得補返少少 protein。收到覆 ☕，代表你聽教聽話。"},
+      {topic:"🦵 腳痛預警",category:"⚡ 超短版",content:"聽日如果行路覺得酸痛，記得多謝今日咁努力嘅自己。同埋記得拉筋。冇覆我 = 你應承我會拉。"},
+      {topic:"⏰ 遲到點算",category:"⚡ 超短版",content:"如果陣間遲咗少少，唔緊要，最緊要到。我等你。但遲到要罰唱歌／請食蛋治。你敢唔敢覆我「遲到」兩個字？"},
+      {topic:"💧 飲水提示",category:"⚡ 超短版",content:"睇到呢個 msg 嘅同時，請飲一啖水。你今日飲到第幾杯？覆我個數字，如果少過6杯，我陣間 train 你會特別照顧你。"},
+      {topic:"🤝 最後的溫柔",category:"⚡ 超短版",content:"呢個 world 好亂，但 Gym Room 好 peaceful。只要你企喺我面前，拎起對 dumbbell，你就贏咗全世界嗰99%淨係坐喺度嘅人。今日見唔見到你？覆 💪 就算數。"},
+      {topic:"🎯 忙到冇時間版",category:"Tailor-made",content:"今日就算忙到飛起，都唔好成個人交晒俾工作。飲兩啖水、企起身郁30秒，已經係幫身體留返條命仔。覆我個 🎯，當你完成今日最低消費。"},
+      {topic:"💬 教練關心版",category:"Tailor-made",content:"今日唔使做到完美，最緊要唔好完全唔理自己。飲水、拉一拉、早少少收機，已經好實際。收到就覆我個 💬，等我知你有聽話。"},
+      {topic:"🏙️ 香港上班族版",category:"Tailor-made",content:"返工搭車、坐 office、開會開到人都硬晒，其實你個身體好耐冇真正郁過。等陣行多幾步，俾腰背有返少少生命力。覆 🏙️ 我當你出咗去行。"},
+      {topic:"🧠 壓力大但唔講版",category:"情緒",content:"你唔講攰，身體都會講。肩頸實、呼吸淺、眼攰，就係 signal。停一停，慢慢吸三啖氣先。覆我 🧠，我知你仲撐得住但唔使硬撐。"},
+      {topic:"💪 Gym Client 鼓勵版",category:"恢復",content:"唔係每次都要爆練先叫進步。今日肯出現、肯郁、肯恢復，已經係長期變強嘅一部分。覆我 💪，我幫你記低今日有出現。"},
+      {topic:"🧘 肩頸救援版",category:"拉筋",content:"如果而家膊頭已經硬晒，唔好等痛先處理。膊頭向後轉10下，頸左右慢慢拉，30秒已經有分別。做完覆我 🧘。"},
+      {topic:"🥤 水樽提示版",category:"飲水",content:"望一望你支水，而家飲三啖。唔需要儀式感，照顧身體好多時就係呢啲細到不能再細嘅動作。飲完覆我 🥤。"},
+      {topic:"🌙 夜晚收慢版",category:"睡眠",content:"今晚唔好俾個腦繼續開會。沖個暖水涼、拉一拉小腿、電話放遠啲，俾自己真正落機。收到覆 🌙，我當你今晚會乖。"},
+      {topic:"🌧️ 今日雨天濕熱提醒",category:"今日雨天",content:"今日又落雨又焗，唔好以為冇太陽就唔會流汗。記得少少多次飲水，個人會舒服好多。覆 🌧️，等我知你有補水。"},
+      {topic:"☔ 出門防滑提醒",category:"今日雨天",content:"今日地下濕滑，出街行慢半拍。鞋底要踩實，落樓梯扶一扶，安全先係最型。覆 ☔，唔好扮英雄。"},
+      {topic:"💦 雨天都要補水",category:"今日雨天",content:"落雨天都會焗到出汗，唔好等口乾先飲。每隔一陣飲幾啖，精神會穩好多。覆 💦，我當你飲咗第一輪。"},
+      {topic:"🧦 濕鞋濕襪提醒",category:"今日雨天",content:"如果鞋襪濕咗，返到去盡快換。腳長時間焗住好易攰同唔舒服，照顧細節就係照顧身體。覆 🧦，我知你有聽。"},
+      {topic:"🌬️ 冷氣房保暖",category:"今日雨天",content:"今日外面濕熱，入到冷氣房好易一凍一熱。帶件薄外套，唔好俾肩頸凍到硬晒。覆 🌬️，今日唔好凍親自己。"},
+      {topic:"🧘 雨天肩頸放鬆",category:"今日雨天",content:"落雨天濕氣重，肩頸特別易實。抽30秒轉下膊、拉下頸，唔使大動作都有用。做完覆 🧘。"},
+      {topic:"🚶 室內步行版",category:"今日雨天",content:"今日唔方便戶外行，就喺室內行幾分鐘。搭𨋢前後、茶水間來回，都算係俾身體郁返。覆 🚶，我當你行咗一圈。"},
+      {topic:"🥵 濕熱降溫提醒",category:"今日雨天",content:"又濕又熱最易令人冇精神。飲水、抹汗、鬆一鬆領口，唔好硬頂，身體會舒服返啲。覆 🥵，今日慢慢嚟都得。"},
+      {topic:"😴 雨天睡眠提醒",category:"今日雨天",content:"今晚濕氣重，瞓前開少少抽濕或者風扇，房間舒服啲，瞓得自然沉啲。覆 😴，今晚早少少收機。"},
+      {topic:"❤️ 今日溫柔收尾",category:"今日雨天",content:"今日天氣又濕又焗，已經唔容易。記得飲水、行慢啲、拉一拉筋，照顧自己就夠好。覆 ❤️，今日收尾算你叻。"},
+      {topic:"💧 起身第一杯水",category:"飲水",content:"起身第一件事唔係睇電話，係飲幾啖水。身體瞓咗成晚，先幫佢開機。飲完覆 💧。"},
+      {topic:"🪑 坐耐起身郁",category:"拉筋",content:"坐咗一個鐘就起身30秒，伸下腰、轉下膊。唔使流汗，重點係唔好俾身體生銹。覆 🪑，即刻起身。"},
+      {topic:"🥗 午餐後輕行",category:"恢復",content:"食完飯唔好即刻攤低，行5至10分鐘。消化順啲，下午冇咁易飯氣攻心。覆 🥗，我當你唔會即刻坐死。"},
+      {topic:"👣 腳踝小運動",category:"拉筋",content:"坐低都可以郁腳踝，順時針逆時針各轉10下。小動作，對小腿同循環好有幫助。做完覆 👣。"},
+      {topic:"🫁 深呼吸 Reset",category:"情緒",content:"覺得心煩或者攰，停一停，慢慢吸氣4秒、呼氣6秒，做3次。人會即刻定啲。覆 🫁，我陪你 reset。"},
+      {topic:"🧍 站姿提醒",category:"拉筋",content:"企立時唔好成日側埋一邊，兩腳平均踩地，肚微收。腰背會少啲投訴。覆 🧍，今日企返好。"},
+      {topic:"🍵 下午提神版",category:"飲水",content:"下午眼瞓未必一定要咖啡，先飲杯水再行兩分鐘。好多時係身體缺水同太耐冇郁。覆 🍵，唔好即刻衝去買咖啡。"},
+      {topic:"🧊 運動前熱身",category:"恢復",content:"開練前唔好即刻上重量，先做5分鐘熱身。關節醒咗，肌肉先識幫你出力。覆 🧊，今日唔准偷熱身。"},
+      {topic:"🍌 運動後補充",category:"恢復",content:"練完記得補水同食返少少蛋白質。肌肉唔係練嗰刻變強，係恢復嗰陣變強。覆 🍌，我當你有補。"},
+      {topic:"📱 手機頸提醒",category:"拉筋",content:"睇電話唔好成個頭跌落去，手機拎高少少。頸椎唔係吊機，唔好日日叫佢頂硬上。覆 📱，即刻調整。"},
+      {topic:"🛁 熱水沖涼放鬆",category:"恢復",content:"今日如果覺得肌肉緊，沖涼時用暖水淋下肩背同小腿。放鬆咗，瞓覺都舒服啲。覆 🛁，今晚做個簡單 recovery。"},
+      {topic:"🧠 小目標提醒",category:"情緒",content:"今日唔使追求完美，只要飲夠水、郁過、拉過少少，已經係有照顧自己。覆 🧠，今日完成小任務。"},
+      {topic:"🥱 午後疲勞關懷",category:"情緒",content:"下午攰係正常，唔代表你懶。起身伸一伸、飲啖水，俾身體重新入返狀態。覆 🥱，我准你攰但唔准放棄。"},
+      {topic:"🦵 小腿放鬆",category:"拉筋",content:"今日行得多，夜晚記得拉下小腿。腳跟踩低、身體微前，30秒就夠，聽日冇咁繃。做完覆 🦵。"},
+      {topic:"🥤 飲水打卡",category:"飲水",content:"而家望一望水樽，少過一半就飲幾啖。唔使一次飲好多，重點係唔好成日忘記。覆 🥤，報告今日第幾杯。"},
+      {topic:"🌙 睡前收工儀式",category:"睡眠",content:"瞓前30分鐘開始收慢，燈暗啲、電話放遠啲。身體收到訊號，就會易啲入睡。覆 🌙，今晚開始收工。"},
+      {topic:"🧩 壓力釋放",category:"情緒",content:"今日如果好多嘢諗，寫低三件要做嘅事就算。個腦唔使成晚幫你記住，瞓覺先放鬆。覆 🧩，將啲嘢放低先。"},
+      {topic:"🏠 屋企輕訓練",category:"恢復",content:"冇時間去 gym 都可以做10下深蹲、10下靠牆掌上壓。少少郁動，已經好過完全唔郁。完成覆 🏠。"},
+      {topic:"🧘‍♂️ 腰背保養",category:"拉筋",content:"腰背實唔一定要大力捽，先做貓牛式或者抱膝30秒。溫柔啲，身體先肯放鬆。做完覆 🧘‍♂️。"},
+      {topic:"💪 今日鼓勵版",category:"情緒",content:"你唔需要日日爆練先叫努力。肯飲水、肯郁、肯休息，已經係長期進步嘅底子。覆 💪，今日繼續行落去。"},
+      {topic:"😴 睡前關懷",category:"睡眠",content:"今晚唔好追劇追到太夜。11點前開始收機，身體修復力會好好多。聽朝醒得爽，運動都更有力。覆 😴。"},
+      {topic:"☀️ 朝早起身拉筋",category:"拉筋",content:"起身未？未郁之前喺床拉下小腿同後腰，30秒就夠。醒得快過飲咖啡。覆 ☀️，今日開機成功。"},
+      {topic:"💧 返工前飲水",category:"飲水",content:"出門前飲一杯水，當係俾腸胃嘅 morning call。全日狀態會爭好遠。覆 💧，唔好空肚乾塘出門。"},
+      {topic:"🚶 飯後散步",category:"恢復",content:"食完飯唔好即刻坐低，行5分鐘。幫助消化之餘，仲冇咁易飯氣攻心。覆 🚶，行咗先坐。"},
+      {topic:"😌 放工放鬆肩頸",category:"拉筋",content:"收工啦，膊頭係咪硬到似石頭？用熱毛巾敷下加輕輕打圈按，好快鬆返。覆 😌，今晚唔好帶住成日壓力返屋企。"},
+      {topic:"📺 夜晚煲劇拉筋",category:"拉筋",content:"一路煲劇一路拉大腿前後側，不知不覺拉完15分鐘。娛樂加保養一次過，抵到爛。覆 📺，今晚邊套劇配拉筋？"},
+      {topic:"🛌 瞓前關手機",category:"睡眠",content:"瞓前半個鐘放低電話，望下天花板發吓呆。睡眠質素好過你亂食 supplement。覆 🛌，今晚俾個腦收工。"},
+      {topic:"✈️ 長途車／飛機提醒",category:"恢復",content:"搭車搭飛機記得每45分鐘郁下腳腕同膝頭。防水腫，仲防腳痺。覆 ✈️，唔好坐到變石像。"},
+      {topic:"🥵 天氣熱飲水提醒",category:"飲水",content:"今日好熱，出汗多過平時。唔好等到口乾先飲，嗰時已經遲咗一步。覆 🥵，即刻補水。"},
+      {topic:"❤️ 身體疲勞關懷",category:"恢復",content:"呢幾日如果覺得攰，唔好夾硬做重訓。散步、拉筋、飲暖水已經好叻。覆 ❤️，今日用恢復模式。"},
+      {topic:"🌟 自我肯定收尾",category:"情緒",content:"你今日已經做得好好。飲咗水、郁過下、有休息，咁就夠，唔使完美。覆 🌟，今日收尾合格。"}
     ];
-
-    const grid = document.getElementById('messageGrid');
-    const usageKey = 'jeffreyReminderUsage_v1';
-    let currentData = messages;
-
-    function getUsageLog(){
-      try{
-        return JSON.parse(localStorage.getItem(usageKey)) || {};
-      }catch(e){
-        return {};
-      }
-    }
-
-    function saveUsageLog(log){
-      localStorage.setItem(usageKey, JSON.stringify(log));
-    }
-
-    function getMessageKey(item){
-      return btoa(unescape(encodeURIComponent(`${item.category}|${item.topic}|${item.content}`))).slice(0, 48);
-    }
-
-    function formatDateTime(value){
-      if(!value) return '';
-      const d = new Date(value);
-      return d.toLocaleString('zh-HK', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
-    }
-
-    function renderCards(data){
-      currentData = data;
-      const usageLog = getUsageLog();
-      grid.innerHTML = '';
-      data.forEach((item,index)=>{
-        const key = getMessageKey(item);
-        const usedInfo = usageLog[key];
-        const usedClass = usedInfo ? ' used' : '';
-        const usedBadge = usedInfo ? `<span class="used-badge">已用 ${usedInfo.count || 1}次</span>` : '';
-        const useMeta = usedInfo ? `<div class="use-meta">✅ 已 Copy 過｜最後使用：${formatDateTime(usedInfo.lastCopied)}</div>` : `<div class="use-meta" style="color:#9ca3af">未使用，可留意日後 housekeeping</div>`;
-        const buttonText = usedInfo ? `✅ 已用過 Copy (${usedInfo.count || 1})` : '📋 Copy';
-        grid.innerHTML += `
-          <article class="card${usedClass}" data-category="${item.category}" data-used="${usedInfo ? 'yes' : 'no'}">
-            <div>
-              <div class="card-number">Template ${index + 1}${usedBadge}</div>
-              <div class="topic">${item.topic}</div>
-              <div class="content" id="content-${index}">${item.content}</div>
-              ${useMeta}
-            </div>
-            <button class="copy-btn${usedClass}" onclick="copyText(${index}, this)">${buttonText}</button>
-          </article>`;
-      });
-    }
-
-    function copyText(index, button){
-      const item = currentData[index];
-      const text = item.content;
-      const key = getMessageKey(item);
-      const usageLog = getUsageLog();
-      const oldCount = usageLog[key]?.count || 0;
-      usageLog[key] = {
-        topic: item.topic,
-        category: item.category,
-        count: oldCount + 1,
-        lastCopied: new Date().toISOString()
-      };
-      saveUsageLog(usageLog);
-      navigator.clipboard.writeText(text);
-      button.innerText = `✅ 已複製・已用 ${oldCount + 1}次`;
-      button.classList.add('copy-success');
-      setTimeout(()=>renderCards(currentData),900);
-    }
-
-    function filterCards(category){
-      if(category === 'all'){
-        renderCards(messages);
-        return;
-      }
-      renderCards(messages.filter(m => m.category === category));
-    }
-
-    document.getElementById('searchInput').addEventListener('input', function(){
-      const keyword = this.value.toLowerCase();
-      const filtered = messages.filter(item =>
-        item.topic.toLowerCase().includes(keyword) ||
-        item.content.toLowerCase().includes(keyword) ||
-        item.category.toLowerCase().includes(keyword)
-      );
-      renderCards(filtered);
-    });
-
-    renderCards(messages);
+    let currentCategory='all';
+    const grid=document.getElementById('messageGrid');
+    const searchInput=document.getElementById('searchInput');
+    function getUsedMessages(){try{return JSON.parse(localStorage.getItem('usedJeffreyMessages')||'{}')}catch(e){return {}}}
+    function saveUsedMessages(data){localStorage.setItem('usedJeffreyMessages',JSON.stringify(data))}
+    function renderCards(){const keyword=searchInput.value.trim().toLowerCase();const used=getUsedMessages();grid.innerHTML='';messages.forEach((msg,index)=>{const combinedText=(msg.topic+' '+msg.category+' '+msg.content).toLowerCase();const matchCategory=currentCategory==='all'||msg.category===currentCategory;const matchSearch=!keyword||combinedText.includes(keyword);if(!matchCategory||!matchSearch)return;const card=document.createElement('div');const isNew=index<20;const isUsed=used[index];card.className='card'+(isNew?' new-template':'')+(isUsed?' used':'');const lastUsed=isUsed?'<span class="used-badge">已用</span>':'';const newTag=isNew?'<span class="tag">🔥 高回覆率 NEW</span>':'<span></span>';card.innerHTML=`<div><div class="card-number"><span>Template ${index+1} ${lastUsed}</span>${newTag}</div><div class="category">${msg.category}</div><div class="topic">${msg.topic}</div><div class="content">${msg.content}</div><div class="use-meta">${isUsed?'上次已 Copy，可留意避免重複使用':'未使用，可即刻貼去 WhatsApp'}</div></div><button class="copy-btn ${isUsed?'used':''}" onclick="copyMessage(${index},this)">📋 一鍵 Copy 去 WhatsApp</button>`;grid.appendChild(card)})}
+    function filterCards(category,btn){currentCategory=category;document.querySelectorAll('.category-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderCards()}
+    function copyMessage(index,button){const text=messages[index].content;navigator.clipboard.writeText(text).then(()=>{const used=getUsedMessages();used[index]=new Date().toISOString();saveUsedMessages(used);button.textContent='✅ 已 Copy';button.classList.add('copy-success');setTimeout(renderCards,800)}).catch(()=>{const textarea=document.createElement('textarea');textarea.value=text;document.body.appendChild(textarea);textarea.select();document.execCommand('copy');document.body.removeChild(textarea);button.textContent='✅ 已 Copy';setTimeout(renderCards,800)})}
+    searchInput.addEventListener('input',renderCards);renderCards();
   </script>
 </body>
 </html>
