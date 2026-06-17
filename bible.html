@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>聖經金句・每日祝福短訊</title>
+  <title>聖經金句・每日祝福短訊 v2.1</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
     body{background:#f5f7fb;color:#222;padding:18px;line-height:1.7}
@@ -15,13 +15,12 @@
 </head>
 <body>
   <div class="loading" id="loadingBox">
-    <h1>📖 聖經金句・每日祝福短訊</h1>
+    <h1>📖 聖經金句・每日祝福短訊 v2.1</h1>
     <p>正在載入完整祝福庫，包括新增「家人」分類...</p>
   </div>
 
   <script>
     const baseBlobApi = 'https://api.github.com/repos/hudsonmar-852/Jeffrey/git/blobs/a074a93be695f79519206da063c6c2d484d7fca9';
-
     const familyMessages = [
       {topic:"家人｜主保守一家",category:"家人",verse:"至於我和我家，我們必定事奉耶和華。",ref:"約書亞記 24:15",context:"約書亞帶領以色列人重新立志跟隨神。",explain:"一個家庭未必要樣樣完美，但當一家人願意倚靠神，神會慢慢整理關係、心情同方向。",blessing:"願主今日保守你同你屋企人，彼此扶持、彼此體諒，一家平安喜樂。阿們。"},
       {topic:"家人｜父母健康平安",category:"家人",verse:"要孝敬父母，使你得福，在世長壽。",ref:"以弗所書 6:2-3",context:"保羅提醒信徒孝敬父母係神所喜悅嘅事。",explain:"孝敬唔只係責任，也係珍惜神放喺生命入面嘅家人。為父母祝福，係一份愛嘅表達。",blessing:"願主保守你父母身體健康、心裡平安，每日都有主嘅恩典同看顧。阿們。"},
@@ -55,6 +54,7 @@
 
     function injectFamilyContent(html){
       let updated = html;
+      updated = updated.replace(/v2\.0/g, 'v2.1');
       updated = updated.replace('<button class="category-btn" onclick="filterCards(\'友情支持\')">友情支持</button>', '<button class="category-btn" onclick="filterCards(\'友情支持\')">友情支持</button>\n      <button class="category-btn" onclick="filterCards(\'家人\')">家人</button>');
       const insertText = ',\n' + familyMessages.map(item => `      ${JSON.stringify(item)}`).join(',\n');
       updated = updated.replace(/(\n\s*\];\s*\n\n\s*const grid = document\.getElementById\('messageGrid'\);)/, insertText + '$1');
