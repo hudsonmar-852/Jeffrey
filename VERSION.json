@@ -10,14 +10,14 @@
     "language": "zh-HK",
     "encoding": "UTF-8",
     "viewport": "responsive mobile first",
-    "loader_pattern": "standard shell loads locked GitHub blob, then applies safe page-level patches",
+    "loader_pattern": "standard shell loads locked GitHub blob, then applies safe page-level patches where suitable",
     "error_handling": "visible fallback error box",
     "metadata": ["app-version", "last-updated"]
   },
   "pages": {
     "index.html": "v3.0 standardized loader shell",
     "gym.html": "v3.0 standardized loader shell",
-    "gym_m.html": "pending retry due connector write block",
+    "gym_m.html": "v3.0 standardized version page with links",
     "bible.html": "v2.1 existing loader pattern reference"
   }
 }
