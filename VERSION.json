@@ -1,0 +1,23 @@
+{
+  "repo": "hudsonmar-852/Jeffrey",
+  "version": "3.0",
+  "versioning_rule": {
+    "major": "+1 for big structure, UX, content system or repo-wide changes",
+    "minor": "+0.1 for normal content, wording, small UI or page updates"
+  },
+  "last_updated": "2026-06-17",
+  "standard_structure": {
+    "language": "zh-HK",
+    "encoding": "UTF-8",
+    "viewport": "responsive mobile first",
+    "loader_pattern": "standard shell loads locked GitHub blob, then applies safe page-level patches",
+    "error_handling": "visible fallback error box",
+    "metadata": ["app-version", "last-updated"]
+  },
+  "pages": {
+    "index.html": "v3.0 standardized loader shell",
+    "gym.html": "v3.0 standardized loader shell",
+    "gym_m.html": "pending retry due connector write block",
+    "bible.html": "v2.1 existing loader pattern reference"
+  }
+}
