@@ -6,333 +6,81 @@
   <title>聖經金句・每日祝福短訊</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
-    body{background:#f5f7fb;color:#222;padding:14px;line-height:1.7}
-    .container{max-width:1100px;margin:auto}
-    .hero{text-align:center;margin-bottom:12px}
-    .hero h1{font-size:1.75rem;margin-bottom:6px;color:#111827}
-    .hero p{color:#6b7280;font-size:1rem}
-    .library-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0 0 12px}
-    .meta-item{background:white;border-radius:14px;padding:9px 12px;box-shadow:0 3px 10px rgba(0,0,0,.06);color:#374151}
-    .meta-item strong{display:block;color:#111827;font-size:13px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
-    .search-box{display:none;margin-bottom:0}
-    .search-box input{width:100%;padding:16px;border-radius:16px;border:none;outline:none;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-    .category-buttons{display:flex;flex-wrap:wrap;gap:6px;overflow-x:visible;margin-bottom:12px;padding-bottom:0}
-    .category-btn{border:none;background:white;padding:7px 11px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.07);white-space:nowrap;transition:.2s;font-weight:600;color:#374151;font-size:13px}
-    .category-btn:hover,.category-btn.active{background:#111827;color:white}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
-    .card{background:white;border-radius:24px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .2s ease, background .2s ease, border .2s ease;display:flex;flex-direction:column;justify-content:space-between;border:2px solid transparent}
-    .card:hover{transform:translateY(-4px)}
-    .card.used{background:#ecfdf5;border-color:#16a34a;box-shadow:0 8px 24px rgba(22,163,74,.18)}
-    .card-number{font-size:13px;color:#9ca3af;margin-bottom:10px}
-    .category-badge{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:800;margin-left:6px}
-    .used-badge{display:inline-block;margin-left:6px;background:#16a34a;color:white;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
-    .topic{font-size:1.22rem;font-weight:800;margin-bottom:12px;color:#111827}
-    .section-title{font-weight:800;color:#111827;margin:12px 0 4px}
-    .content{line-height:1.85;color:#374151;margin-bottom:12px;white-space:pre-wrap}
-    .ref{font-weight:700;color:#4b5563;margin-top:6px}
-    .use-meta{font-size:12px;color:#047857;margin-bottom:16px;font-weight:600}
-    .copy-btn{background:#111827;color:white;border:none;border-radius:14px;padding:14px;cursor:pointer;font-size:15px;font-weight:600;transition:.2s}
-    .copy-btn:hover{opacity:.9}.copy-success{background:#16a34a!important}.copy-btn.used{background:#047857}
-    footer{text-align:center;margin-top:28px;color:#9ca3af;font-size:13px}
-    @media(max-width:768px){body{padding:10px}.hero{margin-bottom:8px}.hero h1{font-size:1.32rem;margin-bottom:2px}.hero p{display:none}.library-meta{grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.library-meta .meta-item:nth-child(2),.library-meta .meta-item:nth-child(4){display:none}.meta-item{padding:7px 9px;border-radius:11px;font-size:13px}.meta-item strong{font-size:11px;margin-bottom:1px}.search-box{display:none}.category-buttons{display:flex;flex-wrap:wrap;overflow-x:visible;gap:5px;margin-bottom:9px;padding-bottom:0}.category-btn{padding:5px 8px;font-size:12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}.grid{grid-template-columns:1fr;gap:12px}.card{padding:15px;border-radius:18px}.card-number{font-size:12px;margin-bottom:6px}.topic{font-size:1.05rem;margin-bottom:7px}.section-title{margin:7px 0 2px}.content{line-height:1.6;margin-bottom:7px}.copy-btn{padding:10px;border-radius:12px}}
+    body{background:#f5f7fb;color:#222;padding:18px;line-height:1.7}
+    .loading{max-width:760px;margin:12vh auto;background:white;border-radius:22px;padding:26px;box-shadow:0 8px 26px rgba(0,0,0,.08)}
+    .loading h1{font-size:1.45rem;margin-bottom:8px;color:#111827}
+    .loading p{color:#6b7280;margin-bottom:10px}
+    .error{color:#b91c1c;background:#fef2f2;border-radius:14px;padding:12px;margin-top:12px}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="hero">
-      <h1>📖 聖經金句・每日祝福短訊</h1>
-      <p>繁體中文・廣東話解說・可一鍵複製分享</p>
-    </header>
-
-    <section class="library-meta">
-      <div class="meta-item"><strong>Version</strong>v2.0</div>
-      <div class="meta-item"><strong>Total Entries</strong><span id="totalEntries">161</span></div>
-      </section>
-
-    <div class="category-buttons">
-      <button class="category-btn" onclick="filterCards('all')">全部</button>
-      <button class="category-btn" onclick="filterCards('喜樂')">喜樂</button>
-      <button class="category-btn" onclick="filterCards('平安')">平安</button>
-      <button class="category-btn" onclick="filterCards('信心')">信心</button>
-      <button class="category-btn" onclick="filterCards('盼望')">盼望</button>
-      <button class="category-btn" onclick="filterCards('愛')">愛</button>
-      <button class="category-btn" onclick="filterCards('力量')">力量</button>
-      <button class="category-btn" onclick="filterCards('禱告')">禱告</button>
-      <button class="category-btn" onclick="filterCards('早晨')">早晨</button>
-      <button class="category-btn" onclick="filterCards('晚安')">晚安</button>
-      <button class="category-btn" onclick="filterCards('焦慮')">焦慮</button>
-      <button class="category-btn" onclick="filterCards('病痛')">病痛</button>
-      <button class="category-btn" onclick="filterCards('醫治')">醫治</button>
-      <button class="category-btn" onclick="filterCards('失戀')">失戀</button>
-      <button class="category-btn" onclick="filterCards('關係')">關係</button>
-      <button class="category-btn" onclick="filterCards('工作')">工作</button>
-      <button class="category-btn" onclick="filterCards('感恩')">感恩</button>
-      <button class="category-btn" onclick="filterCards('生日')">生日</button>
-      <button class="category-btn" onclick="filterCards('鼓勵')">鼓勵</button>
-      <button class="category-btn" onclick="filterCards('友情支持')">友情支持</button>
-    </div>
-
-    <main class="grid" id="messageGrid"></main>
-
-    <footer>Daily Support Bible Library v2.0｜長按或按 Copy 即可複製內容分享 💬</footer>
+  <div class="loading" id="loadingBox">
+    <h1>📖 聖經金句・每日祝福短訊</h1>
+    <p>正在載入完整祝福庫，包括新增「家人」分類...</p>
   </div>
 
-  <div class="search-box"><input id="searchInput" placeholder="搜尋..." /></div><script>
-    const messages = [
-      {topic:"常常喜樂",category:"喜樂",verse:"要常常喜樂，不住的禱告，凡事謝恩；因為這是神在基督耶穌裡向你們所定的旨意。",ref:"帖撒羅尼迦前書 5:16-18",context:"使徒保羅寫畀帖撒羅尼迦教會嘅勉勵。",explain:"喜樂唔係因為環境完美，而係因為人在基督裡有真正倚靠。禱告同感恩，幫我哋喺每日生活入面重新對準神。",blessing:"願你今日無論遇到咩環境，心裡都有主賜嘅喜樂，凡事學識交託同感恩。阿們。"},
-      {topic:"出人意外的平安",category:"平安",verse:"神所賜出人意外的平安，必在基督耶穌裡保守你們的心懷意念。",ref:"腓立比書 4:7",context:"保羅提醒信徒用禱告交託憂慮。",explain:"神嘅平安唔一定即刻改變環境，但會先保守人嘅心，等人唔被恐懼拉走。",blessing:"願主今日保守你嘅心同思想，即使有壓力，都有一份從神而來嘅安穩。阿們。"},
-      {topic:"耶和華是我的牧者",category:"平安",verse:"耶和華是我的牧者，我必不至缺乏。",ref:"詩篇 23:1",context:"大衛以牧羊人圖像形容神嘅看顧。",explain:"神唔只係供應者，亦係引導者。祂知道我哋真正需要咩，也知道點樣帶我哋行。",blessing:"願你今日深知道主親自牧養你，所需用嘅，祂會按時供應。阿們。"},
-      {topic:"你們要剛強壯膽",category:"力量",verse:"你當剛強壯膽，不要懼怕，也不要驚惶；因為你無論往哪裡去，耶和華你的神必與你同在。",ref:"約書亞記 1:9",context:"神呼召約書亞帶領以色列人進入應許之地。",explain:"剛強唔係冇驚，而係知道神同在，所以可以繼續行下一步。",blessing:"願你今日有勇氣面對要面對嘅事，因為神與你同在。阿們。"},
-      {topic:"凡事都能做",category:"力量",verse:"我靠著那加給我力量的，凡事都能做。",ref:"腓立比書 4:13",context:"保羅講自己無論豐富或缺乏，都學識靠主。",explain:"呢句唔係自我膨脹，而係提醒人：真正力量來自基督，使人能忍耐、順服同堅持。",blessing:"願主今日加你力量，唔係靠硬撐，而係靠基督一步一步行。阿們。"},
-      {topic:"不要憂慮",category:"信心",verse:"所以，不要為明天憂慮；因為明天自有明天的憂慮。",ref:"馬太福音 6:34",context:"耶穌登山寶訓中教導門徒信靠天父。",explain:"耶穌唔係叫人逃避責任，而係唔好俾明日嘅未知偷走今日嘅平安。",blessing:"願你今日只拿起今日需要承擔嘅事，其餘交畀天父。阿們。"},
-      {topic:"先求神的國",category:"信心",verse:"你們要先求他的國和他的義，這些東西都要加給你們了。",ref:"馬太福音 6:33",context:"耶穌提醒人唔好被衣食憂慮主導生命。",explain:"當人先對準神，生活嘅次序就會被重新整理；需要嘅，神知道。",blessing:"願你今日先尋求神，讓祂整理你嘅心、決定同方向。阿們。"},
-      {topic:"主是道路真理生命",category:"信心",verse:"我就是道路、真理、生命；若不藉著我，沒有人能到父那裡去。",ref:"約翰福音 14:6",context:"耶穌安慰門徒，指出通往父神嘅路。",explain:"信仰唔只係道理，而係跟隨一位又真又活嘅主。耶穌親自成為人回到父面前嘅道路。",blessing:"願你今日唔迷失方向，因為主耶穌親自帶你行真理同生命嘅路。阿們。"},
-      {topic:"神愛世人",category:"愛",verse:"神愛世人，甚至將他的獨生子賜給他們。",ref:"約翰福音 3:16",context:"耶穌向尼哥底母講述神救贖世人嘅愛。",explain:"神嘅愛唔係抽象感覺，而係透過耶穌基督真實給出自己。",blessing:"願你今日重新記得：你係被神愛住嘅人，祂嘅愛比你嘅狀態更穩。阿們。"},
-      {topic:"彼此相愛",category:"愛",verse:"我賜給你們一條新命令，乃是叫你們彼此相愛。",ref:"約翰福音 13:34",context:"耶穌臨別前教導門徒彼此相愛。",explain:"基督徒嘅愛唔只係禮貌，而係以基督愛我哋嘅方式去學習愛人。",blessing:"願主今日幫你用溫柔、忍耐同真誠去愛身邊嘅人。阿們。"},
-      {topic:"愛是恆久忍耐",category:"愛",verse:"愛是恆久忍耐，又有恩慈。",ref:"哥林多前書 13:4",context:"保羅向哥林多教會講解真正屬神嘅愛。",explain:"真正嘅愛唔係一時感覺，而係願意忍耐、恩慈同放低自我中心。",blessing:"願你今日喺關係入面經歷神嘅愛，也用恩慈回應人。阿們。"},
-      {topic:"將重擔卸給主",category:"平安",verse:"你們要將一切的憂慮卸給神，因為他顧念你們。",ref:"彼得前書 5:7",context:"彼得鼓勵受苦信徒謙卑倚靠神。",explain:"卸下憂慮唔係假裝冇事，而係相信神真係顧念我哋，可以承擔我哋承擔唔到嘅重。",blessing:"願你今日將心入面最重嗰件事交畀主，經歷祂顧念你。阿們。"},
-      {topic:"疲乏的得能力",category:"力量",verse:"疲乏的，他賜能力；軟弱的，他加力量。",ref:"以賽亞書 40:29",context:"先知以賽亞安慰神嘅子民，提醒神永不疲乏。",explain:"人會累、會軟弱，但神嘅力量唔會枯乾。承認軟弱，反而係重新倚靠神嘅開始。",blessing:"願主今日加你力量，特別喺你覺得撐唔住嘅地方扶住你。阿們。"},
-      {topic:"如鷹展翅",category:"盼望",verse:"但那等候耶和華的，必重新得力。",ref:"以賽亞書 40:31",context:"以賽亞鼓勵人等候神，重新得著力量。",explain:"等候唔係浪費時間，而係喺神面前重新得力，等祂嘅時間同方向成就。",blessing:"願你今日喺等候中唔灰心，主會使你重新得力。阿們。"},
-      {topic:"主賜安息",category:"平安",verse:"凡勞苦擔重擔的人，可以到我這裡來，我就使你們得安息。",ref:"馬太福音 11:28",context:"耶穌邀請疲累的人到祂面前得安息。",explain:"真正安息唔只係休息時間，而係將生命嘅重擔帶到耶穌面前。",blessing:"願你今日唔再一個人硬撐，來到主面前得安息。阿們。"},
-      {topic:"清心的人有福",category:"信心",verse:"清心的人有福了，因為他們必得見神。",ref:"馬太福音 5:8",context:"耶穌登山寶訓中宣告天國子民嘅福氣。",explain:"清心係單純向著神，不被太多雜念、私慾同恐懼拉走。",blessing:"願主今日潔淨你嘅心，讓你更清楚看見祂嘅同在。阿們。"},
-      {topic:"神的話是腳前燈",category:"信心",verse:"你的話是我腳前的燈，是我路上的光。",ref:"詩篇 119:105",context:"詩人讚美神話語對生命道路嘅引導。",explain:"神嘅話未必一次照晒成條路，但會照亮眼前下一步，夠我哋繼續行。",blessing:"願神今日用祂嘅話引導你每一步，使你唔失腳。阿們。"},
-      {topic:"信就是所望之事",category:"信心",verse:"信就是所望之事的實底，是未見之事的確據。",ref:"希伯來書 11:1",context:"希伯來書講述歷代信心見證人。",explain:"信心唔係盲目樂觀，而係因為神可信，所以未見到都可以交託。",blessing:"願你今日喺未完全看見答案之前，仍然因信靠神而站立得穩。阿們。"},
-      {topic:"不要怕，只要信",category:"信心",verse:"不要怕，只要信！",ref:"馬可福音 5:36",context:"耶穌鼓勵睚魯，在絕望消息中繼續相信。",explain:"恐懼會叫人停低，但主嘅說話叫人繼續相信祂能作工。",blessing:"願主今日對你心講：不要怕，只要信。祂仍然掌權。阿們。"},
-      {topic:"神是避難所",category:"平安",verse:"神是我們的避難所，是我們的力量，是我們在患難中隨時的幫助。",ref:"詩篇 46:1",context:"詩人宣告神在動盪中仍然可靠。",explain:"神唔係遠處觀望，而係患難中隨時可尋求嘅幫助。",blessing:"願你今日遇到不安時，第一時間想起神是你嘅避難所。阿們。"},
-      {topic:"主必指引你的路",category:"信心",verse:"你要專心仰賴耶和華，不可倚靠自己的聰明。",ref:"箴言 3:5-6",context:"箴言教導人以敬畏神作人生智慧。",explain:"人嘅聰明有限，但神看見全局。專心仰賴祂，路就會慢慢被修直。",blessing:"願你今日嘅決定有神引導，唔只靠自己想法行事。阿們。"},
-      {topic:"新的創造",category:"盼望",verse:"若有人在基督裡，他就是新造的人，舊事已過，都變成新的了。",ref:"哥林多後書 5:17",context:"保羅講述人在基督裡得著新身份。",explain:"信主唔只係改良自己，而係在基督裡有新生命、新身份同新開始。",blessing:"願你今日唔被過去定義，因為你在基督裡已經有新開始。阿們。"},
-      {topic:"主的恩典夠用",category:"力量",verse:"我的恩典夠你用的，因為我的能力是在人的軟弱上顯得完全。",ref:"哥林多後書 12:9",context:"保羅求主挪走刺，主卻用恩典扶持他。",explain:"神有時未必即刻除去困難，但祂嘅恩典足夠托住人經過。",blessing:"願你今日喺軟弱中經歷主足夠嘅恩典。阿們。"},
-      {topic:"靠主喜樂",category:"喜樂",verse:"你們要靠主常常喜樂。我再說，你們要喜樂。",ref:"腓立比書 4:4",context:"保羅在監牢中仍勸信徒靠主喜樂。",explain:"靠主喜樂唔係情緒表演，而係在基督裡有一份比環境更深嘅盼望。",blessing:"願你今日嘅喜樂唔被環境奪走，因為主仍與你同在。阿們。"},
-      {topic:"凡事禱告",category:"禱告",verse:"應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。",ref:"腓立比書 4:6",context:"保羅教導信徒用禱告處理掛慮。",explain:"禱告唔係最後方法，而係第一個轉向神嘅動作。掛慮可以變成禱告。",blessing:"願你今日將所有擔心變成禱告，親自告訴神。阿們。"},
-      {topic:"尋找就尋見",category:"禱告",verse:"你們尋求我，若專心尋求我，就必尋見。",ref:"耶利米書 29:13",context:"神透過耶利米應許被擄子民仍可尋見祂。",explain:"即使人在低谷，只要真心尋求神，神並不遠離。",blessing:"願你今日用真心尋求主，並經歷祂親近你。阿們。"},
-      {topic:"主必成全關乎我的事",category:"盼望",verse:"耶和華必成全關乎我的事。",ref:"詩篇 138:8",context:"大衛稱謝神慈愛信實，深信神必完成祂的工作。",explain:"神開始嘅工作，祂會負責帶到成全；人可以信靠祂嘅信實。",blessing:"願你今日相信，神仍在你生命中工作，祂必成全關乎你嘅事。阿們。"},
-      {topic:"萬事互相效力",category:"盼望",verse:"萬事都互相效力，叫愛神的人得益處。",ref:"羅馬書 8:28",context:"保羅講神對屬祂之人救贖計劃嘅確據。",explain:"唔係每件事本身都好，但神能夠使用一切，成就更深嘅益處。",blessing:"願你今日即使未明白，都相信神能將困難轉化成祝福。阿們。"},
-      {topic:"主愛永不隔絕",category:"愛",verse:"無論是死，是生……都不能叫我們與神的愛隔絕；這愛是在我們的主基督耶穌裡的。",ref:"羅馬書 8:38-39",context:"保羅宣告神在基督裡嘅愛堅定不移。",explain:"神嘅愛唔會因外在環境或人生高低而中斷，因為根基在基督裡。",blessing:"願你今日深信：冇任何事可以使你與神嘅愛隔絕。阿們。"},
-      {topic:"慈愛永遠長存",category:"愛",verse:"你們要稱謝耶和華，因他本為善；他的慈愛永遠長存。",ref:"詩篇 136:1",context:"詩篇以重複句式帶領人記念神長存嘅慈愛。",explain:"人嘅感覺會變，但神嘅慈愛永遠長存，值得每日重新稱謝。",blessing:"願你今日喺平凡事上看見神嘅善，心裡重新發出感謝。阿們。"},
-      {topic:"主與傷心人同在",category:"平安",verse:"耶和華靠近傷心的人，拯救靈性痛悔的人。",ref:"詩篇 34:18",context:"大衛在患難中經歷神拯救後所寫。",explain:"神唔輕看破碎嘅心，反而特別靠近受傷、痛悔、需要安慰嘅人。",blessing:"願你今日知道，主靠近你最脆弱嘅地方，祂親自安慰你。阿們。"},
-      {topic:"凡事都有定期",category:"盼望",verse:"凡事都有定期，天下萬務都有定時。",ref:"傳道書 3:1",context:"傳道者提醒人，生命中不同季節都在神掌管之下。",explain:"人生有高低、有等待、有轉變，但神知道每一個時間點。信靠祂，就唔需要急住掌控所有事。",blessing:"願你今日相信，每個季節都有神嘅安排，祂嘅時間最合適。阿們。"},
-      {topic:"神使萬事美好",category:"盼望",verse:"神造萬物，各按其時成為美好。",ref:"傳道書 3:11",context:"傳道者反思人生時間與神永恆計劃。",explain:"有啲事今日未必睇得明，但神可以喺合適時間，使破碎、等待同經歷成為美好。",blessing:"願你今日唔因暫時未見答案而灰心，深信神會按時成就美好。阿們。"},
-      {topic:"不要效法世界",category:"信心",verse:"不要效法這個世界，只要心意更新而變化。",ref:"羅馬書 12:2",context:"保羅勸信徒將生命獻給神，活出更新嘅人生。",explain:"信仰唔只係外面行為改變，而係心思被神更新，慢慢學識用神眼光睇自己同世界。",blessing:"願主今日更新你嘅心思意念，幫你作出合神心意嘅選擇。阿們。"},
-      {topic:"行善不可喪志",category:"力量",verse:"我們行善，不可喪志；若不灰心，到了時候就要收成。",ref:"加拉太書 6:9",context:"保羅鼓勵信徒持續活出愛與善行。",explain:"做好事有時未必即刻見成果，但神看見每一份忠心。唔灰心，本身就係信心嘅操練。",blessing:"願你今日有力量繼續做對嘅事，到了時候必有神所賜嘅收成。阿們。"},
-      {topic:"神必供應",category:"平安",verse:"我的神必照他榮耀的豐富，在基督耶穌裡，使你們一切所需用的都充足。",ref:"腓立比書 4:19",context:"保羅感謝腓立比教會供應，同時宣告神嘅豐富。",explain:"神知道我哋真正需要咩。祂嘅供應未必照我哋想像，但一定按祂嘅智慧同慈愛。",blessing:"願你今日放心信靠主，祂知道你所需，並會按時供應。阿們。"},
-      {topic:"主是我的亮光",category:"平安",verse:"耶和華是我的亮光，是我的拯救，我還怕誰呢？",ref:"詩篇 27:1",context:"大衛在危難中宣告對神嘅信靠。",explain:"當神成為亮光，黑暗就唔再係最後答案；當神成為拯救，恐懼就唔能夠作主。",blessing:"願你今日喺不安中看見主嘅光，心裡重新有膽量。阿們。"},
-      {topic:"等候神",category:"盼望",verse:"我的心哪，你當默默無聲，專等候神，因為我的盼望是從他而來。",ref:"詩篇 62:5",context:"詩人在壓力中提醒自己安靜等候神。",explain:"等候神唔係被動，而係將心從焦急拉回神面前，重新記得盼望從祂而來。",blessing:"願你今日嘅心安靜下來，喺等候中重新得著盼望。阿們。"},
-      {topic:"神顧念我",category:"平安",verse:"我未成形的體質，你的眼早已看見了。",ref:"詩篇 139:16",context:"大衛讚嘆神對人生命深切認識。",explain:"神對你嘅認識唔係表面。你未講出口嘅需要、未整理好嘅感受，祂都知道。",blessing:"願你今日知道自己被神看見、被神記念、被神深深顧念。阿們。"},
-      {topic:"祂必不撇下你",category:"信心",verse:"你們存心不可貪愛錢財，要以自己所有的為足；因為主曾說：「我總不撇下你，也不丟棄你。」",ref:"希伯來書 13:5",context:"希伯來書提醒信徒以神同在為真正安全感。",explain:"真正安全感唔只來自擁有幾多，而係知道主永遠唔會放棄屬祂嘅人。",blessing:"願你今日因主同在而安穩，知道祂總不撇下你。阿們。"},
-      {topic:"主使我安然居住",category:"平安",verse:"我必安然躺下睡覺，因為獨有你耶和華使我安然居住。",ref:"詩篇 4:8",context:"大衛在壓力中仍向神禱告，得著安息。",explain:"安睡唔係因為所有問題已解決，而係知道神仍掌管，祂守護我哋嘅夜晚。",blessing:"願你今晚心裡放低重擔，在主裡安然休息。阿們。"},
-      {topic:"主是我的幫助",category:"力量",verse:"我要向山舉目；我的幫助從何而來？我的幫助從造天地的耶和華而來。",ref:"詩篇 121:1-2",context:"詩人上行途中宣告神係真正幫助。",explain:"人會有限，環境會搖動，但創造天地嘅主唔受限制，祂係我哋隨時嘅幫助。",blessing:"願你今日抬頭仰望神，知道真正幫助從祂而來。阿們。"},
-      {topic:"愛裡沒有懼怕",category:"愛",verse:"愛裡沒有懼怕；愛既完全，就把懼怕除去。",ref:"約翰一書 4:18",context:"約翰教導信徒認識神完全嘅愛。",explain:"神嘅愛唔係令人更驚，而係慢慢醫治人心入面嘅恐懼，叫人敢於親近祂。",blessing:"願你今日被神完全嘅愛包圍，心入面嘅懼怕被祂挪開。阿們。"},
-      {topic:"我們愛因神先愛",category:"愛",verse:"我們愛，因為神先愛我們。",ref:"約翰一書 4:19",context:"約翰說明信徒愛人嘅根源來自神。",explain:"愛人唔係靠自己硬擠出來，而係先領受神嘅愛，再學習用祂嘅愛回應人。",blessing:"願你今日先被神愛充滿，再有力量溫柔咁愛身邊嘅人。阿們。"},
-      {topic:"神所賜的靈",category:"力量",verse:"因為神賜給我們不是膽怯的心，乃是剛強、仁愛、謹守的心。",ref:"提摩太後書 1:7",context:"保羅鼓勵提摩太唔好因困難而退縮。",explain:"神唔係叫人硬撐，而係賜下剛強、仁愛同清醒嘅心，幫人穩住方向。",blessing:"願你今日唔被膽怯控制，靠主活出剛強、仁愛同謹守。阿們。"},
-      {topic:"靠主站立得穩",category:"信心",verse:"你們務要警醒，在真道上站立得穩，要作大丈夫，要剛強。",ref:"哥林多前書 16:13",context:"保羅在書信結尾勉勵教會持守信仰。",explain:"站穩唔代表冇壓力，而係喺壓力入面仍然記得真理，唔輕易被環境推走。",blessing:"願你今日在真道上站穩，心裡有從主而來嘅剛強。阿們。"},
-      {topic:"神是信實的",category:"信心",verse:"那召你們的本是信實的，他必成就這事。",ref:"帖撒羅尼迦前書 5:24",context:"保羅提醒信徒，神會親自完成祂嘅工作。",explain:"我哋嘅信心有時會軟弱，但神嘅信實唔會改變。祂呼召，也會負責帶領。",blessing:"願你今日唔只望住自己能力，而係信靠那位信實嘅主。阿們。"},
-      {topic:"主的慈愛每早晨都是新的",category:"盼望",verse:"每早晨，這都是新的；你的誠實極其廣大！",ref:"耶利米哀歌 3:23",context:"先知在苦難中仍記得神嘅慈愛與信實。",explain:"昨日嘅失敗同眼淚唔係最後一句。每一個早晨，神都用新恩典重新扶起人。",blessing:"願你今日醒來就經歷主新鮮嘅恩典，重新有盼望。阿們。"},
-      {topic:"求主指教我們數算日子",category:"信心",verse:"求你指教我們怎樣數算自己的日子，好叫我們得著智慧的心。",ref:"詩篇 90:12",context:"摩西求神教導人正確看待生命有限。",explain:"數算日子唔係令人悲觀，而係提醒我哋把時間放喺真正重要嘅事上。",blessing:"願主今日賜你智慧，懂得善用時間，活出有重量嘅一天。阿們。"},
-      {topic:"主醫治傷心的人",category:"平安",verse:"他醫好傷心的人，裹好他們的傷處。",ref:"詩篇 147:3",context:"詩篇讚美神重建與醫治祂嘅子民。",explain:"神唔只看見外面嘅需要，也溫柔處理人心入面嘅傷口。祂嘅醫治有時間、有恩典。",blessing:"願你今日把傷處交畀主，讓祂慢慢醫治同包紮你。阿們。"},
-      {topic:"向神傾心吐意",category:"禱告",verse:"你們眾民當時時倚靠他，在他面前傾心吐意。",ref:"詩篇 62:8",context:"詩人呼籲神嘅百姓把心交託神。",explain:"禱告唔需要包裝得好完美，可以真實咁向神講出驚、累、委屈同盼望。",blessing:"願你今日敢在神面前傾心吐意，經歷祂作你嘅避難所。阿們。"},
-      {topic:"求就給你們",category:"禱告",verse:"你們祈求，就給你們；尋找，就尋見；叩門，就給你們開門。",ref:"馬太福音 7:7",context:"耶穌鼓勵門徒以信心親近天父。",explain:"神唔係冷漠嘅父。祂邀請我哋求、尋找、叩門，用信心同祂建立真實關係。",blessing:"願你今日帶著信心向主祈求，相信天父聽見你嘅聲音。阿們。"},
-      {topic:"主知道你們需用",category:"平安",verse:"你們沒有祈求以先，你們所需用的，你們的父早已知道了。",ref:"馬太福音 6:8",context:"耶穌教導門徒禱告時唔需要假裝或重複堆砌說話。",explain:"禱告唔係通知神，而係回到天父面前。祂早已知道，只係等我哋親近祂。",blessing:"願你今日放心親近天父，知道祂早已明白你真正需要。阿們。"},
-      {topic:"主的軛是容易的",category:"平安",verse:"因為我的軛是容易的，我的擔子是輕省的。",ref:"馬太福音 11:30",context:"耶穌邀請人跟隨祂，得著真正安息。",explain:"跟隨主唔係加重枷鎖，而係學習用祂嘅方式承擔生命，重擔會變得有恩典。",blessing:"願你今日唔再孤單背負一切，在主裡得著輕省。阿們。"},
-      {topic:"聽道也要行道",category:"信心",verse:"只是你們要行道，不要單單聽道，自己欺哄自己。",ref:"雅各書 1:22",context:"雅各提醒信徒信仰要落實喺生活行動。",explain:"神嘅話唔只係聽完覺得好，而係一步步實行，讓生命真正被改變。",blessing:"願你今日唔只聽見神嘅話，也有勇氣行出下一步。阿們。"},
-      {topic:"忍受試探的人有福",category:"力量",verse:"忍受試探的人是有福的，因為他經過試驗以後，必得生命的冠冕。",ref:"雅各書 1:12",context:"雅各鼓勵受試煉嘅信徒持守到底。",explain:"試煉唔舒服，但忍耐中會煉出更深嘅信心。神看見每一次你仍選擇站穩。",blessing:"願你今日喺試煉中不放棄，靠主得勝。阿們。"},
-      {topic:"主看顧謙卑人",category:"盼望",verse:"神阻擋驕傲的人，賜恩給謙卑的人。",ref:"雅各書 4:6",context:"雅各提醒信徒謙卑親近神。",explain:"謙卑唔係睇低自己，而係承認需要神，願意畀祂調整生命方向。",blessing:"願你今日以謙卑嘅心親近主，領受祂所賜嘅恩典。阿們。"},
-      {topic:"好牧人為羊捨命",category:"愛",verse:"我是好牧人；好牧人為羊捨命。",ref:"約翰福音 10:11",context:"耶穌用牧人圖像講明自己對羊嘅愛與拯救。",explain:"主唔係僱工式關心，而係願意為羊付上生命。你對祂而言係被愛、被尋回嘅人。",blessing:"願你今日記得，主耶穌係好牧人，祂用生命愛你到底。阿們。"},
-      {topic:"住在主愛裡",category:"愛",verse:"你們要常在我的愛裡。",ref:"約翰福音 15:9",context:"耶穌臨別前教導門徒住在祂嘅愛入面。",explain:"信仰唔只係做更多，而係先住在主愛裡，從被愛嘅身份出發去生活。",blessing:"願你今日唔靠表現證明自己，而係安穩住在主嘅愛裡。阿們。"},
-      {topic:"喜樂可以滿足",category:"喜樂",verse:"這些事我已經對你們說了，是要叫我的喜樂存在你們心裡，並叫你們的喜樂可以滿足。",ref:"約翰福音 15:11",context:"耶穌教導門徒住在祂裡面，得著真正喜樂。",explain:"主賜嘅喜樂唔係表面開心，而係由內而外嘅滿足，因為生命連於祂。",blessing:"願主今日把祂嘅喜樂放喺你心裡，使你嘅心重新滿足。阿們。"},
-      {topic:"在指望中喜樂",category:"喜樂",verse:"在指望中要喜樂；在患難中要忍耐；禱告要恆切。",ref:"羅馬書 12:12",context:"保羅教導信徒在實際生活中活出盼望。",explain:"喜樂、忍耐、禱告係一條路：有盼望所以喜樂，有信靠所以忍耐，有需要所以禱告。",blessing:"願你今日在指望中有喜樂，在患難中有忍耐，在禱告中有力量。阿們。"},
-      {topic:"早晨｜新一天交託",category:"早晨",verse:"這是耶和華所定的日子，我們在其中要高興歡喜。",ref:"詩篇 118:24",context:"詩人宣告每一天都可以在神手中重新開始。",explain:"新一日未必所有事都容易，但可以先將心交畀主，唔俾昨日嘅重擔拖住今日。",blessing:"早晨，願你今日一開始就被主嘅平安包圍，有力量、有盼望、有清晰方向。阿們。"},
-      {topic:"早晨｜重新得力",category:"早晨",verse:"但那等候耶和華的，必重新得力。",ref:"以賽亞書 40:31",context:"神藉先知鼓勵疲乏嘅百姓重新倚靠祂。",explain:"早上醒來有時已經覺得累，但等候神嘅人可以重新攞返心力。",blessing:"願你今日唔靠自己硬撐，而係從主而來重新得力，一步一步行得穩。阿們。"},
-      {topic:"早晨｜主的慈愛是新的",category:"早晨",verse:"每早晨，這都是新的；你的誠實極其廣大！",ref:"耶利米哀歌 3:23",context:"先知在苦難中仍記念神每天新鮮嘅慈愛。",explain:"就算昨日過得唔好，今日仍然可以有新恩典。神冇因昨日定義你。",blessing:"願你今日早晨感受到主新鮮嘅慈愛，心裡重新有盼望同勇氣。阿們。"},
-      {topic:"早晨｜今日有主同行",category:"早晨",verse:"我總不撇下你，也不丟棄你。",ref:"希伯來書 13:5",context:"經文提醒信徒，主同在係真正安全感。",explain:"今日未知道會遇到咩，但你唔係一個人面對。主應許同你同行。",blessing:"願你今日無論返工、見人、處理難題，都知道主同你同行。阿們。"},
-      {topic:"早晨｜先安靜再出發",category:"早晨",verse:"你們要休息，要知道我是神！",ref:"詩篇 46:10",context:"詩人在動盪中提醒人回到神面前安靜。",explain:"一日開始唔一定要即刻衝，先安靜一下，知道神仍掌管。",blessing:"願你今日由安靜開始，由信靠出發，心唔亂，步伐穩。阿們。"},
-      {topic:"早晨｜今日夠用的恩典",category:"早晨",verse:"我的恩典夠你用的。",ref:"哥林多後書 12:9",context:"主用恩典扶持軟弱中嘅保羅。",explain:"你未必有力量處理所有明日嘅事，但今日嘅恩典，主會供應。",blessing:"願你今日有夠用嘅恩典、夠用嘅平安、夠用嘅力量。阿們。"},
-      {topic:"早晨｜把憂慮放下",category:"早晨",verse:"不要為明天憂慮；因為明天自有明天的憂慮。",ref:"馬太福音 6:34",context:"耶穌教導門徒信靠天父，唔好被明日捆綁。",explain:"今日已經有今日要面對嘅事，唔需要將所有未發生嘅憂慮一次背上身。",blessing:"願你今日只承擔今日，其他交畀主，心裡輕省一點。阿們。"},
-      {topic:"早晨｜為朋友祝福",category:"早晨",verse:"願賜平安的主隨時隨事親自給你們平安。",ref:"帖撒羅尼迦後書 3:16",context:"保羅為信徒祝福，願主親自賜平安。",explain:"有時一句早晨祝福，已經可以提醒朋友：佢唔係孤單。",blessing:"早晨，願主今日親自賜你平安，無論忙唔忙，都有一份安穩陪住你。阿們。"},
-      {topic:"早晨｜心意更新",category:"早晨",verse:"只要心意更新而變化。",ref:"羅馬書 12:2",context:"保羅提醒信徒被神更新內心同思想。",explain:"新一日可以唔再照舊被負面想法帶走，讓主重新整理你嘅心。",blessing:"願主今日更新你嘅心思，俾你有清晰、健康、柔和嘅眼光。阿們。"},
-      {topic:"早晨｜主引導今日道路",category:"早晨",verse:"在你一切所行的事上都要認定他，他必指引你的路。",ref:"箴言 3:6",context:"箴言教人喺每日選擇中倚靠神。",explain:"今日有好多細決定，唔需要全靠自己估。可以邀請主引導。",blessing:"願主今日指引你每一步，讓你做決定有智慧，行路有平安。阿們。"},
-      {topic:"晚安｜安心睡覺",category:"晚安",verse:"我必安然躺下睡覺，因為獨有你耶和華使我安然居住。",ref:"詩篇 4:8",context:"大衛在不安中仍選擇信靠神。",explain:"瞓覺前未必所有問題都解決，但可以將控制權交返畀神。",blessing:"晚安，願主今晚守護你嘅心，讓你放低重擔，安然休息。阿們。"},
-      {topic:"晚安｜將心事交託",category:"晚安",verse:"你們要將一切的憂慮卸給神，因為他顧念你們。",ref:"彼得前書 5:7",context:"彼得鼓勵受壓嘅信徒將憂慮交畀神。",explain:"今晚唔需要將所有心事帶入夢入面，可以慢慢交畀主。",blessing:"願你今晚將最重嗰件事交畀神，知道祂顧念你，唔會放低你。阿們。"},
-      {topic:"晚安｜主看顧夜晚",category:"晚安",verse:"保護你的必不打盹，也不睡覺。",ref:"詩篇 121:3-4",context:"詩人宣告神日夜看顧祂嘅子民。",explain:"你需要睡覺，但神唔需要。你休息時，祂仍看顧。",blessing:"晚安，願你放心休息，因為主今晚仍然守護你。阿們。"},
-      {topic:"晚安｜心裡有平安",category:"晚安",verse:"我留下平安給你們；我將我的平安賜給你們。",ref:"約翰福音 14:27",context:"耶穌臨別前安慰門徒，賜下屬祂嘅平安。",explain:"世界畀嘅平安靠環境，主賜嘅平安可以進入人心。",blessing:"願你今晚唔被煩惱拉住，心裡有主親自賜下嘅平安。阿們。"},
-      {topic:"晚安｜疲累的人得安息",category:"晚安",verse:"凡勞苦擔重擔的人，可以到我這裡來，我就使你們得安息。",ref:"馬太福音 11:28",context:"耶穌邀請疲累人到祂面前。",explain:"今日辛苦咗，唔需要再扮堅強。主知道你累，祂願意俾你安息。",blessing:"晚安，願你今晚在主懷裡得安息，身心都慢慢放鬆。阿們。"},
-      {topic:"晚安｜明天交給主",category:"晚安",verse:"不要為明天憂慮。",ref:"馬太福音 6:34",context:"耶穌提醒門徒唔好俾未知佔據今日。",explain:"明天有明天嘅恩典，今晚先好好休息。",blessing:"願你今晚將明天交畀主，安心睡覺，明早重新得力。阿們。"},
-      {topic:"晚安｜主親近傷心人",category:"晚安",verse:"耶和華靠近傷心的人。",ref:"詩篇 34:18",context:"大衛在患難中經歷神親近。",explain:"夜晚最容易感到孤單，但主特別靠近傷心嘅人。",blessing:"如果你今晚心裡有痛，願主親自靠近你，安慰你，陪你過呢一晚。阿們。"},
-      {topic:"晚安｜感謝今日恩典",category:"晚安",verse:"凡事謝恩。",ref:"帖撒羅尼迦前書 5:18",context:"保羅提醒信徒在各種環境中操練感恩。",explain:"就算今日唔完美，仍可以搵到一點神嘅保守同恩典。",blessing:"願你今晚記得今日仍有恩典，帶著感謝入睡。阿們。"},
-      {topic:"晚安｜卸下責任感",category:"晚安",verse:"你們得救在乎歸回安息；你們得力在乎平靜安穩。",ref:"以賽亞書 30:15",context:"神呼喚百姓回轉，從安息中得力。",explain:"你唔需要每一刻都解決所有人嘅問題，今晚先回到主裡面安息。",blessing:"願你今晚放下過度責任感，在主裡重新得力。阿們。"},
-      {topic:"晚安｜被愛包圍",category:"晚安",verse:"我以永遠的愛愛你。",ref:"耶利米書 31:3",context:"神向祂嘅子民宣告長久不變嘅愛。",explain:"即使今日你覺得自己做得未夠好，主嘅愛仍然冇離開。",blessing:"晚安，願你今晚知道自己被神永遠嘅愛包圍。阿們。"},
-      {topic:"焦慮｜先呼吸再交託",category:"焦慮",verse:"應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。",ref:"腓立比書 4:6",context:"保羅教信徒用禱告處理掛慮。",explain:"焦慮嚟到時，唔需要即刻責怪自己，可以先停一停，將心事逐樣同神講。",blessing:"願主今日安穩你嘅心，讓你由緊張轉向禱告，由不安轉向信靠。阿們。"},
-      {topic:"焦慮｜神保守心思",category:"焦慮",verse:"神所賜出人意外的平安，必在基督耶穌裡保守你們的心懷意念。",ref:"腓立比書 4:7",context:"保羅講到禱告之後，神嘅平安會守護人心。",explain:"焦慮好多時係心思停唔到，但神嘅平安可以像守衛一樣保護你。",blessing:"願神今日保守你嘅心懷意念，讓你唔被焦慮完全拉走。阿們。"},
-      {topic:"焦慮｜不要害怕",category:"焦慮",verse:"你不要害怕，因為我與你同在；不要驚惶，因為我是你的神。",ref:"以賽亞書 41:10",context:"神安慰祂嘅子民，應許扶持佢哋。",explain:"恐懼會話你孤單，但神話：我與你同在。呢句說話可以慢慢穩住心。",blessing:"願你今日知道主扶持你，唔需要一個人承受所有驚。阿們。"},
-      {topic:"焦慮｜今日先今日",category:"焦慮",verse:"不要為明天憂慮；因為明天自有明天的憂慮。",ref:"馬太福音 6:34",context:"耶穌提醒人唔好被未發生嘅事壓垮。",explain:"焦慮會將十日後嘅事一次過搬到今日。主叫我哋先活今日。",blessing:"願你今日只面對今日，明日交畀主，心裡輕一點。阿們。"},
-      {topic:"焦慮｜主作避難所",category:"焦慮",verse:"神是我們的避難所，是我們的力量，是我們在患難中隨時的幫助。",ref:"詩篇 46:1",context:"詩篇宣告神在動盪中仍可靠。",explain:"當心好亂，可以先返到神呢個避難所，唔需要即刻解決所有事。",blessing:"願主成為你今日嘅避難所，讓你心裡有地方可以安放。阿們。"},
-      {topic:"焦慮｜被神看見",category:"焦慮",verse:"你的眼早已看見了。",ref:"詩篇 139:16",context:"大衛讚美神深深認識每一個人。",explain:"你未必講得清自己點解不安，但神知道你心入面真正嘅原因。",blessing:"願你今日知道自己被神看見，連講唔出口嘅壓力，祂都明白。阿們。"},
-      {topic:"焦慮｜信靠不是控制",category:"焦慮",verse:"你要專心仰賴耶和華，不可倚靠自己的聰明。",ref:"箴言 3:5",context:"箴言教人將安全感放在神身上。",explain:"焦慮好多時想控制所有結果，但信靠係承認自己有限，神比我更知道路。",blessing:"願你今日慢慢放下控制感，學習將結果交畀信實嘅主。阿們。"},
-      {topic:"焦慮｜主賜謹守的心",category:"焦慮",verse:"神賜給我們不是膽怯的心，乃是剛強、仁愛、謹守的心。",ref:"提摩太後書 1:7",context:"保羅鼓勵提摩太唔被懼怕支配。",explain:"神唔想你被恐慌推住走，祂賜人清醒、有愛、有力量嘅心。",blessing:"願主今日幫你穩住情緒，俾你清醒而溫柔咁面對事情。阿們。"},
-      {topic:"焦慮｜一步一步來",category:"焦慮",verse:"你的話是我腳前的燈，是我路上的光。",ref:"詩篇 119:105",context:"詩人形容神話語引導人生道路。",explain:"你未必即刻睇到全條路，但神會照亮下一步。焦慮時，先行下一步就夠。",blessing:"願主今日照亮你下一步，唔需要一次過知道所有答案。阿們。"},
-      {topic:"焦慮｜主聽見呼求",category:"焦慮",verse:"我在急難中求告耶和華，他就應允我。",ref:"詩篇 120:1",context:"詩人在困苦中向神呼求。",explain:"急難中嘅禱告唔需要修飾，一句「主啊幫我」都係禱告。",blessing:"願你今日知道，每一次短短嘅呼求，主都聽見。阿們。"},
-      {topic:"病痛｜主賜力量",category:"病痛",verse:"疲乏的，他賜能力；軟弱的，他加力量。",ref:"以賽亞書 40:29",context:"神安慰疲乏軟弱嘅百姓。",explain:"身體唔舒服時，連心都會累。神唔責怪你軟弱，祂願意加力量。",blessing:"願主今日加你身心力量，讓你在病痛中仍感到被扶持。阿們。"},
-      {topic:"病痛｜主看顧身體",category:"病痛",verse:"耶和華是我的牧者，我必不至缺乏。",ref:"詩篇 23:1",context:"大衛以牧者形容神細心看顧。",explain:"生病時最需要被照顧，而主係最知道你需要嘅牧者。",blessing:"願主今日親自牧養你，照顧你身體、情緒同每一個需要。阿們。"},
-      {topic:"病痛｜安靜休養",category:"病痛",verse:"你們要休息，要知道我是神。",ref:"詩篇 46:10",context:"詩篇提醒人在動盪中安靜信靠神。",explain:"有時休息本身就係信靠，承認自己唔需要一直硬撐。",blessing:"願你今日安心休養，讓身體慢慢恢復，也讓心在主裡安靜。阿們。"},
-      {topic:"病痛｜主靠近軟弱",category:"病痛",verse:"我的恩典夠你用的，因為我的能力是在人的軟弱上顯得完全。",ref:"哥林多後書 12:9",context:"主在保羅軟弱中賜下足夠恩典。",explain:"病痛令人感到無力，但正正在無力之處，主嘅恩典可以托住你。",blessing:"願主今日用夠用嘅恩典托住你，讓你不用怕自己軟弱。阿們。"},
-      {topic:"病痛｜朋友關心版",category:"病痛",verse:"願賜平安的主隨時隨事親自給你們平安。",ref:"帖撒羅尼迦後書 3:16",context:"保羅為信徒求平安。",explain:"病咗最需要嘅未必係大道理，而係知道有人記掛，有主賜平安。",blessing:"願主今日親自賜你平安，身體慢慢好返，心都慢慢安定。阿們。"},
-      {topic:"病痛｜身心都交託",category:"病痛",verse:"你們要將一切的憂慮卸給神，因為他顧念你們。",ref:"彼得前書 5:7",context:"彼得鼓勵信徒將壓力交畀神。",explain:"病痛除咗身體辛苦，也會有擔心。兩樣都可以交畀主。",blessing:"願你今日將身體不適同心中憂慮一齊交畀神，經歷祂顧念。阿們。"},
-      {topic:"病痛｜盼望恢復",category:"病痛",verse:"耶和華必成全關乎我的事。",ref:"詩篇 138:8",context:"大衛相信神會完成祂嘅工作。",explain:"康復有時需要時間，但神仍在你生命中工作，唔會中途放手。",blessing:"願你今日有耐性復原，相信主一步步帶你恢復。阿們。"},
-      {topic:"病痛｜夜裡有主守護",category:"病痛",verse:"保護你的必不打盹，也不睡覺。",ref:"詩篇 121:4",context:"詩人宣告神日夜保護。",explain:"病中嘅夜晚可能特別難熬，但主唔會睡著，祂仍看顧你。",blessing:"願主今晚守護你，讓你睡得安穩，身體慢慢被恢復。阿們。"},
-      {topic:"醫治｜主醫好傷心的人",category:"醫治",verse:"他醫好傷心的人，裹好他們的傷處。",ref:"詩篇 147:3",context:"詩篇讚美神醫治與重建。",explain:"醫治唔只係身體，也包括心入面被傷過嘅地方。神會溫柔包紮。",blessing:"願主今日醫治你心裡同身體嘅傷處，讓你慢慢恢復完整。阿們。"},
-      {topic:"醫治｜主靠近破碎心",category:"醫治",verse:"耶和華靠近傷心的人，拯救靈性痛悔的人。",ref:"詩篇 34:18",context:"大衛經歷患難後宣告神親近傷心人。",explain:"你嘅破碎唔會令神遠離，反而係祂特別靠近嘅地方。",blessing:"願你今日在破碎中感受到主靠近，唔再覺得自己被遺下。阿們。"},
-      {topic:"醫治｜重新被建立",category:"醫治",verse:"若有人在基督裡，他就是新造的人。",ref:"哥林多後書 5:17",context:"保羅講人在基督裡有新身份。",explain:"受傷之後，人可能覺得自己壞咗。但在基督裡，神能重新建立生命。",blessing:"願主今日讓你知道，傷痕唔係你嘅全部，祂仍能更新你。阿們。"},
-      {topic:"醫治｜心慢慢甦醒",category:"醫治",verse:"他使我的靈魂甦醒。",ref:"詩篇 23:3",context:"大衛形容神如牧者，使人重新得力。",explain:"心受傷後唔需要逼自己即刻好。主會用溫柔方式讓靈魂甦醒。",blessing:"願你今日被主溫柔扶起，心慢慢恢復呼吸同力量。阿們。"},
-      {topic:"醫治｜被愛醫治",category:"醫治",verse:"我以永遠的愛愛你。",ref:"耶利米書 31:3",context:"神向祂子民宣告長久不變嘅愛。",explain:"好多傷來自覺得自己不被愛，但神嘅愛穩定、長久、唔離開。",blessing:"願主永遠嘅愛今日慢慢醫治你心入面最缺愛嘅地方。阿們。"},
-      {topic:"醫治｜眼淚被記念",category:"醫治",verse:"我幾次流離，你都記數；求你把我眼淚裝在你的皮袋裡。",ref:"詩篇 56:8",context:"大衛相信神記念佢每一滴眼淚。",explain:"你流過嘅眼淚冇被浪費，神知道、記得，也珍惜。",blessing:"願你今日知道，主記念你所有眼淚，並會慢慢將安慰放入你心。阿們。"},
-      {topic:"醫治｜慢慢重建信心",category:"醫治",verse:"壓傷的蘆葦，他不折斷。",ref:"以賽亞書 42:3",context:"先知形容神僕人溫柔憐憫嘅性情。",explain:"神唔會粗暴對待受傷嘅你，祂會用溫柔扶持快折斷嘅心。",blessing:"願主今日溫柔扶住你，讓你慢慢重建信心同安全感。阿們。"},
-      {topic:"醫治｜新恩典開始",category:"醫治",verse:"每早晨，這都是新的。",ref:"耶利米哀歌 3:23",context:"在苦難中，先知仍記得神每天更新嘅慈愛。",explain:"醫治可以係每日一小步，每一個早晨都有新恩典。",blessing:"願你今日比昨日多一點平安，多一點力氣，多一點盼望。阿們。"},
-      {topic:"失戀｜主靠近傷心人",category:"失戀",verse:"耶和華靠近傷心的人。",ref:"詩篇 34:18",context:"大衛在痛苦中經歷神親近。",explain:"失戀嘅痛好真實，唔需要假裝冇事。主知道你心入面嘅空位。",blessing:"願主今日靠近你最痛嘅地方，陪你慢慢走過呢段時間。阿們。"},
-      {topic:"失戀｜你仍被愛",category:"失戀",verse:"我以永遠的愛愛你。",ref:"耶利米書 31:3",context:"神向祂嘅子民宣告不變嘅愛。",explain:"一段關係完結，唔代表你唔值得被愛。神嘅愛仍然穩定地臨到你。",blessing:"願你今日記得自己仍然珍貴、仍然被愛、仍然被神看見。阿們。"},
-      {topic:"失戀｜放手交給主",category:"失戀",verse:"你們要將一切的憂慮卸給神，因為他顧念你們。",ref:"彼得前書 5:7",context:"彼得鼓勵人將承受唔到嘅交畀神。",explain:"放手唔係即刻唔痛，而係將自己無法控制嘅人同結果交畀神。",blessing:"願主幫你今日放低一點點，讓心慢慢有空間呼吸。阿們。"},
-      {topic:"失戀｜新開始不是否定過去",category:"失戀",verse:"舊事已過，都變成新的了。",ref:"哥林多後書 5:17",context:"保羅講人在基督裡可以有新生命。",explain:"新開始唔係話過去冇意義，而係神可以帶你走向另一段生命。",blessing:"願你今日相信，結束唔係終點，主仍為你預備新路。阿們。"},
-      {topic:"失戀｜不要急著好起來",category:"失戀",verse:"凡事都有定期，天下萬務都有定時。",ref:"傳道書 3:1",context:"傳道者提醒人生命有不同季節。",explain:"傷心有佢嘅時間，復原也有佢嘅時間。唔需要逼自己即刻無事。",blessing:"願主俾你時間悲傷，也俾你恩典慢慢復原。阿們。"},
-      {topic:"失戀｜心被保護",category:"失戀",verse:"你要保守你心，勝過保守一切。",ref:"箴言 4:23",context:"箴言提醒人心係生命重要出口。",explain:"失戀後，保護自己嘅心好重要。唔需要再被傷害反覆拉扯。",blessing:"願主今日幫你保守心，懂得溫柔但堅定咁照顧自己。阿們。"},
-      {topic:"失戀｜主使你重新站起",category:"失戀",verse:"義人雖七次跌倒，仍必興起。",ref:"箴言 24:16",context:"箴言提醒人跌倒後仍可重新起來。",explain:"跌低唔代表失敗，心碎也唔代表人生停低。主仍會扶你起身。",blessing:"願你今日就算仍然痛，也知道自己會重新站起。阿們。"},
-      {topic:"失戀｜神知道你的眼淚",category:"失戀",verse:"求你把我眼淚裝在你的皮袋裡。",ref:"詩篇 56:8",context:"大衛相信神記念佢每一滴眼淚。",explain:"你嘅眼淚唔係幼稚，亦唔係無用。神記得你每一次心痛。",blessing:"願主今日收納你嘅眼淚，慢慢用安慰填補你嘅心。阿們。"},
-      {topic:"關係｜用愛說誠實話",category:"關係",verse:"惟用愛心說誠實話。",ref:"以弗所書 4:15",context:"保羅教導信徒在愛中建立彼此。",explain:"關係入面，誠實重要，但方式都重要。愛可以令真話唔變成傷害。",blessing:"願主今日幫你在關係中有誠實，也有溫柔。阿們。"},
-      {topic:"關係｜慢慢聽快快愛",category:"關係",verse:"各人要快快地聽，慢慢地說，慢慢地動怒。",ref:"雅各書 1:19",context:"雅各提醒信徒用成熟方式處理說話同情緒。",explain:"好多衝突唔係因為冇愛，而係太快反應。慢一點，關係會有空間。",blessing:"願主今日幫你聽多一點、慢一點、柔和一點，讓關係有修復空間。阿們。"},
-      {topic:"關係｜彼此包容",category:"關係",verse:"倘若這人與那人有嫌隙，總要彼此包容，彼此饒恕。",ref:"歌羅西書 3:13",context:"保羅教導教會以基督嘅饒恕彼此相待。",explain:"包容唔係縱容，而係不讓怨恨成為關係嘅主人。",blessing:"願主今日賜你智慧，知道何時包容、何時溝通、何時交託。阿們。"},
-      {topic:"關係｜愛是恆久忍耐",category:"關係",verse:"愛是恆久忍耐，又有恩慈。",ref:"哥林多前書 13:4",context:"保羅講述真正愛嘅樣式。",explain:"真正愛唔只係感覺好，而係在日常細節中學習忍耐同恩慈。",blessing:"願主今日幫你在重要關係中有更多耐性同恩慈。阿們。"},
-      {topic:"關係｜和睦相處",category:"關係",verse:"若是能行，總要盡力與眾人和睦。",ref:"羅馬書 12:18",context:"保羅提醒信徒盡力活出和平。",explain:"和睦唔等於逃避問題，而係用成熟方式處理關係。",blessing:"願主今日賜你和睦嘅心，也賜你清楚嘅界線。阿們。"},
-      {topic:"關係｜彼此相愛",category:"關係",verse:"你們要彼此相愛，像我愛你們一樣。",ref:"約翰福音 15:12",context:"耶穌吩咐門徒以祂嘅愛彼此相愛。",explain:"人嘅愛會有限，但可以從主嘅愛學習點樣愛得更穩。",blessing:"願主今日用祂嘅愛充滿你，讓你愛人時不失去自己。阿們。"},
-      {topic:"關係｜修復需要智慧",category:"關係",verse:"回答柔和，使怒消退。",ref:"箴言 15:1",context:"箴言教導人說話有能力影響衝突。",explain:"一句柔和說話，可能唔即刻解決問題，但可以停止傷害加深。",blessing:"願主今日賜你柔和而有力量嘅說話，讓關係慢慢修復。阿們。"},
-      {topic:"關係｜不要被怒氣帶走",category:"關係",verse:"生氣卻不要犯罪；不可含怒到日落。",ref:"以弗所書 4:26",context:"保羅教導信徒成熟處理怒氣。",explain:"生氣本身唔一定錯，但要小心怒氣點樣帶住我哋說話同行動。",blessing:"願主今日幫你管理怒氣，保護你同你重視嘅關係。阿們。"},
-      {topic:"工作｜交託今日工作",category:"工作",verse:"你所做的，要交託耶和華，你所謀的，就必成立。",ref:"箴言 16:3",context:"箴言提醒人將計劃交畀神。",explain:"工作可以努力，但唔需要所有壓力都自己背。交託係將成果放入神手中。",blessing:"願你今日工作有智慧、有耐性、有清晰方向，成果交畀主。阿們。"},
-      {topic:"工作｜不為人眼光做",category:"工作",verse:"無論做甚麼，都要從心裡做，像是給主做的，不是給人做的。",ref:"歌羅西書 3:23",context:"保羅提醒信徒工作態度可以對準主。",explain:"工作環境未必永遠公平，但你嘅忠心同努力，主看見。",blessing:"願你今日做事不被人眼光拖垮，知道主看見你嘅付出。阿們。"},
-      {topic:"工作｜壓力中有平安",category:"工作",verse:"神所賜出人意外的平安，必保守你們的心懷意念。",ref:"腓立比書 4:7",context:"保羅教導人用禱告面對壓力。",explain:"工作壓力大時，平安唔一定等於冇 deadline，而係心唔被壓力完全吞噬。",blessing:"願主今日在工作壓力中保守你嘅心，讓你穩住一步步處理。阿們。"},
-      {topic:"工作｜疲累時得力",category:"工作",verse:"疲乏的，他賜能力；軟弱的，他加力量。",ref:"以賽亞書 40:29",context:"神應許加力給疲乏人。",explain:"返工返到攰，唔代表你唔夠好，只代表你需要重新得力。",blessing:"願主今日加你力量，讓你完成要完成嘅，也懂得照顧自己。阿們。"},
-      {topic:"工作｜智慧處理人事",category:"工作",verse:"你們中間若有缺少智慧的，應當求那厚賜與眾人、也不斥責人的神。",ref:"雅各書 1:5",context:"雅各鼓勵信徒在困難中向神求智慧。",explain:"工作難處好多時唔只係 task，而係人同決定。智慧比衝動更重要。",blessing:"願主今日賜你智慧處理人事、溝通同決定。阿們。"},
-      {topic:"工作｜不要灰心",category:"工作",verse:"我們行善，不可喪志；若不灰心，到了時候就要收成。",ref:"加拉太書 6:9",context:"保羅鼓勵人持續做對嘅事。",explain:"努力未必即刻被看見，但神知道你每一份忠心。",blessing:"願你今日唔因暫時未見成果而灰心，主會記念你嘅付出。阿們。"},
-      {topic:"工作｜面對轉變",category:"工作",verse:"凡事都有定期，天下萬務都有定時。",ref:"傳道書 3:1",context:"傳道者提醒人生有不同季節。",explain:"工作轉變令人不安，但神仍然掌管時間同道路。",blessing:"願主今日在轉變中賜你穩定嘅心，帶你行合適嘅下一步。阿們。"},
-      {topic:"工作｜守住心",category:"工作",verse:"你要保守你心，勝過保守一切。",ref:"箴言 4:23",context:"箴言提醒人心影響生命方向。",explain:"工作可以忙，但唔好忙到心被苦毒、比較同焦慮佔據。",blessing:"願主今日保守你嘅心，讓你忙而不亂，累而不失望。阿們。"},
-      {topic:"感恩｜凡事謝恩",category:"感恩",verse:"凡事謝恩；因為這是神在基督耶穌裡向你們所定的旨意。",ref:"帖撒羅尼迦前書 5:18",context:"保羅鼓勵信徒在各樣環境中操練感恩。",explain:"感恩唔係否認困難，而係在困難中仍看見神嘅手。",blessing:"願你今日在細小事上看見恩典，心裡重新有感謝。阿們。"},
-      {topic:"感恩｜數算恩典",category:"感恩",verse:"我的心哪，你要稱頌耶和華，不可忘記他的一切恩惠。",ref:"詩篇 103:2",context:"大衛提醒自己不要忘記神嘅恩惠。",explain:"人好容易記住壓力，卻忘記恩典。數算恩典會重新整理心。",blessing:"願你今日記得主一路以來嘅看顧，心裡滿有感恩。阿們。"},
-      {topic:"感恩｜神本為善",category:"感恩",verse:"你們要稱謝耶和華，因他本為善；他的慈愛永遠長存。",ref:"詩篇 136:1",context:"詩篇用重複句式宣告神慈愛長存。",explain:"環境會變，但神嘅善同慈愛唔會變。",blessing:"願你今日因神本為善而安心，也因祂慈愛長存而感恩。阿們。"},
-      {topic:"感恩｜收到幫助時",category:"感恩",verse:"施比受更為有福。",ref:"使徒行傳 20:35",context:"保羅引用主耶穌嘅教導，提醒人慷慨付出。",explain:"收到別人幫助時，也可以看見神透過人送來恩典。",blessing:"願主祝福今日幫助過你嘅人，也讓你將感恩化成溫柔回應。阿們。"},
-      {topic:"感恩｜平凡日子也有恩典",category:"感恩",verse:"耶和華的慈愛充滿大地。",ref:"詩篇 33:5",context:"詩人讚美神公義與慈愛。",explain:"唔一定要大事先值得感恩，平凡日子入面都有神嘅供應。",blessing:"願你今日在平凡中發現恩典，在細節中看見神愛你。阿們。"},
-      {topic:"感恩｜朋友同行",category:"感恩",verse:"朋友乃時常親愛，弟兄為患難而生。",ref:"箴言 17:17",context:"箴言描述真朋友在患難中更顯珍貴。",explain:"有人願意同行，本身已經係好大恩典。",blessing:"願主祝福你身邊真心同行嘅朋友，也讓你成為別人嘅祝福。阿們。"},
-      {topic:"生日｜生命被神看見",category:"生日",verse:"我未成形的體質，你的眼早已看見了。",ref:"詩篇 139:16",context:"大衛讚嘆神從起初已認識人。",explain:"生日唔只係年齡增加，也係記得自己生命被神珍重。",blessing:"生日快樂，願你知道自己被神看見、被愛、被祝福，新一年滿有恩典。阿們。"},
-      {topic:"生日｜新一年有主同行",category:"生日",verse:"我總不撇下你，也不丟棄你。",ref:"希伯來書 13:5",context:"經文提醒人主同在永不離開。",explain:"新一年未知會點，但最重要係主仍同行。",blessing:"生日快樂，願你新一年每一步都有主同在，心裡穩妥有盼望。阿們。"},
-      {topic:"生日｜滿有智慧",category:"生日",verse:"求你指教我們怎樣數算自己的日子，好叫我們得著智慧的心。",ref:"詩篇 90:12",context:"摩西求神教人珍惜生命日子。",explain:"生日係好好嘅時刻，重新整理時間、方向同生命優先次序。",blessing:"願你新一年更有智慧，更清楚知道咩重要，也活得更自由。阿們。"},
-      {topic:"生日｜恩典加恩典",category:"生日",verse:"從他豐滿的恩典裡，我們都領受了，而且恩上加恩。",ref:"約翰福音 1:16",context:"約翰見證人在基督裡領受豐滿恩典。",explain:"過去一年有恩典，新一年仍然會有主供應。",blessing:"生日快樂，願你新一年恩上加恩，福杯滿溢。阿們。"},
-      {topic:"生日｜喜樂滿足",category:"生日",verse:"並叫你們的喜樂可以滿足。",ref:"約翰福音 15:11",context:"耶穌願門徒在祂裡面得著滿足喜樂。",explain:"生日祝福唔只係開心一日，而係心裡有從主而來嘅滿足。",blessing:"願你生日充滿喜樂，新一年心被主嘅愛同平安充滿。阿們。"},
-      {topic:"生日｜道路被引導",category:"生日",verse:"他必指引你的路。",ref:"箴言 3:6",context:"箴言鼓勵人在所有道路上認定神。",explain:"新一年有新選擇、新方向，最需要主嘅引導。",blessing:"生日快樂，願主指引你新一年每個重要決定同道路。阿們。"},
-      {topic:"鼓勵｜你可以慢慢來",category:"鼓勵",verse:"我的恩典夠你用的。",ref:"哥林多後書 12:9",context:"主用恩典扶持保羅嘅軟弱。",explain:"唔需要一次過做到最好，主嘅恩典夠你今日用。",blessing:"願你今日唔責怪自己太多，慢慢來，主仍然扶住你。阿們。"},
-      {topic:"鼓勵｜不要放棄",category:"鼓勵",verse:"若不灰心，到了時候就要收成。",ref:"加拉太書 6:9",context:"保羅鼓勵人持續行善同堅持。",explain:"你未必即刻見到成果，但每一步都唔係白行。",blessing:"願你今日有力量再堅持一點，到了時候必有收成。阿們。"},
-      {topic:"鼓勵｜主扶持你",category:"鼓勵",verse:"我必堅固你，我必幫助你。",ref:"以賽亞書 41:10",context:"神安慰懼怕中嘅子民。",explain:"你唔需要自己一個人撐到盡，主應許扶持你。",blessing:"願你今日知道有主幫助，有主堅固，你唔係孤單。阿們。"},
-      {topic:"鼓勵｜跌倒仍能起來",category:"鼓勵",verse:"義人雖七次跌倒，仍必興起。",ref:"箴言 24:16",context:"箴言指出義人跌倒後仍會起來。",explain:"跌倒唔代表完結，失手唔代表失敗。神仍能扶你再起。",blessing:"願你今日有勇氣重新站起，主會陪你再行。阿們。"},
-      {topic:"鼓勵｜有盼望",category:"鼓勵",verse:"我的盼望是從他而來。",ref:"詩篇 62:5",context:"詩人在壓力中提醒自己等候神。",explain:"盼望唔係靠環境完美，而係來自神仍然掌權。",blessing:"願你今日心裡重新有盼望，知道事情未完，主仍在工作。阿們。"},
-      {topic:"鼓勵｜勇敢面對",category:"鼓勵",verse:"你當剛強壯膽，不要懼怕，也不要驚惶。",ref:"約書亞記 1:9",context:"神呼召約書亞承擔新使命。",explain:"勇敢唔係冇驚，而係知道神同在，所以繼續行。",blessing:"願你今日有勇氣面對要面對嘅事，因為神與你同在。阿們。"},
-      {topic:"鼓勵｜你不是無用",category:"鼓勵",verse:"我們原是他的工作，在基督耶穌裡造成的。",ref:"以弗所書 2:10",context:"保羅提醒信徒生命係神親手所造。",explain:"你唔係偶然，也唔係無價值。你係神手中有意思嘅作品。",blessing:"願你今日重新知道自己有價值、有位置、有神嘅心意。阿們。"},
-      {topic:"鼓勵｜主完成祂的工",category:"鼓勵",verse:"那在你們心裡動了善工的，必成全這工。",ref:"腓立比書 1:6",context:"保羅相信神會完成祂在信徒生命中開始嘅工作。",explain:"你仍在過程中，未完成唔代表冇進步。神會繼續工作。",blessing:"願你今日相信，主仍在塑造你，祂會成全祂開始嘅工。阿們。"},
-      {topic:"友情支持｜我為你禱告",category:"友情支持",verse:"要彼此代求。",ref:"雅各書 5:16",context:"雅各鼓勵信徒彼此禱告同扶持。",explain:"朋友最有力量嘅支持，有時就係一句：我會為你禱告。",blessing:"我為你禱告，願主親自扶持你，俾你力量、平安同清晰方向。阿們。"},
-      {topic:"友情支持｜你不是一個人",category:"友情支持",verse:"兩個人總比一個人好。",ref:"傳道書 4:9",context:"傳道者指出同行與扶持嘅重要。",explain:"有時難關唔需要一個人頂晒，讓朋友同你同行都係恩典。",blessing:"願你知道你唔係一個人，我記掛你，主也顧念你。阿們。"},
-      {topic:"友情支持｜陪你走一段",category:"友情支持",verse:"朋友乃時常親愛。",ref:"箴言 17:17",context:"箴言描述真朋友在不同時候仍然相愛。",explain:"真支持唔一定係即刻有答案，而係願意陪你走一段。",blessing:"願你今日感到有人陪你，也感到主親自陪你行過呢段路。阿們。"},
-      {topic:"友情支持｜替朋友求平安",category:"友情支持",verse:"願賜平安的主隨時隨事親自給你們平安。",ref:"帖撒羅尼迦後書 3:16",context:"保羅為教會祝福求平安。",explain:"當朋友心亂，可以為佢求主親自賜平安。",blessing:"願主今日親自賜你平安，無論發生咩事，都有安穩在你心裡。阿們。"},
-      {topic:"友情支持｜你已經好努力",category:"友情支持",verse:"神並非不公義，竟忘記你們所做的工。",ref:"希伯來書 6:10",context:"希伯來書鼓勵信徒，神記念佢哋嘅服事與愛。",explain:"人未必睇見你幾努力，但神睇見，也記念。",blessing:"你已經好努力，願主今日親自鼓勵你，俾你知道你嘅付出冇白費。阿們。"},
-      {topic:"友情支持｜給正在硬撐的人",category:"友情支持",verse:"凡勞苦擔重擔的人，可以到我這裡來。",ref:"馬太福音 11:28",context:"耶穌邀請疲累人到祂面前。",explain:"硬撐太耐會好累，主唔要求你一直扮無事。",blessing:"願你今日可以放低一點，不用再獨自硬撐，主會接住你。阿們。"},
-      {topic:"友情支持｜為朋友打氣",category:"友情支持",verse:"所以，你們該彼此勸慰，互相建立。",ref:"帖撒羅尼迦前書 5:11",context:"保羅提醒信徒彼此建立。",explain:"一句真心鼓勵，可以幫朋友重新有力氣。",blessing:"願你今日被主鼓勵，也被身邊人扶持，重新有力量行下一步。阿們。"},
-      {topic:"友情支持｜給迷失方向的人",category:"友情支持",verse:"你的話是我腳前的燈，是我路上的光。",ref:"詩篇 119:105",context:"詩人讚美神話語引導道路。",explain:"迷失時未必即刻見到全局，但神會照亮下一步。",blessing:"願主今日照亮你下一步，讓你慢慢搵返方向同平安。阿們。"}
+  <script>
+    const baseBlobApi = 'https://api.github.com/repos/hudsonmar-852/Jeffrey/git/blobs/a074a93be695f79519206da063c6c2d484d7fca9';
+
+    const familyMessages = [
+      {topic:"家人｜主保守一家",category:"家人",verse:"至於我和我家，我們必定事奉耶和華。",ref:"約書亞記 24:15",context:"約書亞帶領以色列人重新立志跟隨神。",explain:"一個家庭未必要樣樣完美，但當一家人願意倚靠神，神會慢慢整理關係、心情同方向。",blessing:"願主今日保守你同你屋企人，彼此扶持、彼此體諒，一家平安喜樂。阿們。"},
+      {topic:"家人｜父母健康平安",category:"家人",verse:"要孝敬父母，使你得福，在世長壽。",ref:"以弗所書 6:2-3",context:"保羅提醒信徒孝敬父母係神所喜悅嘅事。",explain:"孝敬唔只係責任，也係珍惜神放喺生命入面嘅家人。為父母祝福，係一份愛嘅表達。",blessing:"願主保守你父母身體健康、心裡平安，每日都有主嘅恩典同看顧。阿們。"},
+      {topic:"家人｜子女被主看顧",category:"家人",verse:"兒女是耶和華所賜的產業。",ref:"詩篇 127:3",context:"詩篇提醒人，兒女係從神而來嘅珍貴託付。",explain:"仔女唔係父母可以完全控制嘅人生，而係交託畀神看顧嘅生命。",blessing:"願主保守你嘅子女，賜佢哋智慧、平安、健康同正直嘅心。阿們。"},
+      {topic:"家人｜家庭和睦",category:"家人",verse:"看哪，弟兄和睦同居是何等地善，何等地美！",ref:"詩篇 133:1",context:"詩人讚美神子民和睦相處嘅美好。",explain:"一家人相處難免有摩擦，但和睦係神所喜悅嘅祝福，需要溫柔、包容同智慧。",blessing:"願主今日賜你屋企有和睦嘅氣氛，少一點衝突，多一點體諒。阿們。"},
+      {topic:"家人｜全家蒙恩",category:"家人",verse:"當信主耶穌，你和你一家都必得救。",ref:"使徒行傳 16:31",context:"保羅同西拉向禁卒宣告信靠主嘅應許。",explain:"為家人禱告唔係急住改變人，而係相信神有祂嘅時間同方法觸摸每一個心。",blessing:"願主嘅恩典臨到你全家，讓每個家人都慢慢經歷祂嘅愛同拯救。阿們。"},
+      {topic:"家人｜照顧病中家人",category:"家人",verse:"疲乏的，他賜能力；軟弱的，他加力量。",ref:"以賽亞書 40:29",context:"神藉先知安慰疲乏軟弱嘅子民。",explain:"照顧病中家人好需要體力同心力，神知道你嘅累，也願意每日加力量。",blessing:"願主今日加你力量，也親自看顧病中家人，賜下醫治、平安同安慰。阿們。"},
+      {topic:"家人｜家人同行扶持",category:"家人",verse:"兩個人總比一個人好，因為二人勞碌同得美好的果效。",ref:"傳道書 4:9",context:"傳道者講到同行同扶持嘅寶貴。",explain:"家人唔一定每次都講得好聽，但能夠同行、互相扶持，本身已經係恩典。",blessing:"願主祝福你同家人彼此扶持，難行嘅路都有愛陪住一齊行。阿們。"},
+      {topic:"家人｜長輩平安",category:"家人",verse:"直到你們年老，我仍這樣；直到你們髮白，我仍懷搋。",ref:"以賽亞書 46:4",context:"神向祂子民應許，從年少到年老都會承托。",explain:"長輩最需要嘅可能唔只係照顧，而係知道自己仍被珍惜、被神承托。",blessing:"願主保守家中長輩身心平安，日日有恩典，有人關心，有神看顧。阿們。"},
+      {topic:"家人｜關係修復",category:"家人",verse:"倘若這人與那人有嫌隙，總要彼此包容，彼此饒恕。",ref:"歌羅西書 3:13",context:"保羅教導信徒用基督嘅饒恕彼此相待。",explain:"家人之間嘅傷有時特別深，但神可以慢慢軟化人心，帶來修復同新開始。",blessing:"願主今日醫治家人之間嘅傷口，賜下溫柔說話、包容同修復嘅機會。阿們。"},
+      {topic:"家人｜家庭有力量",category:"家人",verse:"神是我們的避難所，是我們的力量，是我們在患難中隨時的幫助。",ref:"詩篇 46:1",context:"詩人宣告神在患難中係可靠幫助。",explain:"家庭會遇到壓力、病痛、經濟或關係挑戰，但神可以成為全家嘅避難所。",blessing:"願主成為你一家嘅力量，遇到難處時仍有平安、有盼望、有路可行。阿們。"},
+      {topic:"家人｜每日家庭祝福",category:"家人",verse:"願賜平安的主隨時隨事親自給你們平安。",ref:"帖撒羅尼迦後書 3:16",context:"保羅為教會祝福，願主親自賜平安。",explain:"每日為家人求平安，係簡單但好有力量嘅禱告。主知道每一個家人嘅需要。",blessing:"願主今日親自賜你一家平安，出入蒙保守，心裡有安穩。阿們。"},
+      {topic:"家人｜感恩有屋企人",category:"家人",verse:"我的心哪，你要稱頌耶和華，不可忘記他的一切恩惠。",ref:"詩篇 103:2",context:"大衛提醒自己記念神嘅恩惠。",explain:"家人有時好平凡，甚至有摩擦，但能夠彼此牽掛，本身都係神嘅恩典。",blessing:"願你今日為家人感恩，也願主祝福每一位你心裡記掛嘅屋企人。阿們。"},
+      {topic:"家人｜家人出入平安",category:"家人",verse:"你出你入，耶和華要保護你，從今時直到永遠。",ref:"詩篇 121:8",context:"詩人宣告神一路上看顧祂嘅子民。",explain:"屋企人每日出門返工返學，其實都需要神嘅保守。出入平安係好實在嘅祝福。",blessing:"願主今日保守你全家出入平安，路上蒙看顧，心裡有平安。阿們。"},
+      {topic:"家人｜身心靈被主保守",category:"家人",verse:"願賜平安的神親自使你們全然成聖。",ref:"帖撒羅尼迦前書 5:23",context:"保羅為信徒身心靈都被神保守而禱告。",explain:"家人需要嘅唔只係身體健康，也需要心裡安穩、靈裡有盼望。",blessing:"願主今日保守你同你家人身心靈，疲累中得力，不安中得平安。阿們。"},
+      {topic:"家人｜家中有主的平安",category:"家人",verse:"我留下平安給你們；我將我的平安賜給你們。",ref:"約翰福音 14:27",context:"耶穌臨別前將屬祂嘅平安賜給門徒。",explain:"家裡未必每日都安靜，但主嘅平安可以進入每個房間、每個心情、每段關係。",blessing:"願主嘅平安今日充滿你屋企，讓每個家人都感到被愛同被安慰。阿們。"},
+      {topic:"家人｜遠近都被主看顧",category:"家人",verse:"保護你的必不打盹，也不睡覺。",ref:"詩篇 121:4",context:"詩人宣告神日夜守護。",explain:"有啲家人可能唔喺身邊，但神嘅看顧唔受距離限制。",blessing:"願主今日看顧你遠近每一位家人，無論身在何處，都被祂保守。阿們。"},
+      {topic:"家人｜多謝神賜下家人同行",category:"家人",verse:"各樣美善的恩賜和各樣全備的賞賜都是從上頭來的。",ref:"雅各書 1:17",context:"雅各提醒信徒，美善恩典都從神而來。",explain:"家人未必完美，但有人同行、有人記掛，已經係神放喺生命入面嘅禮物。",blessing:"願你今日為家人獻上感恩，也願主祝福你們彼此珍惜。阿們。"},
+      {topic:"家人｜家人係恩典",category:"家人",verse:"耶和華本為善；他的慈愛永遠長存。",ref:"詩篇 100:5",context:"詩篇呼召人稱謝神嘅良善與慈愛。",explain:"有時最熟悉嘅人，反而最容易被忽略。停一停，就會發現家人係好大恩典。",blessing:"願你今日在家人身上重新看見神嘅恩典，心裡多一份感謝同溫柔。阿們。"},
+      {topic:"家人｜平凡日子裡的祝福",category:"家人",verse:"你們要稱謝耶和華，因他本為善。",ref:"詩篇 136:1",context:"詩篇反覆提醒人記念神永遠長存嘅慈愛。",explain:"一餐飯、一句問候、一個訊息，都可以係平凡日子入面嘅家人祝福。",blessing:"願主今日讓你在平凡家常中看見恩典，珍惜眼前人。阿們。"},
+      {topic:"家人｜有人同行是一份恩典",category:"家人",verse:"朋友乃時常親愛，弟兄為患難而生。",ref:"箴言 17:17",context:"箴言講到真實關係在困難中更顯珍貴。",explain:"人生唔係每段路都容易，但有家人同行、有家人扶持，已經係神嘅照顧。",blessing:"願你今日感恩有人同行，也願主幫你成為家人嘅支持同祝福。阿們。"},
+      {topic:"家人｜一家同心",category:"家人",verse:"若一家自相紛爭，那家就站立不住。",ref:"馬可福音 3:25",context:"耶穌指出同心合一對家庭嘅重要。",explain:"家庭要站得穩，需要少一點互相消耗，多一點同心面對。",blessing:"願主幫助你一家同心同行，面對挑戰時彼此扶持，不彼此傷害。阿們。"},
+      {topic:"家人｜愛要常以為虧欠",category:"家人",verse:"凡事都不可虧欠人，惟有彼此相愛，要常以為虧欠。",ref:"羅馬書 13:8",context:"保羅提醒信徒以愛待人，尤其在日常關係中活出愛。",explain:"家人之間唔好只計較邊個做得多，愛可以令關係柔軟返。",blessing:"願主今日幫你同家人多一點愛、多一點體諒、多一點主動關心。阿們。"}
     ];
 
-    const grid = document.getElementById('messageGrid');
-    const usageKey = 'bibleVerseUsage_v2';
-    let currentData = messages;
-
-    function getUsageLog(){
-      try{return JSON.parse(localStorage.getItem(usageKey)) || {}}catch(e){return {}}
+    function decodeBase64Utf8(base64){
+      const binary = atob(base64.replace(/\n/g,''));
+      const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+      return new TextDecoder('utf-8').decode(bytes);
     }
-    function saveUsageLog(log){localStorage.setItem(usageKey, JSON.stringify(log))}
-    function getMessageKey(item){return btoa(unescape(encodeURIComponent(`${item.category}|${item.topic}|${item.ref}|${item.verse}`))).slice(0,48)}
-    function formatDateTime(value){
-      if(!value) return '';
-      const d = new Date(value);
-      return d.toLocaleString('zh-HK',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+
+    function injectFamilyContent(html){
+      let updated = html;
+      updated = updated.replace('<button class="category-btn" onclick="filterCards(\'友情支持\')">友情支持</button>', '<button class="category-btn" onclick="filterCards(\'友情支持\')">友情支持</button>\n      <button class="category-btn" onclick="filterCards(\'家人\')">家人</button>');
+      const insertText = ',\n' + familyMessages.map(item => `      ${JSON.stringify(item)}`).join(',\n');
+      updated = updated.replace(/(\n\s*\];\s*\n\n\s*const grid = document\.getElementById\('messageGrid'\);)/, insertText + '$1');
+      updated = updated.replace(/<span id="totalEntries">\d+<\/span>/, `<span id="totalEntries">${161 + familyMessages.length}</span>`);
+      return updated;
     }
-    function buildCopyText(item){
-      return `【${item.category}｜${item.topic}】
 
-聖經金句：
-${item.verse}
-（${item.ref}）
-${item.context}
-
-簡單解說：
-${item.explain}
-
-祝福：
-${item.blessing}`;
-    }
-    function renderCards(data){
-      currentData = data;
-      document.getElementById('totalEntries').innerText = messages.length;
-      const usageLog = getUsageLog();
-      grid.innerHTML = '';
-      data.forEach((item,index)=>{
-        const key = getMessageKey(item);
-        const usedInfo = usageLog[key];
-        const usedClass = usedInfo ? ' used' : '';
-        const usedBadge = usedInfo ? `<span class="used-badge">已用 ${usedInfo.count || 1}次</span>` : '';
-        const useMeta = usedInfo ? `<div class="use-meta">✅ 已 Copy 過｜最後使用：${formatDateTime(usedInfo.lastCopied)}</div>` : `<div class="use-meta" style="color:#9ca3af">未使用，可留意日後 housekeeping</div>`;
-        const buttonText = usedInfo ? `✅ 已用過 Copy (${usedInfo.count || 1})` : '📋 Copy';
-        grid.innerHTML += `
-          <article class="card${usedClass}" data-category="${item.category}" data-used="${usedInfo ? 'yes' : 'no'}">
-            <div>
-              <div class="card-number">Verse ${index + 1}<span class="category-badge">${item.category}</span>${usedBadge}</div>
-              <div class="topic">${item.topic}</div>
-              <div class="section-title">聖經金句：</div>
-              <div class="content">${item.verse}</div>
-              <div class="ref">（${item.ref}）</div>
-              <div class="content">${item.context}</div>
-              <div class="section-title">簡單解說：</div>
-              <div class="content">${item.explain}</div>
-              <div class="section-title">祝福：</div>
-              <div class="content">${item.blessing}</div>
-              ${useMeta}
-            </div>
-            <button class="copy-btn${usedClass}" onclick="copyText(${index}, this)">${buttonText}</button>
-          </article>`;
+    fetch(baseBlobApi, {headers:{'Accept':'application/vnd.github+json'}})
+      .then(r => {
+        if(!r.ok) throw new Error('GitHub base file fetch failed');
+        return r.json();
+      })
+      .then(data => {
+        const baseHtml = decodeBase64Utf8(data.content || '');
+        const finalHtml = injectFamilyContent(baseHtml);
+        document.open();
+        document.write(finalHtml);
+        document.close();
+      })
+      .catch(err => {
+        document.getElementById('loadingBox').innerHTML = `
+          <h1>載入失敗</h1>
+          <p>未能讀取完整祝福庫。請稍後重新整理頁面。</p>
+          <div class="error">${err.message}</div>
+        `;
       });
-    }
-    function copyText(index, button){
-      const item = currentData[index];
-      const key = getMessageKey(item);
-      const usageLog = getUsageLog();
-      const oldCount = usageLog[key]?.count || 0;
-      usageLog[key] = {topic:item.topic, category:item.category, ref:item.ref, count:oldCount+1, lastCopied:new Date().toISOString()};
-      saveUsageLog(usageLog);
-      navigator.clipboard.writeText(buildCopyText(item));
-      button.innerText = `✅ 已複製・已用 ${oldCount + 1}次`;
-      button.classList.add('copy-success');
-      setTimeout(()=>renderCards(currentData),900);
-    }
-    function filterCards(category){
-      document.querySelectorAll('.category-btn').forEach(btn=>btn.classList.remove('active'));
-      if(category === 'all'){
-        renderCards(messages);
-        return;
-      }
-      renderCards(messages.filter(m => m.category === category));
-    }
-    document.getElementById('searchInput').addEventListener('input', function(){
-      const keyword = this.value.toLowerCase();
-      const filtered = messages.filter(item =>
-        item.topic.toLowerCase().includes(keyword) ||
-        item.verse.toLowerCase().includes(keyword) ||
-        item.ref.toLowerCase().includes(keyword) ||
-        item.context.toLowerCase().includes(keyword) ||
-        item.explain.toLowerCase().includes(keyword) ||
-        item.blessing.toLowerCase().includes(keyword) ||
-        item.category.toLowerCase().includes(keyword)
-      );
-      renderCards(filtered);
-    });
-    renderCards(messages);
   </script>
 </body>
 </html>
