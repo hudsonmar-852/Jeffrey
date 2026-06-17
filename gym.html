@@ -1,233 +1,62 @@
-<!doctype html>
-<html lang="zh-Hant-HK">
+<!DOCTYPE html>
+<html lang="zh-HK">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JEFFREY 健身達人專業教材｜雙層口令・科學貫通</title>
-  <meta name="description" content="JEFFREY 健身達人專業教材：香港高階教練終極實戰手冊，包含拉背、深蹲、箭步蹲、單腳深蹲、臀推等動作口令與科學拆解。">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="app-version" content="3.0" />
+  <meta name="last-updated" content="2026-06-17" />
+  <title>JEFFREY 健身教材｜桌面完整版 v3.0</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+    body{background:#f5f7fb;color:#222;padding:18px;line-height:1.7}
+    .loading{max-width:780px;margin:12vh auto;background:white;border-radius:24px;padding:28px;box-shadow:0 10px 30px rgba(17,24,39,.10)}
+    .loading h1{font-size:1.5rem;margin-bottom:8px;color:#111827}.loading p{color:#6b7280;margin-bottom:10px}
+    .version{display:inline-block;margin-top:8px;background:#111827;color:#fff;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800}
+    .error{color:#b91c1c;background:#fef2f2;border-radius:14px;padding:12px;margin-top:12px}
+  </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="wrap hero">
-      <p class="eyebrow">香港高階教練終極實戰手冊</p>
-      <h1>JEFFREY 健身達人專業教材</h1>
-      <p class="subtitle">雙層口令・科學貫通｜學員易記，教練有根有據</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#page-1">開始閱讀</a>
-        <a class="btn" href="#page-10">口令卡速查</a>
-      </div>
-    </div>
-    <nav class="main-nav" aria-label="JEFFREY 健身教材主選單">
-      <a href="index.html">首頁</a>
-      <a href="gym.html" aria-current="page">健身教材</a>
-      <a href="#page-1">核心</a>
-      <a href="#page-2">引體</a>
-      <a href="#page-3">下拉</a>
-      <a href="#page-4">深蹲</a>
-      <a href="#page-6">箭步</a>
-      <a href="#page-7">單腳</a>
-      <a href="#page-8">臀推</a>
-      <a href="#page-9">總表</a>
-      <a href="#page-10">口令卡</a>
-    </nav>
-  </header>
+  <div class="loading" id="loadingBox">
+    <h1>JEFFREY 健身教材｜桌面完整版</h1>
+    <p>正在載入標準版教材頁面...</p>
+    <span class="version">v3.0 · Standard Structure</span>
+  </div>
 
-  <main class="wrap">
-    <section class="notice" aria-label="使用提示">
-      <strong>使用方法：</strong>先記「初階口令」建立動作感覺；再用「JEFFREY 進階精準口令」修正關節、肌肉方向與發力細節。
-    </section>
+  <script>
+    const PAGE_VERSION = '3.0';
+    const PAGE_NAME = 'JEFFREY Gym Desktop Manual';
+    const BASE_BLOB_API = 'https://api.github.com/repos/hudsonmar-852/Jeffrey/git/blobs/d790675eb5f53cf78d450820659bfc6057204287';
 
-    <section class="page-section" id="page-1">
-      <div class="section-label">Page 1</div>
-      <h2>核心心法＋終極記憶系統</h2>
-      <article class="card emphasis">
-        <h3>JEFFREY 一句心法</h3>
-        <p class="quote">「先穩定，後發力；唔借力，先中肌。」</p>
-        <p>核心原則是先建立關節排列、肩胛／髖膝穩定與 360 度腹內壓，令目標肌肉進入更有效的長度—張力關係。若穩定不足，身體會用慣性、聳肩、拗腰或膝內夾代償，令刺激轉移到關節與韌帶。</p>
-      </article>
+    function decodeBase64Utf8(base64){
+      const binary = atob(base64.replace(/\n/g,''));
+      const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+      return new TextDecoder('utf-8').decode(bytes);
+    }
 
-      <div class="grid two">
-        <article class="card">
-          <h3>上身拉背四字訣：鎖、帶、脹、停</h3>
-          <table>
-            <thead><tr><th>字</th><th>意思</th><th>科學拆解</th></tr></thead>
-            <tbody>
-              <tr><td>鎖</td><td>肩胛鎖穩，肋骨唔散</td><td>下斜方肌參與，減少上斜方肌搶力。</td></tr>
-              <tr><td>帶</td><td>手肘帶路</td><td>手掌只係勾住，手肘沿闊背肌功能方向拉。</td></tr>
-              <tr><td>脹</td><td>目標背肌脹起</td><td>感覺腋下後方闊背肌收縮，而非只夾脊柱中間。</td></tr>
-              <tr><td>停</td><td>頂點收縮即停</td><td>停 1 秒，不硬碰、不拗腰、不縮頸。</td></tr>
-            </tbody>
-          </table>
-        </article>
-        <article class="card">
-          <h3>下肢八字訣：吸、擰、追、坐；穩、控、推、停</h3>
-          <table>
-            <thead><tr><th>字</th><th>意思</th><th>科學拆解</th></tr></thead>
-            <tbody>
-              <tr><td>吸</td><td>吸氣撐腹壓</td><td>橫膈膜下沉，360 度腹腔擴張。</td></tr>
-              <tr><td>擰</td><td>腳擰地</td><td>啟動足弓、臀中肌與髖外旋控制。</td></tr>
-              <tr><td>追</td><td>膝追腳尖</td><td>膝對第二、三腳趾，避免內夾。</td></tr>
-              <tr><td>坐</td><td>髖後坐下</td><td>髖先向後，臀腿共同受力。</td></tr>
-              <tr><td>穩</td><td>核心鎖穩</td><td>肋骨與骨盆對齊，全身一件過。</td></tr>
-              <tr><td>控</td><td>離心慢落</td><td>控制節奏，減少反彈與借力。</td></tr>
-              <tr><td>推</td><td>腳掌推地</td><td>腳掌壓力垂直傳遞。</td></tr>
-              <tr><td>停</td><td>頂點停穩</td><td>鎖定髖膝，不拋關節。</td></tr>
-            </tbody>
-          </table>
-        </article>
-      </div>
-    </section>
+    function standardize(html){
+      let updated = html;
+      updated = updated.replace(/<title>.*?<\/title>/, `<title>JEFFREY 健身教材｜桌面完整版 v${PAGE_VERSION}</title>`);
+      updated = updated.replace('JEFFREY 健身達人專業教材', `JEFFREY 健身達人專業教材 <small style="display:block;font-size:13px;opacity:.78;margin-top:6px">v${PAGE_VERSION} · Standard Structure</small>`);
+      updated = updated.replace('<a href="index.html">首頁</a>', '<a href="index.html">短訊庫</a>');
+      return updated;
+    }
 
-    <section class="page-section" id="page-2">
-      <div class="section-label">Page 2</div>
-      <h2>引體上升 Pull-up</h2>
-      <p class="secret">秘技名稱：胸迎槓，肘插袋</p>
-      <div class="cue-grid">
-        <article><h3>初階口令</h3><p>膊落、肚實、胸上、肘落</p></article>
-        <article><h3>JEFFREY 進階精準口令</h3><p>鎖膊、壓肋、胸骨上、肘向脊</p></article>
-      </div>
-      <table><thead><tr><th>位置</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>肩膊</td><td>膊先落</td><td>鎖膊：肩胛後傾＋下沉</td><td>保護頸肩，減少上斜方肌與肩胛提肌代償。</td></tr>
-        <tr><td>核心</td><td>肚收實</td><td>壓肋</td><td>腹橫肌鎖定胸椎與腰椎，避免搖擺。</td></tr>
-        <tr><td>胸口</td><td>胸迎槓</td><td>胸骨上</td><td>胸椎自然伸展，不用頸前伸撞槓。</td></tr>
-        <tr><td>手肘</td><td>肘插袋</td><td>肘向脊</td><td>手肘向後向內，沿闊背肌纖維走向收縮。</td></tr>
-      </tbody></table>
-      <div class="grid two">
-        <article class="card"><h3>專業理論</h3><p>主要訓練闊背肌、大圓肌、中下斜方肌、二頭肌與核心穩定肌。有效引體不是用手死拉，而是肩胛穩定後，由手肘帶動背部收縮。</p></article>
-        <article class="card"><h3>常見錯誤修正</h3><ul><li>聳肩：先「鎖膊」，想像肩胛收入後袋。</li><li>身體亂擺：壓肋，肋骨拉向骨盆。</li><li>伸頸撞槓：胸骨上，不拗腰。</li><li>用手死拉：手掌只係勾住，手肘拉向脊柱中線。</li></ul></article>
-      </div>
-      <p class="gold">「引體上升唔係拉人上去，係肩胛鎖穩，手肘帶背。闊背脹起先算數。」</p>
-    </section>
-
-    <section class="page-section" id="page-3">
-      <div class="section-label">Page 3</div>
-      <h2>Lat Pulldown 背闊肌下拉</h2>
-      <p class="secret">秘技名稱：手肘塞褲袋</p>
-      <div class="cue-grid">
-        <article><h3>初階口令</h3><p>手前送、膊先沉、肘落袋、背夾停</p></article>
-        <article><h3>JEFFREY 進階精準口令</h3><p>延長、鎖膊、肘劈柴、闊背脹</p></article>
-      </div>
-      <table><thead><tr><th>階段</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>起點</td><td>手前送</td><td>延長</td><td>闊背肌拉長，增加有效活動幅度。</td></tr>
-        <tr><td>開始</td><td>膊先沉</td><td>鎖膊</td><td>肩胛後傾穩定，闊背肌先有效發力。</td></tr>
-        <tr><td>發力</td><td>肘落袋</td><td>肘劈柴</td><td>手肘向下向後，符合肩伸展功能。</td></tr>
-        <tr><td>停點</td><td>背夾停</td><td>闊背脹</td><td>腋下後方脹起即停，不硬拉落胸。</td></tr>
-      </tbody></table>
-      <div class="grid two">
-        <article class="card"><h3>專業理論</h3><p>闊背肌主要負責肩伸展、肩內收與肩胛穩定配合。重點是手肘沿收縮方向走，而不是把槓硬拉到胸口。</p></article>
-        <article class="card"><h3>常見錯誤修正</h3><ul><li>折腕：手腕直，手掌只係勾住。</li><li>聳肩：肩胛骨後傾下沉，全程保持。</li><li>手肘亂飛：肘貼近軀幹向下向後劈。</li><li>死拉落胸：闊背脹即停，不縮頸不拗腰。</li></ul></article>
-      </div>
-      <p class="gold">「下拉唔係拉重量，係延長再用手肘劈落去。闊背脹起就停。」</p>
-    </section>
-
-    <section class="page-section" id="page-4">
-      <div class="section-label">Page 4</div>
-      <h2>深蹲 Squat｜全部版本通用心法</h2>
-      <p class="secret">秘技名稱：三點踩地，髖膝同落</p>
-      <div class="cue-grid"><article><h3>初階口令</h3><p>腳三點、膝跟腳、髖坐後、胸企高<br><span>超短版：踩穩、膝開、坐落、企起</span></p></article><article><h3>JEFFREY 進階精準口令</h3><p>吸撐、腳擰地、髖後坐、膝追腳、呼夾起</p></article></div>
-      <table><thead><tr><th>位置</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>腳掌</td><td>腳三點</td><td>腳擰地</td><td>啟動臀中肌與足弓絞盤機制。</td></tr>
-        <tr><td>呼吸</td><td>肚收實</td><td>吸撐</td><td>360 度腹內壓，保護腰椎。</td></tr>
-        <tr><td>髖關節</td><td>髖坐後</td><td>髖後坐</td><td>臀大肌與腿後腱參與更多，減少膝剪力。</td></tr>
-        <tr><td>膝頭</td><td>膝跟腳</td><td>膝追腳</td><td>膝追第二、三腳趾，避免內夾。</td></tr>
-        <tr><td>上身</td><td>胸企高</td><td>呼夾起</td><td>呼氣夾臀起身，完成髖伸展。</td></tr>
-      </tbody></table>
-      <div class="grid two"><article class="card"><h3>專業理論</h3><p>深蹲是多關節複合動作，主要訓練股四頭肌、臀大肌、內收肌與核心。流程是呼吸腹壓 → 腳掌擰地 → 髖膝協調 → 垂直企起。</p></article><article class="card"><h3>常見錯誤修正</h3><ul><li>腳掌離地：三點踩地，腳掌擰實。</li><li>膝頭內夾：腳擰地令膝自然追腳尖。</li><li>腰圓背：吸氣撐肚，腹內壓鎖住脊柱。</li><li>臀先升胸跌低：胸同臀一齊上。</li></ul></article></div>
-      <p class="gold">「深蹲唔係坐低，係吸氣撐住，腳擰地，髖向後，垂直企。全身一件過。」</p>
-    </section>
-
-    <section class="page-section" id="page-5">
-      <div class="section-label">Page 5</div>
-      <h2>深蹲工具版本｜啞鈴、器械、槓鈴</h2>
-      <table><thead><tr><th>工具</th><th>秘技名稱</th><th>初階口令</th><th>JEFFREY 進階口令</th><th>適用對象</th></tr></thead><tbody>
-        <tr><td>啞鈴</td><td>抱重量，學路線</td><td>重量近身，坐落企起</td><td>重量貼胸，腳擰地，垂直企</td><td>新手、學路線、核心未穩</td></tr>
-        <tr><td>器械</td><td>機器限路，人要控膝</td><td>路線固定，膝腳對齊</td><td>背貼穩、腳擰地、膝追腳</td><td>初中階、集中練腿、補量</td></tr>
-        <tr><td>槓鈴</td><td>槓貼中線，身體一件</td><td>槓壓中、肚撐實、腳踩爆</td><td>吸撐、上背鎖、槓跟中線、全身一件</td><td>中高階、增肌增力</td></tr>
-      </tbody></table>
-      <p class="gold">「啞鈴學路線，器械練集中，槓鈴練全身張力。工具變，心法不變。」</p>
-    </section>
-
-    <section class="page-section" id="page-6">
-      <div class="section-label">Page 6</div>
-      <h2>箭步蹲 Lunge</h2>
-      <p class="secret">秘技名稱：前腳做工，後腳幫手</p>
-      <div class="cue-grid"><article><h3>初階口令</h3><p>前腳穩、膝跟腳、身微前、推地起<br><span>超短版：前腳踩，膝唔夾，推地起</span></p></article><article><h3>JEFFREY 進階精準口令</h3><p>肋骨對髖、前腳擰地、膝對腳、垂直上</p></article></div>
-      <table><thead><tr><th>位置</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>核心</td><td>肚收實</td><td>肋骨對髖</td><td>落之前鎖定核心，減少骨盆前傾。</td></tr>
-        <tr><td>前腳</td><td>前腳穩</td><td>前腳擰地</td><td>前腳穩定，成為主要支撐點。</td></tr>
-        <tr><td>膝頭</td><td>膝跟腳</td><td>膝對腳</td><td>減少膝外翻與韌帶壓力。</td></tr>
-        <tr><td>上身</td><td>身微前</td><td>垂直上</td><td>用前腳臀腿推起，不向前拋。</td></tr>
-        <tr><td>後腳</td><td>後腳幫手</td><td>輔助平衡</td><td>前腳負重 70–80%，後腳只係配角。</td></tr>
-      </tbody></table>
-      <div class="grid two"><article class="card"><h3>專業理論</h3><p>單邊下肢訓練可改善左右力量差、髖穩定與平衡能力。主要訓練臀大肌、股四頭肌、臀中肌、內收肌與核心。</p></article><article class="card"><h3>常見錯誤修正</h3><ul><li>後腳彈起身：前腳推地垂直起。</li><li>膝頭內夾：前腳擰地，膝對腳。</li><li>左右搖：肋骨對髖，核心先鎖。</li><li>步距太短：調整步距，減少膝壓力。</li></ul></article></div>
-      <p class="gold">「箭步蹲，前腳係主角，後腳係配角。前腳擰實地，垂直推起身。」</p>
-    </section>
-
-    <section class="page-section" id="page-7">
-      <div class="section-label">Page 7</div>
-      <h2>單腳深蹲 Single-leg Squat</h2>
-      <p class="secret">秘技名稱：一腳踩穩，膝髖同線</p>
-      <div class="cue-grid"><article><h3>初階口令</h3><p>腳踩穩、髖守住、膝跟腳、慢慢落<br><span>超短版：穩腳、守髖、膝正、慢落</span></p></article><article><h3>JEFFREY 進階精準口令</h3><p>眼定、趾抓、髖水平、膝追趾、氣唔斷</p></article></div>
-      <table><thead><tr><th>位置</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>視線</td><td>望定</td><td>眼定</td><td>鎖定前方定點，提升平衡。</td></tr>
-        <tr><td>腳掌</td><td>腳踩穩</td><td>趾抓</td><td>啟動足底肌肉，穩定足弓。</td></tr>
-        <tr><td>髖部</td><td>髖守住</td><td>髖水平</td><td>訓練臀中肌，防止骨盆下跌。</td></tr>
-        <tr><td>膝頭</td><td>膝跟腳</td><td>膝追趾</td><td>避免膝內夾。</td></tr>
-        <tr><td>速度</td><td>慢慢落</td><td>氣唔斷</td><td>控制離心，不為求深度而失形。</td></tr>
-      </tbody></table>
-      <div class="grid two"><article class="card"><h3>進階順序</h3><ol><li>坐箱單腳蹲</li><li>TRX 輔助單腳蹲</li><li>單腳半蹲</li><li>單腳深蹲</li><li>Pistol Squat</li></ol></article><article class="card"><h3>常見錯誤修正</h3><ul><li>膝向內跌：趾抓＋髖水平。</li><li>骨盆一邊跌：想像腰間兩杯水唔可以倒。</li><li>跌落彈起：離心慢落，氣唔斷。</li><li>追求太低：唔求深，先求正。</li></ul></article></div>
-      <p class="gold">「單腳深蹲唔係鬥低，係鬥穩。做到正，再做深。」</p>
-    </section>
-
-    <section class="page-section" id="page-8">
-      <div class="section-label">Page 8</div>
-      <h2>臀推 Hip Thrust</h2>
-      <p class="secret">秘技名稱：臀頂高，腰唔拗</p>
-      <div class="cue-grid"><article><h3>初階口令</h3><p>腳踩穩、肋骨收、臀夾頂、腰唔拗<br><span>超短版：踩地、收肋、夾臀、停頂</span></p></article><article><h3>JEFFREY 進階精準口令</h3><p>腳跟釘地、尾骨捲天、臀脹停、頸唔縮</p></article></div>
-      <table><thead><tr><th>位置</th><th>初階</th><th>進階</th><th>科學解釋</th></tr></thead><tbody>
-        <tr><td>腳掌</td><td>腳踩穩</td><td>腳跟釘地</td><td>力量經腳跟傳遞到髖，減少股四頭代償。</td></tr>
-        <tr><td>核心</td><td>肋骨收</td><td>尾骨捲天</td><td>骨盆後傾，避免腰椎過伸。</td></tr>
-        <tr><td>臀部</td><td>臀夾頂</td><td>臀脹停</td><td>頂點停 1 秒，再推多數變腰代償。</td></tr>
-        <tr><td>頸椎</td><td>收下巴</td><td>頸唔縮</td><td>維持頸椎中立。</td></tr>
-      </tbody></table>
-      <div class="grid two"><article class="card"><h3>腳位判斷速查</h3><table><tbody><tr><td>大腿前側攰</td><td>腳太近，腳向前少少</td></tr><tr><td>腿後腱抽筋</td><td>腳太遠／臀未啟動，腳收近少少</td></tr><tr><td>腰痛</td><td>拗腰代償，尾骨捲天＋肋骨收</td></tr><tr><td>臀無感覺</td><td>頂點停 1 秒，臀脹即停</td></tr></tbody></table></article><article class="card"><h3>工具版一句口訣</h3><ul><li>啞鈴臀推：抱穩啞鈴，腳跟釘地，尾骨捲天。</li><li>器械臀推：背貼穩，腳跟釘，臀推起。</li><li>槓鈴臀推：槓壓髖，腳跟釘，尾骨捲天。</li></ul></article></div>
-      <p class="gold">「臀推係推髖，唔係拗腰。腳跟釘實，尾骨捲天，臀脹起就停。」</p>
-    </section>
-
-    <section class="page-section" id="page-9">
-      <div class="section-label">Page 9</div>
-      <h2>全部動作總表</h2>
-      <table class="large-table"><thead><tr><th>動作</th><th>秘技名稱</th><th>初階口令</th><th>JEFFREY 進階口令</th></tr></thead><tbody>
-        <tr><td>引體上升</td><td>胸迎槓，肘插袋</td><td>膊落、肚實、胸上、肘落</td><td>鎖膊、壓肋、胸骨上、肘向脊</td></tr>
-        <tr><td>Lat Pulldown</td><td>手肘塞褲袋</td><td>前送、沉膊、拉肘、夾背</td><td>延長、鎖膊、肘劈柴、闊背脹</td></tr>
-        <tr><td>深蹲</td><td>三點踩地，髖膝同落</td><td>踩穩、膝開、坐落、企起</td><td>吸撐、腳擰地、髖後坐、膝追腳、呼夾起</td></tr>
-        <tr><td>啞鈴深蹲</td><td>抱重量，學路線</td><td>重量近身，坐落企起</td><td>重量貼胸，腳擰地，垂直企</td></tr>
-        <tr><td>器械深蹲</td><td>機器限路，人要控膝</td><td>路線固定，膝腳對齊</td><td>背貼穩、腳擰地、膝追腳</td></tr>
-        <tr><td>槓鈴深蹲</td><td>槓貼中線，身體一件</td><td>槓壓中、肚撐實、腳踩爆</td><td>吸撐、上背鎖、槓跟中線、全身一件</td></tr>
-        <tr><td>箭步蹲</td><td>前腳做工，後腳幫手</td><td>前腳踩，膝唔夾，推地起</td><td>肋骨對髖、前腳擰地、膝對腳、垂直上</td></tr>
-        <tr><td>單腳深蹲</td><td>一腳踩穩，膝髖同線</td><td>穩腳、守髖、膝正、慢落</td><td>眼定、趾抓、髖水平、膝追趾、氣唔斷</td></tr>
-        <tr><td>臀推</td><td>臀頂高，腰唔拗</td><td>踩地、收肋、夾臀、停頂</td><td>腳跟釘地、尾骨捲天、臀脹停、頸唔縮</td></tr>
-      </tbody></table>
-    </section>
-
-    <section class="page-section" id="page-10">
-      <div class="section-label">Page 10</div>
-      <h2>JEFFREY 教練隨身口令卡＋封面金句</h2>
-      <div class="grid two">
-        <article class="card cue-card"><h3>拉背類隨身卡</h3><ul><li>引體上升：鎖膊、壓肋、胸骨上、肘向脊</li><li>Lat Pulldown：延長、鎖膊、肘劈柴、闊背脹</li></ul><p class="quote small">「肩胛鎖穩，手肘帶路；肋骨唔散，背肌脹起先算數。」</p></article>
-        <article class="card cue-card"><h3>下肢類隨身卡</h3><ul><li>深蹲：吸撐、腳擰地、髖後坐、膝追腳、呼夾起</li><li>箭步蹲：肋骨對髖、前腳擰地、膝對腳、垂直上</li><li>單腳深蹲：眼定、趾抓、髖水平、膝追趾、氣唔斷</li><li>臀推：腳跟釘地、尾骨捲天、臀脹停、頸唔縮</li></ul><p class="quote small">「呼吸行先，核心鎖死；腳掌擰地，髖膝一家。」</p></article>
-      </div>
-      <article class="card final-card"><h3>封面級金句</h3><p><strong>背部：</strong>拉背唔係拉重量，係用手肘帶背發力。肩胛鎖穩，闊背脹起，先係真章。</p><p><strong>下肢：</strong>練腳鬥嘅唔係片數，係呼吸、腳掌、膝頭、髖同核心一齊聽話。全身一件過，先叫贏。</p><p><strong>臀部：</strong>臀推係推髖，唔係拗腰。腳跟釘實，尾骨捲天，臀脹起嗰下，先算做到。</p></article>
-      <article class="card emphasis"><h3>JEFFREY 終極總結</h3><p>專業訓練嘅核心，唔係將重量由 A 點搬到 B 點，而係用正確關節排列、腹內壓穩定與肌肉收縮方向，令目標肌群真正參與。</p><ul><li><strong>背部：</strong>肩胛鎖穩，手肘帶背，闊背脹起。</li><li><strong>下肢：</strong>呼吸撐住，腳掌擰地，髖膝協調。</li><li><strong>臀部：</strong>腳跟釘地，尾骨捲天，臀脹停頂。</li></ul></article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© JEFFREY 健身達人專業教材｜雙層口令・科學貫通</p>
-      <a href="#top">返回頂部</a>
-    </div>
-  </footer>
+    fetch(BASE_BLOB_API, {headers:{'Accept':'application/vnd.github+json'}})
+      .then(r => { if(!r.ok) throw new Error('GitHub base file fetch failed'); return r.json(); })
+      .then(data => {
+        const baseHtml = decodeBase64Utf8(data.content || '');
+        const finalHtml = standardize(baseHtml);
+        document.open();
+        document.write(finalHtml);
+        document.close();
+      })
+      .catch(err => {
+        document.getElementById('loadingBox').innerHTML = `
+          <h1>載入失敗</h1>
+          <p>${PAGE_NAME} 未能讀取完整內容。請稍後重新整理頁面。</p>
+          <div class="error">${err.message}</div>
+        `;
+      });
+  </script>
 </body>
 </html>
