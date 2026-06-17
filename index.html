@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="app-version" content="3.1" />
+  <meta name="app-version" content="3.2" />
   <meta name="last-updated" content="2026-06-17" />
-  <title>Jeffrey 健身教練｜WhatsApp 關心短訊庫 v3.1</title>
+  <title>Jeffrey 健身教練｜WhatsApp 關心短訊庫 v3.2</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
     body{background:#f5f7fb;color:#222;padding:18px;line-height:1.7}
@@ -19,11 +19,11 @@
   <div class="loading" id="loadingBox">
     <h1>Jeffrey 健身教練｜WhatsApp 關心短訊庫</h1>
     <p>正在載入標準版頁面結構...</p>
-    <span class="version">v3.1 · Standard Structure</span>
+    <span class="version">v3.2 · Standard Structure</span>
   </div>
 
   <script>
-    const PAGE_VERSION = '3.1';
+    const PAGE_VERSION = '3.2';
     const PAGE_NAME = 'Jeffrey WhatsApp Messages';
     const BASE_BLOB_API = 'https://api.github.com/repos/hudsonmar-852/Jeffrey/git/blobs/a7df98b60c46b5266925397f1192fbb91512c94b';
 
@@ -37,7 +37,8 @@
       let updated = html;
       updated = updated.replace(/<title>.*?<\/title>/, `<title>Jeffrey 健身教練｜WhatsApp 關心短訊庫 v${PAGE_VERSION}</title>`);
       updated = updated.replace('Jeffrey 健身教練｜高回覆率 WhatsApp 關心短訊庫 🔥', `Jeffrey 健身教練｜高回覆率 WhatsApp 關心短訊庫 🔥 <small style="display:block;font-size:13px;color:#d1d5db;margin-top:6px">v${PAGE_VERSION} · Standard Structure</small>`);
-      updated = updated.replace('https://hudsonmar-852.github.io/bible/', 'https://hudsonmar-852.github.io/jeffrey/bible/');
+      updated = updated.replace('https://hudsonmar-852.github.io/bible/', 'https://hudsonmar-852.github.io/Jeffrey/bible');
+      updated = updated.replace('https://hudsonmar-852.github.io/jeffrey/bible/', 'https://hudsonmar-852.github.io/Jeffrey/bible');
       updated = updated.replace('長按或按「📋 一鍵 Copy 去 WhatsApp」即可複製內容 💬', `長按或按「📋 一鍵 Copy 去 WhatsApp」即可複製內容 💬｜v${PAGE_VERSION}`);
       return updated;
     }
