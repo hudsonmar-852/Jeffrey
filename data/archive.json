@@ -1,4 +1,5 @@
 {
   "version": "2.0",
+  "note": "Long-term archived reminders. Daily page currently reads archive entries embedded in data/today.json; this file is reserved for future expansion.",
   "items": []
 }
