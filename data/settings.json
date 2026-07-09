@@ -1,10 +1,10 @@
 {
   "appName": "Jeffrey AI Coach OS",
-  "version": "2.0",
+  "version": "2.1",
   "defaultLocale": "zh-HK",
   "dailyUpdateTarget": "data/today.json",
-  "maxMessagesPerGroup": 2,
-  "weatherRole": "background_only",
+  "maxMessagesPerGroup": 7,
+  "weatherRole": "daily_style_driver",
   "groups": [
     "daily_special",
     "jeffrey_today",
@@ -20,6 +20,8 @@
     "minHumanScore": 88,
     "maxAiSmellPercent": 20,
     "onePurposeOnly": true,
-    "avoidRepeatedOpenings": true
+    "avoidRepeatedOpenings": true,
+    "newRemindersSortedToTop": true,
+    "preserveOldReminders": true
   }
 }
