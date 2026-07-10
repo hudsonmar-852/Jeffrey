@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="app-version" content="2.2" />
+  <title>Jeffrey Daily Reminder OS</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="eyebrow">Jeffrey Daily Reminder OS v2.2</div>
+      <h1>每日關心短訊工作台</h1>
+      <p>香港生活感・Jeffrey 教練語氣・一鍵 Copy WhatsApp</p>
+      <div class="hero-actions">
+        <a href="../" class="nav-link">← Platform</a>
+        <a href="../bible.html" class="nav-link">Bible Quote</a>
+        <button id="resetFilter" class="nav-link ghost">全部訊息</button>
+      </div>
+    </header>
+    <section class="daily-brief" id="dailyBrief"><div class="loading">正在載入今日內容...</div></section>
+    <nav class="tabs" id="tabs" aria-label="訊息分類"></nav>
+    <main class="grid" id="messageGrid"></main>
+    <footer><span>Daily Reminder OS · data/today.json driven</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
