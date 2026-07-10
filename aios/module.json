@@ -1,0 +1,49 @@
+{
+  "module": "jeffrey-reminder-engine",
+  "version": "3.0.0",
+  "status": "independent",
+  "owner": "hudsonmar-852/Jeffrey",
+  "productionUrl": "https://hudsonmar-852.github.io/Jeffrey/",
+  "architecture": {
+    "core": "AIOS Core",
+    "consumes": [
+      "daily-intelligence",
+      "knowledge-base",
+      "prompt-library",
+      "automation-engine",
+      "github-share"
+    ],
+    "publishes": [
+      "data/today.json"
+    ]
+  },
+  "runtime": {
+    "type": "static-first",
+    "frontend": ["index.html", "app.js", "style.css"],
+    "dataEntry": "data/today.json",
+    "fallback": "browser local last-good cache",
+    "deployment": ".github/workflows/pages.yml"
+  },
+  "contentPolicy": {
+    "location": "Hong Kong",
+    "language": "zh-HK",
+    "weatherRole": "background_unless_high_impact",
+    "requiredValidation": [
+      "zero_hallucination",
+      "source_timestamp",
+      "topic_rotation",
+      "brand_tone",
+      "medical_claim_guard"
+    ]
+  },
+  "automationContract": {
+    "writeMode": "replace data/today.json",
+    "requiredBeforePublish": [
+      "valid_json",
+      "schema_check",
+      "minimum_one_message",
+      "unique_message_ids",
+      "date_matches_hong_kong_day"
+    ]
+  }
+}
