@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#111827" />
-  <meta name="app-version" content="3.1.2" />
+  <meta name="app-version" content="3.2.0" />
   <meta name="last-updated" content="2026-07-11" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Jeffrey Daily Reminder OS</title>
-  <link rel="stylesheet" href="style.css?v=3.1.2" />
+  <link rel="stylesheet" href="style.css?v=3.2.0" />
 </head>
 <body>
   <div class="app-shell">
@@ -26,32 +26,15 @@
         <button id="themeToggle" class="nav-link ghost" aria-label="切換深色模式">Dark Mode</button>
       </div>
     </header>
-
     <section class="control-panel" aria-label="Reminder controls">
-      <label class="search-box">
-        <span>搜尋</span>
-        <input id="searchInput" type="search" placeholder="搜尋主題或內容…" autocomplete="off" />
-      </label>
-      <div class="stats" id="statsPanel">
-        <span><b id="totalCount">0</b> 訊息</span>
-        <span><b id="visibleCount">0</b> 顯示中</span>
-        <span><b id="copiedCount">0</b> 已 Copy</span>
-        <span><b id="favouriteCount">0</b> Favourite</span>
-      </div>
+      <label class="search-box"><span>搜尋</span><input id="searchInput" type="search" placeholder="搜尋主題或內容…" autocomplete="off" /></label>
+      <div class="stats" id="statsPanel"><span><b id="totalCount">0</b> 訊息</span><span><b id="visibleCount">0</b> 顯示中</span><span><b id="copiedCount">0</b> 已 Copy</span><span><b id="favouriteCount">0</b> Favourite</span></div>
     </section>
-
-    <section class="daily-brief" id="dailyBrief">
-      <div class="loading">正在載入今日內容...</div>
-    </section>
-
+    <section class="daily-brief" id="dailyBrief"><div class="loading">正在載入今日內容...</div></section>
     <nav class="tabs" id="tabs" aria-label="訊息分類"></nav>
     <main class="grid" id="messageGrid" aria-live="polite"></main>
-
-    <footer>
-      <span id="versionInfo">Jeffrey Reminder Engine v3.1.2</span>
-      <span>Independent AIOS module · Static-first · Local favourites & usage</span>
-    </footer>
+    <footer><span id="versionInfo">Jeffrey Reminder Engine v3.2.0</span><span>Independent AIOS module · Static-first · Local favourites & usage</span></footer>
   </div>
-  <script src="app.js?v=3.1.2" defer></script>
+  <script src="app.js?v=3.2.0" defer></script>
 </body>
 </html>
