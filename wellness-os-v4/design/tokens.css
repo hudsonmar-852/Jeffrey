@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light;
+
+  --jw-color-primary-900: #0d3f31;
+  --jw-color-primary-800: #12533f;
+  --jw-color-primary-700: #17684f;
+  --jw-color-primary-600: #237b5e;
+  --jw-color-primary-500: #2d8a68;
+  --jw-color-primary-300: #82c9aa;
+  --jw-color-primary-100: #dff5eb;
+  --jw-color-primary-050: #f1faf6;
+
+  --jw-color-surface: #ffffff;
+  --jw-color-background: #f7fbf8;
+  --jw-color-sage: #eaf3ee;
+  --jw-color-sand: #f4efe6;
+  --jw-color-blue-soft: #e9f2f7;
+
+  --jw-color-text: #20312b;
+  --jw-color-text-muted: #60736b;
+  --jw-color-border: #dbe7e1;
+  --jw-color-success: #3faf6a;
+  --jw-color-warning: #d9952e;
+  --jw-color-danger: #c94b4b;
+  --jw-color-focus: #2d8a68;
+
+  --jw-font-sans: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+
+  --jw-font-size-xs: 0.75rem;
+  --jw-font-size-sm: 0.875rem;
+  --jw-font-size-md: 1rem;
+  --jw-font-size-lg: 1.125rem;
+  --jw-font-size-xl: 1.375rem;
+  --jw-font-size-2xl: 1.75rem;
+  --jw-font-size-3xl: clamp(2rem, 6vw, 3.5rem);
+
+  --jw-line-tight: 1.2;
+  --jw-line-body: 1.65;
+
+  --jw-space-1: 0.25rem;
+  --jw-space-2: 0.5rem;
+  --jw-space-3: 0.75rem;
+  --jw-space-4: 1rem;
+  --jw-space-6: 1.5rem;
+  --jw-space-8: 2rem;
+  --jw-space-12: 3rem;
+  --jw-space-16: 4rem;
+
+  --jw-radius-sm: 0.625rem;
+  --jw-radius-md: 0.875rem;
+  --jw-radius-lg: 1.25rem;
+  --jw-radius-pill: 999px;
+
+  --jw-shadow-sm: 0 4px 14px rgba(19, 63, 48, 0.07);
+  --jw-shadow-md: 0 12px 32px rgba(19, 63, 48, 0.11);
+
+  --jw-duration-fast: 160ms;
+  --jw-duration-base: 260ms;
+  --jw-duration-slow: 480ms;
+  --jw-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --jw-content-sm: 38rem;
+  --jw-content-md: 56rem;
+  --jw-content-lg: 72rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --jw-duration-fast: 0ms;
+    --jw-duration-base: 0ms;
+    --jw-duration-slow: 0ms;
+  }
+}
