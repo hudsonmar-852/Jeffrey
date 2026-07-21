@@ -1,0 +1,28 @@
+{
+  "timezone": "Asia/Hong_Kong",
+  "language": "tc",
+  "timeoutSeconds": 20,
+  "sources": [
+    {
+      "id": "hko_current_weather",
+      "name": "香港天文台",
+      "type": "json",
+      "url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "required": true
+    },
+    {
+      "id": "hko_forecast",
+      "name": "香港天文台九天天氣預報",
+      "type": "json",
+      "url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc",
+      "required": true
+    },
+    {
+      "id": "gov_news",
+      "name": "香港政府新聞公報",
+      "type": "rss",
+      "url": "https://www.info.gov.hk/gia/rss/general_zh.xml",
+      "required": false
+    }
+  ]
+}

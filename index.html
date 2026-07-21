@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#111827" />
-  <meta name="app-version" content="3.4.0" />
+  <meta name="app-version" content="3.5.0" />
   <meta name="last-updated" content="2026-07-21" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Jeffrey Daily Reminder OS</title>
-  <link rel="stylesheet" href="style.css?v=3.4.0" />
+  <link rel="stylesheet" href="style.css?v=3.5.0" />
+  <link rel="stylesheet" href="production.css?v=3.5.0" />
 </head>
 <body>
   <div class="app-shell">
@@ -31,10 +32,16 @@
       <div class="stats" id="statsPanel"><span><b id="totalCount">0</b> 訊息</span><span><b id="visibleCount">0</b> 顯示中</span><span><b id="copiedCount">0</b> 已 Copy</span><span><b id="favouriteCount">0</b> Favourite</span></div>
     </section>
     <section class="daily-brief" id="dailyBrief"><div class="loading">正在載入今日內容...</div></section>
+    <section class="production-panel" id="productionPanel" aria-live="polite"><div class="loading">正在檢查 Production Sources...</div></section>
+    <section class="operator-bar" aria-label="Production operator controls">
+      <button id="showPending" class="nav-link">待審批</button>
+      <button id="showDone" class="nav-link ghost">已完成</button>
+      <button id="exportAudit" class="nav-link ghost">Export Audit JSON</button>
+    </section>
     <nav class="tabs" id="tabs" aria-label="訊息分類"></nav>
     <main class="grid" id="messageGrid" aria-live="polite"></main>
-    <footer><span id="versionInfo">Jeffrey Reminder Engine v3.4.0</span><span>Independent AIOS module · Static-first · Local favourites & usage</span></footer>
+    <footer><span id="versionInfo">Jeffrey Reminder Engine v3.5.0</span><span>AIOS live sources · Human approval required · Auto distribution disabled</span></footer>
   </div>
-  <script src="app.js?v=3.4.0" defer></script>
+  <script src="app.js?v=3.5.0" defer></script>
 </body>
 </html>

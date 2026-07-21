@@ -1,0 +1,8 @@
+{
+  "date": "2026-07-21",
+  "version": "3.5.0",
+  "theme": "AIOS 真實資料示例",
+  "lifePulse": "只展示資料格式，不作即時天氣資訊。",
+  "production": {"mode": "example", "generatedAt": "2026-07-21T08:40:00+08:00", "timezone": "Asia/Hong_Kong", "health": []},
+  "dailySpecial": [{"id": "example-1", "topic": "示例", "content": "示例內容", "source": "示例來源", "sourceUrl": "https://example.com", "sourceTimestamp": "2026-07-21T08:30:00+08:00", "approvalStatus": "pending"}]
+}

@@ -1,0 +1,6 @@
+{
+  "temperature": {"data": [{"place": "香港天文台", "value": 31, "unit": "C"}]},
+  "humidity": {"data": [{"place": "香港天文台", "value": 73, "unit": "percent"}]},
+  "warningMessage": ["酷熱天氣警告現正生效"],
+  "updateTime": "2026-07-21T08:30:00+08:00"
+}
