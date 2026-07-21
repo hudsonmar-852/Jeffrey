@@ -1,11 +1,11 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '3.3.0';
+  const APP_VERSION = '3.4.0';
   const BASE_DATA_URLS = ['today.json', 'data/today.json', './data/today.json'];
   const STATE = { data: null, current: 'all', query: '', source: null };
-  const ORDER = ['all','daily_special','jeffrey_today','weather','busy_office','fitness_lifestyle','healthy_lifestyle','recovery','senior_safe','long_time_no_see','favourite','archive'];
-  const LABELS = {all:'全部',daily_special:'⭐ 今日精選',jeffrey_today:'☕ Jeffrey Today',weather:'🌦 天氣背景',busy_office:'💼 上班族',fitness_lifestyle:'🔥 Keep Fit',healthy_lifestyle:'🥗 健康生活',recovery:'🧘 Recovery',senior_safe:'👴 銀髮安全',long_time_no_see:'🫶 久未聯絡',favourite:'❤️ Favourite',archive:'📚 Archive'};
+  const ORDER = ['all','aios_best','daily_special','jeffrey_today','weather','busy_office','fitness_lifestyle','healthy_lifestyle','recovery','senior_safe','long_time_no_see','favourite','archive'];
+  const LABELS = {all:'全部',aios_best:'✨ AIOS 精選',daily_special:'⭐ 今日精選',jeffrey_today:'☕ Jeffrey Today',weather:'🌦 天氣背景',busy_office:'💼 上班族',fitness_lifestyle:'🔥 Keep Fit',healthy_lifestyle:'🥗 健康生活',recovery:'🧘 Recovery',senior_safe:'👴 銀髮安全',long_time_no_see:'🫶 久未聯絡',favourite:'❤️ Favourite',archive:'📚 Archive'};
   const $ = id => document.getElementById(id);
   const parse = (v, f) => { try { return JSON.parse(v); } catch { return f; } };
   const get = (k, f) => { try { const v = localStorage.getItem(k); return v ? parse(v, f) : f; } catch { return f; } };
@@ -84,9 +84,28 @@
 
   function key(m) { return m.id || `${m.category}|${m.topic}|${m.content}`; }
   function status(cls, text) { const e=$('engineStatus'); if(e){ e.className=`engine-status ${cls}`; e.textContent=text; } }
-  function brief() { const d=STATE.data,w=d.weatherContext||{}; $('dailyBrief').innerHTML=`<div class="brief-grid"><div class="brief-card"><h3>今日主題</h3><p>${esc(d.theme||'今日保持穩定節奏')}</p></div><div class="brief-card"><h3>香港生活脈搏</h3><p>${esc(d.lifePulse||'暫未提供')}</p></div><div class="brief-card"><h3>天氣背景</h3><p>${esc(w.summary||'天氣只作背景資訊')}</p></div></div>`; }
+  function brief() {
+    const d=STATE.data,w=d.weatherContext||{},s=d.styleCatalogue||{};
+    const quality=s.name ? `${s.name} · ${s.singlePurpose?'單一重點':'標準模式'}` : 'AIOS 基礎質檢模式';
+    $('dailyBrief').innerHTML=`<div class="brief-grid"><div class="brief-card"><h3>今日主題</h3><p>${esc(d.theme||'今日保持穩定節奏')}</p></div><div class="brief-card"><h3>香港生活脈搏</h3><p>${esc(d.lifePulse||'暫未提供')}</p></div><div class="brief-card"><h3>天氣背景</h3><p>${esc(w.summary||'天氣只作背景資訊')}</p></div><div class="brief-card"><h3>AIOS 狀態</h3><p>${esc(quality)}<br>${esc(STATE.source||'資料來源載入中')}</p></div></div>`;
+  }
   function tabs() { const t=$('tabs'); t.innerHTML=''; ORDER.forEach(c=>{ const b=document.createElement('button'); b.className='tab'+(STATE.current===c?' active':''); b.textContent=LABELS[c]||c; b.onclick=()=>{STATE.current=c;tabs();cards();}; t.appendChild(b); }); }
-  function selected() { const fav=get('jeffreyFavourites',{}); let a=STATE.current==='favourite'?Object.values(fav).map(m=>({...m,category:'favourite',fav:true})):flatten(STATE.data).filter(m=>STATE.current==='all'?m.category!=='archive':m.category===STATE.current); const q=STATE.query.trim().toLowerCase(); return q?a.filter(m=>`${m.topic||''} ${m.content||''}`.toLowerCase().includes(q)):a; }
+  function selected() {
+    const fav=get('jeffreyFavourites',{});
+    let a;
+    if (STATE.current==='favourite') {
+      a=Object.values(fav).map(m=>({...m,category:'favourite',fav:true}));
+    } else if (STATE.current==='aios_best') {
+      a=flatten(STATE.data)
+        .filter(m=>m.category!=='archive' && Number(m.humanScore||0)>=98)
+        .sort((x,y)=>(Number(y.daily)-Number(x.daily)) || (Number(y.humanScore||0)-Number(x.humanScore||0)))
+        .slice(0,30);
+    } else {
+      a=flatten(STATE.data).filter(m=>STATE.current==='all'?m.category!=='archive':m.category===STATE.current);
+    }
+    const q=STATE.query.trim().toLowerCase();
+    return q?a.filter(m=>`${m.topic||''} ${m.content||''}`.toLowerCase().includes(q)):a;
+  }
   function stats(n) { $('totalCount').textContent=flatten(STATE.data||{}).length; $('visibleCount').textContent=n; $('copiedCount').textContent=Object.keys(get('jeffreyUsage',{})).length; $('favouriteCount').textContent=Object.keys(get('jeffreyFavourites',{})).length; }
 
   function cards() {
@@ -95,8 +114,9 @@
     if(!items.length){g.innerHTML='<div class="empty-state">找不到相符訊息。</div>';stats(0);return;}
     items.slice(0,100).forEach(m=>{
       const k=key(m),f=!!fav[k]||m.fav,u=!!used[k],c=document.createElement('article');
+      const score=Number(m.humanScore||0);
       c.className='card'+(m.daily?' daily':'')+(f?' fav':'');
-      c.innerHTML=`<div><div class="meta"><span class="pill">${esc(LABELS[m.category]||m.category)}</span>${m.daily?'<span class="pill today">今日新增</span>':''}</div><div class="topic">${esc(m.topic||'')}</div><div class="content">${esc(m.content||'')}</div>${u?'<div class="usage">已 Copy 過</div>':''}</div><div class="card-actions"><button class="btn" data-copy>📋 Copy</button><button class="btn secondary" data-fav>${f?'❤️ 已收藏':'♡ Favourite'}</button></div>`;
+      c.innerHTML=`<div><div class="meta"><span class="pill">${esc(LABELS[m.category]||m.category)}</span>${m.daily?'<span class="pill today">今日新增</span>':''}${score?`<span class="pill score">Human ${score}</span>`:''}</div><div class="topic">${esc(m.topic||'')}</div><div class="content">${esc(m.content||'')}</div>${u?'<div class="usage">已 Copy 過</div>':''}</div><div class="card-actions"><button class="btn" data-copy>📋 Copy</button><button class="btn secondary" data-fav>${f?'❤️ 已收藏':'♡ Favourite'}</button></div>`;
       g.appendChild(c);
       c.querySelector('[data-copy]').onclick=async()=>{try{await navigator.clipboard.writeText(m.content||'');const s=get('jeffreyUsage',{});s[k]={...m,lastCopied:new Date().toISOString(),count:(s[k]?.count||0)+1};set('jeffreyUsage',s);cards();}catch{alert('未能自動複製，請長按文字手動複製。');}};
       c.querySelector('[data-fav]').onclick=()=>{const s=get('jeffreyFavourites',{});s[k]?delete s[k]:s[k]={...m,savedAt:new Date().toISOString()};set('jeffreyFavourites',s);cards();};
