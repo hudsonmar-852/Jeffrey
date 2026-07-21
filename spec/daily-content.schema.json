@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hudsonmar-852.github.io/Jeffrey/spec/daily-content.schema.json",
+  "title": "Jeffrey AIOS Daily Production Content",
+  "type": "object",
+  "required": ["date", "version", "theme", "lifePulse", "production", "dailySpecial"],
+  "properties": {
+    "date": {"type": "string", "format": "date"},
+    "version": {"const": "3.5.0"},
+    "production": {
+      "type": "object",
+      "required": ["mode", "generatedAt", "timezone", "health"],
+      "properties": {
+        "mode": {"const": "live"},
+        "generatedAt": {"type": "string"},
+        "timezone": {"const": "Asia/Hong_Kong"},
+        "health": {"type": "array"}
+      }
+    },
+    "dailySpecial": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "topic", "content", "source", "sourceUrl", "sourceTimestamp", "approvalStatus"]
+      }
+    }
+  }
+}

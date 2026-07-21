@@ -1,9 +1,9 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '3.4.0';
-  const BASE_DATA_URLS = ['today.json', 'data/today.json', './data/today.json'];
-  const STATE = { data: null, current: 'all', query: '', source: null };
+  const APP_VERSION = '3.5.0';
+  const BASE_DATA_URLS = ['data/today.json', './data/today.json', 'today.json'];
+  const STATE = { data: null, current: 'all', query: '', source: null, operatorFilter: 'all' };
   const ORDER = ['all','aios_best','daily_special','jeffrey_today','weather','busy_office','fitness_lifestyle','healthy_lifestyle','recovery','senior_safe','long_time_no_see','favourite','archive'];
   const LABELS = {all:'全部',aios_best:'✨ AIOS 精選',daily_special:'⭐ 今日精選',jeffrey_today:'☕ Jeffrey Today',weather:'🌦 天氣背景',busy_office:'💼 上班族',fitness_lifestyle:'🔥 Keep Fit',healthy_lifestyle:'🥗 健康生活',recovery:'🧘 Recovery',senior_safe:'👴 銀髮安全',long_time_no_see:'🫶 久未聯絡',favourite:'❤️ Favourite',archive:'📚 Archive'};
   const $ = id => document.getElementById(id);
@@ -89,6 +89,13 @@
     const quality=s.name ? `${s.name} · ${s.singlePurpose?'單一重點':'標準模式'}` : 'AIOS 基礎質檢模式';
     $('dailyBrief').innerHTML=`<div class="brief-grid"><div class="brief-card"><h3>今日主題</h3><p>${esc(d.theme||'今日保持穩定節奏')}</p></div><div class="brief-card"><h3>香港生活脈搏</h3><p>${esc(d.lifePulse||'暫未提供')}</p></div><div class="brief-card"><h3>天氣背景</h3><p>${esc(w.summary||'天氣只作背景資訊')}</p></div><div class="brief-card"><h3>AIOS 狀態</h3><p>${esc(quality)}<br>${esc(STATE.source||'資料來源載入中')}</p></div></div>`;
   }
+  function production() {
+    const p=STATE.data.production||{},panel=$('productionPanel');
+    if(!panel)return;
+    if(p.mode!=='live'){panel.innerHTML='<div class="source-head"><div><strong>Production Sources</strong><p>目前載入 legacy dataset；首次 daily workflow 成功後會顯示 live provenance。</p></div><span class="source-state warning">LEGACY</span></div>';return;}
+    const health=(p.health||[]).map(s=>`<article class="source-item"><div><strong>${esc(s.name)}</strong><small>${esc(s.fetchedAt||'')}</small></div><span class="source-state ${s.status==='ok'?'ok':'error'}">${esc(s.status)}</span></article>`).join('');
+    panel.innerHTML=`<div class="source-head"><div><strong>Production Sources</strong><p>Generated ${esc(p.generatedAt||'')} · ${Number(p.successfulSources||0)}/${Number(p.totalSources||0)} online</p></div><span class="source-state ${p.requiredSourcesFailed?.length?'warning':'ok'}">${p.requiredSourcesFailed?.length?'DEGRADED':'LIVE'}</span></div><div class="source-grid">${health}</div><p class="distribution-note">WhatsApp: disabled · Instagram: disabled · 發布前必須人工核對及 Approve</p>`;
+  }
   function tabs() { const t=$('tabs'); t.innerHTML=''; ORDER.forEach(c=>{ const b=document.createElement('button'); b.className='tab'+(STATE.current===c?' active':''); b.textContent=LABELS[c]||c; b.onclick=()=>{STATE.current=c;tabs();cards();}; t.appendChild(b); }); }
   function selected() {
     const fav=get('jeffreyFavourites',{});
@@ -103,22 +110,28 @@
     } else {
       a=flatten(STATE.data).filter(m=>STATE.current==='all'?m.category!=='archive':m.category===STATE.current);
     }
+    const approved=get('jeffreyApproved',{}),done=get('jeffreyDone',{});
+    if(STATE.operatorFilter==='pending')a=a.filter(m=>m.approvalStatus==='pending'&&!approved[key(m)]&&!done[key(m)]);
+    if(STATE.operatorFilter==='done')a=a.filter(m=>done[key(m)]);
     const q=STATE.query.trim().toLowerCase();
     return q?a.filter(m=>`${m.topic||''} ${m.content||''}`.toLowerCase().includes(q)):a;
   }
   function stats(n) { $('totalCount').textContent=flatten(STATE.data||{}).length; $('visibleCount').textContent=n; $('copiedCount').textContent=Object.keys(get('jeffreyUsage',{})).length; $('favouriteCount').textContent=Object.keys(get('jeffreyFavourites',{})).length; }
 
   function cards() {
-    const g=$('messageGrid'),used=get('jeffreyUsage',{}),fav=get('jeffreyFavourites',{}),items=selected();
+    const g=$('messageGrid'),used=get('jeffreyUsage',{}),fav=get('jeffreyFavourites',{}),approved=get('jeffreyApproved',{}),done=get('jeffreyDone',{}),items=selected();
     g.innerHTML='';
     if(!items.length){g.innerHTML='<div class="empty-state">找不到相符訊息。</div>';stats(0);return;}
     items.slice(0,100).forEach(m=>{
-      const k=key(m),f=!!fav[k]||m.fav,u=!!used[k],c=document.createElement('article');
+      const k=key(m),f=!!fav[k]||m.fav,u=!!used[k],a=!!approved[k],d=!!done[k],c=document.createElement('article');
       const score=Number(m.humanScore||0);
-      c.className='card'+(m.daily?' daily':'')+(f?' fav':'');
-      c.innerHTML=`<div><div class="meta"><span class="pill">${esc(LABELS[m.category]||m.category)}</span>${m.daily?'<span class="pill today">今日新增</span>':''}${score?`<span class="pill score">Human ${score}</span>`:''}</div><div class="topic">${esc(m.topic||'')}</div><div class="content">${esc(m.content||'')}</div>${u?'<div class="usage">已 Copy 過</div>':''}</div><div class="card-actions"><button class="btn" data-copy>📋 Copy</button><button class="btn secondary" data-fav>${f?'❤️ 已收藏':'♡ Favourite'}</button></div>`;
+      c.className='card'+(m.daily?' daily':'')+(f?' fav':'')+(d?' done':'');
+      const source=m.sourceUrl?`<a class="source-link" href="${esc(m.sourceUrl)}" target="_blank" rel="noopener">來源：${esc(m.source||'官方資料')} · ${esc(m.sourceTimestamp||'')}</a>`:'';
+      c.innerHTML=`<div><div class="meta"><span class="pill">${esc(LABELS[m.category]||m.category)}</span>${m.daily?'<span class="pill today">今日新增</span>':''}${m.approvalStatus==='pending'?`<span class="pill ${a?'approved':'pending'}">${a?'已審批':'待審批'}</span>`:''}${d?'<span class="pill completed">Done</span>':''}${score?`<span class="pill score">Human ${score}</span>`:''}</div><div class="topic">${esc(m.topic||'')}</div><div class="content">${esc(m.content||'')}</div>${m.cta?`<div class="cta">CTA：${esc(m.cta)}</div>`:''}${source}${u?'<div class="usage">已 Copy 過</div>':''}</div><div class="card-actions">${m.approvalStatus==='pending'?`<button class="btn approve" data-approve>${a?'✅ Approved':'Approve'}</button>`:''}<button class="btn" data-copy ${m.approvalStatus==='pending'&&!a?'disabled title="請先 Approve"':''}>📋 Copy</button><button class="btn done-btn" data-done>${d?'↩ Undo Done':'✓ Done'}</button><button class="btn secondary" data-fav>${f?'❤️ 已收藏':'♡ Favourite'}</button></div>`;
       g.appendChild(c);
-      c.querySelector('[data-copy]').onclick=async()=>{try{await navigator.clipboard.writeText(m.content||'');const s=get('jeffreyUsage',{});s[k]={...m,lastCopied:new Date().toISOString(),count:(s[k]?.count||0)+1};set('jeffreyUsage',s);cards();}catch{alert('未能自動複製，請長按文字手動複製。');}};
+      c.querySelector('[data-copy]').onclick=async()=>{try{const copy=[m.hook||m.content,m.cta].filter(Boolean).join('\n\n');await navigator.clipboard.writeText(copy);const s=get('jeffreyUsage',{});s[k]={...m,lastCopied:new Date().toISOString(),count:(s[k]?.count||0)+1};set('jeffreyUsage',s);cards();}catch{alert('未能自動複製，請長按文字手動複製。');}};
+      c.querySelector('[data-approve]')?.addEventListener('click',()=>{const s=get('jeffreyApproved',{});s[k]?delete s[k]:s[k]={id:k,approvedAt:new Date().toISOString(),sourceTimestamp:m.sourceTimestamp||null};set('jeffreyApproved',s);cards();});
+      c.querySelector('[data-done]').onclick=()=>{const s=get('jeffreyDone',{});s[k]?delete s[k]:s[k]={id:k,doneAt:new Date().toISOString()};set('jeffreyDone',s);cards();};
       c.querySelector('[data-fav]').onclick=()=>{const s=get('jeffreyFavourites',{});s[k]?delete s[k]:s[k]={...m,savedAt:new Date().toISOString()};set('jeffreyFavourites',s);cards();};
     });
     stats(items.length);
@@ -129,8 +142,11 @@
     $('searchInput').oninput=e=>{STATE.query=e.target.value;cards();};
     $('themeToggle').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;set('jeffreyTheme',n);};
     $('randomReminder').onclick=()=>{const a=selected();if(!a.length)return;const m=a[Math.floor(Math.random()*a.length)];STATE.query=m.topic||m.content||'';$('searchInput').value=STATE.query;cards();};
+    $('showPending').onclick=()=>{STATE.operatorFilter=STATE.operatorFilter==='pending'?'all':'pending';cards();};
+    $('showDone').onclick=()=>{STATE.operatorFilter=STATE.operatorFilter==='done'?'all':'done';cards();};
+    $('exportAudit').onclick=()=>{const payload={version:'1.0',exportedAt:new Date().toISOString(),date:STATE.data?.date||hkDate(),approved:Object.values(get('jeffreyApproved',{})),done:Object.values(get('jeffreyDone',{}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`jeffrey-audit-${payload.date}.json`;a.click();URL.revokeObjectURL(a.href);};
     try {
-      STATE.data=await load(); brief(); tabs(); cards();
+      STATE.data=await load(); brief(); production(); tabs(); cards();
       status(STATE.source==='local-cache'?'warning-state':'ready-state',STATE.source==='local-cache'?'Offline cache':'Engine online');
       $('versionInfo').textContent=`Jeffrey Reminder Engine v${APP_VERSION} · Data ${STATE.data.date||'unknown'} · ${STATE.source}`;
     } catch(e) {

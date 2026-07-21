@@ -27,7 +27,18 @@ jobs:
           python-version: "3.12"
 
       - name: Validate today.json
-        run: python scripts/validate_today.py
+        run: |
+          python scripts/validate_today.py
+          if python - <<'PY'
+          import json
+          data = json.load(open('data/today.json', encoding='utf-8'))
+          raise SystemExit(0 if data.get('production', {}).get('mode') == 'live' else 1)
+          PY
+          then
+            python scripts/validate_production.py
+          else
+            echo "Legacy dataset detected; production validation becomes mandatory after v3.5 data generation."
+          fi
 
       - name: Check required website files
         run: |
@@ -36,6 +47,8 @@ jobs:
           test -f style.css
           test -f data/today.json
           test -f aios/module.json
+          test -f config/content-sources.json
+          test -f scripts/generate_daily_content.py
 
   deploy:
     needs: validate

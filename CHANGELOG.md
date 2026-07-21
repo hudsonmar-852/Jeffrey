@@ -1,5 +1,17 @@
 # Jeffrey Repo Changelog
 
+## v3.5 — 2026-07-21
+
+### Added
+- Official HKO and government-news collection and transformation layer.
+- Daily GitHub Actions production refresh with last-known-good failure handling.
+- Source health, provenance, approval, done and audit export dashboard workflow.
+- Production schema, configuration, tests, templates and runbooks.
+
+### Safety
+- WhatsApp and Instagram automatic distribution remain disabled pending an approved RFC and credentials.
+- No 1Password dependency. Grok testing is outside this pipeline.
+
 ## v3.0 — 2026-06-17
 
 ### Changed

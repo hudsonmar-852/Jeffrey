@@ -1,0 +1,10 @@
+{
+  "generalSituation": "廣東沿岸天氣酷熱。",
+  "updateTime": "2026-07-21T06:00:00+08:00",
+  "weatherForecast": [{
+    "forecastDate": "20260721",
+    "forecastWeather": "大致天晴及酷熱，稍後局部地區有驟雨。",
+    "forecastMintemp": {"value": 28, "unit": "C"},
+    "forecastMaxtemp": {"value": 34, "unit": "C"}
+  }]
+}

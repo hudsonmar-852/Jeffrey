@@ -1,6 +1,6 @@
 {
   "module": "jeffrey-reminder-engine",
-  "version": "3.0.0",
+  "version": "3.5.0",
   "status": "independent",
   "owner": "hudsonmar-852/Jeffrey",
   "productionUrl": "https://hudsonmar-852.github.io/Jeffrey/",
@@ -14,15 +14,18 @@
       "github-share"
     ],
     "publishes": [
-      "data/today.json"
+      "data/today.json",
+      "production source health",
+      "operator audit export"
     ]
   },
   "runtime": {
     "type": "static-first",
-    "frontend": ["index.html", "app.js", "style.css"],
+    "frontend": ["index.html", "app.js", "style.css", "production.css"],
     "dataEntry": "data/today.json",
     "fallback": "browser local last-good cache",
-    "deployment": ".github/workflows/pages.yml"
+    "deployment": ".github/workflows/pages.yml",
+    "dailyCollection": ".github/workflows/daily-content.yml"
   },
   "contentPolicy": {
     "location": "Hong Kong",
@@ -44,6 +47,10 @@
       "minimum_one_message",
       "unique_message_ids",
       "date_matches_hong_kong_day"
-    ]
+    ],
+    "officialSources": "config/content-sources.json",
+    "requiredProvenance": ["source", "sourceUrl", "sourceTimestamp"],
+    "humanApprovalRequired": true,
+    "autoDistribution": {"whatsapp": "disabled", "instagram": "disabled"}
   }
 }

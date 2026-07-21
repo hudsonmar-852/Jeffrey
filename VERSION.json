@@ -1,11 +1,11 @@
 {
   "repo": "hudsonmar-852/Jeffrey",
-  "version": "3.0",
+  "version": "3.5",
   "versioning_rule": {
     "major": "+1 for big structure, UX, content system or repo-wide changes",
     "minor": "+0.1 for normal content, wording, small UI or page updates"
   },
-  "last_updated": "2026-06-17",
+  "last_updated": "2026-07-21",
   "standard_structure": {
     "language": "zh-HK",
     "encoding": "UTF-8",
@@ -15,7 +15,7 @@
     "metadata": ["app-version", "last-updated"]
   },
   "pages": {
-    "index.html": "v3.0 standardized loader shell",
+    "index.html": "v3.5 AIOS live-source production dashboard",
     "gym.html": "v3.0 standardized loader shell",
     "gym_m.html": "v3.0 standardized version page with links",
     "bible.html": "v2.1 existing loader pattern reference"
