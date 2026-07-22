@@ -1,0 +1,46 @@
+{
+  "date": "2026-07-22",
+  "version": "3.5.1",
+  "theme": "Jeffrey Today｜生活節奏與訓練關心",
+  "jeffreyToday": [
+    {
+      "id": "jt-20260722-01",
+      "topic": "☕ Jeffrey Today｜先補水再開工",
+      "content": "今日朝早濕度高，個人容易焗住攰。返到 Gym 或者開始工作前，先飲幾啖水、慢慢郁開個身，唔使一開始就谷到盡。",
+      "hook": "今日朝早濕度高，個人容易焗住攰。返到 Gym 或者開始工作前，先飲幾啖水、慢慢郁開個身，唔使一開始就谷到盡。",
+      "cta": "今日先穩住節奏就得。",
+      "priority": 1,
+      "approvalStatus": "pending",
+      "humanScore": 98,
+      "source": "香港天文台",
+      "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "sourceTimestamp": "2026-07-22T08:02:00+08:00"
+    },
+    {
+      "id": "jt-20260722-02",
+      "topic": "🏋️ Jeffrey Today｜七成力都可以好有質素",
+      "content": "今日天氣又熱又濕，訓練用七成力已經可以做得好好。姿勢穩、呼吸順、完成後仲有少少餘力，反而更容易 Keep 住。",
+      "hook": "今日天氣又熱又濕，訓練用七成力已經可以做得好好。姿勢穩、呼吸順、完成後仲有少少餘力，反而更容易 Keep 住。",
+      "cta": "按今日精神調整份量。",
+      "priority": 2,
+      "approvalStatus": "pending",
+      "humanScore": 97,
+      "source": "香港天文台九天天氣預報",
+      "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc",
+      "sourceTimestamp": "2026-07-22T08:09:05+08:00"
+    },
+    {
+      "id": "jt-20260722-03",
+      "topic": "🌦 Jeffrey Today｜遮同水樽跟身",
+      "content": "今日部分時間有陽光，亦有幾陣驟雨。出門記得帶遮同水樽，行程留少少彈性，個人會舒服同穩陣好多。",
+      "hook": "今日部分時間有陽光，亦有幾陣驟雨。出門記得帶遮同水樽，行程留少少彈性，個人會舒服同穩陣好多。",
+      "cta": "出門前再望一次最新天氣。",
+      "priority": 3,
+      "approvalStatus": "pending",
+      "humanScore": 96,
+      "source": "香港天文台",
+      "sourceUrl": "https://www.hko.gov.hk/tc/wxinfo/currwx/fnd.htm",
+      "sourceTimestamp": "2026-07-22T08:09:05+08:00"
+    }
+  ]
+}
