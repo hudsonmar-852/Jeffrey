@@ -1,63 +1,63 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "version": "3.5.0",
   "theme": "AIOS 真實資料｜每日生活脈搏與訓練節奏",
-  "lifePulse": "隨著副熱帶高壓脊逐步覆蓋廣東沿岸，未來一兩日該區驟雨逐漸減少，漸轉天晴酷熱。預料一個低壓區會於菲律賓以東海域逐漸發展為熱帶氣旋，並於本週後期進入南海北部，週末期間大致移向廣東沿岸一帶並逐步增強，但其登陸位置存在變數，而該區風勢頗大，有狂風驟雨及雷暴，海有湧浪。受偏南氣流影響，下週初華南沿岸天氣仍然不穩定。",
+  "lifePulse": "副熱帶高壓脊會在今明兩日覆蓋華南，並為該區帶來普遍晴朗及酷熱的天氣。而位於菲律賓以東海域的熱帶氣旋會在本週後期進入南海東北部並逐步增強，週末期間較大機會移向廣東東部沿岸一帶，但其登陸位置及與本港的距離仍存在變數。受其影響，星期六稍後至星期日廣東沿岸風勢頗大，有狂風大驟雨及雷暴，海有湧浪。一道廣闊低壓槽會在下週初至中期影響南海北部，廣東沿岸天氣仍然不穩定。",
   "weatherContext": {
     "source": "香港天文台",
     "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-    "updateTime": "2026-07-22T08:02:00+08:00",
-    "summary": "氣溫 27–32°C；部分時間有陽光，有幾陣驟雨。；暫未從即時資料讀到特別警告",
+    "updateTime": "2026-07-23T08:02:00+08:00",
+    "summary": "氣溫 28–34°C；大致天晴，但初時局部地區有驟雨。日間酷熱。；酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。",
     "role": "verified_background"
   },
   "dailySpecial": [
     {
-      "id": "ds-20260722-9660c7b0",
+      "id": "ds-20260723-3461a8e1",
       "section": "S1",
       "topic": "⭐ 今日精選｜天氣節奏",
-      "content": "今日天文台預測大約 27–32°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
-      "hook": "今日天文台預測大約 27–32°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "content": "今日天文台預測大約 28–34°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "hook": "今日天文台預測大約 28–34°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
       "cta": "有需要就收藏低，出門前再望天文台最新資訊。",
       "priority": 1,
       "approvalStatus": "pending",
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-07-22T08:02:00+08:00"
+      "sourceTimestamp": "2026-07-23T08:02:00+08:00"
     },
     {
-      "id": "w-20260722-1e8ce025",
+      "id": "w-20260723-281bb799",
       "section": "S1",
       "topic": "🌦 官方天氣｜安全節奏",
-      "content": "今日未見特別警告都唔代表要追到盡。先熱身、再按精神同呼吸決定訓練份量，質素行先。",
-      "hook": "今日未見特別警告都唔代表要追到盡。先熱身、再按精神同呼吸決定訓練份量，質素行先。",
+      "content": "天文台現時提示：酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
+      "hook": "天文台現時提示：酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
       "cta": "發送前再核對天文台警告。",
       "priority": 2,
       "approvalStatus": "pending",
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-07-22T08:02:00+08:00"
+      "sourceTimestamp": "2026-07-23T08:02:00+08:00"
     },
     {
-      "id": "w-20260722-b803de62",
+      "id": "w-20260723-5f8d2590",
       "section": "S1",
       "topic": "💧 官方天氣｜濕度背景",
-      "content": "天文台最新相對濕度約 86%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
-      "hook": "天文台最新相對濕度約 86%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "content": "天文台最新相對濕度約 80%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "hook": "天文台最新相對濕度約 80%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
       "cta": "按自己狀態補水同休息。",
       "priority": 3,
       "approvalStatus": "pending",
       "humanScore": 97,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-07-22T08:02:00+08:00"
+      "sourceTimestamp": "2026-07-23T08:02:00+08:00"
     },
     {
-      "id": "gov-20260722-ab97b56e",
+      "id": "gov-20260723-9facce38",
       "section": "S2",
       "topic": "🏙 香港脈搏｜政府資訊",
-      "content": "今日政府資訊有一項更新：全港賣旗日。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
+      "content": "今日政府資訊有一項更新：天氣酷熱　衞生署提醒市民預防高溫引發的疾病。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
       "hook": "待 Jeffrey 閱讀原文後手動輸入",
       "cta": "先核對原文，再決定是否分享。",
       "priority": 4,
@@ -65,8 +65,8 @@
       "humanScore": 94,
       "source": "香港政府新聞公報",
       "sourceUrl": "https://www.info.gov.hk/gia/rss/general_zh.xml",
-      "sourceTimestamp": "Wed, 22 Jul 2026 06:00:00 +0800",
-      "articleUrl": "https://www.info.gov.hk/gia/general/202607/22/P2026072000502.htm"
+      "sourceTimestamp": "Thu, 23 Jul 2026 06:45:56 +0800",
+      "articleUrl": "https://www.info.gov.hk/gia/general/202607/23/P2026072300144.htm"
     },
     {
       "id": "ds-20260710-01",
@@ -622,7 +622,7 @@
   },
   "production": {
     "mode": "live",
-    "generatedAt": "2026-07-22T08:09:04+08:00",
+    "generatedAt": "2026-07-23T08:14:13+08:00",
     "timezone": "Asia/Hong_Kong",
     "successfulSources": 3,
     "totalSources": 3,
@@ -633,21 +633,21 @@
         "name": "香港天文台",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-07-22T08:09:04+08:00"
+        "fetchedAt": "2026-07-23T08:14:13+08:00"
       },
       {
         "id": "hko_forecast",
         "name": "香港天文台九天天氣預報",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-07-22T08:09:05+08:00"
+        "fetchedAt": "2026-07-23T08:14:15+08:00"
       },
       {
         "id": "gov_news",
         "name": "香港政府新聞公報",
         "status": "ok",
         "required": false,
-        "fetchedAt": "2026-07-22T08:09:06+08:00"
+        "fetchedAt": "2026-07-23T08:14:16+08:00"
       }
     ],
     "autoDistribution": {
