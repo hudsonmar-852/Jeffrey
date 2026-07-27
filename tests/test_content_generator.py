@@ -30,9 +30,21 @@ class GeneratorTests(unittest.TestCase):
         data = generator.transform(self.raw, self.health, self.config, self.now, {"groups": {}})
         self.assertEqual(data["version"], "3.5.0")
         self.assertEqual(data["production"]["mode"], "live")
-        self.assertGreaterEqual(len(data["dailySpecial"]), 4)
+        self.assertGreaterEqual(len(data["dailySpecial"]), 1)
+        self.assertLessEqual(len(data["dailySpecial"]), 5)
         self.assertTrue(all(item.get("sourceUrl") for item in data["dailySpecial"]))
-        self.assertIn("唔使硬頂", " ".join(item["content"] for item in data["dailySpecial"]))
+        self.assertTrue(all(item["status"] == "draft_human_approval_required" for item in data["dailySpecial"]))
+        self.assertEqual(len(data["jeffreyToday"]), 5)
+        combined = " ".join(item["content"] for item in data["dailySpecial"] + data["jeffreyToday"])
+        for blocked in ("今朝返到 Gym", "第一下就覺得", "生活脈搏", "Jeffrey 發送前"):
+            self.assertNotIn(blocked, combined)
+
+    def test_displaced_daily_content_is_preserved_in_archive(self):
+        old = {"id": "old-1", "content": "舊訊息"}
+        data = generator.transform(self.raw, self.health, self.config, self.now, {
+            "dailySpecial": [old], "jeffreyToday": [old], "archive": []
+        })
+        self.assertEqual(data["archive"], [old])
 
     def test_refuses_to_publish_without_hko(self):
         with self.assertRaises(RuntimeError):

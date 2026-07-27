@@ -1,6 +1,6 @@
 {
   "repo": "hudsonmar-852/Jeffrey",
-  "version": "4.0",
+  "version": "4.1",
   "versioning_rule": {
     "major": "+1 for big structure, UX, content system or repo-wide changes",
     "minor": "+0.1 for normal content, wording, small UI or page updates"
@@ -15,7 +15,7 @@
     "metadata": ["app-version", "last-updated"]
   },
   "pages": {
-    "index.html": "v4.0 relationship messaging panel plus preserved v3.5 AIOS production workflow",
+    "index.html": "v4.1 scheduled AIOS Daily Context loader plus preserved v4.0 relationship messaging and v3.5 workflow",
     "reminder/index.html": "v4.0 relationship messaging dashboard with v3.5 history compatibility",
     "gym.html": "v3.0 standardized loader shell",
     "gym_m.html": "v3.0 standardized version page with links",

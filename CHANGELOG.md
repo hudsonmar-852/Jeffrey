@@ -1,5 +1,20 @@
 # Jeffrey Repo Changelog
 
+## v4.1 — 2026-07-27
+
+### Added
+- Feature-flagged loader for `/aios/modules/jeffrey/latest.json`, the latest Daily Context record and draft catalogue.
+- Scheduled drafts are shown before existing local drafts without deleting or overwriting browser history.
+- Stored-record freshness and provenance display with legacy fallback.
+- Today's panel selects five diverse drafts instead of displaying the full candidate catalogue.
+- Legacy daily generation now emits three-to-five concise sourced items and archives displaced content intact.
+
+### Safety
+- The new adapter does not call a raw weather provider.
+- `AIOS_DAILY_CONTEXT_V1` defaults off if runtime config cannot load.
+- Every scheduled item remains `draft_human_approval_required`.
+- Unverified first-person gym observations and generic government-news filler are excluded from the current sendable set.
+
 ## v4.0 — 2026-07-27
 
 ### Added

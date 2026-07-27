@@ -68,6 +68,38 @@ def make_id(prefix: str, day: str, seed: str) -> str:
     digest = hashlib.sha256(seed.encode("utf-8")).hexdigest()[:8]
     return f"{prefix}-{day.replace('-', '')}-{digest}"
 
+def draft(day: str, prefix: str, topic: str, content: str, priority: int, provenance: dict[str, str]) -> dict[str, Any]:
+    return {
+        "id": make_id(prefix, day, content),
+        "section": "S1",
+        "topic": topic,
+        "content": content,
+        "hook": content,
+        "cta": "",
+        "priority": priority,
+        "approvalStatus": "pending",
+        "status": "draft_human_approval_required",
+        "humanScore": 98,
+        **provenance,
+    }
+
+
+def preserve_history(base: dict[str, Any]) -> list[dict[str, Any]]:
+    """Move displaced daily items into history without deleting or rewriting them."""
+    values = [
+        *(base.get("dailySpecial", []) or []),
+        *(base.get("jeffreyToday", []) or []),
+        *(base.get("archive", []) or []),
+    ]
+    seen: set[str] = set()
+    result: list[dict[str, Any]] = []
+    for item in values:
+        key = item.get("id") or item.get("content")
+        if key and key not in seen:
+            seen.add(key)
+            result.append(item)
+    return result
+
 
 def collect(config: dict[str, Any], now: datetime) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     timeout = int(config.get("timeoutSeconds", 20))
@@ -113,27 +145,27 @@ def transform(raw: dict[str, Any], health: list[dict[str, Any]], config: dict[st
         provenance = source_fields(sources["hko_forecast"], forecast.get("updateTime") or generated_at)
 
     messages: list[dict[str, Any]] = []
-    hook = f"今日天文台預測大約 {range_text}。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。"
-    messages.append({"id": make_id("ds", day, hook), "section": "S1", "topic": "⭐ 今日精選｜天氣節奏", "content": hook, "hook": hook, "cta": "有需要就收藏低，出門前再望天文台最新資訊。", "priority": 1, "approvalStatus": "pending", "humanScore": 98, **provenance})
-
     if warnings:
-        content = f"天文台現時提示：{warnings[0]}。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。"
-    else:
-        content = "今日未見特別警告都唔代表要追到盡。先熱身、再按精神同呼吸決定訓練份量，質素行先。"
-    messages.append({"id": make_id("w", day, content), "section": "S1", "topic": "🌦 官方天氣｜安全節奏", "content": content, "hook": content, "cta": "發送前再核對天文台警告。", "priority": 2, "approvalStatus": "pending", "humanScore": 98, **provenance})
+        warning = warnings[0].rstrip("。. ")
+        messages.append(draft(day, "warning", "今日安全提醒", f"出面有{warning}，今日唔好趕，安全到就得。", 1, provenance))
+    if max_temp is not None and float(max_temp) >= 32:
+        messages.append(draft(day, "heat", "今日天氣", f"今日最高大約 {max_temp}°C，出門前飲兩啖水先啦。", 2, provenance))
+    if any(word in forecast_text for word in ("雨", "驟雨", "雷暴")):
+        messages.append(draft(day, "rain", "今日天氣", "今日有雨，出門記得帶把遮呀☔", 3, provenance))
+    if not messages:
+        messages.append(draft(day, "weather", "今日天氣", f"今日大約 {range_text}，出門前望一眼天氣先啦。", 1, provenance))
 
-    if humidity_value is not None:
-        content = f"天文台最新相對濕度約 {humidity_value}%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。"
-        messages.append({"id": make_id("w", day, content), "section": "S1", "topic": "💧 官方天氣｜濕度背景", "content": content, "hook": content, "cta": "按自己狀態補水同休息。", "priority": 3, "approvalStatus": "pending", "humanScore": 97, **provenance})
-
-    news = raw.get("gov_news", [])
-    if news:
-        item = news[0]
-        content = f"今日政府資訊有一項更新：{item['title']}。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。"
-        messages.append({"id": make_id("gov", day, content), "section": "S2", "topic": "🏙 香港脈搏｜政府資訊", "content": content, "hook": "待 Jeffrey 閱讀原文後手動輸入", "cta": "先核對原文，再決定是否分享。", "priority": 4, "approvalStatus": "pending", "humanScore": 94, **source_fields(sources["gov_news"], item.get("published") or generated_at), "articleUrl": item.get("link", "")})
-
-    old_special = [m for m in base.get("dailySpecial", []) if m.get("sourceTimestamp") is None]
-    daily_special = messages + old_special[:5]
+    jeffrey_today = [
+        {"id": make_id("jt", day, text), "topic": "Jeffrey 今日問候", "content": text,
+         "approvalStatus": "pending", "status": "draft_human_approval_required", "humanScore": 98}
+        for text in [
+            "今日返工忙唔忙呀？如果今晚有堂，嚟到我哋慢慢入返節奏。",
+            "最近訓練個節奏點呀？得閒覆我一句，我幫你睇下。",
+            "今晚操嗰陣記住出力先呼氣，我幫你睇住。",
+            "今日有嚟已經算數，唔使下下都做到盡。",
+            "如果坐咗成日，嚟到先郁下膊頭，我哋慢慢開始。",
+        ]
+    ]
     groups = base.get("groups", {}) if isinstance(base.get("groups"), dict) else {}
     successful = sum(1 for item in health if item["status"] == "ok")
     required_failed = [item["id"] for item in health if item["required"] and item["status"] != "ok"]
@@ -145,8 +177,10 @@ def transform(raw: dict[str, Any], health: list[dict[str, Any]], config: dict[st
         "lifePulse": general or weather_summary,
         "weatherContext": {"source": provenance["source"], "sourceUrl": provenance["sourceUrl"], "updateTime": provenance["sourceTimestamp"], "summary": weather_summary, "role": "verified_background"},
         "production": {"mode": "live", "generatedAt": generated_at, "timezone": "Asia/Hong_Kong", "successfulSources": successful, "totalSources": len(health), "requiredSourcesFailed": required_failed, "health": health, "autoDistribution": {"whatsapp": "disabled", "instagram": "disabled"}},
-        "dailySpecial": daily_special,
+        "dailySpecial": messages[:5],
+        "jeffreyToday": jeffrey_today,
         "weatherMessages": [],
+        "archive": preserve_history(base),
         "groups": groups,
     }
 

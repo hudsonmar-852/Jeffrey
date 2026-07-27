@@ -8,13 +8,13 @@ const read = (path) => readFile(new URL(path, root), 'utf8');
 test('production root loads the relationship engine without replacing the stable dashboard', async () => {
   const html = await read('index.html');
   assert.match(html, /id="relationshipGrid"/);
-  assert.match(html, /src="relationship-app\.mjs\?v=4\.0\.0"/);
+  assert.match(html, /src="relationship-app\.mjs\?v=4\.1\.0"/);
   assert.match(html, /src="app\.js\?v=4\.0\.0"/);
   assert.match(html, /id="productionPanel"/);
   assert.match(html, /id="showPending"/);
   assert.match(html, /id="showDone"/);
   assert.match(html, /id="exportAudit"/);
-  assert.match(html, /meta name="app-version" content="4\.0\.0"/);
+  assert.match(html, /meta name="app-version" content="4\.1\.0"/);
 });
 
 test('root integration reuses canonical storage and engine instead of duplicating data', async () => {
@@ -23,6 +23,7 @@ test('root integration reuses canonical storage and engine instead of duplicatin
   assert.match(module, /STORAGE_KEYS\.favourites/);
   assert.match(module, /STORAGE_KEYS\.usage/);
   assert.match(module, /recordMigration\(localStorage\)/);
+  assert.match(module, /pathname\.startsWith\('\/aios\/'\)/);
   assert.match(module, /STATE\.generated\.unshift\(\.\.\.generated\)/);
   assert.doesNotMatch(module, /localStorage\.clear\(/);
   assert.doesNotMatch(module, /removeItem\(/);

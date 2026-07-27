@@ -9,12 +9,18 @@ import {
   recordMigration,
   saveGenerated
 } from './reminder/engine.mjs';
+import {
+  loadLatestAiosDailyContext,
+  loadRuntimeFlag,
+  prependScheduledDrafts
+} from './aios-daily-context.mjs';
 
 const STATE = {
   context: null,
   data: null,
   generated: [],
-  members: []
+  members: [],
+  dailyContextV1: false
 };
 const $ = (id) => document.getElementById(id);
 
@@ -29,8 +35,10 @@ function escapeHtml(value) {
 
 function safeSourceUrl(value) {
   try {
-    const url = new URL(value);
-    return url.protocol === 'https:' ? url.href : '';
+    const url = new URL(value, window.location.origin);
+    const isStoredAiosRecord = url.origin === window.location.origin
+      && url.pathname.startsWith('/aios/');
+    return url.protocol === 'https:' || isStoredAiosRecord ? url.href : '';
   } catch {
     return '';
   }
@@ -262,6 +270,14 @@ function generateRelationship({ replaceId = null } = {}) {
 async function refreshContext({ preferDaily = false } = {}) {
   $('refreshContext').disabled = true;
   try {
+    if (STATE.dailyContextV1) {
+      const scheduled = await loadLatestAiosDailyContext();
+      STATE.context = scheduled.context;
+      STATE.generated = prependScheduledDrafts(STATE.generated, scheduled.messages);
+      renderRelationshipMessages();
+      renderRelationshipStatus();
+      return;
+    }
     const dailyContext = contextFromDailyData(STATE.data || {});
     STATE.context = preferDaily && dailyContext.verified ? dailyContext : await fetchHongKongContext();
     if (!STATE.context.verified && dailyContext.verified) STATE.context = dailyContext;
@@ -341,6 +357,19 @@ async function boot() {
     const response = await fetch(`data/today.json?ts=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`today.json HTTP ${response.status}`);
     STATE.data = await response.json();
+    STATE.dailyContextV1 = await loadRuntimeFlag();
+    if (STATE.dailyContextV1) {
+      try {
+        const scheduled = await loadLatestAiosDailyContext();
+        STATE.context = scheduled.context;
+        STATE.generated = prependScheduledDrafts(STATE.generated, scheduled.messages);
+        renderRelationshipMessages();
+        renderRelationshipStatus();
+        return;
+      } catch (error) {
+        console.warn('AIOS Daily Context fallback:', error);
+      }
+    }
     STATE.context = getStore(STORAGE_KEYS.context, contextFromDailyData(STATE.data));
     renderRelationshipStatus();
     const cachedAt = Date.parse(STATE.context?.fetchedAt || '');
