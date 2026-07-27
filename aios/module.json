@@ -22,7 +22,7 @@
   },
   "runtime": {
     "type": "static-first",
-    "frontend": ["index.html", "app.js", "style.css", "production.css", "reminder/index.html", "reminder/app.js", "reminder/engine.mjs", "reminder/relationship.css"],
+    "frontend": ["index.html", "app.js", "relationship-app.mjs", "style.css", "production.css", "reminder/index.html", "reminder/app.js", "reminder/engine.mjs", "reminder/relationship.css"],
     "dataEntry": "data/today.json",
     "fallback": "browser local last-good cache",
     "deployment": ".github/workflows/pages.yml",

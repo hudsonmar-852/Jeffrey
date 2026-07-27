@@ -138,3 +138,19 @@ test('migration receipt preserves production Favourite and Usage keys', () => {
   assert.equal(receipt.legacyKeysPreserved, true);
   assert.equal(JSON.parse(values.get('jeffreyUsage')).a.count, 8);
 });
+
+test('migration receipt tolerates malformed browser storage without clearing it', () => {
+  const values = new Map([
+    ['jeffreyFavourites', '{not-json'],
+    ['jeffreyUsage', '[]']
+  ]);
+  const storage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value)
+  };
+  const receipt = recordMigration(storage);
+  assert.equal(receipt.favouritesPreserved, 0);
+  assert.equal(receipt.usagePreserved, 0);
+  assert.equal(values.get('jeffreyFavourites'), '{not-json');
+  assert.equal(values.get('jeffreyUsage'), '[]');
+});

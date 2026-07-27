@@ -30,7 +30,7 @@ jobs:
       - name: Run unit tests
         run: |
           python -m unittest discover -s tests -p "test_*.py" -v
-          node --test tests/relationship_engine.test.mjs
+          node --test tests/*.test.mjs
 
       - name: Collect official sources and transform content
         run: python scripts/generate_daily_content.py

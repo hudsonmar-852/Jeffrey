@@ -43,7 +43,9 @@ jobs:
 
       - name: Test relationship messaging engine
         run: |
-          node --test tests/relationship_engine.test.mjs
+          node --test tests/*.test.mjs
+          node --check app.js
+          node --check relationship-app.mjs
           node --check reminder/engine.mjs
           node --check reminder/app.js
 
@@ -51,6 +53,7 @@ jobs:
         run: |
           test -f index.html
           test -f app.js
+          test -f relationship-app.mjs
           test -f style.css
           test -f data/today.json
           test -f aios/module.json

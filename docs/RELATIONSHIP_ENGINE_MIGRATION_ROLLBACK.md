@@ -6,11 +6,15 @@ Date: 2026-07-26
 
 ## Migration
 
-The change is additive to the existing v3.5 Reminder dashboard.
+The change is additive to the existing v3.5 production root dashboard. The
+Relationship Engine is loaded by a separate `relationship-app.mjs` module, so
+the stable `app.js` operator workflow continues to own legacy content.
 
 - Existing `data/today.json`, daily JSON and archive files remain unchanged.
 - Existing category tabs and message cards remain available below the new
   best-message panel.
+- Existing Production Sources, Approve, Done and audit export controls remain
+  on the root `/Jeffrey/` route.
 - Existing `jeffreyFavourites` and `jeffreyUsage` localStorage maps remain the
   canonical Favourite and copy-tracking stores.
 - Generated drafts use the new `jeffreyRelationshipMessages` key.

@@ -284,8 +284,16 @@ export function saveGenerated(storage, messages) {
 }
 
 export function recordMigration(storage) {
-  const favourites = JSON.parse(storage.getItem(STORAGE_KEYS.favourites) || '{}');
-  const usage = JSON.parse(storage.getItem(STORAGE_KEYS.usage) || '{}');
+  const readMap = (key) => {
+    try {
+      const value = JSON.parse(storage.getItem(key) || '{}');
+      return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    } catch {
+      return {};
+    }
+  };
+  const favourites = readMap(STORAGE_KEYS.favourites);
+  const usage = readMap(STORAGE_KEYS.usage);
   const receipt = {
     version: ENGINE_VERSION,
     favouritesPreserved: Object.keys(favourites).length,
