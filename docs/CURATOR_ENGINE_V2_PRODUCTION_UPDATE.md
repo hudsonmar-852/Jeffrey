@@ -109,7 +109,7 @@ Screenshots:
 - [x] Primary copy action; secondary favourite and used actions
 - [x] Daily workflow generates board and archive
 - [x] Migration and rollback documented
-- [ ] GitHub Actions successful
+- [x] GitHub Actions successful (run `30293397308`)
 - [ ] Human visual and language review
 
 ## Risk assessment
