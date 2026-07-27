@@ -2,17 +2,18 @@
 
 Production URL: https://hudsonmar-852.github.io/Jeffrey/
 
-Production version: Jeffrey Relationship Messaging Engine v4.0.0
+Production target: Jeffrey Curator Engine v2 / application 5.0.0
 
-Jeffrey is a static-first AIOS module that turns verified Hong Kong public data
-into reviewable Cantonese client-content suggestions. The v4.0 Relationship
-Messaging Engine adds short, professional relationship-first drafts directly
-to the production root `/Jeffrey/` while preserving the complete v3.5 reminder
-dashboard, history, approval workflow, Favourite and copy tracking. The
-standalone `/Jeffrey/reminder/` view remains available. Every generated message
-remains a human-review draft.
+Jeffrey is a static-first AIOS module that turns verified scheduled outputs into
+a daily curated board. Curator Engine v2 generates 40 internal candidates,
+applies the approved seven-reviewer weighted panel and hard rejection rules,
+archives every candidate, and exposes exactly five short Cantonese drafts.
+Both `/Jeffrey/` and `/Jeffrey/reminder/` use the same board. The first copy of
+each draft requires explicit human confirmation and copies only
+`customer_text`.
 
-Deployment record: `docs/RELATIONSHIP_ENGINE_DEPLOYMENT_RECORD.md`.
+Previous v4 deployment record:
+`docs/RELATIONSHIP_ENGINE_DEPLOYMENT_RECORD.md`.
 
 ## Local validation
 
@@ -23,9 +24,12 @@ node --check app.js
 node --check relationship-app.mjs
 node --check reminder/engine.mjs
 node --check reminder/app.js
+node --check scripts/generate_curator_board.mjs
 python scripts/generate_daily_content.py
+node scripts/generate_curator_board.mjs
 python scripts/validate_production.py
 ```
 
 See `docs/AIOS_PRODUCTION_OPERATIONS.md` for daily operations and recovery.
-See `docs/RELATIONSHIP_ENGINE_MIGRATION_ROLLBACK.md` for v4.0 migration and rollback.
+See `docs/CURATOR_ENGINE_V2_PRODUCTION_UPDATE.md` for architecture review,
+migration, rollback, risks, and the production checklist.
