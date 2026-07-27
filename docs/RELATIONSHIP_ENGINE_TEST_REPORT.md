@@ -1,7 +1,7 @@
 # Relationship Messaging Engine v4.0 test report
 
 Date: 2026-07-27
-Status: Local automated and mobile browser validation passed
+Status: Local, CI and deployed production validation passed
 
 Automated coverage:
 
@@ -25,7 +25,9 @@ Production-root browser coverage passed at 390 × 844:
 - No horizontal overflow, JavaScript exceptions or unexpected failed resources.
 - The optional absent daily overlay remains a permitted 404 fallback in the v3.5 loader.
 
-Remaining human/production coverage:
+Production coverage completed:
 
-- Jeffrey human voice approval.
-- Deployed-origin HKO fetch and production smoke test.
+- Jeffrey human voice approval received before merge.
+- GitHub Actions validation and Pages deployment passed.
+- Deployed-origin direct HKO fetch returned verified fresh context.
+- Live production mobile flow passed at 390 × 844.

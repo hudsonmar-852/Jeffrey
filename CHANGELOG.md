@@ -2,6 +2,14 @@
 
 ## v4.0 — 2026-07-27
 
+Production deployment:
+
+- Human voice review approved before merge.
+- PR #4 squash-merged as `1851fe32194dd088ae9ac43901dbf3b7735a9a3a`.
+- GitHub Pages workflow run `30250608503` completed successfully at
+  `2026-07-27T08:37:57Z`.
+- Live 390 × 844 smoke test passed, including direct HKO browser fetch.
+
 ### Added
 - Jeffrey Relationship Messaging Engine with three-to-five daily best drafts.
 - Jeffrey Voice Lock and Professional Relationship Guard.
