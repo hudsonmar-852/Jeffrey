@@ -1,7 +1,7 @@
 {
-  "module": "jeffrey-reminder-engine",
-  "version": "3.5.0",
-  "status": "independent",
+  "module": "jeffrey-relationship-messaging-engine",
+  "version": "4.0.0",
+  "status": "implemented_pending_human_review",
   "owner": "hudsonmar-852/Jeffrey",
   "productionUrl": "https://hudsonmar-852.github.io/Jeffrey/",
   "architecture": {
@@ -16,12 +16,13 @@
     "publishes": [
       "data/today.json",
       "production source health",
-      "operator audit export"
+      "operator audit export",
+      "relationship-first message drafts"
     ]
   },
   "runtime": {
     "type": "static-first",
-    "frontend": ["index.html", "app.js", "style.css", "production.css"],
+    "frontend": ["index.html", "app.js", "style.css", "production.css", "reminder/index.html", "reminder/app.js", "reminder/engine.mjs", "reminder/relationship.css"],
     "dataEntry": "data/today.json",
     "fallback": "browser local last-good cache",
     "deployment": ".github/workflows/pages.yml",
@@ -36,7 +37,10 @@
       "source_timestamp",
       "topic_rotation",
       "brand_tone",
-      "medical_claim_guard"
+      "medical_claim_guard",
+      "jeffrey_voice_lock",
+      "professional_relationship_boundary",
+      "recent_duplication_guard"
     ]
   },
   "automationContract": {
@@ -51,6 +55,8 @@
     "officialSources": "config/content-sources.json",
     "requiredProvenance": ["source", "sourceUrl", "sourceTimestamp"],
     "humanApprovalRequired": true,
+    "generatedMessageWriteMode": "prepend_local_history",
+    "legacyStoragePreserved": ["jeffreyFavourites", "jeffreyUsage"],
     "autoDistribution": {"whatsapp": "disabled", "instagram": "disabled"}
   }
 }

@@ -40,6 +40,12 @@ jobs:
             echo "Legacy dataset detected; production validation becomes mandatory after v3.5 data generation."
           fi
 
+      - name: Test relationship messaging engine
+        run: |
+          node --test tests/relationship_engine.test.mjs
+          node --check reminder/engine.mjs
+          node --check reminder/app.js
+
       - name: Check required website files
         run: |
           test -f index.html
@@ -49,6 +55,8 @@ jobs:
           test -f aios/module.json
           test -f config/content-sources.json
           test -f scripts/generate_daily_content.py
+          test -f reminder/engine.mjs
+          test -f reminder/relationship.css
 
   deploy:
     needs: validate

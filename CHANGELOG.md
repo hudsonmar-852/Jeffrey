@@ -1,5 +1,27 @@
 # Jeffrey Repo Changelog
 
+## v4.0 — 2026-07-26
+
+### Added
+- Jeffrey Relationship Messaging Engine with three-to-five daily best drafts.
+- Jeffrey Voice Lock and Professional Relationship Guard.
+- Member, tone, message-type and training-day controls.
+- Verified HKO browser context with a 30-minute cache and evergreen fallback.
+- Edit, regenerate, Favourite, copy-count and last-copied support.
+- Fifty-message voice scenarios and data/migration regression tests.
+
+### Preserved
+- Existing v3.5 dashboard layout, daily messages, archives and category tabs.
+- Production `jeffreyFavourites` and `jeffreyUsage` localStorage maps.
+- Human approval and disabled automatic WhatsApp/Instagram distribution.
+
+### Safety
+- No localStorage key is reset or deleted.
+- Live claims require a fresh verified HKO source.
+- Messages implying private intimacy, exclusivity or inferred personal state
+  are rejected.
+- Rollback restores production baseline `1059944` without clearing browser storage.
+
 ## v3.5 — 2026-07-21
 
 ### Added
