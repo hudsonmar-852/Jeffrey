@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '3.5.0';
+  const APP_VERSION = '4.0.0';
   const BASE_DATA_URLS = ['data/today.json', './data/today.json', 'today.json'];
   const STATE = { data: null, current: 'all', query: '', source: null, operatorFilter: 'all' };
   const ORDER = ['all','aios_best','daily_special','jeffrey_today','weather','busy_office','fitness_lifestyle','healthy_lifestyle','recovery','senior_safe','long_time_no_see','favourite','archive'];
@@ -145,6 +145,7 @@
     $('showPending').onclick=()=>{STATE.operatorFilter=STATE.operatorFilter==='pending'?'all':'pending';cards();};
     $('showDone').onclick=()=>{STATE.operatorFilter=STATE.operatorFilter==='done'?'all':'done';cards();};
     $('exportAudit').onclick=()=>{const payload={version:'1.0',exportedAt:new Date().toISOString(),date:STATE.data?.date||hkDate(),approved:Object.values(get('jeffreyApproved',{})),done:Object.values(get('jeffreyDone',{}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`jeffrey-audit-${payload.date}.json`;a.click();URL.revokeObjectURL(a.href);};
+    window.addEventListener('jeffrey-tracking-updated',()=>stats(selected().length));
     try {
       STATE.data=await load(); brief(); production(); tabs(); cards();
       status(STATE.source==='local-cache'?'warning-state':'ready-state',STATE.source==='local-cache'?'Offline cache':'Engine online');

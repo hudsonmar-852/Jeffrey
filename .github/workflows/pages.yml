@@ -1,6 +1,7 @@
 name: Validate and Deploy Jeffrey Reminder
 
 on:
+  pull_request:
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -40,17 +41,29 @@ jobs:
             echo "Legacy dataset detected; production validation becomes mandatory after v3.5 data generation."
           fi
 
+      - name: Test relationship messaging engine
+        run: |
+          node --test tests/*.test.mjs
+          node --check app.js
+          node --check relationship-app.mjs
+          node --check reminder/engine.mjs
+          node --check reminder/app.js
+
       - name: Check required website files
         run: |
           test -f index.html
           test -f app.js
+          test -f relationship-app.mjs
           test -f style.css
           test -f data/today.json
           test -f aios/module.json
           test -f config/content-sources.json
           test -f scripts/generate_daily_content.py
+          test -f reminder/engine.mjs
+          test -f reminder/relationship.css
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: validate
     environment:
       name: github-pages
