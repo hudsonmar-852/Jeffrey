@@ -1,0 +1,20 @@
+.root-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.root-links a {
+  color: #b8c8d1;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.root-links a:hover {
+  color: #64dfc1;
+}
+
+.curator-hero h1 {
+  color: #fff8ea;
+}

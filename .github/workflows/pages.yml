@@ -48,6 +48,7 @@ jobs:
           node --check relationship-app.mjs
           node --check reminder/engine.mjs
           node --check reminder/app.js
+          node --check scripts/generate_curator_board.mjs
 
       - name: Check required website files
         run: |
@@ -56,11 +57,15 @@ jobs:
           test -f relationship-app.mjs
           test -f style.css
           test -f data/today.json
+          test -f data/curator-board.json
+          test -f data/archive.json
           test -f aios/module.json
           test -f config/content-sources.json
           test -f scripts/generate_daily_content.py
           test -f reminder/engine.mjs
           test -f reminder/relationship.css
+          test -f reminder/curator-overrides.css
+          test -f spec/curator-board.schema.json
 
   deploy:
     if: github.event_name != 'pull_request'

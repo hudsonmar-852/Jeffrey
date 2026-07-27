@@ -3,91 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="app-version" content="4.0" />
-  <meta name="last-updated" content="2026-07-26" />
-  <title>Jeffrey Relationship Messaging Engine</title>
+  <meta name="app-version" content="5.0.0" />
+  <meta name="last-updated" content="2026-07-28" />
+  <title>Jeffrey 每日短訊精選</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="relationship.css" />
+  <link rel="stylesheet" href="curator-overrides.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <header class="hero">
-      <div class="eyebrow">Jeffrey Relationship Messaging Engine v4.0</div>
-      <h1>每日關心短訊工作台</h1>
-      <p>專業關心・香港生活感・Jeffrey 教練語氣・一鍵 Copy WhatsApp</p>
-      <div class="hero-actions">
-        <a href="../" class="nav-link">← Platform</a>
-        <a href="../bible.html" class="nav-link">Bible Quote</a>
-        <button id="resetFilter" class="nav-link ghost">全部訊息</button>
+  <div class="curator-shell">
+    <header class="curator-hero">
+      <a href="../" class="back-link">← Jeffrey Platform</a>
+      <div class="eyebrow">Jeffrey Daily Curator</div>
+      <h1>今日五選一</h1>
+      <p>每日只留低五條最值得傳嘅短訊，由 Jeffrey 揀一條。</p>
+      <div class="board-facts" aria-label="今日精選資料">
+        <span>日期 <strong id="boardDate">—</strong></span>
+        <span>畫面顯示 <strong>5</strong></span>
       </div>
     </header>
-    <section class="relationship-panel" aria-labelledby="relationshipTitle">
-      <div class="relationship-head">
-        <div>
-          <div class="eyebrow">今日最佳訊息</div>
-          <h2 id="relationshipTitle">記得會員，也記得教練界線</h2>
-          <p>每次只揀一個主題，產生 3–5 條草稿。Copy 前仍需 Jeffrey 確認。</p>
-        </div>
-        <button id="refreshContext" class="btn secondary">重新確認今日資料</button>
-      </div>
-      <div id="relationshipStatus" class="relationship-status" aria-live="polite"></div>
-      <div class="relationship-controls">
-        <label>Member
-          <select id="memberSelector"><option value="">General</option></select>
-        </label>
-        <label>Tone
-          <select id="toneSelector">
-            <option value="warm">Warm</option>
-            <option value="playful">Playful</option>
-            <option value="calm">Calm</option>
-            <option value="coach">Coach-like</option>
-            <option value="short">Short check-in</option>
-          </select>
-        </label>
-        <label>Message Type
-          <select id="relationshipType"><option value="">全部類型</option></select>
-        </label>
-        <label class="training-check"><input id="trainingToday" type="checkbox" /> 今晚有堂</label>
-        <button id="generateRelationship" class="btn relationship-primary">生成 3–5 條</button>
-      </div>
-      <details class="relationship-members">
-        <summary>會員資料管理（只保存訓練所需嘅最少資料）</summary>
-        <form id="memberForm" class="member-form">
-          <input id="memberId" type="hidden" />
-          <label>Display name<input id="memberDisplayName" maxlength="80" required /></label>
-          <label>Nickname<input id="memberNickname" maxlength="40" /></label>
-          <label>Group<input id="memberGroup" maxlength="40" placeholder="例如 VIP／晚上班" /></label>
-          <label>Training day<input id="memberTrainingDay" maxlength="40" placeholder="例如 星期二" /></label>
-          <label>Usual time<input id="memberTrainingTime" maxlength="20" placeholder="例如 19:30" /></label>
-          <label>Style
-            <select id="memberStyle">
-              <option value="warm">Warm</option><option value="playful">Playful</option>
-              <option value="calm">Calm</option><option value="direct">Direct</option>
-            </select>
-          </label>
-          <label>Fitness focus<input id="memberFocus" maxlength="160" placeholder="逗號分隔" /></label>
-          <label>Common issues<input id="memberIssues" maxlength="160" placeholder="例如 long_sitting" /></label>
-          <label>Attendance
-            <select id="memberAttendance">
-              <option value="unknown">Unknown</option><option value="regular">Regular</option>
-              <option value="less_frequent">近期少出現</option>
-            </select>
-          </label>
-          <label>Favourite emoji<input id="memberEmoji" maxlength="40" placeholder="最多 5 個" /></label>
-          <label class="member-notes">Notes<textarea id="memberNotes" maxlength="300" placeholder="只寫非敏感、同訓練直接相關資料；唔會注入生成內容"></textarea></label>
-          <div class="member-actions">
-            <button class="btn relationship-primary" type="submit">儲存會員</button>
-            <button id="newMember" class="btn secondary" type="button">新增／清空</button>
-            <button id="deleteMember" class="btn secondary" type="button">刪除所選會員</button>
+
+    <main>
+      <section aria-labelledby="boardTitle">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Daily curated board</div>
+            <h2 id="boardTitle">揀一條，傳一個真心提醒</h2>
           </div>
-        </form>
-      </details>
-      <div id="relationshipGrid" class="relationship-grid"></div>
-    </section>
-    <section class="daily-brief" id="dailyBrief"><div class="loading">正在載入今日內容...</div></section>
-    <nav class="tabs" id="tabs" aria-label="訊息分類"></nav>
-    <main class="grid" id="messageGrid"></main>
-    <footer><span>Relationship Messaging Engine v4.0 · data/today.json + verified HKO context</span></footer>
+          <p>第一次複製會要求人手確認。</p>
+        </div>
+        <div id="messageGrid" class="curator-grid" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state" hidden>
+          今日精選未準備好。畫面唔會顯示舊短訊，請稍後再試。
+        </div>
+      </section>
+    </main>
+
+    <footer>Curator Engine v2 · Top 5 only · Human controlled</footer>
   </div>
   <script type="module" src="app.js"></script>
 </body>
