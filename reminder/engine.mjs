@@ -146,7 +146,7 @@ function personalise(text, profile = {}, tone = 'warm') {
   const name = profile.nickname || profile.displayName;
   let output = name && !profile.isGroup && tone !== 'short' && lengthOf(text) < 62 ? `${name}，${text}` : text;
   if (tone === 'calm') output = output.replaceAll('😆', '').replaceAll('😂', '').replaceAll('😏', '');
-  if (tone === 'playful' && !/[\u{1F300}-\u{1FAFF}]/u.test(output)) output += ' 😆';
+  if (tone === 'playful' && !/[\u{1F300}-\u{1FAFF}]/u.test(output)) output += '😆';
   return output.trim();
 }
 
