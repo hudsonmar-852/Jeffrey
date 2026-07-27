@@ -1,6 +1,7 @@
 name: Validate and Deploy Jeffrey Reminder
 
 on:
+  pull_request:
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -59,6 +60,7 @@ jobs:
           test -f reminder/relationship.css
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: validate
     environment:
       name: github-pages
