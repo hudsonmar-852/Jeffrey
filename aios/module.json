@@ -1,7 +1,7 @@
 {
   "module": "jeffrey-relationship-messaging-engine",
   "version": "4.0.0",
-  "status": "implemented_pending_human_review",
+  "status": "production",
   "owner": "hudsonmar-852/Jeffrey",
   "productionUrl": "https://hudsonmar-852.github.io/Jeffrey/",
   "architecture": {
@@ -27,6 +27,14 @@
     "fallback": "browser local last-good cache",
     "deployment": ".github/workflows/pages.yml",
     "dailyCollection": ".github/workflows/daily-content.yml"
+  },
+  "deployment": {
+    "version": "4.0.0",
+    "commit": "1851fe32194dd088ae9ac43901dbf3b7735a9a3a",
+    "workflowRun": "https://github.com/hudsonmar-852/Jeffrey/actions/runs/30250608503",
+    "deployedAt": "2026-07-27T08:37:57Z",
+    "productionSmokeTest": "passed",
+    "humanReview": "approved"
   },
   "contentPolicy": {
     "location": "Hong Kong",

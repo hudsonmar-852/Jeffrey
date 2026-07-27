@@ -1,6 +1,6 @@
 # Jeffrey Relationship Messaging Engine v4.0
 
-Status: Approved Production Amendment — human review required before merge
+Status: Approved Production Amendment — deployed after human review
 Risk: Medium
 Date: 2026-07-26
 
@@ -35,7 +35,9 @@ Safety branch:
 
 ## Human review gates
 
-- Jeffrey Voice and professional-boundary review.
-- Mobile browser smoke test.
-- Confirm direct HKO browser access on the deployed origin.
-- Review the draft PR and GitHub Actions checks.
+- [x] Jeffrey Voice and professional-boundary review.
+- [x] Mobile browser smoke test.
+- [x] Confirm direct HKO browser access on the deployed origin.
+- [x] Review PR #4 and GitHub Actions checks.
+
+Production commit: `1851fe32194dd088ae9ac43901dbf3b7735a9a3a`

@@ -2,6 +2,8 @@
 
 Production URL: https://hudsonmar-852.github.io/Jeffrey/
 
+Production version: Jeffrey Relationship Messaging Engine v4.0.0
+
 Jeffrey is a static-first AIOS module that turns verified Hong Kong public data
 into reviewable Cantonese client-content suggestions. The v4.0 Relationship
 Messaging Engine adds short, professional relationship-first drafts directly
@@ -9,6 +11,8 @@ to the production root `/Jeffrey/` while preserving the complete v3.5 reminder
 dashboard, history, approval workflow, Favourite and copy tracking. The
 standalone `/Jeffrey/reminder/` view remains available. Every generated message
 remains a human-review draft.
+
+Deployment record: `docs/RELATIONSHIP_ENGINE_DEPLOYMENT_RECORD.md`.
 
 ## Local validation
 

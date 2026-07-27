@@ -6,6 +6,13 @@
     "minor": "+0.1 for normal content, wording, small UI or page updates"
   },
   "last_updated": "2026-07-27",
+  "deployment": {
+    "status": "production",
+    "commit": "1851fe32194dd088ae9ac43901dbf3b7735a9a3a",
+    "workflow_run": 30250608503,
+    "deployed_at": "2026-07-27T08:37:57Z",
+    "previous_version": "3.5.0"
+  },
   "standard_structure": {
     "language": "zh-HK",
     "encoding": "UTF-8",
