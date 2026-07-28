@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
 
-test('daily board exposes only the approved Top 5 interface', async () => {
+test('daily board exposes only the Top 5 interface', async () => {
   const [html, app] = await Promise.all([read('reminder/index.html'), read('reminder/app.js')]);
   assert.match(html, /id="messageGrid"/);
   assert.match(html, /畫面顯示 <strong>5<\/strong>/);
@@ -15,6 +15,7 @@ test('daily board exposes only the approved Top 5 interface', async () => {
   assert.match(app, /複製短訊/);
   assert.match(app, /收藏/);
   assert.match(app, /標記已用/);
+  assert.doesNotMatch(app, /confirm\(|approvals|Approved|Draft/);
 });
 
 test('customer card never renders internal metadata', async () => {

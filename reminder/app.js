@@ -28,20 +28,15 @@ function render() {
   const items = state.board?.items || [];
   const favourites = getStore(STORAGE_KEYS.favourites);
   const usage = getStore(STORAGE_KEYS.usage);
-  const approvals = getStore(STORAGE_KEYS.approvals);
   $('boardDate').textContent = state.board?.date || '—';
   $('messageGrid').replaceChildren();
   for (const item of items) {
     const key = itemKey(item);
-    const approved = Boolean(approvals[key]);
     const card = document.createElement('article');
     card.className = 'curator-card';
     card.dataset.archiveId = key;
     card.innerHTML = `
-      <div class="card-top">
-        <span class="status-badge ${approved ? 'approved' : 'draft'}">${approved ? 'Approved' : 'Draft'}</span>
-        ${usage[key] ? '<span class="used-mark">已用</span>' : ''}
-      </div>
+      ${usage[key] ? '<div class="card-top"><span class="used-mark">已用</span></div>' : ''}
       <p class="customer-text"></p>
       <div class="card-actions">
         <button class="btn copy-primary" data-action="copy">複製短訊</button>
@@ -61,10 +56,6 @@ async function handleAction(event, item) {
   if (!button) return;
   const key = itemKey(item);
   if (button.dataset.action === 'copy') {
-    const approvals = getStore(STORAGE_KEYS.approvals);
-    if (!approvals[key] && !confirm('確認呢條短訊可以畀 Jeffrey 使用？')) return;
-    approvals[key] = { approved_at: new Date().toISOString() };
-    setStore(STORAGE_KEYS.approvals, approvals);
     try {
       await copyCustomerText(item, navigator.clipboard);
       button.textContent = '已複製';

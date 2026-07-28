@@ -31,7 +31,7 @@ test('pipeline generates 30–50 internal candidates and exactly five board card
   assert.equal(result.archiveItems.length, 40);
   assert.equal(result.board.items.length, 5);
   assert.equal(new Set(result.board.items.map((item) => item.customer_text)).size, 5);
-  assert.equal(result.board.items.every((item) => item.status === 'Draft'), true);
+  assert.equal(result.board.items.every((item) => !Object.hasOwn(item, 'status')), true);
 });
 
 test('old reminders migrate to archive but never enter today board', () => {
@@ -41,7 +41,7 @@ test('old reminders migrate to archive but never enter today board', () => {
     dailySpecial: [{ id: 'old-1', content: oldText }]
   }, NOW);
   const result = buildDailyCuration({ scheduledOutputs: INPUT, previousArchive: migrated, now: NOW });
-  assert.equal(migrated[0].status, 'Archived');
+  assert.equal(Object.hasOwn(migrated[0], 'status'), false);
   assert.equal(result.board.items.some((item) => item.customer_text === oldText), false);
 });
 
@@ -93,10 +93,10 @@ test('freshness validation rejects stale, conflicting, speculative and unsupport
   assert.equal(result.rejected.length, 4);
 });
 
-test('data model contains every approved production field', () => {
+test('data model contains the production fields without approval state', () => {
   const [item] = createCandidatePool({ scheduledOutputs: INPUT, now: NOW });
   assert.deepEqual(Object.keys(item), [
-    'customer_text', 'internal_reason', 'reviewer_scores', 'weighted_score', 'status',
+    'customer_text', 'internal_reason', 'reviewer_scores', 'weighted_score',
     'archive_id', 'created_at', 'source_name', 'source_time', 'source_url'
   ]);
 });

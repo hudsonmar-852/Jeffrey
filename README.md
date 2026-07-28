@@ -8,9 +8,8 @@ Jeffrey is a static-first AIOS module that turns verified scheduled outputs into
 a daily curated board. Curator Engine v2 generates 40 internal candidates,
 applies the approved seven-reviewer weighted panel and hard rejection rules,
 archives every candidate, and exposes exactly five short Cantonese drafts.
-Both `/Jeffrey/` and `/Jeffrey/reminder/` use the same board. The first copy of
-each draft requires explicit human confirmation and copies only
-`customer_text`.
+Both `/Jeffrey/` and `/Jeffrey/reminder/` use the same board. Copy is immediate
+and includes only `customer_text`; no per-message approval state is stored.
 
 Previous v4 deployment record:
 `docs/RELATIONSHIP_ENGINE_DEPLOYMENT_RECORD.md`.

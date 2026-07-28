@@ -3,7 +3,6 @@ export const ENGINE_VERSION = '5.0.0';
 export const STORAGE_KEYS = Object.freeze({
   favourites: 'jeffreyCuratorFavourites',
   usage: 'jeffreyCuratorUsage',
-  approvals: 'jeffreyCuratorApprovals',
   migration: 'jeffreyCuratorMigrationV2'
 });
 
@@ -147,7 +146,6 @@ export function createCandidatePool({
         : 'Short, practical daily care in Jeffrey-style spoken Cantonese.',
       reviewer_scores: review.scores,
       weighted_score: review.weighted_score,
-      status: rejection.rejected ? 'Rejected' : 'Draft',
       archive_id: `curator-${validation.date}-${String(index + 1).padStart(2, '0')}`,
       created_at: createdAt,
       source_name: primarySource?.source || primarySource?.source_name || 'Jeffrey Curator evergreen library',
@@ -160,7 +158,7 @@ export function createCandidatePool({
 export function selectTopFive(candidates) {
   const seen = new Set();
   return candidates
-    .filter((candidate) => candidate.status !== 'Rejected' && !hardReject(candidate.customer_text).rejected)
+    .filter((candidate) => !hardReject(candidate.customer_text).rejected)
     .sort((a, b) => b.weighted_score - a.weighted_score || a.archive_id.localeCompare(b.archive_id))
     .filter((candidate) => {
       const key = normaliseText(candidate.customer_text);
@@ -168,8 +166,7 @@ export function selectTopFive(candidates) {
       seen.add(key);
       return true;
     })
-    .slice(0, 5)
-    .map((candidate) => ({ ...candidate, status: 'Draft' }));
+    .slice(0, 5);
 }
 
 export function buildDailyCuration({
@@ -213,7 +210,6 @@ export function migrateLegacyItems(data = {}, now = new Date()) {
     internal_reason: 'Migrated from the pre-v2 catalogue; archive only.',
     reviewer_scores: {},
     weighted_score: Number(item.weighted_score || item.humanScore || 0),
-    status: 'Archived',
     archive_id: item.archive_id || item.id || `legacy-${String(index + 1).padStart(4, '0')}`,
     created_at: item.created_at || `${data.date || localDate(now)}T00:00:00+08:00`,
     source_name: item.source_name || item.source || 'Legacy Jeffrey reminder catalogue',

@@ -19,12 +19,21 @@ const now = process.env.CURATOR_NOW ? new Date(process.env.CURATOR_NOW) : new Da
 if (Number.isNaN(now.getTime())) throw new Error('CURATOR_NOW must be an ISO timestamp');
 
 const migrated = migrateLegacyItems(today, now);
-const existing = Array.isArray(archive.items) ? archive.items : [];
+const withoutApprovalState = ({ status, approvalStatus, ...item }) => item;
+const existing = Array.isArray(archive.items)
+  ? archive.items.map(withoutApprovalState)
+  : [];
 const existingIds = new Set(existing.map((item) => item.archive_id));
-const legacy = migrated.filter((item) => !existingIds.has(item.archive_id));
+const legacy = migrated
+  .map(withoutApprovalState)
+  .filter((item) => !existingIds.has(item.archive_id));
+const runDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Hong_Kong' }).format(now);
+const currentPrefix = `curator-${runDate}-`;
+const previousArchive = [...existing, ...legacy]
+  .filter((item) => !String(item.archive_id || '').startsWith(currentPrefix));
 const curation = buildDailyCuration({
   scheduledOutputs: today,
-  previousArchive: [...existing, ...legacy],
+  previousArchive,
   now
 });
 const currentIds = new Set(curation.archiveItems.map((item) => item.archive_id));

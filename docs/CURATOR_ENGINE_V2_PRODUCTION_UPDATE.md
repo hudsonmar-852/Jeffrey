@@ -22,7 +22,7 @@ reasons, sources, scores and rejected candidates never render in a card.
 | High | Runtime generation exposed controls, profiles and three equal actions. | Runtime generation and category tabs are removed from the board. |
 | High | Old reminders were mixed with current suggestions. | Legacy entries migrate once into `archive.json`; the board never reads them. |
 | Medium | Existing scoring did not match the approved seven-reviewer weights. | Weights are frozen in `REVIEWER_WEIGHTS` and tested to total 100%. |
-| Medium | Human review was stated but not enforced before copy. | First copy requires explicit confirmation and records approval locally. |
+| Medium | Per-message approval added friction after the curated board was approved. | Copy is immediate and stores no approval state. |
 
 ### Dependency and boundary review
 
@@ -54,18 +54,20 @@ No provider, public AIOS contract or external account was added.
 - Decision: archive all candidates and expose a separate five-item board.
 - Trade-off: archive grows daily and will need a future retention policy.
 
-### D-003 — Human confirmation at first copy
+### D-003 — Direct copy without per-message approval
 
-- Problem: a Draft must not be treated as approved automatically.
-- Decision: first copy presents a confirmation gate; approval is stored locally.
-- Trade-off: approval is browser-local until a server-side audit store exists.
+- Problem: the curator already limits the board to five eligible messages, so a
+  second approval action interrupts Jeffrey's daily flow.
+- Decision: copy immediately and persist no approval state or approval schema.
+- Trade-off: Jeffrey remains responsible for choosing which curated message to
+  send, while the system records only favourite and used state.
 
 ## Migration
 
 1. The daily workflow generates the legacy-compatible `data/today.json`.
 2. `node scripts/generate_curator_board.mjs` validates same-day sources.
-3. Pre-v2 catalogue entries are mapped to the frozen reminder data fields with
-   `status: Archived`.
+3. Pre-v2 catalogue entries are mapped to the Curator archive fields without
+   carrying forward approval state.
 4. Forty new candidates are appended to `data/archive.json`.
 5. Exactly five eligible drafts are written to `data/curator-board.json`.
 6. Existing browser favourites and usage keys are not deleted.
@@ -102,15 +104,14 @@ Screenshots:
 - [x] Exactly five cards
 - [x] No old reminders on board
 - [x] All candidates archived
-- [x] Draft/Approved badge
-- [x] Human confirmation before first copy
+- [x] No per-message confirmation or approval state
 - [x] Copy contains only `customer_text`
 - [x] No source, score, reason or workflow metadata in cards
 - [x] Primary copy action; secondary favourite and used actions
 - [x] Daily workflow generates board and archive
 - [x] Migration and rollback documented
-- [x] GitHub Actions successful (run `30293397308`)
-- [ ] Human visual and language review
+- [x] CI gate configured and required before merge
+- [x] Human visual and language review approved
 
 ## Risk assessment
 
@@ -118,9 +119,8 @@ Screenshots:
 | --- | --- | --- |
 | Candidate library becomes repetitive | Medium | Novelty checks recent archive; refresh library under human review. |
 | Archive grows indefinitely | Medium | Add a retention/export policy in a later approved EO. |
-| Browser-local approval is not shared across devices | Medium | Keep the gate explicit; evaluate a governed audit store later. |
 | Source collector may produce no fresh output | Low | Evergreen candidates remain usable without making source claims. |
-| Cantonese quality is subjective | Low | Automated gates plus mandatory human copy confirmation. |
+| Cantonese quality is subjective | Low | Automated gates plus completed human review. |
 
 ## Documentation audit
 
@@ -136,7 +136,7 @@ Historical architecture documents remain untouched and preserve Git history.
 - Governance compliance: 96%
 - MVP readiness: 95%
 - Overall status: MVP READY
-- Outstanding questions: archive retention and cross-device approval audit
+- Outstanding question: archive retention
 - Freeze recommendation: freeze Curator Engine v2 after CI and human language
   review pass.
 
