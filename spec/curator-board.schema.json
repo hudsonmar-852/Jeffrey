@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hudsonmar-852.github.io/Jeffrey/spec/curator-board.schema.json",
+  "title": "Jeffrey Curator Board v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "date", "generated_at", "candidate_count", "items"],
+  "properties": {
+    "version": { "const": "5.0.0" },
+    "date": { "type": "string", "format": "date" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "candidate_count": { "type": "integer", "minimum": 30, "maximum": 50 },
+    "items": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/reminder" }
+    }
+  },
+  "$defs": {
+    "reminder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "customer_text", "internal_reason", "reviewer_scores", "weighted_score",
+        "archive_id", "created_at", "source_name", "source_time", "source_url"
+      ],
+      "properties": {
+        "customer_text": { "type": "string", "minLength": 8, "maxLength": 90 },
+        "internal_reason": { "type": "string" },
+        "reviewer_scores": { "type": "object" },
+        "weighted_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "archive_id": { "type": "string", "minLength": 1 },
+        "created_at": { "type": "string", "format": "date-time" },
+        "source_name": { "type": "string" },
+        "source_time": { "type": "string" },
+        "source_url": { "type": "string" }
+      }
+    }
+  }
+}

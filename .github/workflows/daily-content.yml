@@ -35,17 +35,20 @@ jobs:
       - name: Collect official sources and transform content
         run: python scripts/generate_daily_content.py
 
+      - name: Curate today's Top 5 and archive every candidate
+        run: node scripts/generate_curator_board.mjs
+
       - name: Validate production output
         run: python scripts/validate_production.py
 
       - name: Commit changed production data
         run: |
-          if git diff --quiet -- data/today.json; then
+          if git diff --quiet -- data/today.json data/curator-board.json data/archive.json; then
             echo "No production data change"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/today.json
+          git add data/today.json data/curator-board.json data/archive.json
           git commit -m "data: refresh Jeffrey AIOS daily production content"
           git push origin HEAD:main
