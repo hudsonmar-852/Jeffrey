@@ -57,6 +57,20 @@ test('dashboard selects five diverse best drafts instead of dumping the full cat
   assert.equal(new Set(result.map((item) => item.category)).size, 5);
 });
 
+test('simplified daily_five catalogue keeps all five messages', () => {
+  const result = catalogueToDashboardMessages({
+    new_reminders: {
+      daily_five: Array.from({ length: 5 }, (_, index) => ({
+        id: `daily-${index}`,
+        text: `每日訊息 ${index}`,
+        category: 'daily_five',
+        status: 'draft_human_approval_required'
+      }))
+    }
+  });
+  assert.equal(result.length, 5);
+});
+
 test('loader follows only stored AIOS record pointers', async () => {
   const calls = [];
   const payloads = new Map([

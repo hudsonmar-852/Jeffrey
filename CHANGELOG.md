@@ -1,5 +1,14 @@
 # Jeffrey Repo Changelog
 
+## v5.0 — 2026-07-28
+
+### Simplified
+- One fused topic from compatible validated AIOS scheduled records.
+- Exactly five daily cards.
+- Copy and Favourite are the only customer-card actions.
+- Removed member, tone, type, group-sorting, regenerate and mark-used controls.
+- Historical reminders and browser tracking remain preserved.
+
 ## v4.1 — 2026-07-27
 
 ### Added

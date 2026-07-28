@@ -1,6 +1,6 @@
 {
   "module": "jeffrey-relationship-messaging-engine",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "status": "implemented_pending_human_review",
   "owner": "hudsonmar-852/Jeffrey",
   "productionUrl": "https://hudsonmar-852.github.io/Jeffrey/",

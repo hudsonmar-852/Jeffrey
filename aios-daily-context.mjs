@@ -68,6 +68,7 @@ export function catalogueToDashboardMessages(catalogue) {
     scheduledDraft: true
   })).filter((item) => item.id && item.text);
   if (contextItems.length) return mapped.slice(0, 5);
+  if (Array.isArray(categories.daily_five)) return mapped.slice(0, 5);
   const selected = [];
   const usedCategories = new Set();
   for (const message of mapped) {
