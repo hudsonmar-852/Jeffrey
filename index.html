@@ -35,6 +35,14 @@
           </div>
           <p>揀好就可以直接複製。</p>
         </div>
+        <nav class="curator-tabs" aria-label="短訊檢視">
+          <button class="curator-tab active" type="button" data-view="today">
+            今日精選 <span id="todayCount" class="view-count">0</span>
+          </button>
+          <button class="curator-tab" type="button" data-view="favourites">
+            ★ 收藏庫 <span id="favouriteCount" class="view-count">0</span>
+          </button>
+        </nav>
         <div id="messageGrid" class="curator-grid" aria-live="polite"></div>
         <div id="emptyState" class="empty-state" hidden>
           今日精選未準備好。畫面唔會顯示舊短訊，請稍後再試。
