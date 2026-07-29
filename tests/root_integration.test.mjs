@@ -10,8 +10,11 @@ test('production root and reminder route share one Curator board implementation'
   assert.match(rootHtml, /meta name="app-version" content="5\.0\.0"/);
   assert.match(rootHtml, /src="reminder\/app\.js"/);
   assert.match(rootHtml, /id="messageGrid"/);
+  assert.match(rootHtml, /data-view="favourites"/);
+  assert.match(rootHtml, /id="favouriteCount"/);
   assert.match(reminderHtml, /src="app\.js"/);
   assert.match(reminderHtml, /id="messageGrid"/);
+  assert.match(reminderHtml, /data-view="favourites"/);
   assert.doesNotMatch(rootHtml, /productionPanel|relationshipGrid|showPending|showDone/);
 });
 

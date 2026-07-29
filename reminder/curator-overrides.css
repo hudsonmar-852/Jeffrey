@@ -18,3 +18,69 @@
 .curator-hero h1 {
   color: #fff8ea;
 }
+
+.curator-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.curator-tab {
+  border: 1px solid rgba(184, 200, 209, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #b8c8d1;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.curator-tab.active {
+  border-color: #64dfc1;
+  background: rgba(100, 223, 193, 0.14);
+  color: #fff8ea;
+}
+
+.view-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  margin-left: 5px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.78rem;
+}
+
+.curator-card.used {
+  border-color: rgba(100, 223, 193, 0.5);
+  background: linear-gradient(145deg, rgba(19, 65, 64, 0.96), rgba(10, 39, 50, 0.96));
+}
+
+.curator-card.used .customer-text {
+  color: #72e6cf;
+}
+
+.curator-card.used .used-mark {
+  color: #07101d;
+  background: #72e6cf;
+}
+
+@media (max-width: 560px) {
+  .curator-tabs {
+    position: sticky;
+    top: 4px;
+    z-index: 3;
+    padding: 7px;
+    border-radius: 15px;
+    background: rgba(7, 16, 29, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .curator-tab {
+    flex: 1;
+    padding-inline: 10px;
+  }
+}
