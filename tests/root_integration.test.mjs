@@ -7,12 +7,12 @@ const read = (path) => readFile(new URL(path, root), 'utf8');
 
 test('production root and reminder route share one Curator board implementation', async () => {
   const [rootHtml, reminderHtml] = await Promise.all([read('index.html'), read('reminder/index.html')]);
-  assert.match(rootHtml, /meta name="app-version" content="5\.0\.0"/);
-  assert.match(rootHtml, /src="reminder\/app\.js"/);
+  assert.match(rootHtml, /meta name="app-version" content="5\.0\.1"/);
+  assert.match(rootHtml, /src="reminder\/app\.js\?v=5\.0\.1"/);
   assert.match(rootHtml, /id="messageGrid"/);
   assert.match(rootHtml, /data-view="favourites"/);
   assert.match(rootHtml, /id="favouriteCount"/);
-  assert.match(reminderHtml, /src="app\.js"/);
+  assert.match(reminderHtml, /src="app\.js\?v=5\.0\.1"/);
   assert.match(reminderHtml, /id="messageGrid"/);
   assert.match(reminderHtml, /data-view="favourites"/);
   assert.doesNotMatch(rootHtml, /productionPanel|relationshipGrid|showPending|showDone/);
