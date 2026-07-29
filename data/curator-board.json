@@ -1,7 +1,7 @@
 {
   "version": "5.0.0",
-  "date": "2026-07-28",
-  "generated_at": "2026-07-28T00:15:00.000Z",
+  "date": "2026-07-29",
+  "generated_at": "2026-07-29T00:10:48.375Z",
   "candidate_count": 40,
   "items": [
     {
@@ -14,17 +14,17 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 96,
-        "novelty": 89
+        "novelty": 0
       },
-      "weighted_score": 94.75,
-      "archive_id": "curator-2026-07-28-18",
-      "created_at": "2026-07-28T00:15:00.000Z",
-      "source_name": "Jeffrey Curator evergreen library",
-      "source_time": "2026-07-28T00:15:00.000Z",
-      "source_url": ""
+      "weighted_score": 90.3,
+      "archive_id": "curator-2026-07-29-18",
+      "created_at": "2026-07-29T00:10:48.375Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-07-29T08:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
     },
     {
-      "customer_text": "操之前記得食返少少嘢，空住個肚唔好死頂。",
+      "customer_text": "操完唔好即刻走，慢慢行兩分鐘先抖返順。",
       "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
       "reviewer_scores": {
         "human_warmth": 94,
@@ -32,15 +32,15 @@
         "gym_client_value": 97,
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
-        "reply_likelihood": 79,
-        "novelty": 95
+        "reply_likelihood": 80,
+        "novelty": 0
       },
-      "weighted_score": 94.3,
-      "archive_id": "curator-2026-07-28-24",
-      "created_at": "2026-07-28T00:15:00.000Z",
-      "source_name": "Jeffrey Curator evergreen library",
-      "source_time": "2026-07-28T00:15:00.000Z",
-      "source_url": ""
+      "weighted_score": 89.6,
+      "archive_id": "curator-2026-07-29-10",
+      "created_at": "2026-07-29T00:10:48.375Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-07-29T08:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
     },
     {
       "customer_text": "覺得動作亂就放慢少少，穩返先再加。",
@@ -52,33 +52,14 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 80,
-        "novelty": 93
+        "novelty": 0
       },
-      "weighted_score": 94.25,
-      "archive_id": "curator-2026-07-28-30",
-      "created_at": "2026-07-28T00:15:00.000Z",
-      "source_name": "Jeffrey Curator evergreen library",
-      "source_time": "2026-07-28T00:15:00.000Z",
-      "source_url": ""
-    },
-    {
-      "customer_text": "今日熱身畀多兩分鐘自己，之後會做得順啲。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 97,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 79,
-        "novelty": 94
-      },
-      "weighted_score": 94.25,
-      "archive_id": "curator-2026-07-28-39",
-      "created_at": "2026-07-28T00:15:00.000Z",
-      "source_name": "Jeffrey Curator evergreen library",
-      "source_time": "2026-07-28T00:15:00.000Z",
-      "source_url": ""
+      "weighted_score": 89.6,
+      "archive_id": "curator-2026-07-29-30",
+      "created_at": "2026-07-29T00:10:48.375Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-07-29T08:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
     },
     {
       "customer_text": "今日練動作先啦，重量唔使次次都加。",
@@ -90,14 +71,33 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 79,
-        "novelty": 93
+        "novelty": 0
       },
-      "weighted_score": 94.2,
-      "archive_id": "curator-2026-07-28-14",
-      "created_at": "2026-07-28T00:15:00.000Z",
-      "source_name": "Jeffrey Curator evergreen library",
-      "source_time": "2026-07-28T00:15:00.000Z",
-      "source_url": ""
+      "weighted_score": 89.55,
+      "archive_id": "curator-2026-07-29-14",
+      "created_at": "2026-07-29T00:10:48.375Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-07-29T08:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+    },
+    {
+      "customer_text": "操之前記得食返少少嘢，空住個肚唔好死頂。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 97,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 79,
+        "novelty": 0
+      },
+      "weighted_score": 89.55,
+      "archive_id": "curator-2026-07-29-24",
+      "created_at": "2026-07-29T00:10:48.375Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-07-29T08:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
     }
   ]
 }
