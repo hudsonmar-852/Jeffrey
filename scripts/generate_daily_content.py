@@ -132,8 +132,23 @@ def transform(raw: dict[str, Any], health: list[dict[str, Any]], config: dict[st
         content = f"今日政府資訊有一項更新：{item['title']}。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。"
         messages.append({"id": make_id("gov", day, content), "section": "S2", "topic": "🏙 香港脈搏｜政府資訊", "content": content, "hook": "待 Jeffrey 閱讀原文後手動輸入", "cta": "先核對原文，再決定是否分享。", "priority": 4, "approvalStatus": "pending", "humanScore": 94, **source_fields(sources["gov_news"], item.get("published") or generated_at), "articleUrl": item.get("link", "")})
 
-    old_special = [m for m in base.get("dailySpecial", []) if m.get("sourceTimestamp") is None]
-    daily_special = messages + old_special[:5]
+    jeffrey_today = [
+        {
+            "id": make_id("jt", day, text),
+            "topic": "Jeffrey 今日問候",
+            "content": text,
+            "approvalStatus": "pending",
+            "status": "draft_human_approval_required",
+            "humanScore": 98,
+        }
+        for text in [
+            "今日返工忙唔忙呀？如果今晚有堂，嚟到我哋慢慢入返節奏。",
+            "最近訓練個節奏點呀？得閒覆我一句，我幫你睇下。",
+            "今晚操嗰陣記住出力先呼氣，我幫你睇住。",
+            "今日有嚟已經算數，唔使下下都做到盡。",
+            "如果坐咗成日，嚟到先郁下膊頭，我哋慢慢開始。",
+        ]
+    ]
     groups = base.get("groups", {}) if isinstance(base.get("groups"), dict) else {}
     successful = sum(1 for item in health if item["status"] == "ok")
     required_failed = [item["id"] for item in health if item["required"] and item["status"] != "ok"]
@@ -145,7 +160,8 @@ def transform(raw: dict[str, Any], health: list[dict[str, Any]], config: dict[st
         "lifePulse": general or weather_summary,
         "weatherContext": {"source": provenance["source"], "sourceUrl": provenance["sourceUrl"], "updateTime": provenance["sourceTimestamp"], "summary": weather_summary, "role": "verified_background"},
         "production": {"mode": "live", "generatedAt": generated_at, "timezone": "Asia/Hong_Kong", "successfulSources": successful, "totalSources": len(health), "requiredSourcesFailed": required_failed, "health": health, "autoDistribution": {"whatsapp": "disabled", "instagram": "disabled"}},
-        "dailySpecial": daily_special,
+        "dailySpecial": messages[:5],
+        "jeffreyToday": jeffrey_today,
         "weatherMessages": [],
         "groups": groups,
     }

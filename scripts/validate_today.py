@@ -33,6 +33,13 @@ def main() -> None:
     except ValueError:
         fail('date must use YYYY-MM-DD')
 
+    current_id_date = data['date'].replace('-', '')
+    for section in ('dailySpecial', 'jeffreyToday'):
+        for item in data.get(section, []) or []:
+            message_id = str(item.get('id', ''))
+            if message_id and current_id_date not in message_id:
+                fail(f'{section} contains non-current item: {message_id}')
+
     collections = []
     for key in ('dailySpecial', 'jeffreyToday', 'weatherMessages', 'archive'):
         value = data.get(key, [])

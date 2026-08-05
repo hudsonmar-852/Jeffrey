@@ -2,28 +2,28 @@
   "date": "2026-08-05",
   "version": "3.5.0",
   "theme": "AIOS 真實資料｜每日生活脈搏與訓練節奏",
-  "lifePulse": "未來一兩日廣東沿岸風勢微弱，該區天色大致良好，天氣酷熱。同時，位於海南島附近的低壓區會為該區及廣東西部帶來驟雨。而位於呂宋以西的熱帶氣旋鯨魚會在今日於呂宋附近的南海中部徘徊，隨後向東移向呂宋，並逐漸減弱。此外，位於西北太平洋的熱帶氣旋白海豚會在今明兩日橫過日本以南海域，並在本週後期橫過琉球群島，移向東海一帶，但隨後路徑存在變數，有較大機會於東海至華東一帶轉向偏北方向移動。受白海豚的外圍下沉氣流影響，週末期間華南天色普遍晴朗，內陸地區極端酷熱，而高溫亦會觸發雷雨。",
+  "lifePulse": "未來一兩日廣東沿岸風勢微弱，天色大致良好，天氣持續酷熱。同時，位於海南島附近的低壓區會為該區帶來不穩定天氣。而熱帶氣旋鯨魚會在今日緩慢向東移向呂宋，並於明日逐漸減弱。此外，熱帶氣旋白海豚會在未來兩三日橫過琉球群島及移向東海，隨後有較大機會於華東一帶轉向偏北方向移動，但路徑仍存在變數。受白海豚的外圍下沉氣流影響，週末至下週初華南天色普遍晴朗，日間極端酷熱，而高溫亦會觸發雷雨。預料一股西南氣流會在下週中期影響廣東沿岸，該區有幾陣驟雨。",
   "weatherContext": {
     "source": "香港天文台",
     "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-    "updateTime": "2026-08-05T08:02:00+08:00",
-    "summary": "氣溫 27–33°C；部分時間有陽光。日間酷熱，但局部地區有驟雨。；酷熱天氣警告現正生效，市民應慎防中暑，多補充水分。",
+    "updateTime": "2026-08-05T17:02:00+08:00",
+    "summary": "氣溫 28–33°C；大致天晴。日間酷熱。；酷熱天氣警告現正生效，市民應慎防中暑，多補充水分。",
     "role": "verified_background"
   },
   "dailySpecial": [
     {
-      "id": "ds-20260805-407c11be",
+      "id": "ds-20260805-89daa6d7",
       "section": "S1",
       "topic": "⭐ 今日精選｜天氣節奏",
-      "content": "今日天文台預測大約 27–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
-      "hook": "今日天文台預測大約 27–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "content": "今日天文台預測大約 28–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "hook": "今日天文台預測大約 28–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
       "cta": "有需要就收藏低，出門前再望天文台最新資訊。",
       "priority": 1,
       "approvalStatus": "pending",
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T08:02:00+08:00"
+      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
     },
     {
       "id": "w-20260805-c8f47176",
@@ -37,27 +37,27 @@
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T08:02:00+08:00"
+      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
     },
     {
-      "id": "w-20260805-87287f0d",
+      "id": "w-20260805-d7eea46b",
       "section": "S1",
       "topic": "💧 官方天氣｜濕度背景",
-      "content": "天文台最新相對濕度約 85%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
-      "hook": "天文台最新相對濕度約 85%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "content": "天文台最新相對濕度約 63%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "hook": "天文台最新相對濕度約 63%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
       "cta": "按自己狀態補水同休息。",
       "priority": 3,
       "approvalStatus": "pending",
       "humanScore": 97,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T08:02:00+08:00"
+      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
     },
     {
-      "id": "gov-20260805-9facce38",
+      "id": "gov-20260805-9e303175",
       "section": "S2",
       "topic": "🏙 香港脈搏｜政府資訊",
-      "content": "今日政府資訊有一項更新：天氣酷熱　衞生署提醒市民預防高溫引發的疾病。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
+      "content": "今日政府資訊有一項更新：民政事務總署開放臨時避暑中心。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
       "hook": "待 Jeffrey 閱讀原文後手動輸入",
       "cta": "先核對原文，再決定是否分享。",
       "priority": 4,
@@ -65,112 +65,50 @@
       "humanScore": 94,
       "source": "香港政府新聞公報",
       "sourceUrl": "https://www.info.gov.hk/gia/rss/general_zh.xml",
-      "sourceTimestamp": "Wed, 05 Aug 2026 06:48:33 +0800",
-      "articleUrl": "https://www.info.gov.hk/gia/general/202608/05/P2026080500142.htm"
-    },
-    {
-      "id": "ds-20260710-01",
-      "topic": "⭐ 今日精選｜熱住收星期五",
-      "content": "星期五加上天氣熱，最易一開始就心急想快啲收工。今日先穩住節奏，飲兩啖水、行慢一步，個人會冇咁燥。",
-      "humanScore": 95
-    },
-    {
-      "id": "ds-20260710-02",
-      "topic": "⭐ 今日精選｜有陽光也有雨",
-      "content": "今日有陽光，但都可能有幾陣驟雨。生活都係咁，唔一定全日順晒；有準備、唔硬衝，已經好叻。",
-      "humanScore": 94
-    },
-    {
-      "id": "ds-20260710-03",
-      "topic": "⭐ 今日精選｜午前先補水",
-      "content": "天氣去到33度左右，唔好等下午先救火。今朝見到水就飲兩啖，簡單到似冇做，但會令成日舒服好多。",
-      "humanScore": 94
-    },
-    {
-      "id": "ds-20260710-04",
-      "topic": "⭐ 今日精選｜週五唔好爆衝",
-      "content": "星期五好多人成個人已經去到尾段。今日唔使靠意志硬頂，做少少伸展、慢慢呼吸，留返啲電俾自己。",
-      "humanScore": 93
-    },
-    {
-      "id": "ds-20260710-05",
-      "topic": "⭐ 今日精選｜小心地滑小心攰",
-      "content": "今日有幾陣雨，地面濕滑之外，人都容易焗到攰。出入慢一慢，身體安全，心情都穩陣啲。",
-      "humanScore": 92
+      "sourceTimestamp": "Wed, 05 Aug 2026 17:00:00 +0800",
+      "articleUrl": "https://www.info.gov.hk/gia/general/202608/05/P2026080500546.htm"
     }
   ],
   "jeffreyToday": [
     {
-      "id": "jt-20260710-01",
-      "topic": "☕ Jeffrey Today｜熱到咖啡都慢啲飲",
-      "content": "今朝返到 Gym，感覺空氣已經有啲焗。呢啲日子唔好急住谷狀態，先飲水、郁開身，身體會自然醒。",
-      "humanScore": 95
+      "id": "jt-20260805-3927270b",
+      "topic": "Jeffrey 今日問候",
+      "content": "今日返工忙唔忙呀？如果今晚有堂，嚟到我哋慢慢入返節奏。",
+      "approvalStatus": "pending",
+      "status": "draft_human_approval_required",
+      "humanScore": 98
     },
     {
-      "id": "jt-20260710-02",
-      "topic": "🏋️ Jeffrey Today｜星期五七成力",
-      "content": "今日如果訓練，用七成力都可以好有質素。最緊要姿勢穩、呼吸順，唔係每次都要爆到盡先叫有效。",
-      "humanScore": 94
+      "id": "jt-20260805-24c0a545",
+      "topic": "Jeffrey 今日問候",
+      "content": "最近訓練個節奏點呀？得閒覆我一句，我幫你睇下。",
+      "approvalStatus": "pending",
+      "status": "draft_human_approval_required",
+      "humanScore": 98
     },
     {
-      "id": "jt-20260710-03",
-      "topic": "🌦 Jeffrey Today｜遮同水樽都要在場",
-      "content": "今日有陽光又有幾陣雨，遮同水樽最好都跟身。Keep Fit 其實好多時唔係大招，係準備做得好。",
-      "humanScore": 93
+      "id": "jt-20260805-fd8a1eac",
+      "topic": "Jeffrey 今日問候",
+      "content": "今晚操嗰陣記住出力先呼氣，我幫你睇住。",
+      "approvalStatus": "pending",
+      "status": "draft_human_approval_required",
+      "humanScore": 98
     },
     {
-      "id": "jt-20260710-04",
-      "topic": "🧴 Jeffrey Today｜防曬都係身體管理",
-      "content": "今日有太陽，戶外行多幾步都記得防曬。保護皮膚同保護膝頭一樣，都係長線照顧自己。",
-      "humanScore": 92
+      "id": "jt-20260805-b1a2ac22",
+      "topic": "Jeffrey 今日問候",
+      "content": "今日有嚟已經算數，唔使下下都做到盡。",
+      "approvalStatus": "pending",
+      "status": "draft_human_approval_required",
+      "humanScore": 98
     },
     {
-      "id": "jt-20260710-05",
-      "topic": "🌿 Jeffrey Today｜週五留一口氣",
-      "content": "去到星期五，唔好將自己用到零電先休息。今日留一口氣俾自己，今晚會輕鬆好多。",
-      "humanScore": 94
-    },
-    {
-      "id": "jt-20260709-01",
-      "topic": "☕ Jeffrey Today｜門口一陣濕氣",
-      "content": "今朝返到 Gym 門口，第一下就覺得空氣好濕。呢啲日子唔一定要練得狠，先郁開身、出少少汗，個人已經清醒好多。",
-      "humanScore": 95
-    },
-    {
-      "id": "jt-20260709-02",
-      "topic": "🏋️ Jeffrey Today｜毛巾比平時重要",
-      "content": "今日呢種天氣，毛巾同水比平時更重要。訓練唔係淨係做動作，識得補水、抹汗、慢慢熱身，都係專業。",
-      "humanScore": 94
-    },
-    {
-      "id": "jt-20260709-03",
-      "topic": "🌿 Jeffrey Today｜等雨停嗰幾分鐘",
-      "content": "有時等雨停嗰幾分鐘，其實幾好用。唔好即刻拎電話轟炸自己，企定呼吸幾下，身體會自然放鬆啲。",
-      "humanScore": 93
-    },
-    {
-      "id": "jt-20260709-04",
-      "topic": "🏃 Jeffrey Today｜今日先唔爆衝",
-      "content": "今日濕熱又有驟雨，最怕一開始太急。返嚟做嘢或者訓練都好，先用七成功率入局，穩定先最安全。",
-      "humanScore": 92
-    },
-    {
-      "id": "jt-20260709-05",
-      "topic": "🧴 Jeffrey Today｜簡單照顧先長久",
-      "content": "今朝諗到一樣嘢：真正 Keep Fit 其實好生活化。帶水、帶遮、準時食嘢、唔硬撐，全部都係身體管理。",
-      "humanScore": 93
-    },
-    {
-      "id": "jt-20260708-01",
-      "topic": "☕ Jeffrey Today｜第一杯咖啡",
-      "content": "今朝第一杯咖啡飲到一半，就開始忙。突然覺得，香港人好多時連慢慢飲杯嘢都好難。希望你今日都有一個小空位，留返俾自己。",
-      "humanScore": 95
-    },
-    {
-      "id": "jt-20260708-02",
-      "topic": "🏋️ Jeffrey Today｜打開 Gym 門",
-      "content": "今日返到 Gym，第一件事唔係諗訓練，而係打開門透透氣。有時換一換空氣，個人都會醒返啲。你今日都記得俾自己換一換節奏。",
-      "humanScore": 93
+      "id": "jt-20260805-154263c0",
+      "topic": "Jeffrey 今日問候",
+      "content": "如果坐咗成日，嚟到先郁下膊頭，我哋慢慢開始。",
+      "approvalStatus": "pending",
+      "status": "draft_human_approval_required",
+      "humanScore": 98
     }
   ],
   "weatherMessages": [],
@@ -622,7 +560,7 @@
   },
   "production": {
     "mode": "live",
-    "generatedAt": "2026-08-05T08:15:43+08:00",
+    "generatedAt": "2026-08-05T17:29:31+08:00",
     "timezone": "Asia/Hong_Kong",
     "successfulSources": 3,
     "totalSources": 3,
@@ -633,21 +571,21 @@
         "name": "香港天文台",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-08-05T08:15:43+08:00"
+        "fetchedAt": "2026-08-05T17:29:31+08:00"
       },
       {
         "id": "hko_forecast",
         "name": "香港天文台九天天氣預報",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-08-05T08:15:44+08:00"
+        "fetchedAt": "2026-08-05T17:29:32+08:00"
       },
       {
         "id": "gov_news",
         "name": "香港政府新聞公報",
         "status": "ok",
         "required": false,
-        "fetchedAt": "2026-08-05T08:15:45+08:00"
+        "fetchedAt": "2026-08-05T17:29:33+08:00"
       }
     ],
     "autoDistribution": {

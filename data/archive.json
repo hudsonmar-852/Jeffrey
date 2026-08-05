@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updated_at": "2026-08-05T00:15:46.871Z",
+  "updated_at": "2026-08-05T09:29:36.746Z",
   "items": [
     {
       "customer_text": "今日天文台預測大約 25–29°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
@@ -7458,6 +7458,94 @@
       "source_url": "https://www.info.gov.hk/gia/rss/general_zh.xml"
     },
     {
+      "customer_text": "今日天文台預測大約 28–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "ds-20260805-89daa6d7",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "香港天文台",
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+    },
+    {
+      "customer_text": "天文台最新相對濕度約 63%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 97,
+      "archive_id": "w-20260805-d7eea46b",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "香港天文台",
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+    },
+    {
+      "customer_text": "今日政府資訊有一項更新：民政事務總署開放臨時避暑中心。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 94,
+      "archive_id": "gov-20260805-9e303175",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "香港政府新聞公報",
+      "source_time": "Wed, 05 Aug 2026 17:00:00 +0800",
+      "source_url": "https://www.info.gov.hk/gia/rss/general_zh.xml"
+    },
+    {
+      "customer_text": "今日返工忙唔忙呀？如果今晚有堂，嚟到我哋慢慢入返節奏。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "jt-20260805-3927270b",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "Legacy Jeffrey reminder catalogue",
+      "source_time": "2026-08-05T00:00:00+08:00",
+      "source_url": ""
+    },
+    {
+      "customer_text": "最近訓練個節奏點呀？得閒覆我一句，我幫你睇下。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "jt-20260805-24c0a545",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "Legacy Jeffrey reminder catalogue",
+      "source_time": "2026-08-05T00:00:00+08:00",
+      "source_url": ""
+    },
+    {
+      "customer_text": "今晚操嗰陣記住出力先呼氣，我幫你睇住。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "jt-20260805-fd8a1eac",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "Legacy Jeffrey reminder catalogue",
+      "source_time": "2026-08-05T00:00:00+08:00",
+      "source_url": ""
+    },
+    {
+      "customer_text": "今日有嚟已經算數，唔使下下都做到盡。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "jt-20260805-b1a2ac22",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "Legacy Jeffrey reminder catalogue",
+      "source_time": "2026-08-05T00:00:00+08:00",
+      "source_url": ""
+    },
+    {
+      "customer_text": "如果坐咗成日，嚟到先郁下膊頭，我哋慢慢開始。",
+      "internal_reason": "Migrated from the pre-v2 catalogue; archive only.",
+      "reviewer_scores": {},
+      "weighted_score": 98,
+      "archive_id": "jt-20260805-154263c0",
+      "created_at": "2026-08-05T00:00:00+08:00",
+      "source_name": "Legacy Jeffrey reminder catalogue",
+      "source_time": "2026-08-05T00:00:00+08:00",
+      "source_url": ""
+    },
+    {
       "customer_text": "坐咗一輪就起身行兩步啦，膊頭都順便鬆一鬆。",
       "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
       "reviewer_scores": {
@@ -7467,14 +7555,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 88
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.2,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-01",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "飲兩啖水先啦，唔好等到口乾先醒起。",
@@ -7486,14 +7576,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 89
       },
-      "weighted_score": 88.85,
+      "weighted_score": 93.3,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-02",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日操嗰陣唔使一開波就衝，慢慢熱身先。",
@@ -7505,14 +7597,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 90
       },
-      "weighted_score": 89.5,
+      "weighted_score": 94,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-03",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
       "customer_text": "出力嗰下記住呼氣，成個動作會順好多。",
@@ -7524,14 +7618,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 86,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 91
       },
-      "weighted_score": 82.55,
+      "weighted_score": 87.1,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-04",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今晚早少少瞓啦，聽日個人會精神啲。",
@@ -7543,14 +7639,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 92
       },
-      "weighted_score": 89,
+      "weighted_score": 93.6,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-05",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "返到 Gym 唔使急，抖順條氣先開始都未遲。",
@@ -7562,14 +7660,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 93
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.45,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-06",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "坐耐咗個髖好易實，企起身郁幾下先啦。",
@@ -7581,14 +7681,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 94
       },
-      "weighted_score": 88.85,
+      "weighted_score": 93.55,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-07",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "膊頭唔好成日縮埋，得閒放低少少啦。",
@@ -7600,14 +7702,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 95
       },
-      "weighted_score": 88.9,
+      "weighted_score": 93.65,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-08",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日如果攰就收一收力，做得穩陣先最緊要。",
@@ -7619,14 +7723,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 86,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 88
       },
-      "weighted_score": 77.75,
+      "weighted_score": 82.15,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-09",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "操完唔好即刻走，慢慢行兩分鐘先抖返順。",
@@ -7641,11 +7747,13 @@
         "novelty": 0
       },
       "weighted_score": 89.6,
+      "recently_selected": true,
       "archive_id": "curator-2026-08-05-10",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "食飯前飲幾啖水啦，成日忙到唔記得就最易乾。",
@@ -7657,14 +7765,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 90
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.3,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-11",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "望電腦望得耐就望遠一陣，對眼都要抖下。",
@@ -7676,14 +7786,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 86,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 91
       },
-      "weighted_score": 77.65,
+      "weighted_score": 82.2,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-12",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "行路嗰陣放鬆膊頭啦，唔使一路抽住。",
@@ -7695,14 +7807,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 92
       },
-      "weighted_score": 88.9,
+      "weighted_score": 93.5,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-13",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日練動作先啦，重量唔使次次都加。",
@@ -7717,11 +7831,13 @@
         "novelty": 0
       },
       "weighted_score": 89.55,
+      "recently_selected": true,
       "archive_id": "curator-2026-08-05-14",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "瞓前放低電話一陣啦，畀個腦慢慢靜返落嚟。",
@@ -7733,14 +7849,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 94
       },
-      "weighted_score": 89,
+      "weighted_score": 93.7,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-15",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "等𨋢嗰陣企直少少，腰背會舒服啲。",
@@ -7752,14 +7870,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 95
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.55,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-16",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "開始操之前郁下手腕腳腕，幾十秒就夠。",
@@ -7771,14 +7891,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 86,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 88
       },
-      "weighted_score": 82.45,
+      "weighted_score": 86.85,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-17",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日飲咗幾多水呀？而家飲兩啖先啦。",
@@ -7793,11 +7915,13 @@
         "novelty": 0
       },
       "weighted_score": 90.3,
+      "recently_selected": true,
       "archive_id": "curator-2026-08-05-18",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "呼吸唔順就停一停，唔使夾硬做埋落去。",
@@ -7809,14 +7933,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 90
       },
-      "weighted_score": 88.95,
+      "weighted_score": 93.45,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-19",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "坐低嗰陣雙腳踩實地下，個人會穩好多。",
@@ -7828,14 +7954,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 86,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 91
       },
-      "weighted_score": 82,
+      "weighted_score": 86.55,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-20",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日唔使做到盡，留少少力畀身體恢復啦。",
@@ -7847,14 +7975,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 92
       },
-      "weighted_score": 89.4,
+      "weighted_score": 94,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-21",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
       "customer_text": "沖完涼做兩下輕鬆伸展，唔使拉到痛。",
@@ -7866,14 +7996,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 93
       },
-      "weighted_score": 88.85,
+      "weighted_score": 93.5,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-22",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "搭車嗰陣唔好一路寒背，間中坐直一下啦。",
@@ -7885,14 +8017,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 94
       },
-      "weighted_score": 88.9,
+      "weighted_score": 93.6,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-23",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "操之前記得食返少少嘢，空住個肚唔好死頂。",
@@ -7907,11 +8041,13 @@
         "novelty": 0
       },
       "weighted_score": 89.55,
+      "recently_selected": true,
       "archive_id": "curator-2026-08-05-24",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日上落樓梯慢少少，膝頭對正腳尖就得。",
@@ -7923,14 +8059,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 86,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 88
       },
-      "weighted_score": 77.8,
+      "weighted_score": 82.2,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-25",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "拎重嘢之前企穩先，唔好一邊扭身一邊抽起。",
@@ -7942,14 +8080,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 89
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.25,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-26",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "成朝坐住就去斟杯水啦，順便行返幾步。",
@@ -7961,14 +8101,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 90
       },
-      "weighted_score": 88.85,
+      "weighted_score": 93.35,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-27",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "頸緊就輕輕轉下頭，唔使大力扯。",
@@ -7980,14 +8122,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 91
       },
-      "weighted_score": 84.7,
+      "weighted_score": 89.25,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-28",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今晚操完記得食返餐正經嘢，畀身體慢慢補返。",
@@ -7999,14 +8143,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 92
       },
-      "weighted_score": 89.55,
+      "weighted_score": 94.15,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-29",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
       "customer_text": "覺得動作亂就放慢少少，穩返先再加。",
@@ -8021,11 +8167,13 @@
         "novelty": 0
       },
       "weighted_score": 89.6,
+      "recently_selected": true,
       "archive_id": "curator-2026-08-05-30",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "排隊嗰陣換下重心啦，唔好成個人側埋一邊。",
@@ -8037,14 +8185,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 94
       },
-      "weighted_score": 84.6,
+      "weighted_score": 89.3,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-31",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "忙到呼吸都急就停十秒，慢慢呼兩啖氣先。",
@@ -8056,14 +8206,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 86,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 95
       },
-      "weighted_score": 81.85,
+      "weighted_score": 86.6,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-32",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日對住電話耐咗，拎高少少啦，條頸冇咁攰。",
@@ -8075,14 +8227,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 88
       },
-      "weighted_score": 84.7,
+      "weighted_score": 89.1,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-33",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "著鞋前郁兩下腳趾啦，對腳都醒一醒。",
@@ -8094,14 +8248,16 @@
         "everyday_usefulness": 82,
         "jeffrey_voice": 94,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 89
       },
-      "weighted_score": 84.75,
+      "weighted_score": 89.2,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-34",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "操完第二日有少少攰好正常，今日輕輕郁下就得。",
@@ -8113,14 +8269,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 86,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 90
       },
-      "weighted_score": 82.6,
+      "weighted_score": 87.1,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-35",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "夜晚口渴就飲幾啖水，唔使一次過飲太多。",
@@ -8132,14 +8290,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 0
+        "novelty": 91
       },
-      "weighted_score": 88.8,
+      "weighted_score": 93.35,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-36",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "企得耐就屈伸下膝頭啦，唔好鎖實成個人。",
@@ -8151,14 +8311,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 0
+        "novelty": 92
       },
-      "weighted_score": 88.85,
+      "weighted_score": 93.45,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-37",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "拎水樽放喺眼前啦，見到自然會記得飲。",
@@ -8170,14 +8332,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 78,
-        "novelty": 0
+        "novelty": 93
       },
-      "weighted_score": 88.9,
+      "weighted_score": 93.55,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-38",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": false
     },
     {
       "customer_text": "今日熱身畀多兩分鐘自己，之後會做得順啲。",
@@ -8189,14 +8353,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 79,
-        "novelty": 0
+        "novelty": 94
       },
-      "weighted_score": 89.55,
+      "weighted_score": 94.25,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-39",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
       "customer_text": "收工返屋企行慢兩步啦，畀個人轉返落休息節奏。",
@@ -8208,14 +8374,16 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 80,
-        "novelty": 0
+        "novelty": 95
       },
-      "weighted_score": 89,
+      "weighted_score": 93.75,
+      "recently_selected": false,
       "archive_id": "curator-2026-08-05-40",
-      "created_at": "2026-08-05T00:15:46.871Z",
+      "created_at": "2026-08-05T09:29:36.746Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-05T08:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc"
+      "source_time": "2026-08-05T17:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     }
   ]
 }

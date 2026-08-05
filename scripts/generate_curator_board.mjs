@@ -28,13 +28,34 @@ const legacy = migrated
   .map(withoutApprovalState)
   .filter((item) => !existingIds.has(item.archive_id));
 const runDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Hong_Kong' }).format(now);
+const recentCutoff = new Date(now);
+recentCutoff.setUTCDate(recentCutoff.getUTCDate() - 7);
+const selectedByDate = new Map();
+for (const item of existing) {
+  const match = String(item.archive_id || '').match(/^curator-(\d{4}-\d{2}-\d{2})-/);
+  if (!match || match[1] >= runDate || new Date(`${match[1]}T00:00:00Z`) < recentCutoff) continue;
+  const values = selectedByDate.get(match[1]) || [];
+  values.push(item);
+  selectedByDate.set(match[1], values);
+}
+const recentSelections = [...selectedByDate.values()].flatMap((items) =>
+  items
+    .filter((item) => item.selected === true)
+    .concat(items.some((item) => item.selected === true) ? [] : [...items]
+      .sort((a, b) => b.weighted_score - a.weighted_score || a.archive_id.localeCompare(b.archive_id))
+      .slice(0, 5))
+);
 const currentPrefix = `curator-${runDate}-`;
 const previousArchive = [...existing, ...legacy]
   .filter((item) => !String(item.archive_id || '').startsWith(currentPrefix));
 const curation = buildDailyCuration({
   scheduledOutputs: today,
-  previousArchive,
+  previousArchive: recentSelections,
   now
+});
+const selectedIds = new Set(curation.board.items.map((item) => item.archive_id));
+curation.archiveItems.forEach((item) => {
+  item.selected = selectedIds.has(item.archive_id);
 });
 const currentIds = new Set(curation.archiveItems.map((item) => item.archive_id));
 const historical = [...existing, ...legacy].filter((item) => !currentIds.has(item.archive_id));
