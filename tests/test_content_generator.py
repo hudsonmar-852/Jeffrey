@@ -43,6 +43,18 @@ class GeneratorTests(unittest.TestCase):
         second = generator.transform(self.raw, self.health, self.config, self.now, {})
         self.assertEqual([x["id"] for x in first["dailySpecial"]], [x["id"] for x in second["dailySpecial"]])
 
+    def test_transform_does_not_republish_legacy_daily_items(self):
+        base = {
+            "dailySpecial": [{"id": "ds-20260710-old", "topic": "old", "content": "舊內容"}],
+            "jeffreyToday": [{"id": "jt-20260710-old", "topic": "old", "content": "舊內容"}],
+            "groups": {},
+        }
+        data = generator.transform(self.raw, self.health, self.config, self.now, base)
+        current = self.now.strftime("%Y%m%d")
+        self.assertTrue(all(current in item["id"] for item in data["dailySpecial"]))
+        self.assertTrue(all(current in item["id"] for item in data["jeffreyToday"]))
+        self.assertNotIn("舊內容", [item["content"] for item in data["dailySpecial"] + data["jeffreyToday"]])
+
     def test_legacy_concatenated_json_uses_first_object(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "legacy.json"

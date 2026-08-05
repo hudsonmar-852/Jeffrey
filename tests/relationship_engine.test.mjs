@@ -45,6 +45,17 @@ test('old reminders migrate to archive but never enter today board', () => {
   assert.equal(result.board.items.some((item) => item.customer_text === oldText), false);
 });
 
+test('recently selected customer text cannot return to today board', () => {
+  const first = buildDailyCuration({ scheduledOutputs: INPUT, now: NOW });
+  const result = buildDailyCuration({
+    scheduledOutputs: INPUT,
+    previousArchive: first.board.items,
+    now: new Date('2026-07-29T08:15:00+08:00')
+  });
+  const previousTexts = new Set(first.board.items.map((item) => item.customer_text));
+  assert.equal(result.board.items.some((item) => previousTexts.has(item.customer_text)), false);
+});
+
 test('copy writes customer_text only', async () => {
   const writes = [];
   const message = {
@@ -97,6 +108,6 @@ test('data model contains the production fields without approval state', () => {
   const [item] = createCandidatePool({ scheduledOutputs: INPUT, now: NOW });
   assert.deepEqual(Object.keys(item), [
     'customer_text', 'internal_reason', 'reviewer_scores', 'weighted_score',
-    'archive_id', 'created_at', 'source_name', 'source_time', 'source_url'
+    'recently_selected', 'archive_id', 'created_at', 'source_name', 'source_time', 'source_url'
   ]);
 });

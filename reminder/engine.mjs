@@ -146,6 +146,7 @@ export function createCandidatePool({
         : 'Short, practical daily care in Jeffrey-style spoken Cantonese.',
       reviewer_scores: review.scores,
       weighted_score: review.weighted_score,
+      recently_selected: recentTexts.has(customerText),
       archive_id: `curator-${validation.date}-${String(index + 1).padStart(2, '0')}`,
       created_at: createdAt,
       source_name: primarySource?.source || primarySource?.source_name || 'Jeffrey Curator evergreen library',
@@ -158,7 +159,7 @@ export function createCandidatePool({
 export function selectTopFive(candidates) {
   const seen = new Set();
   return candidates
-    .filter((candidate) => !hardReject(candidate.customer_text).rejected)
+    .filter((candidate) => !candidate.recently_selected && !hardReject(candidate.customer_text).rejected)
     .sort((a, b) => b.weighted_score - a.weighted_score || a.archive_id.localeCompare(b.archive_id))
     .filter((candidate) => {
       const key = normaliseText(candidate.customer_text);
