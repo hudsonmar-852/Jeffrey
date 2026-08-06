@@ -1,63 +1,63 @@
 {
-  "date": "2026-08-05",
+  "date": "2026-08-06",
   "version": "3.5.0",
   "theme": "AIOS 真實資料｜每日生活脈搏與訓練節奏",
-  "lifePulse": "未來一兩日廣東沿岸風勢微弱，天色大致良好，天氣持續酷熱。同時，位於海南島附近的低壓區會為該區帶來不穩定天氣。而熱帶氣旋鯨魚會在今日緩慢向東移向呂宋，並於明日逐漸減弱。此外，熱帶氣旋白海豚會在未來兩三日橫過琉球群島及移向東海，隨後有較大機會於華東一帶轉向偏北方向移動，但路徑仍存在變數。受白海豚的外圍下沉氣流影響，週末至下週初華南天色普遍晴朗，日間極端酷熱，而高溫亦會觸發雷雨。預料一股西南氣流會在下週中期影響廣東沿岸，該區有幾陣驟雨。",
+  "lifePulse": "廣東沿岸今明兩日風勢微弱，天色大致良好，天氣持續酷熱。同時，位於海南島附近的低壓區會為該區帶來不穩定天氣。而熱帶氣旋鯨魚會在今日橫過呂宋並逐漸減弱。此外，熱帶氣旋白海豚會在未來一兩日橫過琉球群島及移向東海，隨後有較大機會於華東一帶轉向偏北方向移動，但路徑仍存在變數。受白海豚的外圍下沉氣流影響，週末至下週初華南天色普遍晴朗，日間極端酷熱，而高溫亦會觸發雷雨。預料一股西南氣流會在下週中期影響廣東沿岸，該區有幾陣驟雨。",
   "weatherContext": {
     "source": "香港天文台",
     "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-    "updateTime": "2026-08-05T17:02:00+08:00",
-    "summary": "氣溫 28–33°C；大致天晴。日間酷熱。；酷熱天氣警告現正生效，市民應慎防中暑，多補充水分。",
+    "updateTime": "2026-08-06T08:02:00+08:00",
+    "summary": "氣溫 27–33°C；天晴。日間酷熱。；酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。",
     "role": "verified_background"
   },
   "dailySpecial": [
     {
-      "id": "ds-20260805-89daa6d7",
+      "id": "ds-20260806-407c11be",
       "section": "S1",
       "topic": "⭐ 今日精選｜天氣節奏",
-      "content": "今日天文台預測大約 28–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
-      "hook": "今日天文台預測大約 28–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "content": "今日天文台預測大約 27–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
+      "hook": "今日天文台預測大約 27–33°C。出門或者訓練前望一眼身體狀態，行程留少少彈性會舒服好多。",
       "cta": "有需要就收藏低，出門前再望天文台最新資訊。",
       "priority": 1,
       "approvalStatus": "pending",
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
+      "sourceTimestamp": "2026-08-06T08:02:00+08:00"
     },
     {
-      "id": "w-20260805-c8f47176",
+      "id": "w-20260806-281bb799",
       "section": "S1",
       "topic": "🌦 官方天氣｜安全節奏",
-      "content": "天文台現時提示：酷熱天氣警告現正生效，市民應慎防中暑，多補充水分。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
-      "hook": "天文台現時提示：酷熱天氣警告現正生效，市民應慎防中暑，多補充水分。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
+      "content": "天文台現時提示：酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
+      "hook": "天文台現時提示：酷熱天氣警告現正生效，高溫天氣持續！請補充足夠水分。如感不適，立刻休息或求助，需要時儘快求醫。。今日戶外活動唔使硬頂，環境或者身體唔舒服就轉室內、縮短時間。",
       "cta": "發送前再核對天文台警告。",
       "priority": 2,
       "approvalStatus": "pending",
       "humanScore": 98,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
+      "sourceTimestamp": "2026-08-06T08:02:00+08:00"
     },
     {
-      "id": "w-20260805-d7eea46b",
+      "id": "w-20260806-87287f0d",
       "section": "S1",
       "topic": "💧 官方天氣｜濕度背景",
-      "content": "天文台最新相對濕度約 63%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
-      "hook": "天文台最新相對濕度約 63%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "content": "天文台最新相對濕度約 85%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
+      "hook": "天文台最新相對濕度約 85%。濕熱日子個人容易攰快啲，今日留返少少餘力，完成得穩比做得盡更實際。",
       "cta": "按自己狀態補水同休息。",
       "priority": 3,
       "approvalStatus": "pending",
       "humanScore": 97,
       "source": "香港天文台",
       "sourceUrl": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "sourceTimestamp": "2026-08-05T17:02:00+08:00"
+      "sourceTimestamp": "2026-08-06T08:02:00+08:00"
     },
     {
-      "id": "gov-20260805-9e303175",
+      "id": "gov-20260806-9facce38",
       "section": "S2",
       "topic": "🏙 香港脈搏｜政府資訊",
-      "content": "今日政府資訊有一項更新：民政事務總署開放臨時避暑中心。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
+      "content": "今日政府資訊有一項更新：天氣酷熱　衞生署提醒市民預防高溫引發的疾病。呢項只作今日生活脈搏，Jeffrey 發送前先打開原文，確認同客人有關先分享。",
       "hook": "待 Jeffrey 閱讀原文後手動輸入",
       "cta": "先核對原文，再決定是否分享。",
       "priority": 4,
@@ -65,13 +65,13 @@
       "humanScore": 94,
       "source": "香港政府新聞公報",
       "sourceUrl": "https://www.info.gov.hk/gia/rss/general_zh.xml",
-      "sourceTimestamp": "Wed, 05 Aug 2026 17:00:00 +0800",
-      "articleUrl": "https://www.info.gov.hk/gia/general/202608/05/P2026080500546.htm"
+      "sourceTimestamp": "Thu, 06 Aug 2026 06:45:39 +0800",
+      "articleUrl": "https://www.info.gov.hk/gia/general/202608/06/P2026080500811.htm"
     }
   ],
   "jeffreyToday": [
     {
-      "id": "jt-20260805-3927270b",
+      "id": "jt-20260806-3927270b",
       "topic": "Jeffrey 今日問候",
       "content": "今日返工忙唔忙呀？如果今晚有堂，嚟到我哋慢慢入返節奏。",
       "approvalStatus": "pending",
@@ -79,7 +79,7 @@
       "humanScore": 98
     },
     {
-      "id": "jt-20260805-24c0a545",
+      "id": "jt-20260806-24c0a545",
       "topic": "Jeffrey 今日問候",
       "content": "最近訓練個節奏點呀？得閒覆我一句，我幫你睇下。",
       "approvalStatus": "pending",
@@ -87,7 +87,7 @@
       "humanScore": 98
     },
     {
-      "id": "jt-20260805-fd8a1eac",
+      "id": "jt-20260806-fd8a1eac",
       "topic": "Jeffrey 今日問候",
       "content": "今晚操嗰陣記住出力先呼氣，我幫你睇住。",
       "approvalStatus": "pending",
@@ -95,7 +95,7 @@
       "humanScore": 98
     },
     {
-      "id": "jt-20260805-b1a2ac22",
+      "id": "jt-20260806-b1a2ac22",
       "topic": "Jeffrey 今日問候",
       "content": "今日有嚟已經算數，唔使下下都做到盡。",
       "approvalStatus": "pending",
@@ -103,7 +103,7 @@
       "humanScore": 98
     },
     {
-      "id": "jt-20260805-154263c0",
+      "id": "jt-20260806-154263c0",
       "topic": "Jeffrey 今日問候",
       "content": "如果坐咗成日，嚟到先郁下膊頭，我哋慢慢開始。",
       "approvalStatus": "pending",
@@ -560,7 +560,7 @@
   },
   "production": {
     "mode": "live",
-    "generatedAt": "2026-08-05T17:29:31+08:00",
+    "generatedAt": "2026-08-06T08:11:38+08:00",
     "timezone": "Asia/Hong_Kong",
     "successfulSources": 3,
     "totalSources": 3,
@@ -571,21 +571,21 @@
         "name": "香港天文台",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-08-05T17:29:31+08:00"
+        "fetchedAt": "2026-08-06T08:11:38+08:00"
       },
       {
         "id": "hko_forecast",
         "name": "香港天文台九天天氣預報",
         "status": "ok",
         "required": true,
-        "fetchedAt": "2026-08-05T17:29:32+08:00"
+        "fetchedAt": "2026-08-06T08:11:41+08:00"
       },
       {
         "id": "gov_news",
         "name": "香港政府新聞公報",
         "status": "ok",
         "required": false,
-        "fetchedAt": "2026-08-05T17:29:33+08:00"
+        "fetchedAt": "2026-08-06T08:11:43+08:00"
       }
     ],
     "autoDistribution": {
