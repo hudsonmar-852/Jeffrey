@@ -1,11 +1,11 @@
 {
   "version": "5.0.0",
-  "date": "2026-08-07",
-  "generated_at": "2026-08-07T01:44:01.181Z",
+  "date": "2026-08-08",
+  "generated_at": "2026-08-07T23:49:15.194Z",
   "candidate_count": 40,
   "items": [
     {
-      "customer_text": "等𨋢嗰陣企直少少，腰背會舒服啲。",
+      "customer_text": "呼吸唔順就停一停，唔使夾硬做埋落去。",
       "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
       "reviewer_scores": {
         "human_warmth": 94,
@@ -13,62 +13,20 @@
         "gym_client_value": 94,
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
-        "reply_likelihood": 76,
-        "novelty": 95
+        "reply_likelihood": 79,
+        "novelty": 90
       },
-      "weighted_score": 93.55,
+      "weighted_score": 93.45,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-07-16",
-      "created_at": "2026-08-07T01:44:01.181Z",
+      "archive_id": "curator-2026-08-08-19",
+      "created_at": "2026-08-07T23:49:15.194Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-07T09:02:00+08:00",
+      "source_time": "2026-08-08T07:02:00+08:00",
       "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
       "selected": true
     },
     {
-      "customer_text": "拎水樽放喺眼前啦，見到自然會記得飲。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 78,
-        "novelty": 93
-      },
-      "weighted_score": 93.55,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-07-38",
-      "created_at": "2026-08-07T01:44:01.181Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-07T09:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
-    },
-    {
-      "customer_text": "行路嗰陣放鬆膊頭啦，唔使一路抽住。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 78,
-        "novelty": 92
-      },
-      "weighted_score": 93.5,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-07-13",
-      "created_at": "2026-08-07T01:44:01.181Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-07T09:02:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
-    },
-    {
-      "customer_text": "沖完涼做兩下輕鬆伸展，唔使拉到痛。",
+      "customer_text": "企得耐就屈伸下膝頭啦，唔好鎖實成個人。",
       "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
       "reviewer_scores": {
         "human_warmth": 94,
@@ -77,19 +35,40 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 77,
-        "novelty": 93
+        "novelty": 92
       },
-      "weighted_score": 93.5,
+      "weighted_score": 93.45,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-07-22",
-      "created_at": "2026-08-07T01:44:01.181Z",
+      "archive_id": "curator-2026-08-08-37",
+      "created_at": "2026-08-07T23:49:15.194Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-07T09:02:00+08:00",
+      "source_time": "2026-08-08T07:02:00+08:00",
       "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
       "selected": true
     },
     {
-      "customer_text": "返到 Gym 唔使急，抖順條氣先開始都未遲。",
+      "customer_text": "成朝坐住就去斟杯水啦，順便行返幾步。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 94,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 77,
+        "novelty": 90
+      },
+      "weighted_score": 93.35,
+      "recently_selected": false,
+      "archive_id": "curator-2026-08-08-27",
+      "created_at": "2026-08-07T23:49:15.194Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-08-08T07:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
+    },
+    {
+      "customer_text": "夜晚口渴就飲幾啖水，唔使一次過飲太多。",
       "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
       "reviewer_scores": {
         "human_warmth": 94,
@@ -98,14 +77,35 @@
         "everyday_usefulness": 94,
         "jeffrey_voice": 94,
         "reply_likelihood": 76,
-        "novelty": 93
+        "novelty": 91
       },
-      "weighted_score": 93.45,
+      "weighted_score": 93.35,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-07-06",
-      "created_at": "2026-08-07T01:44:01.181Z",
+      "archive_id": "curator-2026-08-08-36",
+      "created_at": "2026-08-07T23:49:15.194Z",
       "source_name": "香港天文台",
-      "source_time": "2026-08-07T09:02:00+08:00",
+      "source_time": "2026-08-08T07:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
+    },
+    {
+      "customer_text": "飲兩啖水先啦，唔好等到口乾先醒起。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 94,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 77,
+        "novelty": 89
+      },
+      "weighted_score": 93.3,
+      "recently_selected": false,
+      "archive_id": "curator-2026-08-08-02",
+      "created_at": "2026-08-07T23:49:15.194Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-08-08T07:02:00+08:00",
       "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
       "selected": true
     }
