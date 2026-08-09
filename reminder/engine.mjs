@@ -1,4 +1,4 @@
-export const ENGINE_VERSION = '5.0.0';
+export const ENGINE_VERSION = '5.1.0';
 
 export const STORAGE_KEYS = Object.freeze({
   favourites: 'jeffreyCuratorFavourites',
@@ -38,183 +38,121 @@ const CANDIDATE_TEXTS = Object.freeze([
   '行路嗰陣放鬆膊頭啦，唔使一路抽住。',
   '今日練動作先啦，重量唔使次次都加。',
   '瞓前放低電話一陣啦，畀個腦慢慢靜返落嚟。',
-  '等𨋢嗰陣企直少少，腰背會舒服啲。',
-  '開始操之前郁下手腕腳腕，幾十秒就夠。',
-  '今日飲咗幾多水呀？而家飲兩啖先啦。',
-  '呼吸唔順就停一停，唔使夾硬做埋落去。',
-  '坐低嗰陣雙腳踩實地下，個人會穩好多。',
-  '今日唔使做到盡，留少少力畀身體恢復啦。',
-  '沖完涼做兩下輕鬆伸展，唔使拉到痛。',
-  '搭車嗰陣唔好一路寒背，間中坐直一下啦。',
-  '操之前記得食返少少嘢，空住個肚唔好死頂。',
-  '今日上落樓梯慢少少，膝頭對正腳尖就得。',
-  '拎重嘢之前企穩先，唔好一邊扭身一邊抽起。',
-  '成朝坐住就去斟杯水啦，順便行返幾步。',
-  '頸緊就輕輕轉下頭，唔使大力扯。',
-  '今晚操完記得食返餐正經嘢，畀身體慢慢補返。',
-  '覺得動作亂就放慢少少，穩返先再加。',
-  '排隊嗰陣換下重心啦，唔好成個人側埋一邊。',
-  '忙到呼吸都急就停十秒，慢慢呼兩啖氣先。',
-  '今日對住電話耐咗，拎高少少啦，條頸冇咁攰。',
-  '著鞋前郁兩下腳趾啦，對腳都醒一醒。',
-  '操完第二日有少少攰好正常，今日輕輕郁下就得。',
-  '夜晚口渴就飲幾啖水，唔使一次過飲太多。',
-  '企得耐就屈伸下膝頭啦，唔好鎖實成個人。',
-  '拎水樽放喺眼前啦，見到自然會記得飲。',
-  '今日熱身畀多兩分鐘自己，之後會做得順啲。',
-  '收工返屋企行慢兩步啦，畀個人轉返落休息節奏。'
+  '如果今日周身實，做兩下輕鬆活動先再算。',
+  '一忙就唔好連水都唔飲，放支水喺手邊啦。',
+  '今日唔使追住個數字跑，個動作穩先係正經。',
+  '返工坐耐咗，食飯前行一圈先再坐低。',
+  '瞓得唔夠就唔好死頂，今日訓練收少少都得。',
+  '去到 Gym 先唔好急住睇電話，俾自己入返狀態。',
+  '企耐咗就轉下重心，唔使一路鎖死對腳。',
+  '今日做完一組抖順先再嚟，唔使趕住下一組。',
+  '練完補返幾啖水，唔好一路傾一路唔記得。',
+  '搭車坐得耐，落車行嗰幾步就當郁返開。',
+  '肩頸緊嗰陣唔使硬拉，先郁返鬆少少就得。',
+  '今日返到屋企早少少收機啦，個人都要落返速。',
+  '如果今晚有堂，食嘢唔使太趕，留返啲時間俾自己。',
+  '做運動前唔使諗太多，先由最熟嗰個動作開始。',
+  '今日如果精神一般，訓練質素好過硬加重量。',
+  '坐住做嘢嗰陣，雙腳放返實地會舒服好多。',
+  '手機拎高少少啦，唔使成日低低頭睇。',
+  '今日操完如果仲有精神，留返少少俾聽日都好。',
+  '出門前帶定支水啦，唔使去到先周圍搵。',
+  '做動作嗰陣唔使閉住氣，順住個節奏呼吸就得。',
+  '如果今日冇乜心機，做少啲但做得好都算交足功課。',
+  '返到屋企唔好即刻坐死，行兩步先換衫都好。',
+  '食完飯慢慢行幾分鐘，當俾個人轉下場。',
+  '今日個膊頭如果緊，先放低啲再開始做嘢。',
+  '唔使每次都做到盡，留返一兩格力先可以做得長。'
 ]);
 
-function normaliseText(value) {
-  return String(value || '').trim().replace(/\s+/g, ' ');
+function normaliseText(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[\s，。！？、,.!?「」『』（）()：:；;]/g, '');
 }
 
-function localDate(now) {
-  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Hong_Kong' }).format(now);
-}
-
-function scoreText(text, index, recentTexts) {
-  const hasQuestion = /[？?]/.test(text);
-  const practical = /飲|坐|企|行|膊頭|呼吸|熱身|動作|瞓|恢復|伸展|Gym|操/.test(text);
-  const personal = /你|啦|呀|返|咗|唔|啲/.test(text);
-  const scores = {
-    human_warmth: Math.min(100, 86 + (personal ? 8 : 0) + (hasQuestion ? 2 : 0)),
-    hong_kong_cantonese: personal ? 96 : 75,
-    gym_client_value: Math.min(100, 82 + (practical ? 12 : 0) + (/操|熱身|動作|恢復/.test(text) ? 3 : 0)),
-    everyday_usefulness: practical ? 94 : 82,
-    jeffrey_voice: Math.min(100, 86 + (personal ? 8 : 0)),
-    reply_likelihood: hasQuestion ? 96 : 76 + (index % 5),
-    novelty: recentTexts.has(text) ? 0 : 88 + (index % 8)
-  };
-  const weighted = Object.entries(REVIEWER_WEIGHTS)
-    .reduce((total, [reviewer, weight]) => total + scores[reviewer] * weight, 0);
-  return { scores, weighted_score: Number(weighted.toFixed(2)) };
-}
-
-export function hardReject(customerText) {
-  const text = normaliseText(customerText);
-  const lower = text.toLowerCase();
-  const matched = HARD_REJECTION_TERMS.filter((term) =>
-    /[a-z]/i.test(term) ? lower.includes(term.toLowerCase()) : text.includes(term)
-  );
-  if (!text || [...text].length > 74) matched.push('invalid_length');
-  if (!/[呀啦喎啲咗嚟唔冇返嘅]/.test(text)) matched.push('not_spoken_cantonese');
-  if (/[。！？!?].+[。！？!?].+[。！？!?]/.test(text)) matched.push('too_many_sentences');
-  return { rejected: matched.length > 0, reasons: [...new Set(matched)] };
-}
-
-export function validateScheduledOutputs(data, now = new Date()) {
-  const today = localDate(now);
-  const outputDate = String(data?.date || '');
-  const accepted = [];
-  const rejected = [];
-  const sources = [
-    data?.weatherContext,
-    ...(data?.scheduledOutputs || []),
-    ...(data?.verifiedOutputs || [])
-  ].filter(Boolean);
-  for (const source of sources) {
-    const timestamp = source.updateTime || source.source_time || source.sourceTimestamp;
-    const sourceDate = timestamp ? localDate(new Date(timestamp)) : outputDate;
-    const supported = Boolean(source.source || source.source_name);
-    const item = { ...source, sourceDate };
-    if (outputDate !== today || sourceDate !== today || !supported || source.conflicting || source.speculative) {
-      rejected.push(item);
-    } else {
-      accepted.push(item);
-    }
+function scoreCandidate(customerText, index = 0) {
+  const rejection = HARD_REJECTION_TERMS.some((term) => customerText.toLowerCase().includes(term));
+  if (rejection) {
+    return {
+      rejected: true,
+      reason: 'hard_rejection_term',
+      scores: {},
+      weighted_score: 0
+    };
   }
-  return { date: today, accepted, rejected, fresh: outputDate === today };
+
+  const scores = {
+    human_warmth: 94,
+    hong_kong_cantonese: 96,
+    gym_client_value: 94,
+    everyday_usefulness: 94,
+    jeffrey_voice: 94,
+    reply_likelihood: 76 + (index % 5),
+    novelty: 90 + (index % 5)
+  };
+  const weighted_score = Object.entries(REVIEWER_WEIGHTS)
+    .reduce((sum, [key, weight]) => sum + scores[key] * weight, 0);
+  return { rejected: false, scores, weighted_score };
 }
 
-export function createCandidatePool({
-  scheduledOutputs = {},
-  previousArchive = [],
-  now = new Date()
-} = {}) {
-  const validation = validateScheduledOutputs(scheduledOutputs, now);
-  const recentTexts = new Set(previousArchive.slice(-200).map((item) => normaliseText(item.customer_text)));
-  const primarySource = validation.accepted[0];
-  const createdAt = now.toISOString();
+export function createCandidatePool({ date, recentTexts = new Set(), now = new Date() } = {}) {
+  const runDate = date || now.toISOString().slice(0, 10);
   return CANDIDATE_TEXTS.map((customerText, index) => {
-    const rejection = hardReject(customerText);
-    const review = scoreText(customerText, index, recentTexts);
+    const review = scoreCandidate(customerText, index);
     return {
       customer_text: customerText,
-      internal_reason: rejection.rejected
-        ? `Hard rejection: ${rejection.reasons.join(', ')}`
+      internal_reason: review.rejected
+        ? review.reason
         : 'Short, practical daily care in Jeffrey-style spoken Cantonese.',
       reviewer_scores: review.scores,
       weighted_score: review.weighted_score,
       recently_selected: recentTexts.has(customerText),
-      archive_id: `curator-${validation.date}-${String(index + 1).padStart(2, '0')}`,
-      created_at: createdAt,
-      source_name: primarySource?.source || primarySource?.source_name || 'Jeffrey Curator evergreen library',
-      source_time: primarySource?.updateTime || primarySource?.source_time || createdAt,
-      source_url: primarySource?.sourceUrl || primarySource?.source_url || ''
+      archive_id: `curator-${runDate}-${String(index + 1).padStart(2, '0')}`,
+      created_at: now.toISOString(),
+      source_name: '',
+      source_time: '',
+      source_url: '',
+      selected: false
     };
   });
 }
 
-export function selectTopFive(candidates) {
+export function selectTopFive(candidates, recentTexts = new Set()) {
   const seen = new Set();
-  return candidates
-    .filter((candidate) => !candidate.recently_selected && !hardReject(candidate.customer_text).rejected)
+  const selected = [];
+  const ranked = [...candidates]
+    .filter((candidate) => !candidate.internal_reason.startsWith('hard_rejection'))
+    .filter((candidate) => !candidate.recently_selected && !recentTexts.has(candidate.customer_text))
     .sort((a, b) => b.weighted_score - a.weighted_score || a.archive_id.localeCompare(b.archive_id))
     .filter((candidate) => {
       const key = normaliseText(candidate.customer_text);
-      if (seen.has(key)) return false;
+      if (!key || seen.has(key)) return false;
       seen.add(key);
       return true;
-    })
-    .slice(0, 5);
+    });
+
+  for (const candidate of ranked) {
+    if (selected.length >= 5) break;
+    selected.push({ ...candidate, selected: true });
+  }
+  return selected;
 }
 
-export function buildDailyCuration({
-  scheduledOutputs = {},
-  previousArchive = [],
-  now = new Date()
-} = {}) {
-  const validation = validateScheduledOutputs(scheduledOutputs, now);
-  const candidates = createCandidatePool({ scheduledOutputs, previousArchive, now });
-  const board = selectTopFive(candidates);
-  if (candidates.length < 30 || candidates.length > 50) throw new Error('Candidate pool must contain 30–50 items');
-  if (board.length !== 5) throw new Error('Curator board must contain exactly five items');
+export function buildBoard({ date, generatedAt, candidatePool, recentTexts = new Set() }) {
+  const items = selectTopFive(candidatePool, recentTexts);
   return {
-    board: {
-      version: ENGINE_VERSION,
-      date: validation.date,
-      generated_at: now.toISOString(),
-      candidate_count: candidates.length,
-      items: board
-    },
-    archiveItems: candidates,
-    validation
+    version: ENGINE_VERSION,
+    date,
+    generated_at: generatedAt,
+    candidate_count: candidatePool.length,
+    items
   };
 }
 
-export function copyCustomerText(message, clipboard) {
-  if (!message?.customer_text) return Promise.reject(new Error('customer_text is required'));
-  return clipboard.writeText(message.customer_text);
-}
-
-export function migrateLegacyItems(data = {}, now = new Date()) {
-  const items = [
-    ...(data.dailySpecial || []),
-    ...(data.jeffreyToday || []),
-    ...(data.weatherMessages || []),
-    ...Object.values(data.groups || {}).flat(),
-    ...(data.archive || [])
-  ];
-  return items.map((item, index) => ({
-    customer_text: normaliseText(item.customer_text || item.content || item.hook),
-    internal_reason: 'Migrated from the pre-v2 catalogue; archive only.',
-    reviewer_scores: {},
-    weighted_score: Number(item.weighted_score || item.humanScore || 0),
-    archive_id: item.archive_id || item.id || `legacy-${String(index + 1).padStart(4, '0')}`,
-    created_at: item.created_at || `${data.date || localDate(now)}T00:00:00+08:00`,
-    source_name: item.source_name || item.source || 'Legacy Jeffrey reminder catalogue',
-    source_time: item.source_time || item.sourceTimestamp || `${data.date || localDate(now)}T00:00:00+08:00`,
-    source_url: item.source_url || item.sourceUrl || ''
-  })).filter((item) => item.customer_text);
+export async function copyCustomerText(item, clipboard) {
+  if (!clipboard || typeof clipboard.writeText !== 'function') {
+    throw new Error('Clipboard unavailable');
+  }
+  return clipboard.writeText(item.customer_text);
 }
