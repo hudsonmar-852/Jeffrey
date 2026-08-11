@@ -1,75 +1,96 @@
 {
   "version": "5.0.0",
-  "date": "2026-08-10",
-  "generated_at": "2026-08-10T00:28:06Z",
+  "date": "2026-08-11",
+  "generated_at": "2026-08-11T00:29:06Z",
   "candidate_count": 40,
-  "rejection_count": 35,
+  "rejection_count": 10,
+  "ranked_count": 30,
   "items": [
     {
-      "customer_text": "尋晚瞓得麻麻嘅話，今日操輕少少都得，唔使同平時鬥。",
-      "internal_reason": "自然承接休息不足嘅日常情況，只畀一個溫和選擇，冇醫療判斷亦冇說教感。",
+      "customer_text": "做嘢做到條氣都急咗，停低十秒慢慢呼返順先，唔使一路頂住。",
+      "internal_reason": "由忙碌時呼吸變急嘅常見情況切入，只畀一個簡單動作，語氣自然，冇醫療判斷。",
       "reviewer_scores": {
         "human_warmth": 99,
         "hong_kong_cantonese": 99,
-        "gym_client_value": 97,
-        "everyday_usefulness": 96,
+        "gym_client_value": 96,
+        "everyday_usefulness": 97,
         "jeffrey_voice": 99,
-        "reply_likelihood": 83,
-        "novelty": 96
+        "reply_likelihood": 86,
+        "novelty": 98
       },
-      "weighted_score": 97.2,
-      "final_weighted_score": 97.2,
+      "weighted_score": 97.4,
+      "final_weighted_score": 97.4,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-10-01",
-      "created_at": "2026-08-10T00:28:06Z",
+      "archive_id": "curator-2026-08-11-01",
+      "created_at": "2026-08-11T00:29:06Z",
       "selected": true,
       "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "朝早咖啡飲咗幾杯都好，枱面留返杯水，手到就飲兩啖。",
-      "internal_reason": "由常見返工習慣切入飲水，語氣似熟客之間隨口關心，動作簡單而實際。",
+      "customer_text": "望電話望到個頭愈嚟愈低，拎高少少就得，唔使成個人跟住彎落去。",
+      "internal_reason": "貼近日常手機使用習慣，提醒只做一個細微調整，唔似姿勢教學或廣播式提示。",
       "reviewer_scores": {
         "human_warmth": 98,
         "hong_kong_cantonese": 99,
         "gym_client_value": 96,
-        "everyday_usefulness": 97,
+        "everyday_usefulness": 96,
         "jeffrey_voice": 98,
         "reply_likelihood": 84,
-        "novelty": 96
+        "novelty": 99
       },
       "weighted_score": 96.85,
       "final_weighted_score": 96.85,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-10-02",
-      "created_at": "2026-08-10T00:28:06Z",
+      "archive_id": "curator-2026-08-11-02",
+      "created_at": "2026-08-11T00:29:06Z",
       "selected": true,
       "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "今晚有堂就早少少執定對鞋同件衫，收工嗰陣就唔使再諗。",
-      "internal_reason": "針對最常見嘅訓練 follow-through 阻力，提醒只做一件事，生活感強而唔似推銷。",
+      "customer_text": "今日操嗰陣第一兩組做慢少少，搵返個動作先，再睇下要唔要加。",
+      "internal_reason": "針對訓練節奏，以熟客口吻提醒先穩定動作，冇要求追重量，實際而唔硬銷。",
       "reviewer_scores": {
         "human_warmth": 98,
         "hong_kong_cantonese": 99,
-        "gym_client_value": 97,
+        "gym_client_value": 98,
         "everyday_usefulness": 96,
         "jeffrey_voice": 98,
-        "reply_likelihood": 82,
-        "novelty": 97
+        "reply_likelihood": 83,
+        "novelty": 98
       },
-      "weighted_score": 96.85,
-      "final_weighted_score": 96.85,
+      "weighted_score": 97.15,
+      "final_weighted_score": 97.15,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-10-03",
-      "created_at": "2026-08-10T00:28:06Z",
+      "archive_id": "curator-2026-08-11-03",
+      "created_at": "2026-08-11T00:29:06Z",
       "selected": true,
       "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "忙到發現自己一路聳住膊頭，放低少少就得，唔使夾硬挺直。",
-      "internal_reason": "貼近辦公室同手機使用情境，避免過度指導姿勢，只提供一個自然可做嘅小動作。",
+      "customer_text": "拎袋或者重嘢之前企穩先，唔好一路轉身一路抽起。",
+      "internal_reason": "係真實生活會用到嘅安全習慣，只有一個清楚動作，冇強行拉去健身話題。",
       "reviewer_scores": {
         "human_warmth": 98,
+        "hong_kong_cantonese": 99,
+        "gym_client_value": 95,
+        "everyday_usefulness": 97,
+        "jeffrey_voice": 98,
+        "reply_likelihood": 82,
+        "novelty": 99
+      },
+      "weighted_score": 96.7,
+      "final_weighted_score": 96.7,
+      "recently_selected": false,
+      "archive_id": "curator-2026-08-11-04",
+      "created_at": "2026-08-11T00:29:06Z",
+      "selected": true,
+      "status": "draft_human_approval_required"
+    },
+    {
+      "customer_text": "今晚有堂嘅話，放工前食少少嘢先，唔好去到先發現成日都未食過。",
+      "internal_reason": "針對常見上堂前準備不足，以生活化口吻提一個簡單 follow-through 動作，冇營養或醫療聲稱。",
+      "reviewer_scores": {
+        "human_warmth": 99,
         "hong_kong_cantonese": 99,
         "gym_client_value": 96,
         "everyday_usefulness": 96,
@@ -77,31 +98,11 @@
         "reply_likelihood": 85,
         "novelty": 98
       },
-      "weighted_score": 96.85,
-      "final_weighted_score": 96.85,
+      "weighted_score": 97.1,
+      "final_weighted_score": 97.1,
       "recently_selected": false,
-      "archive_id": "curator-2026-08-10-04",
-      "created_at": "2026-08-10T00:28:06Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
-    },
-    {
-      "customer_text": "搭車坐得耐，落車嗰陣行慢少少伸返直個人，唔使一落車就衝。",
-      "internal_reason": "用香港人常見通勤情境帶出活動提醒，唔靠新聞或天氣，亦避免同近期『坐咗一輪行兩步』近似。",
-      "reviewer_scores": {
-        "human_warmth": 99,
-        "hong_kong_cantonese": 99,
-        "gym_client_value": 95,
-        "everyday_usefulness": 96,
-        "jeffrey_voice": 98,
-        "reply_likelihood": 84,
-        "novelty": 97
-      },
-      "weighted_score": 96.8,
-      "final_weighted_score": 96.8,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-10-05",
-      "created_at": "2026-08-10T00:28:06Z",
+      "archive_id": "curator-2026-08-11-05",
+      "created_at": "2026-08-11T00:29:06Z",
       "selected": true,
       "status": "draft_human_approval_required"
     }
