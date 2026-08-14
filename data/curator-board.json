@@ -1,113 +1,49 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "date": "2026-08-14",
-  "generated_at": "2026-08-14T00:00:11.472Z",
+  "generated_at": "2026-08-14T00:31:07.000Z",
   "candidate_count": 40,
+  "rejection_count": 35,
   "items": [
     {
-      "customer_text": "瞓前放低電話一陣啦，畀個腦慢慢靜返落嚟。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 80,
-        "novelty": 94
-      },
-      "weighted_score": 93.7,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-14-15",
-      "created_at": "2026-08-14T00:00:11.472Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-14T07:31:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
+      "customer_text": "收工個人仲繃住嘅話，返到屋企慢慢行兩步先，唔使即刻又趕下一樣。",
+      "internal_reason": "自然似熟客之間嘅關心，將收工轉入休息節奏變成一個簡單可做嘅動作；無醫療聲稱，亦無廣播式語氣。",
+      "reviewer_scores": {"human_warmth": 99, "hong_kong_cantonese": 99, "gym_client_value": 96, "everyday_usefulness": 98, "jeffrey_voice": 99, "reply_likelihood": 91, "novelty": 99},
+      "final_weighted_score": 97.85,
+      "archive_id": "curator-2026-08-14-final-01",
+      "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "膊頭唔好成日縮埋，得閒放低少少啦。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 78,
-        "novelty": 95
-      },
-      "weighted_score": 93.65,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-14-08",
-      "created_at": "2026-08-14T00:00:11.472Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-14T07:31:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
+      "customer_text": "今日如果對腳有啲攰，熱身嗰陣慢慢郁開先，唔使一開始就催自己。",
+      "internal_reason": "將訓練強度講得輕鬆而有人味，只提供一個溫和動作，適合真實 gym client。",
+      "reviewer_scores": {"human_warmth": 98, "hong_kong_cantonese": 99, "gym_client_value": 99, "everyday_usefulness": 97, "jeffrey_voice": 99, "reply_likelihood": 89, "novelty": 98},
+      "final_weighted_score": 97.75,
+      "archive_id": "curator-2026-08-14-final-02",
+      "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "今晚早少少瞓啦，聽日個人會精神啲。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 80,
-        "novelty": 92
-      },
-      "weighted_score": 93.6,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-14-05",
-      "created_at": "2026-08-14T00:00:11.472Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-14T07:31:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
+      "customer_text": "一路做嘢一路縮住膊頭好易唔覺，發現咗就放鬆返少少啦。",
+      "internal_reason": "貼近日常辦公情境，口吻自然，只有一個簡單姿勢提醒，無說教感。",
+      "reviewer_scores": {"human_warmth": 98, "hong_kong_cantonese": 99, "gym_client_value": 97, "everyday_usefulness": 99, "jeffrey_voice": 98, "reply_likelihood": 88, "novelty": 98},
+      "final_weighted_score": 97.65,
+      "archive_id": "curator-2026-08-14-final-03",
+      "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "搭車嗰陣唔好一路寒背，間中坐直一下啦。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 78,
-        "novelty": 94
-      },
-      "weighted_score": 93.6,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-14-23",
-      "created_at": "2026-08-14T00:00:11.472Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-14T07:31:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
+      "customer_text": "水樽如果仲係滿滿哋，而家飲兩啖先啦，唔使一次過追返晒。",
+      "internal_reason": "飲水提醒有具體生活畫面，避免一般化健康口號；行動細而自然。",
+      "reviewer_scores": {"human_warmth": 99, "hong_kong_cantonese": 99, "gym_client_value": 96, "everyday_usefulness": 99, "jeffrey_voice": 98, "reply_likelihood": 90, "novelty": 97},
+      "final_weighted_score": 97.6,
+      "archive_id": "curator-2026-08-14-final-04",
+      "status": "draft_human_approval_required"
     },
     {
-      "customer_text": "坐耐咗個髖好易實，企起身郁幾下先啦。",
-      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
-      "reviewer_scores": {
-        "human_warmth": 94,
-        "hong_kong_cantonese": 96,
-        "gym_client_value": 94,
-        "everyday_usefulness": 94,
-        "jeffrey_voice": 94,
-        "reply_likelihood": 77,
-        "novelty": 94
-      },
-      "weighted_score": 93.55,
-      "recently_selected": false,
-      "archive_id": "curator-2026-08-14-07",
-      "created_at": "2026-08-14T00:00:11.472Z",
-      "source_name": "香港天文台",
-      "source_time": "2026-08-14T07:31:00+08:00",
-      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
-      "selected": true
+      "customer_text": "坐咗一輪個腰背開始實，就起身郁兩步先啦，唔使特登拉到好盡。",
+      "internal_reason": "係常見久坐情境嘅實用提醒，語氣熟絡，避免過度伸展指示或醫療化描述。",
+      "reviewer_scores": {"human_warmth": 98, "hong_kong_cantonese": 99, "gym_client_value": 98, "everyday_usefulness": 99, "jeffrey_voice": 98, "reply_likelihood": 87, "novelty": 97},
+      "final_weighted_score": 97.55,
+      "archive_id": "curator-2026-08-14-final-05",
+      "status": "draft_human_approval_required"
     }
   ]
 }
