@@ -1,0 +1,14 @@
+{
+  "version": "5.1.0",
+  "date": "2026-08-29",
+  "generated_at": "2026-08-29T00:29:46.000Z",
+  "candidate_count": 40,
+  "rejection_count": 35,
+  "items": [
+    {"customer_text":"朝早食完嘢先醒起未飲過水？而家飲幾啖先啦，唔使一次過飲好多。","archive_id":"curator-2026-08-29-curated-01","status":"draft_human_approval_required"},
+    {"customer_text":"坐咗一輪個腰背開始實，就企起身行去洗個手先，順便郁一郁。","archive_id":"curator-2026-08-29-curated-02","status":"draft_human_approval_required"},
+    {"customer_text":"今晚有操嘅話，頭一組做慢少少先，等個人搵返個動作先再算。","archive_id":"curator-2026-08-29-curated-03","status":"draft_human_approval_required"},
+    {"customer_text":"睇個 mon 睇耐咗對眼開始攰，就望遠少少一陣先啦。","archive_id":"curator-2026-08-29-curated-04","status":"draft_human_approval_required"},
+    {"customer_text":"今日如果個身仲有啲攰，操輕少少都得，唔使每次都逼自己去盡。","archive_id":"curator-2026-08-29-curated-05","status":"draft_human_approval_required"}
+  ]
+}
