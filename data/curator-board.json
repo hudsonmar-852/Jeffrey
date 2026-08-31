@@ -1,59 +1,44 @@
 {
-  "version": "5.1.0",
-  "date": "2026-08-30",
-  "generated_at": "2026-08-30T00:27:50.000Z",
-  "candidate_count": 40,
-  "rejection_count": 35,
-  "items": [
+  "version":"5.1.0",
+  "date":"2026-08-31",
+  "generated_at":"2026-08-31T00:27:32.000Z",
+  "candidate_count":40,
+  "rejection_count":35,
+  "items":[
     {
-      "customer_text": "出門前望到杯水仲喺度，就飲幾啖先走啦，唔使等到口乾先記得。",
-      "internal_reason": "Everyday doorway moment with one small hydration action; avoids yesterday's breakfast setting and bottle-prep wording.",
-      "reviewer_scores": {"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":94,"novelty":99},
-      "final_weighted_score": 98.65,
-      "archive_id": "curator-2026-08-30-curated-01",
-      "created_at": "2026-08-30T00:27:50.000Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
+      "customer_text":"返到公司坐低先發現水樽仲滿滿哋？開工前飲兩啖先啦。",
+      "internal_reason":"Natural Monday desk-arrival hydration moment; one tiny action and distinct from recent doorway, breakfast and bottle-prep reminders.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
+      "final_weighted_score":98.70,
+      "archive_id":"curator-2026-08-31-curated-01","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text": "坐到個人開始唔自在，就起身行去攞樣嘢先，郁一郁再返嚟。",
-      "internal_reason": "Natural movement cue tied to a real-life errand, avoiding yesterday's wash-hands and recent window/water-walk scenarios.",
-      "reviewer_scores": {"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":93,"novelty":99},
-      "final_weighted_score": 98.60,
-      "archive_id": "curator-2026-08-30-curated-02",
-      "created_at": "2026-08-30T00:27:50.000Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
+      "customer_text":"坐到晏晝個人開始硬晒，去廁所嗰程行鬆少少先，唔使趕住返埋位。",
+      "internal_reason":"Uses a realistic office transition for gentle mobility without turning into an exercise instruction; avoids recent wash-hands and fetch-an-item wording.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":94,"novelty":99},
+      "final_weighted_score":98.65,
+      "archive_id":"curator-2026-08-31-curated-02","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text": "今晚操嗰陣唔使心急加重量，做落順手先再諗下一步。",
-      "internal_reason": "Single sensible training-intensity cue in conversational Cantonese, distinct from yesterday's slow-first-set movement-quality reminder.",
-      "reviewer_scores": {"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":98,"jeffrey_voice":99,"reply_likelihood":94,"novelty":98},
-      "final_weighted_score": 98.65,
-      "archive_id": "curator-2026-08-30-curated-03",
-      "created_at": "2026-08-30T00:27:50.000Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
+      "customer_text":"今晚去操如果仲帶住成日個急節奏，熱身嗰陣慢返少少先啦。",
+      "internal_reason":"Personal work-to-gym transition cue focused on pace rather than weight or first-set performance, keeping one gentle action.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":98,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
+      "final_weighted_score":98.75,
+      "archive_id":"curator-2026-08-31-curated-03","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text": "一路撳電話一路縮住個身好易唔覺，放低部機一陣先啦。",
-      "internal_reason": "Specific screen habit with one gentle action, avoiding yesterday's eye-fatigue/looking-far cue and recent shoulder wording.",
-      "reviewer_scores": {"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":92,"novelty":99},
-      "final_weighted_score": 98.30,
-      "archive_id": "curator-2026-08-30-curated-04",
-      "created_at": "2026-08-30T00:27:50.000Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
+      "customer_text":"個 mon 睇到愈坐愈近都未必覺，醒起嗰陣挨返後少少就得。",
+      "internal_reason":"Specific screen-distance/posture habit with casual Cantonese rhythm, avoiding recent phone, shoulder and look-far angles.",
+      "reviewer_scores":{"human_warmth":98,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":98,"reply_likelihood":92,"novelty":99},
+      "final_weighted_score":98.15,
+      "archive_id":"curator-2026-08-31-curated-04","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text": "如果今日由朝到晚都冇停過，今晚留返少少時間俾自己抖下啦。",
-      "internal_reason": "Warm recovery message about an overloaded day rather than workout performance, with no medical claim or motivational cliché.",
-      "reviewer_scores": {"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
-      "final_weighted_score": 98.75,
-      "archive_id": "curator-2026-08-30-curated-05",
-      "created_at": "2026-08-30T00:27:50.000Z",
-      "selected": true,
-      "status": "draft_human_approval_required"
+      "customer_text":"星期一做完一日仲攰攰哋，今晚唔好塞到個行程實晒，留返啲位抖下啦。",
+      "internal_reason":"Warm end-of-day recovery cue grounded in an ordinary Monday without weather/news dependence or fitness pressure.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
+      "final_weighted_score":98.80,
+      "archive_id":"curator-2026-08-31-curated-05","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
     }
   ]
 }
