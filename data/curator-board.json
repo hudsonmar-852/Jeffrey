@@ -1,44 +1,44 @@
 {
   "version":"5.1.0",
-  "date":"2026-08-31",
-  "generated_at":"2026-08-31T00:27:32.000Z",
+  "date":"2026-09-01",
+  "generated_at":"2026-09-01T00:31:24.000Z",
   "candidate_count":40,
   "rejection_count":35,
   "items":[
     {
-      "customer_text":"返到公司坐低先發現水樽仲滿滿哋？開工前飲兩啖先啦。",
-      "internal_reason":"Natural Monday desk-arrival hydration moment; one tiny action and distinct from recent doorway, breakfast and bottle-prep reminders.",
+      "customer_text":"朝早一坐低就忙到停唔到？杯水擺近手邊，得閒嗰下飲兩啖先啦。",
+      "internal_reason":"A familiar busy-morning hydration moment with one small action; avoids recent full-bottle, breakfast and doorway hydration wording.",
       "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
       "final_weighted_score":98.70,
-      "archive_id":"curator-2026-08-31-curated-01","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
+      "archive_id":"curator-2026-09-01-curated-01","created_at":"2026-09-01T00:31:24.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text":"坐到晏晝個人開始硬晒，去廁所嗰程行鬆少少先，唔使趕住返埋位。",
-      "internal_reason":"Uses a realistic office transition for gentle mobility without turning into an exercise instruction; avoids recent wash-hands and fetch-an-item wording.",
+      "customer_text":"坐耐咗對腳開始唔想郁，就趁聽電話嗰陣企起身行兩步先。",
+      "internal_reason":"Natural workday mobility cue tied to an existing action, distinct from recent toilet, wash-hand and fetch-an-item prompts.",
       "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":94,"novelty":99},
       "final_weighted_score":98.65,
-      "archive_id":"curator-2026-08-31-curated-02","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
+      "archive_id":"curator-2026-09-01-curated-02","created_at":"2026-09-01T00:31:24.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text":"今晚去操如果仲帶住成日個急節奏，熱身嗰陣慢返少少先啦。",
-      "internal_reason":"Personal work-to-gym transition cue focused on pace rather than weight or first-set performance, keeping one gentle action.",
+      "customer_text":"今晚去操如果個腦仲係工作 mode，第一個動作唔使趕，做順咗先再落去。",
+      "internal_reason":"Warm work-to-gym transition focused on settling into movement, avoiding recent warm-up pace, first-set weight and performance language.",
       "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":98,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
       "final_weighted_score":98.75,
-      "archive_id":"curator-2026-08-31-curated-03","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
+      "archive_id":"curator-2026-09-01-curated-03","created_at":"2026-09-01T00:31:24.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text":"個 mon 睇到愈坐愈近都未必覺，醒起嗰陣挨返後少少就得。",
-      "internal_reason":"Specific screen-distance/posture habit with casual Cantonese rhythm, avoiding recent phone, shoulder and look-far angles.",
-      "reviewer_scores":{"human_warmth":98,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":98,"reply_likelihood":92,"novelty":99},
-      "final_weighted_score":98.15,
-      "archive_id":"curator-2026-08-31-curated-04","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
+      "customer_text":"覆嘢覆到條頸一路向前伸，醒起嗰陣收返少少就得，唔使特登坐到成碌木咁。",
+      "internal_reason":"Specific screen/posture cue in casual Hong Kong Cantonese, intentionally avoiding formal posture instruction and recent monitor-distance wording.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":94,"novelty":99},
+      "final_weighted_score":98.45,
+      "archive_id":"curator-2026-09-01-curated-04","created_at":"2026-09-01T00:31:24.000Z","selected":true,"status":"draft_human_approval_required"
     },
     {
-      "customer_text":"星期一做完一日仲攰攰哋，今晚唔好塞到個行程實晒，留返啲位抖下啦。",
-      "internal_reason":"Warm end-of-day recovery cue grounded in an ordinary Monday without weather/news dependence or fitness pressure.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
-      "final_weighted_score":98.80,
-      "archive_id":"curator-2026-08-31-curated-05","created_at":"2026-08-31T00:27:32.000Z","selected":true,"status":"draft_human_approval_required"
+      "customer_text":"尋晚如果瞓得麻麻，今日操嗰陣唔使同平時個數鬥，順住個狀態做就得。",
+      "internal_reason":"Practical recovery/intensity reminder that feels personally noticed, with no medical claim and a distinct sleep-context angle.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
+      "final_weighted_score":98.90,
+      "archive_id":"curator-2026-09-01-curated-05","created_at":"2026-09-01T00:31:24.000Z","selected":true,"status":"draft_human_approval_required"
     }
   ]
 }
