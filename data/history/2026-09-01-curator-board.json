@@ -1,0 +1,14 @@
+{
+  "version":"5.1.0",
+  "date":"2026-09-01",
+  "generated_at":"2026-09-01T00:31:24.000Z",
+  "candidate_count":40,
+  "rejection_count":35,
+  "items":[
+    {"customer_text":"朝早一坐低就忙到停唔到？杯水擺近手邊，得閒嗰下飲兩啖先啦。衝","final_weighted_score":98.70,"status":"draft_human_approval_required"},
+    {"customer_text":"坐耐咗對腳開始唔想郁，就趁聽電話嗰陣企起身行兩步先。","final_weighted_score":98.65,"status":"draft_human_approval_required"},
+    {"customer_text":"今晚去操如果個腦仲係工作 mode，第一個動作唔使趕，做順咗先再落去。","final_weighted_score":98.75,"status":"draft_human_approval_required"},
+    {"customer_text":"覆嘢覆到條頸一路向前伸，醒起嗰陣收返少少就得，唔使特登坐到成碌木咁。","final_weighted_score":98.45,"status":"draft_human_approval_required"},
+    {"customer_text":"尋晚如果瞓得麻麻，今日操嗰陣唔使同平時個數鬥，順住個狀態做就得。","final_weighted_score":98.90,"status":"draft_human_approval_required"}
+  ]
+}
