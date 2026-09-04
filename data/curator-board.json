@@ -1,44 +1,59 @@
 {
   "version":"5.1.0",
-  "date":"2026-09-02",
-  "generated_at":"2026-09-02T00:28:19.000Z",
+  "date":"2026-09-04",
+  "generated_at":"2026-09-04T00:32:45.000Z",
   "candidate_count":40,
   "rejection_count":35,
   "items":[
     {
-      "customer_text":"朝早咖啡飲咗幾啖，杯水仲原封不動？順手飲兩啖先啦。",
-      "internal_reason":"Natural hydration cue built around a familiar morning habit; one gentle action and distinct from recent bottle-at-desk wording.",
+      "customer_text":"朝早一忙就連水都唔記得飲？等緊 lift 嗰陣飲兩啖先啦。",
+      "internal_reason":"Ties hydration to a small everyday waiting moment; warm, specific and distinct from recent desk, coffee and morning-cup cues.",
       "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
       "final_weighted_score":98.75,
-      "archive_id":"curator-2026-09-02-curated-01","created_at":"2026-09-02T00:28:19.000Z","selected":true,"status":"draft_human_approval_required"
+      "archive_id":"curator-2026-09-04-curated-01",
+      "created_at":"2026-09-04T00:32:45.000Z",
+      "selected":true,
+      "status":"draft_human_approval_required"
     },
     {
-      "customer_text":"坐到個背開始想郁，就借斟水嗰程行多少少先，唔使特登做一大輪。",
-      "internal_reason":"Low-friction mobility reminder tied to a normal action, with friend-like phrasing and no exercise prescription.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":95,"novelty":98},
-      "final_weighted_score":98.60,
-      "archive_id":"curator-2026-09-02-curated-02","created_at":"2026-09-02T00:28:19.000Z","selected":true,"status":"draft_human_approval_required"
+      "customer_text":"坐咗成朝個人開始實晒？去拎午餐嗰程行鬆少少先啦。",
+      "internal_reason":"Natural lunchtime mobility cue with one low-effort action; avoids recent toilet, water-fetch and phone-call movement scenes.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":95,"novelty":99},
+      "final_weighted_score":98.65,
+      "archive_id":"curator-2026-09-04-curated-02",
+      "created_at":"2026-09-04T00:32:45.000Z",
+      "selected":true,
+      "status":"draft_human_approval_required"
     },
     {
-      "customer_text":"去到 Gym 仲成個人急急腳嘅話，換好衫先慢慢抖順條氣再開始。",
-      "internal_reason":"Simple breathing and gym-transition cue that feels observed rather than instructional; avoids yesterday's work-mode/first-movement framing.",
+      "customer_text":"今晚去操如果仲有啲心急，第一組留返少少力先，唔使一開波就去盡。",
+      "internal_reason":"Practical intensity control in familiar Cantonese; one clear adjustment and distinct from recent warm-up-speed and weight-increase wording.",
       "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":98,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
       "final_weighted_score":98.80,
-      "archive_id":"curator-2026-09-02-curated-03","created_at":"2026-09-02T00:28:19.000Z","selected":true,"status":"draft_human_approval_required"
+      "archive_id":"curator-2026-09-04-curated-03",
+      "created_at":"2026-09-04T00:32:45.000Z",
+      "selected":true,
+      "status":"draft_human_approval_required"
     },
     {
-      "customer_text":"部電話愈睇愈低嗰陣，拎高返少少就得，條頸唔使一路跟住跌落去。",
-      "internal_reason":"Concrete phone-posture habit in colloquial Cantonese, one action only, distinct from recent monitor and forward-neck prompts.",
-      "reviewer_scores":{"human_warmth":98,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":98,"reply_likelihood":94,"novelty":99},
-      "final_weighted_score":98.10,
-      "archive_id":"curator-2026-09-02-curated-04","created_at":"2026-09-02T00:28:19.000Z","selected":true,"status":"draft_human_approval_required"
+      "customer_text":"一路做嘢一路咬實牙關都未必覺，發現嗰陣鬆返個口先啦。",
+      "internal_reason":"Fresh daily-care tension cue that feels personally observed, requires only one gentle action and avoids another screen-position reminder.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":97,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":97,"novelty":100},
+      "final_weighted_score":98.55,
+      "archive_id":"curator-2026-09-04-curated-04",
+      "created_at":"2026-09-04T00:32:45.000Z",
+      "selected":true,
+      "status":"draft_human_approval_required"
     },
     {
-      "customer_text":"今日如果由朝忙到晚，今晚操少一兩樣都得，留返啲力聽日用。",
-      "internal_reason":"Practical recovery/intensity permission that sounds caring rather than motivational, with one clear adjustment and no medical claim.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
-      "final_weighted_score":98.90,
-      "archive_id":"curator-2026-09-02-curated-05","created_at":"2026-09-02T00:28:19.000Z","selected":true,"status":"draft_human_approval_required"
+      "customer_text":"呢排如果晚晚都瞓得夜，今晚少做一樣嘢早啲收工都好。",
+      "internal_reason":"Simple recovery reminder focused on making room for rest rather than training output; caring and non-medical, with one action only.",
+      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
+      "final_weighted_score":98.70,
+      "archive_id":"curator-2026-09-04-curated-05",
+      "created_at":"2026-09-04T00:32:45.000Z",
+      "selected":true,
+      "status":"draft_human_approval_required"
     }
   ]
 }
