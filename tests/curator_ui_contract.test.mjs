@@ -28,9 +28,9 @@ test('used state applies a persistent visual class to the customer text', async 
     read('reminder/app.js'),
     read('reminder/curator-overrides.css')
   ]);
-  assert.match(app, /curator-card\$\{usage\[key\] \? ' used' : ''\}/);
+  assert.match(app, /curator-card\$\{usageRecord\.active \? ' used' : ''\}/);
   assert.match(css, /\.curator-card\.used \.customer-text/);
-  assert.match(css, /color: #72e6cf/);
+  assert.match(css, /\.curator-card\.used \.customer-text\s*\{[^}]*color:/);
 });
 
 test('customer card never renders internal metadata', async () => {
