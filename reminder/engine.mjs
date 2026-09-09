@@ -1,4 +1,4 @@
-export const ENGINE_VERSION = '5.0.0';
+export const ENGINE_VERSION = '5.1.0';
 
 export const STORAGE_KEYS = Object.freeze({
   favourites: 'jeffreyCuratorFavourites',
