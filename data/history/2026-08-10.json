@@ -1,0 +1,39 @@
+{
+  "version": "5.0.0",
+  "date": "2026-08-10",
+  "generated_at": "2026-08-10T00:28:06Z",
+  "candidate_count": 40,
+  "rejection_count": 35,
+  "items": [
+    {
+      "customer_text": "尋晚瞓得麻麻嘅話，今日操輕少少都得，唔使同平時鬥。",
+      "archive_id": "curator-2026-08-10-01",
+      "final_weighted_score": 97.2,
+      "status": "draft_human_approval_required"
+    },
+    {
+      "customer_text": "朝早咖啡飲咗幾杯都好，枱面留返杯水，手到就飲兩啖。",
+      "archive_id": "curator-2026-08-10-02",
+      "final_weighted_score": 96.85,
+      "status": "draft_human_approval_required"
+    },
+    {
+      "customer_text": "今晚有堂就早少少執定對鞋同件衫，收工嗰陣就唔使再諗。",
+      "archive_id": "curator-2026-08-10-03",
+      "final_weighted_score": 96.85,
+      "status": "draft_human_approval_required"
+    },
+    {
+      "customer_text": "忙到發現自己一路聳住膊頭，放低少少就得，唔使夾硬挺直。",
+      "archive_id": "curator-2026-08-10-04",
+      "final_weighted_score": 96.85,
+      "status": "draft_human_approval_required"
+    },
+    {
+      "customer_text": "搭車坐得耐，落車嗰陣行慢少少伸返直個人，唔使一落車就衝。",
+      "archive_id": "curator-2026-08-10-05",
+      "final_weighted_score": 96.8,
+      "status": "draft_human_approval_required"
+    }
+  ]
+}

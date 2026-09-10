@@ -24,6 +24,39 @@ function itemKey(item) {
   return item.archive_id;
 }
 
+function normaliseUsageRecord(record) {
+  if (!record || typeof record !== 'object') {
+    return { count: 0, active: false };
+  }
+  const hasExplicitCount = Number.isFinite(Number(record.count));
+  return {
+    ...record,
+    count: hasExplicitCount ? Math.max(0, Number(record.count)) : 1,
+    active: typeof record.active === 'boolean' ? record.active : true
+  };
+}
+
+function totalUsageCount(usage) {
+  return Object.values(usage).reduce((total, record) => {
+    return total + normaliseUsageRecord(record).count;
+  }, 0);
+}
+
+function formatUpdatedDate(value) {
+  if (!value) return state.board?.date || '—';
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return state.board?.date || '—';
+  return new Intl.DateTimeFormat('zh-HK', {
+    timeZone: 'Asia/Hong_Kong',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).format(parsed);
+}
+
 function favouriteItems(favourites) {
   const current = new Map((state.board?.items || []).map((item) => [itemKey(item), item]));
   return Object.entries(favourites)
@@ -53,26 +86,34 @@ function render() {
   const savedItems = favouriteItems(favourites);
   const items = state.view === 'favourites' ? savedItems : todayItems;
   $('boardDate').textContent = state.board?.date || '—';
+  $('updatedDate').textContent = formatUpdatedDate(state.board?.generated_at);
+  $('usageTotal').textContent = totalUsageCount(usage);
   $('todayCount').textContent = todayItems.length;
   $('favouriteCount').textContent = savedItems.length;
   $('messageGrid').replaceChildren();
+
   for (const item of items) {
     const key = itemKey(item);
+    const usageRecord = normaliseUsageRecord(usage[key]);
     const card = document.createElement('article');
-    card.className = `curator-card${usage[key] ? ' used' : ''}`;
+    card.className = `curator-card${usageRecord.active ? ' used' : ''}`;
     card.dataset.archiveId = key;
     card.innerHTML = `
-      ${usage[key] ? '<div class="card-top"><span class="used-mark">已用</span></div>' : ''}
+      <div class="card-top">
+        ${usageRecord.active ? '<span class="used-mark">已使用</span>' : '<span></span>'}
+        <span class="usage-count" aria-label="累積使用次數">使用 ${usageRecord.count} 次</span>
+      </div>
       <p class="customer-text"></p>
       <div class="card-actions">
         <button class="btn copy-primary" data-action="copy">複製短訊</button>
         <button class="btn secondary" data-action="favourite">${favourites[key] ? '已收藏' : '收藏'}</button>
-        <button class="btn secondary" data-action="used">${usage[key] ? '取消已用' : '標記已用'}</button>
+        <button class="btn secondary" data-action="used">${usageRecord.active ? '取消已用' : '標記已用'}</button>
       </div>`;
     card.querySelector('.customer-text').textContent = item.customer_text;
     card.addEventListener('click', (event) => handleAction(event, item));
     $('messageGrid').appendChild(card);
   }
+
   const boardInvalid = state.view === 'today' && todayItems.length !== 5;
   const favouritesEmpty = state.view === 'favourites' && savedItems.length === 0;
   $('emptyState').textContent = favouritesEmpty
@@ -86,6 +127,7 @@ async function handleAction(event, item) {
   const button = event.target.closest('button[data-action]');
   if (!button) return;
   const key = itemKey(item);
+
   if (button.dataset.action === 'copy') {
     try {
       await copyCustomerText(item, navigator.clipboard);
@@ -106,8 +148,28 @@ async function handleAction(event, item) {
     render();
   } else if (button.dataset.action === 'used') {
     const usage = getStore(STORAGE_KEYS.usage);
-    if (usage[key]) delete usage[key];
-    else usage[key] = { customer_text: item.customer_text, used_at: new Date().toISOString() };
+    const current = normaliseUsageRecord(usage[key]);
+    const now = new Date().toISOString();
+
+    if (current.active) {
+      usage[key] = {
+        ...current,
+        customer_text: item.customer_text,
+        active: false,
+        updated_at: now
+      };
+    } else {
+      usage[key] = {
+        ...current,
+        customer_text: item.customer_text,
+        count: current.count + 1,
+        active: true,
+        used_at: now,
+        last_used_at: now,
+        updated_at: now
+      };
+    }
+
     setStore(STORAGE_KEYS.usage, usage);
     render();
   }
