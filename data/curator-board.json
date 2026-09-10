@@ -1,59 +1,113 @@
 {
-  "version":"5.1.0",
-  "date":"2026-09-05",
-  "generated_at":"2026-09-05T00:28:45.000Z",
-  "candidate_count":40,
-  "rejection_count":35,
-  "items":[
+  "version": "5.1.0",
+  "date": "2026-09-10",
+  "generated_at": "2026-09-10T01:06:07.404Z",
+  "candidate_count": 40,
+  "items": [
     {
-      "customer_text":"食完早餐又一路忙？行過水機嗰陣飲幾啖先啦。",
-      "internal_reason":"Simple hydration cue tied to a normal morning moment without repeating recent lift, coffee or desk-water scenes.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
-      "final_weighted_score":98.75,
-      "archive_id":"curator-2026-09-05-curated-01",
-      "created_at":"2026-09-05T00:28:45.000Z",
-      "selected":true,
-      "status":"draft_human_approval_required"
+      "customer_text": "今日飲咗幾多水呀？而家飲兩啖先啦。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 96,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 94,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 96,
+        "novelty": 89
+      },
+      "weighted_score": 94.75,
+      "recently_selected": false,
+      "archive_id": "curator-2026-09-10-18",
+      "created_at": "2026-09-10T01:06:07.404Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-09-10T09:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
-      "customer_text":"坐耐咗個人有啲攰攰哋，等緊嘢嗰陣企起身郁兩下先啦。",
-      "internal_reason":"Low-friction movement reminder using waiting time, distinct from recent lunch, toilet and water-fetch walking cues.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
-      "final_weighted_score":98.75,
-      "archive_id":"curator-2026-09-05-curated-02",
-      "created_at":"2026-09-05T00:28:45.000Z",
-      "selected":true,
-      "status":"draft_human_approval_required"
+      "customer_text": "操之前記得食返少少嘢，空住個肚唔好死頂。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 97,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 79,
+        "novelty": 95
+      },
+      "weighted_score": 94.3,
+      "recently_selected": false,
+      "archive_id": "curator-2026-09-10-24",
+      "created_at": "2026-09-10T01:06:07.404Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-09-10T09:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
-      "customer_text":"今晚去操之前如果仲趕頭趕命，換好衫坐低抖順條氣先開始啦。",
-      "internal_reason":"One clear pre-training breathing reset that feels conversational and avoids repeating first-set intensity or warm-up-speed wording.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":98,"jeffrey_voice":99,"reply_likelihood":97,"novelty":99},
-      "final_weighted_score":98.85,
-      "archive_id":"curator-2026-09-05-curated-03",
-      "created_at":"2026-09-05T00:28:45.000Z",
-      "selected":true,
-      "status":"draft_human_approval_required"
+      "customer_text": "覺得動作亂就放慢少少，穩返先再加。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 97,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 80,
+        "novelty": 93
+      },
+      "weighted_score": 94.25,
+      "recently_selected": false,
+      "archive_id": "curator-2026-09-10-30",
+      "created_at": "2026-09-10T01:06:07.404Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-09-10T09:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
-      "customer_text":"打字打到膊頭愈縮愈高都未必覺，醒起嗰陣放鬆返就得。",
-      "internal_reason":"Specific desk-posture cue with a single gentle correction; avoids another phone-height, monitor-distance or neck-forward reminder.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":98,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":96,"novelty":99},
-      "final_weighted_score":98.70,
-      "archive_id":"curator-2026-09-05-curated-04",
-      "created_at":"2026-09-05T00:28:45.000Z",
-      "selected":true,
-      "status":"draft_human_approval_required"
+      "customer_text": "今日熱身畀多兩分鐘自己，之後會做得順啲。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 97,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 79,
+        "novelty": 94
+      },
+      "weighted_score": 94.25,
+      "recently_selected": false,
+      "archive_id": "curator-2026-09-10-39",
+      "created_at": "2026-09-10T01:06:07.404Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-09-10T09:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     },
     {
-      "customer_text":"今日如果成身仲有啲攰，今晚操順啲就算啦，唔使次次都追上次個數。",
-      "internal_reason":"Recovery-led training reminder focused on not chasing prior performance; practical, non-medical and personally phrased.",
-      "reviewer_scores":{"human_warmth":99,"hong_kong_cantonese":99,"gym_client_value":99,"everyday_usefulness":99,"jeffrey_voice":99,"reply_likelihood":97,"novelty":99},
-      "final_weighted_score":98.95,
-      "archive_id":"curator-2026-09-05-curated-05",
-      "created_at":"2026-09-05T00:28:45.000Z",
-      "selected":true,
-      "status":"draft_human_approval_required"
+      "customer_text": "今日練動作先啦，重量唔使次次都加。",
+      "internal_reason": "Short, practical daily care in Jeffrey-style spoken Cantonese.",
+      "reviewer_scores": {
+        "human_warmth": 94,
+        "hong_kong_cantonese": 96,
+        "gym_client_value": 97,
+        "everyday_usefulness": 94,
+        "jeffrey_voice": 94,
+        "reply_likelihood": 79,
+        "novelty": 93
+      },
+      "weighted_score": 94.2,
+      "recently_selected": false,
+      "archive_id": "curator-2026-09-10-14",
+      "created_at": "2026-09-10T01:06:07.404Z",
+      "source_name": "香港天文台",
+      "source_time": "2026-09-10T09:02:00+08:00",
+      "source_url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc",
+      "selected": true
     }
   ]
 }
